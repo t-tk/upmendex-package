@@ -1,0 +1,60 @@
+## Makefile.am for the TeX Live subdirectory texk/upmendexk/
+##
+## Copyright (C) 2010-2014 Peter Breitenlohner <tex-live@tug.org>
+## You may freely use, modify and/or distribute this file.
+##
+ACLOCAL_AMFLAGS = -I ../../m4
+
+AM_CPPFLAGS = $(PTEXENC_INCLUDES) $(KPATHSEA_INCLUDES)
+AM_CFLAGS = $(WARNING_CFLAGS)
+
+bin_PROGRAMS = upmendex
+
+mendex_SOURCES = \
+	convert.c \
+	exkana.h \
+	exvar.h \
+	fread.c \
+	fwrite.c \
+	kana.h \
+	kp.c \
+	kp.h \
+	ktable.h \
+	main.c \
+	mendex.h \
+	pageread.c \
+	qsort.c \
+	qsort.h \
+	sort.c \
+	styfile.c \
+	var.h
+
+$(mendex_OBJECTS): $(KPATHSEA_DEPEND) $(PTEXENC_DEPEND)
+
+LDADD = $(PTEXENC_LIBS) $(KPATHSEA_LIBS)	
+
+## Rebuild libkpathsea & libptexenc
+@KPATHSEA_RULE@
+@PTEXENC_RULE@
+## Rebuild libsicuxxx
+@ICU_RULE@
+
+EXTRA_DIST = \
+	COPYRIGHT
+
+## Eventually delete these files
+##
+EXTRA_DIST += \
+	indexsty \
+	upmendex.doc
+
+## Tests
+##
+TESTS = tests/upmendex.test
+EXTRA_DIST += $(TESTS)
+
+## tests/upmendex.test
+EXTRA_DIST += tests/foo.idx tests/foo.ind \
+	tests/uni.idx tests/uni.dict tests/uni.ist tests/uni.ind
+DISTCLEANFILES = foo.* uni.*
+
