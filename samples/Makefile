@@ -3,7 +3,7 @@ UPMENDEX = upmendex
 all: scripts styles
 
 scripts:
-	for scr in french german greek russian; do \
+	for scr in french german greek russian korean; do \
 		$(UPMENDEX) $$scr -s mdxsty00.ist ; \
 	done
 

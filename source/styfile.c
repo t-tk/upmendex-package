@@ -132,9 +132,14 @@ void styread(const char *filename)
 			multibyte_to_widechar(atama,2048,tmp);
 			continue;
 		}
+		if (getparam(buff,"tumunja",tmp)) {
+			multibyte_to_widechar(tumunja,2048,tmp);
+			continue;
+		}
 		if (getparam(buff,"page_compositor",page_compositor)) continue;
 		if (getparam(buff,"page_precedence",page_precedence)) continue;
 		if (getparam(buff,"character_order",character_order)) continue;
+		if (getparam(buff,"icu_locale",     icu_locale     )) continue;
 	}
 	fclose(fp);
 }

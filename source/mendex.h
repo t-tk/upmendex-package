@@ -43,6 +43,7 @@ int is_alphanumeric(UChar c);
 int is_latin(UChar c);
 int is_numeric(UChar c);
 int is_jpn_kana(UChar c);
+int is_kor_hngl(UChar c);
 int is_cyrillic(UChar c);
 int is_greek(UChar c);
 int is_comb_diacritical_mark(UChar c);

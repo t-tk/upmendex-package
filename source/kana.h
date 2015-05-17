@@ -174,11 +174,21 @@ UChar kanatable[]={
 	0
 };
 
-UChar SPACE  =0x3000; /* 全角スペース */
-UChar ALPHATOP=0xff01; /* ！ */
-UChar ALPHAEND=0xff5a; /* ｚ */
-UChar YENSIGN =0xffe5; /* ￥ */
-UChar HIRATOP=0x3041; /* ぁ */
-UChar HIRAEND=0x3096; /* ゖ */
-UChar KATATOP=0x30a1; /* ァ */
-UChar KATAEND=0x30fa; /* ヺ */
+
+UChar GANADA[]={
+	0x3131, /* ㄱ (Hangul Compatibility Jamo) */
+	0x3134, /* ㄴ */
+	0x3137, /* ㄷ */
+	0x3139, /* ㄹ */
+	0x3141, /* ㅁ */
+	0x3142, /* ㅂ */
+	0x3145, /* ㅅ */
+	0x3147, /* ㅇ */
+	0x3148, /* ㅈ */
+	0x314A, /* ㅊ */
+	0x314B, /* ㅋ */
+	0x314C, /* ㅌ */
+	0x314D, /* ㅍ */
+	0x314E, /* ㅎ */
+	0
+};

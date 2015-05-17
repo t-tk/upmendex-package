@@ -6,7 +6,7 @@
 
 #include <unicode/ucol.h>
 
-int sym,nmbr,ltn,kana,cyr,grk;
+int sym,nmbr,ltn,kana,hngl,cyr,grk;
 
 static int wcomp(const void *p, const void *q);
 static int pcomp(const void *p, const void *q);
@@ -42,6 +42,10 @@ void wsort(struct index *ind, int num)
 			kana=order++;
 			break;
 
+		case 'K':
+			hngl=order++;
+			break;
+
 		case 'C':
 			cyr=order++;
 			break;
@@ -61,10 +65,11 @@ BREAK:
 	if (nmbr==0) nmbr=order++;
 	if (ltn==0) ltn=order++;
 	if (kana==0) kana=order++;
+	if (hngl==0) hngl=order++;
 	if (cyr==0) cyr=order++;
 	if (grk==0) grk=order++;
 
-	collator = ucol_open("en_US", &status);
+	collator = ucol_open(icu_locale, &status);
 	qsort(ind,num,sizeof(struct index),wcomp);
 }
 
@@ -85,9 +90,7 @@ static int wcomp(const void *p, const void *q)
 		if (((*index1).words==j)&&((*index2).words!=j)) return -1;
 		else if (((*index1).words!=j)&&((*index2).words==j)) return 1;
 
-		i=0;
-
-		for(;;) {
+		for(i=0;;i+=len1) {
 
 			str1=&((*index1).dic[j][i]);
 			str2=&((*index2).dic[j][i]);
@@ -108,7 +111,7 @@ static int wcomp(const void *p, const void *q)
 					len1=k;
 					break;
 				}
-				if (k=0) continue;
+				if (k==0) continue;
 				if (charset(str1[k-1])!=charset(str1[k])) {
 					if (is_comb_diacritical_mark(str1[k])) {
 						continue;
@@ -122,7 +125,7 @@ static int wcomp(const void *p, const void *q)
 					len2=k;
 					break;
 				}
-				if (k=0) continue;
+				if (k==0) continue;
 				if (charset(str2[k-1])!=charset(str2[k])) {
 					if (is_comb_diacritical_mark(str2[k])) {
 						continue;
@@ -156,8 +159,6 @@ static int wcomp(const void *p, const void *q)
 			col_result = ucol_strcoll(collator, str1, len1, str2, len2);
 			if (col_result == UCOL_LESS) return -1;
 			else if (col_result == UCOL_GREATER) return 1;
-
-			i+=len1;
 		}
 
 /*   compare index   */
@@ -248,6 +249,7 @@ static int ordering(UChar c)
 	else {
 		if (is_latin(c)) return ltn;
 		else if (is_jpn_kana(c)) return kana;
+		else if (is_kor_hngl(c)) return hngl;
 		else if (is_cyrillic(c)) return cyr;
 		else if (is_greek(c))    return grk;
 		else return sym;
@@ -265,6 +267,7 @@ static int charset(UChar c)
 	else {
 		if (is_latin(c)) return CH_LATIN;
 		else if (is_jpn_kana(c)) return CH_KANA;
+		else if (is_kor_hngl(c)) return CH_HANGUL;
 		else if (is_cyrillic(c)) return CH_CYRILLIC;
 		else if (is_greek(c))    return CH_GREEK;
 		else return CH_SYMBOL;
@@ -302,6 +305,19 @@ int is_numeric(UChar c)
 int is_jpn_kana(UChar c)
 {
 	if      ((c>=0x3040)&&(c<=0x30FF)) return 1; /* Hiragana, Katakana */
+	else return 0;
+}
+
+int is_kor_hngl(UChar c)
+{
+	if      ((c>=0xAC00)&&(c<=0xD7AF)) return 1; /* Hangul Syllables */
+	else if ((c>=0x1100)&&(c<=0x11FF)) return 1; /* Hangul Jamo */
+	else if ((c>=0xA960)&&(c<=0xA97F)) return 1; /* Hangul Jamo Extended-A */
+	else if ((c>=0xD7B0)&&(c<=0xD7FF)) return 1; /* Hangul Jamo Extended-B */
+	else if ((c>=0x3130)&&(c<=0x318F)) return 1; /* Hangul Compatibility Jamo */
+	else if ((c>=0xFFA0)&&(c<=0xFFDC)) return 1; /* Hangul Halfwidth Jamo */
+	else if ((c>=0x3200)&&(c<=0x321E)) return 1; /* Enclosed CJK Letters and Months */
+	else if ((c>=0x3260)&&(c<=0x327E)) return 1; /* Enclosed CJK Letters and Months */
 	else return 0;
 }
 

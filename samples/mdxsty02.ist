@@ -8,5 +8,10 @@ lethead_flag -1
 lethead_prefix "\n\\centerline{\\bfseries --- "
 lethead_suffix  " ---}\\par\\nobreak"
 
-character_order  "JGCLSN"
+character_order  "JKGCLSN"
 
+tumunja "가나다라마바사아카"
+%% tumunja "㉠㉡㉢㉣㉤㉥㉦㉧㉨㉩㉪㉫㉬㉭"
+%% tumunja "㉮㉯㉰㉱㉲㉳㉴㉵㉶㉷㉸㉹㉺㉻"
+%% tumunja "㈀㈁㈂㈃㈄㈅㈆㈇㈈㈉㈊㈋㈌㈍"
+%% tumunja "㈎㈏㈐㈑㈒㈓㈔㈕㈖㈗㈘㈙㈚㈛"

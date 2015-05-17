@@ -19,6 +19,9 @@ static UChar index_normalize(UChar ch);
 #define M_TO_UPPER  1
 #define M_TO_LOWER  2
 
+#define CHOSEONG_KIYEOK       0x1100
+#define CHOSEONG_TIKEUT_RIEUL 0x115E
+
 /* All buffers have size BUFFERLEN.  */
 #define BUFFERLEN 4096
 
@@ -64,7 +67,7 @@ static void fprint_uchar(FILE *fp, const UChar *a, const int mode)
 	int len, wclen;
 	UErrorCode perr;
 
-	wclen = (U16_IS_SURROGATE_LEAD(a[0]) && U16_IS_SURROGATE_TRAIL(a[1])) ? 2 : 1;
+	wclen = (U16_IS_LEAD(a[0]) && U16_IS_TRAIL(a[1])) ? 2 : 1;
 	              istr[0]    =a[0];
 	if (wclen==2) istr[1]    =a[1];
 	              istr[wclen]=L'\0';
@@ -130,9 +133,9 @@ void verb_printf(FILE *fp, const char *format, ...)
 /*   write ind file   */
 void indwrite(char *filename, struct index *ind, int pagenum)
 {
-	int i,j,hpoint=0;
-	char datama[256],lbuff[BUFFERLEN],obuff[BUFFERLEN];
-	UChar udatama[256],initial,initial_prev;
+	int i,j,hpoint=0,tpoint=0;
+	char lbuff[BUFFERLEN],obuff[BUFFERLEN];
+	UChar datama[256],initial,initial_prev;
 	FILE *fp;
 	int conv_euc_to_euc;
 
@@ -144,7 +147,7 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 #endif
 	}
 
-	convert(atama,udatama);
+	convert(atama,datama);
 	fputs(preamble,fp);
 
 	if (fpage>0) {
@@ -166,22 +169,45 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 			else if (is_jpn_kana(initial)) {
 				if (lethead_flag!=0) {
 					fputs(lethead_prefix,fp);
-					for (j=hpoint;j<(u_strlen(udatama));j++) {
-						if (initial<index_normalize(udatama[j])) {
+					for (j=hpoint;j<(u_strlen(datama));j++) {
+						if (initial<index_normalize(datama[j])) {
 							fprint_uchar(fp,&atama[j-1],M_NONE);
 							hpoint=j;
 							break;
 						}
 					}
-					if (j==(u_strlen(udatama))) {
+					if (j==(u_strlen(datama))) {
 						fprint_uchar(fp,&atama[j-1],M_NONE);
 					}
 					fputs(lethead_suffix,fp);
 				}
 				widechar_to_multibyte(obuff,BUFFERLEN,ind[i].idx[0]);
 				SPRINTF(lbuff,"%s%s",item_0,obuff);
-				for (hpoint=0;hpoint<(u_strlen(udatama));hpoint++) {
-					if (initial<udatama[hpoint]) {
+				for (hpoint=0;hpoint<(u_strlen(datama));hpoint++) {
+					if (initial<index_normalize(datama[hpoint])) {
+						break;
+					}
+				}
+			}
+			else if (is_kor_hngl(initial)) {
+				if (lethead_flag!=0) {
+					fputs(lethead_prefix,fp);
+					for (j=tpoint;j<(u_strlen(tumunja));j++) {
+						if (initial<index_normalize(tumunja[j])) {
+							fprint_uchar(fp,&tumunja[j-1],M_NONE);
+							tpoint=j;
+							break;
+						}
+					}
+					if (j==(u_strlen(tumunja))) {
+						fprint_uchar(fp,&tumunja[j-1],M_NONE);
+					}
+					fputs(lethead_suffix,fp);
+				}
+				widechar_to_multibyte(obuff,BUFFERLEN,ind[i].idx[0]);
+				SPRINTF(lbuff,"%s%s",item_0,obuff);
+				for (tpoint=0;tpoint<(u_strlen(tumunja));tpoint++) {
+					if (initial<index_normalize(tumunja[tpoint])) {
 						break;
 					}
 				}
@@ -238,8 +264,8 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 				}
 			}
 			else if (is_jpn_kana(initial)) {
-				for (j=hpoint;j<(u_strlen(udatama));j++) {
-					if (initial<index_normalize(udatama[j])) {
+				for (j=hpoint;j<(u_strlen(datama));j++) {
+					if (initial<index_normalize(datama[j])) {
 						break;
 					}
 				}
@@ -252,8 +278,7 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 						fputs(lethead_suffix,fp);
 					}
 				}
-
-				else if (initial_prev!=initial) {
+				else if (initial>=index_normalize(HIRA_N) && initial_prev!=initial) {
 					fputs(group_skip,fp);
 					if (lethead_flag!=0) {
 						fputs(lethead_prefix,fp);
@@ -262,9 +287,34 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 					}
 				}
 			}
+			else if (is_kor_hngl(initial)) {
+				for (j=tpoint;j<(u_strlen(tumunja));j++) {
+					if (initial<index_normalize(tumunja[j])) {
+						break;
+					}
+				}
+				if ((j!=tpoint)||(j==0)) {
+					tpoint=j;
+					fputs(group_skip,fp);
+					if (lethead_flag!=0) {
+						fputs(lethead_prefix,fp);
+						fprint_uchar(fp,&tumunja[j-1],M_NONE);
+						fputs(lethead_suffix,fp);
+					}
+				}
+				else if (initial>=index_normalize(CHOSEONG_TIKEUT_RIEUL) && initial_prev!=initial) {
+					fputs(group_skip,fp);
+					if (lethead_flag!=0) {
+						fputs(lethead_prefix,fp);
+						fprint_uchar(fp,&tumunja[j-1],M_NONE);
+						fputs(lethead_suffix,fp);
+					}
+				}
+			}
 			else {
 				if ((is_latin(initial_prev))||is_cyrillic(initial_prev)
-					||is_greek(initial_prev)||(is_jpn_kana(initial_prev))){
+					||is_greek(initial_prev)||(is_jpn_kana(initial_prev)
+					||is_kor_hngl(initial_prev))){
 					fputs(group_skip,fp);
 					if (lethead_flag!=0 && symbol_flag) {
 						if (strlen(symbol)) {
@@ -574,6 +624,69 @@ static UChar index_normalize(UChar ch)
 	}
 	else if (ch==0x309F) return 0x30E8; /* HIRAGANA YORI */
 	else if (ch==0x30FF) return 0x30B3; /* KATAKANA KOTO */
+	else if (is_kor_hngl(ch)) {
+		if ((ch>=0xAC00)&&(ch<=0xD7AF)) {               /* Hangul Syllables */
+			ch=(ch-0xAC00)/(21*28)+CHOSEONG_KIYEOK; /* convert to Hangul Jamo, Initial consonants */
+		}
+		else switch (ch) {
+			case 0x3131: case 0xFFA1:
+			case 0x3200: case 0x320E: case 0x3260: case 0x326E:
+				ch=0x1100; break; /* ᄀ */
+			case 0x3132: case 0xFFA2:
+				ch=0x1101; break; /* ᄁ */
+			case 0x3134: case 0xFFA4:
+			case 0x3201: case 0x320F: case 0x3261: case 0x326F:
+				ch=0x1102; break; /* ᄂ */
+			case 0x3137: case 0xFFA7:
+			case 0x3202: case 0x3210: case 0x3262: case 0x3270:
+				ch=0x1103; break; /* ᄃ */
+			case 0x3138: case 0xFFA8:
+				ch=0x1104; break; /* ᄄ */
+			case 0x3139: case 0xFFA9:
+			case 0x3203: case 0x3211: case 0x3263: case 0x3271:
+				ch=0x1105; break; /* ᄅ */
+			case 0x3141: case 0xFFB1:
+			case 0x3204: case 0x3212: case 0x3264: case 0x3272:
+				ch=0x1106; break; /* ᄆ */
+			case 0x3142: case 0xFFB2:
+			case 0x3205: case 0x3213: case 0x3265: case 0x3273:
+				ch=0x1107; break; /* ᄇ */
+			case 0x3143: case 0xFFB3:
+				ch=0x1108; break; /* ᄈ */
+			case 0x3145: case 0xFFB5:
+			case 0x3206: case 0x3214: case 0x3266: case 0x3274:
+				ch=0x1109; break; /* ᄉ */
+			case 0x3146: case 0xFFB6:
+				ch=0x110A; break; /* ᄊ */
+			case 0x3147: case 0xFFB7:
+			case 0x3207: case 0x3215: case 0x3267: case 0x3275:
+			case 0x321D: case 0x321E: case 0x327E: /* ㈝ ㈞ ㉾ */
+				ch=0x110B; break; /* ᄋ */
+			case 0x3148: case 0xFFB8:
+			case 0x3208: case 0x3216: case 0x3268: case 0x3276:
+			case 0x321C: case 0x327D:              /* ㈜ ㉽ */
+				ch=0x110C; break; /* ᄌ */
+			case 0x3149: case 0xFFB9:
+				ch=0x110D; break; /* ᄍ */
+			case 0x314A: case 0xFFBA:
+			case 0x3209: case 0x3217: case 0x3269: case 0x3277:
+			case 0x327C:                           /* ㉼ */
+				ch=0x110E; break; /* ᄎ */
+			case 0x314B: case 0xFFBB:
+			case 0x320A: case 0x3218: case 0x326A: case 0x3278:
+				ch=0x110F; break; /* ᄏ */
+			case 0x314C: case 0xFFBC:
+			case 0x320B: case 0x3219: case 0x326B: case 0x3279:
+				ch=0x1110; break; /* ᄐ */
+			case 0x314D: case 0xFFBD:
+			case 0x320C: case 0x321A: case 0x326C: case 0x327A:
+				ch=0x1111; break; /* ᄑ */
+			case 0x314E: case 0xFFBE:
+			case 0x320D: case 0x321B: case 0x326D: case 0x327B:
+				ch=0x1112; break; /* ᄒ */
+		}
+		return ch;
+	}
 	else {
 		return u_toupper(ch);
 	}

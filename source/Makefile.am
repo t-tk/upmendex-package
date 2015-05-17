@@ -3,9 +3,7 @@
 ## Copyright (C) 2010-2014 Peter Breitenlohner <tex-live@tug.org>
 ## You may freely use, modify and/or distribute this file.
 ##
-ACLOCAL_AMFLAGS = -I ../../m4
-
-AM_CPPFLAGS = $(PTEXENC_INCLUDES) $(KPATHSEA_INCLUDES)
+AM_CPPFLAGS = $(KPATHSEA_INCLUDES)
 AM_CFLAGS = $(WARNING_CFLAGS)
 
 bin_PROGRAMS = upmendex
@@ -29,13 +27,12 @@ mendex_SOURCES = \
 	styfile.c \
 	var.h
 
-$(mendex_OBJECTS): $(KPATHSEA_DEPEND) $(PTEXENC_DEPEND)
+$(mendex_OBJECTS): $(KPATHSEA_DEPEND)
 
-LDADD = $(PTEXENC_LIBS) $(KPATHSEA_LIBS)	
+LDADD = $(KPATHSEA_LIBS)
 
 ## Rebuild libkpathsea & libptexenc
 @KPATHSEA_RULE@
-@PTEXENC_RULE@
 ## Rebuild libsicuxxx
 @ICU_RULE@
 

@@ -1,5 +1,5 @@
 upmendex  --- unicode version of mendex
-2015.01.24 Ver0.01
+2015.05.17 Ver0.02
 TANAKA, Takuji   ttk(at)t-lab(dot)opal(dot)ne(dot)jp
 
 [ About upmendex ]
@@ -10,8 +10,8 @@ upmendex is an index processor with following features:
  * Unicode for internal process and
    support UTF-8 encoding for input/outout.
    Will work with upLaTeX, XeLaTeX and luaLaTeX.
- * Support Latin (non-English), Greek and Cyrillic scripts
-   as well as Engish and Japanese.
+ * Support Latin (non-English), Greek, Cyrillic and
+   Korean Hangul scripts as well as Engish and Japanese.
  * Apply International Components for Unicode (ICU)
    for sorting process.
 
@@ -21,7 +21,7 @@ source/ :: sources
 samples/ :: samples for test
 
 [ Building upmendex ]
-The sources work with TeXLive svn r34527 .
+The sources work with TeXLive svn r37381 .
 Ref. TeXLive and Subversion  http://www.tug.org/texlive/svn/
 
 [ Status ]

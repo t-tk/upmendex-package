@@ -18,8 +18,7 @@ char *styfile,*idxfile[256],indfile[256],*dicfile,logfile[256];
 #endif
 KpathseaSupportInfo kp_ist,kp_dict;
 
-#define VERSION "version 0.01"
-#define TL_VERSION "TeX Live 2015/dev"
+#define VERSION "version 0.02"
 
 int main(int argc, char **argv)
 {
@@ -199,6 +198,9 @@ int main(int argc, char **argv)
 			styfile=xstrdup(envbuff);
 		}
 	}
+
+/*   init hangul tumunja table   */
+	u_strcpy(tumunja,GANADA);
 
 	if (styfile!=NULL) styread(styfile);
 
