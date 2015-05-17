@@ -3,6 +3,7 @@
 	* version 0.02  Alpha version.
 	Support Korean Hangul.
 	Fix bug on Japanese indexing.
+	Fix bug on surrogate pair.
 	Add option "icu_locale" in style file (Preliminary).
 
 2015-01-24  TANAKA Takuji  <ttk@t-lab.opal.ne.jp>
