@@ -31,7 +31,7 @@ $(mendex_OBJECTS): $(KPATHSEA_DEPEND)
 
 LDADD = $(KPATHSEA_LIBS)
 
-## Rebuild libkpathsea & libptexenc
+## Rebuild libkpathsea
 @KPATHSEA_RULE@
 ## Rebuild libsicuxxx
 @ICU_RULE@

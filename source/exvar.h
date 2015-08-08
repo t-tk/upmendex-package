@@ -35,3 +35,5 @@ extern UChar atama[STYBUFSIZE],tumunja[STYBUFSIZE];
 extern char page_compositor[STYBUFSIZE],page_precedence[STYBUFSIZE];
 extern char character_order[STYBUFSIZE];
 extern char icu_locale[STYBUFSIZE];
+
+extern UCollator * icu_collator;

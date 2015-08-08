@@ -4,15 +4,12 @@
 #include "exkana.h"
 #include "exvar.h"
 
-#include <unicode/ucol.h>
-
 int sym,nmbr,ltn,kana,hngl,cyr,grk;
 
 static int wcomp(const void *p, const void *q);
 static int pcomp(const void *p, const void *q);
 static int ordering(UChar c);
 static int charset(UChar c);
-UCollator * collator  = 0;
 
 /*   sort index   */
 void wsort(struct index *ind, int num)
@@ -69,7 +66,19 @@ BREAK:
 	if (cyr==0) cyr=order++;
 	if (grk==0) grk=order++;
 
-	collator = ucol_open(icu_locale, &status);
+	icu_collator = ucol_open(icu_locale, &status);
+	if (U_FAILURE(status)) {
+		verb_printf(efp, "\n[ICU] Collator creation failed.: %d\n", status);
+		exit(254);
+	}
+	if (status == U_USING_DEFAULT_WARNING) {
+		warn_printf(efp, "\nWarning, [ICU] U_USING_DEFAULT_WARNING for locale %s\n",
+			    icu_locale);
+	}
+	if (status == U_USING_FALLBACK_WARNING) {
+		warn_printf(efp, "\nWarning, [ICU] U_USING_FALLBACK_WARNING for locale %s\n",
+			    icu_locale);
+	}
 	qsort(ind,num,sizeof(struct index),wcomp);
 }
 
@@ -156,7 +165,7 @@ static int wcomp(const void *p, const void *q)
 				return 1;
 
 /*   simple compare   */
-			col_result = ucol_strcoll(collator, str1, len1, str2, len2);
+			col_result = ucol_strcoll(icu_collator, str1, len1, str2, len2);
 			if (col_result == UCOL_LESS) return -1;
 			else if (col_result == UCOL_GREATER) return 1;
 		}

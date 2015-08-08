@@ -3,6 +3,7 @@
 #include <stdarg.h>
 
 #include <kpathsea/tex-file.h>
+#include <unicode/unorm2.h>
 
 #include "exkana.h"
 #include "exvar.h"
@@ -14,6 +15,7 @@ static int range_check(struct index ind, int count, char *lbuff);
 static void linecheck(char *lbuff, char *tmpbuff);
 static void crcheck(char *lbuff, FILE *fp);
 static UChar index_normalize(UChar ch);
+static const UNormalizer2* unormalizer_NFD;
 
 #define M_NONE      0
 #define M_TO_UPPER  1
@@ -138,6 +140,7 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 	UChar datama[256],initial,initial_prev;
 	FILE *fp;
 	int conv_euc_to_euc;
+	UErrorCode perr;
 
 	if (filename[0]!='\0' && kpse_out_name_ok(filename)) fp=fopen(filename,"wb");
 	else {
@@ -153,6 +156,8 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 	if (fpage>0) {
 		fprintf(fp,"%s%d%s",setpage_prefix,pagenum,setpage_suffix);
 	}
+	perr=U_ZERO_ERROR;
+	unormalizer_NFD=unorm2_getInstance(NULL, "nfc", UNORM2_DECOMPOSE, &perr);
 
 	for (i=line_length=0;i<lines;i++) {
 		initial=index_normalize(ind[i].dic[0][0]);
@@ -610,6 +615,10 @@ static void crcheck(char *lbuff, FILE *fp)
 static UChar index_normalize(UChar ch)
 {
 	int k;
+	UChar src[2],dest[8],strX[2],strZ[3];
+	UErrorCode perr;
+	UCollationResult order;
+
 	if (is_hiragana(ch)) {
 		ch+=KATATOP-HIRATOP; /* hiragana -> katakana */
 	}
@@ -687,7 +696,47 @@ static UChar index_normalize(UChar ch)
 		}
 		return ch;
 	}
-	else {
-		return u_toupper(ch);
+	else if (ch==0x0C6||ch==0x0E6||ch==0x152||ch==0x153||ch==0x132||ch==0x133
+		||ch==0x0DF||ch==0x1E9E||ch==0x13F||ch==0x140||ch==0x490||ch==0x491) {
+		strX[0] = u_toupper(ch);  strX[1] = 0x00; /* ex. "Æ" "Œ" */
+		switch (ch) {
+			case 0x0C6: case 0x0E6:        /* Æ æ */
+				strZ[0] = 0x41; break; /* A   */
+			case 0x152: case 0x153:        /* Œ œ */
+				strZ[0] = 0x4F; break; /* O   */
+			case 0x0DF: case 0x1E9E:       /* ß ẞ */
+				strZ[0] = 0x53; break; /* S   */
+			case 0x132: case 0x133:        /* Ĳ ĳ */
+				strZ[0] = 0x59;        /* Y   */
+				strZ[1] = 0x00;
+				if (ucol_equal(icu_collator, strZ, -1, strX, -1)) return 0x59;
+				strZ[0] = 0x49; break; /* I   */
+			case 0x13F: case 0x140:        /* Ŀ ŀ */
+				strZ[0] = 0x4C; break; /* L   */
+			case 0x490: case 0x491:        /* Ґ ґ */
+				strZ[0] = 0x413; break; /* Г   */
+		}
+		strZ[1] = (ch==0x490||ch==0x491) ? 0x42F : 0x5A;
+		strZ[2] = 0x00;                           /* ex. "AZ" "OZ" "ГЯ" */
+		order = ucol_strcoll(icu_collator, strZ, -1, strX, -1);
+		if (order==UCOL_GREATER) return strZ[0];  /* not ligature */
 	}
+	else if ((is_latin(ch)&&ch>0x7F)||
+		 (is_cyrillic(ch)&&(ch<0x410||ch==0x419||ch==0x439||ch>0x44F))||
+		 (is_greek(ch)&&(ch<0x391||(ch>0x3A9&&ch<0x3B1)||ch>0x3C9))) {  /* check diacritic */
+		src[0]=ch;  src[1]=0x00;
+		perr=U_ZERO_ERROR;
+		unorm2_normalize(unormalizer_NFD, src, 1, dest, 8, &perr);
+		if (U_SUCCESS(perr)) {
+			if      (is_latin(ch))    { strZ[1] = 0x05A; }  /* Z */
+			else if (is_cyrillic(ch)) { strZ[1] = 0x42F; }  /* Я */
+			else                      { strZ[1] = 0x3A9; }  /* Ω */
+			strZ[0] = u_toupper(dest[0]);  strZ[2] = 0x00;  /* ex. "AZ" */
+			strX[0] = u_toupper(ch);       strX[1] = 0x00;  /* ex. "Å"  */
+			order = ucol_strcoll(icu_collator, strZ, -1, strX, -1);
+			if (order==UCOL_LESS) return strX[0];  /* with diacritic */
+			ch=dest[0];                            /* without diacritic */
+		}
+	}
+	return u_toupper(ch);
 }

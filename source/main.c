@@ -18,7 +18,7 @@ char *styfile,*idxfile[256],indfile[256],*dicfile,logfile[256];
 #endif
 KpathseaSupportInfo kp_ist,kp_dict;
 
-#define VERSION "version 0.02"
+#define VERSION "version 0.03"
 
 int main(int argc, char **argv)
 {
@@ -150,7 +150,7 @@ int main(int argc, char **argv)
 
 			case '-':
 				if (strlen(argv[i])==2) chkopt=0;
-				break;
+				if (strcmp(argv[i],"--help")!=0) break;
 
 			default:
 				u_getVersion(icuVersion);

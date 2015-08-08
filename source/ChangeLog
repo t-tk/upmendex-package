@@ -1,3 +1,10 @@
+2015-08-08  TANAKA Takuji  <ttk@t-lab.opal.ne.jp>
+
+	* version 0.03  Alpha version.
+	Support option "icu_locale" in style file.
+	Support diacritical marks in Latin, Greek, Cyrillic.
+	Update samples.
+
 2015-05-17  TANAKA Takuji  <ttk@t-lab.opal.ne.jp>
 
 	* version 0.02  Alpha version.

@@ -35,4 +35,6 @@ int letter_head=1;
 UChar atama[STYBUFSIZE],tumunja[STYBUFSIZE];
 char page_compositor[STYBUFSIZE]={"-"},page_precedence[STYBUFSIZE]={"rnaRA"};
 char character_order[STYBUFSIZE]={"SNLGCJK"};
-char icu_locale[STYBUFSIZE]={"en_US"};
+char icu_locale[STYBUFSIZE]={"root"};
+
+UCollator * icu_collator;
