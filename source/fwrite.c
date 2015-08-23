@@ -14,18 +14,21 @@ static void printpage(struct index *ind, FILE *fp, int num, char *lbuff);
 static int range_check(struct index ind, int count, char *lbuff);
 static void linecheck(char *lbuff, char *tmpbuff);
 static void crcheck(char *lbuff, FILE *fp);
-static UChar index_normalize(UChar ch);
+static void index_normalize(UChar *istr, UChar *ini);
+static int initial_cmp_char(UChar *ini, UChar ch);
 static const UNormalizer2* unormalizer_NFD;
 
 #define M_NONE      0
 #define M_TO_UPPER  1
-#define M_TO_LOWER  2
+#define M_TO_TITLE  2
+#define M_TO_LOWER  -1
 
 #define CHOSEONG_KIYEOK       0x1100
 #define CHOSEONG_TIKEUT_RIEUL 0x115E
 
 /* All buffers have size BUFFERLEN.  */
 #define BUFFERLEN 4096
+#define INITIALLEN 4
 
 #ifdef HAVE___VA_ARGS__
 /* Use C99 variadic macros if they are supported.  */
@@ -61,29 +64,38 @@ static inline int SAPPENDF(char *buf, const char *format, ...)
 }
 #endif
 
-static void fprint_uchar(FILE *fp, const UChar *a, const int mode)
+static void fprint_uchar(FILE *fp, const UChar *a, const int mode, const int len)
 {
-	int k = 0;
-	char str[5], *ret;
-	UChar istr[3], jstr[3];
-	int len, wclen;
+	int k;
+	char str[15], *ret;
+	UChar istr[5], jstr[5];
+	int olen, wclen;
 	UErrorCode perr;
 
-	wclen = (U16_IS_LEAD(a[0]) && U16_IS_TRAIL(a[1])) ? 2 : 1;
-	              istr[0]    =a[0];
-	if (wclen==2) istr[1]    =a[1];
-	              istr[wclen]=L'\0';
+	if (len<0) {
+		for (k=0; a[k] || k<4; k++) istr[k]=a[k];
+		wclen=k;
+	} else {
+		wclen = (U16_IS_LEAD(a[0]) && U16_IS_TRAIL(a[1])) ? 2 : 1;
+			      istr[0]=a[0];
+		if (wclen==2) istr[1]=a[1];
+	}
+	istr[wclen]=L'\0';
 	if (mode==M_TO_UPPER) {
 		u_strcpy(jstr,istr);
 		perr = U_ZERO_ERROR;
-		u_strToUpper(istr,3,jstr,wclen,"",&perr);
+		u_strToUpper(istr,5,jstr,wclen,"",&perr);
 	} else if (mode==M_TO_LOWER) {
 		u_strcpy(jstr,istr);
 		perr = U_ZERO_ERROR;
-		u_strToLower(istr,3,jstr,wclen,"",&perr);
+		u_strToLower(istr,5,jstr,wclen,"",&perr);
+	} else if (mode==M_TO_TITLE) {
+		u_strcpy(jstr,istr);
+		perr = U_ZERO_ERROR;
+		u_strToTitle(istr,5,jstr,wclen,NULL,"",&perr);
 	}
 	perr = U_ZERO_ERROR;
-	ret = u_strToUTF8(str, 5, &len, istr, wclen, &perr);
+	ret = u_strToUTF8(str, 15, &olen, istr, wclen, &perr);
 	fprintf(fp,"%s",str);
 }
 
@@ -137,7 +149,7 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 {
 	int i,j,hpoint=0,tpoint=0;
 	char lbuff[BUFFERLEN],obuff[BUFFERLEN];
-	UChar datama[256],initial,initial_prev;
+	UChar datama[256],initial[INITIALLEN],initial_prev[INITIALLEN];
 	FILE *fp;
 	int conv_euc_to_euc;
 	UErrorCode perr;
@@ -160,12 +172,12 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 	unormalizer_NFD=unorm2_getInstance(NULL, "nfc", UNORM2_DECOMPOSE, &perr);
 
 	for (i=line_length=0;i<lines;i++) {
-		initial=index_normalize(ind[i].dic[0][0]);
+		index_normalize(ind[i].dic[0], initial);
 		if (i==0) {
 			if (is_latin(initial)||is_cyrillic(initial)||is_greek(initial)) {
 				if (lethead_flag!=0) {
 					fputs(lethead_prefix,fp);
-					fprint_uchar(fp,&initial,(lethead_flag>0?M_TO_UPPER:M_TO_LOWER));
+					fprint_uchar(fp,initial,lethead_flag,-1);
 					fputs(lethead_suffix,fp);
 				}
 				widechar_to_multibyte(obuff,BUFFERLEN,ind[i].idx[0]);
@@ -175,21 +187,21 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 				if (lethead_flag!=0) {
 					fputs(lethead_prefix,fp);
 					for (j=hpoint;j<(u_strlen(datama));j++) {
-						if (initial<index_normalize(datama[j])) {
-							fprint_uchar(fp,&atama[j-1],M_NONE);
+						if (initial_cmp_char(initial,datama[j])) {
+							fprint_uchar(fp,&atama[j-1],M_NONE,1);
 							hpoint=j;
 							break;
 						}
 					}
 					if (j==(u_strlen(datama))) {
-						fprint_uchar(fp,&atama[j-1],M_NONE);
+						fprint_uchar(fp,&atama[j-1],M_NONE,1);
 					}
 					fputs(lethead_suffix,fp);
 				}
 				widechar_to_multibyte(obuff,BUFFERLEN,ind[i].idx[0]);
 				SPRINTF(lbuff,"%s%s",item_0,obuff);
 				for (hpoint=0;hpoint<(u_strlen(datama));hpoint++) {
-					if (initial<index_normalize(datama[hpoint])) {
+					if (initial_cmp_char(initial,datama[hpoint])) {
 						break;
 					}
 				}
@@ -198,21 +210,21 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 				if (lethead_flag!=0) {
 					fputs(lethead_prefix,fp);
 					for (j=tpoint;j<(u_strlen(tumunja));j++) {
-						if (initial<index_normalize(tumunja[j])) {
-							fprint_uchar(fp,&tumunja[j-1],M_NONE);
+						if (initial_cmp_char(initial,tumunja[j])) {
+							fprint_uchar(fp,&tumunja[j-1],M_NONE,1);
 							tpoint=j;
 							break;
 						}
 					}
 					if (j==(u_strlen(tumunja))) {
-						fprint_uchar(fp,&tumunja[j-1],M_NONE);
+						fprint_uchar(fp,&tumunja[j-1],M_NONE,1);
 					}
 					fputs(lethead_suffix,fp);
 				}
 				widechar_to_multibyte(obuff,BUFFERLEN,ind[i].idx[0]);
 				SPRINTF(lbuff,"%s%s",item_0,obuff);
 				for (tpoint=0;tpoint<(u_strlen(tumunja));tpoint++) {
-					if (initial<index_normalize(tumunja[tpoint])) {
+					if (initial_cmp_char(initial,tumunja[tpoint])) {
 						break;
 					}
 				}
@@ -257,20 +269,20 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 			printpage(ind,fp,i,lbuff);
 		}
 		else {
-			initial_prev=index_normalize(ind[i-1].dic[0][0]);
+			index_normalize(ind[i-1].dic[0], initial_prev);
 			if (is_latin(initial)||is_cyrillic(initial)||is_greek(initial)) {
-				if (initial!=initial_prev) {
+				if (ss_comp(initial,initial_prev)) {
 					fputs(group_skip,fp);
 					if (lethead_flag!=0) {
 						fputs(lethead_prefix,fp);
-						fprint_uchar(fp,&initial,(lethead_flag>0?M_TO_UPPER:M_TO_LOWER));
+						fprint_uchar(fp,initial,lethead_flag,-1);
 						fputs(lethead_suffix,fp);
 					}
 				}
 			}
 			else if (is_jpn_kana(initial)) {
 				for (j=hpoint;j<(u_strlen(datama));j++) {
-					if (initial<index_normalize(datama[j])) {
+					if (initial_cmp_char(initial,datama[j])) {
 						break;
 					}
 				}
@@ -279,22 +291,22 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 					fputs(group_skip,fp);
 					if (lethead_flag!=0) {
 						fputs(lethead_prefix,fp);
-						fprint_uchar(fp,&atama[j-1],M_NONE);
+						fprint_uchar(fp,&atama[j-1],M_NONE,1);
 						fputs(lethead_suffix,fp);
 					}
 				}
-				else if (initial>=index_normalize(HIRA_N) && initial_prev!=initial) {
+				else if (!initial_cmp_char(initial,KATA_N) && ss_comp(initial_prev,initial)) {
 					fputs(group_skip,fp);
 					if (lethead_flag!=0) {
 						fputs(lethead_prefix,fp);
-						fprint_uchar(fp,&initial,M_NONE);
+						fprint_uchar(fp,initial,M_NONE,1);
 						fputs(lethead_suffix,fp);
 					}
 				}
 			}
 			else if (is_kor_hngl(initial)) {
 				for (j=tpoint;j<(u_strlen(tumunja));j++) {
-					if (initial<index_normalize(tumunja[j])) {
+					if (initial_cmp_char(initial,tumunja[j])) {
 						break;
 					}
 				}
@@ -303,15 +315,15 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 					fputs(group_skip,fp);
 					if (lethead_flag!=0) {
 						fputs(lethead_prefix,fp);
-						fprint_uchar(fp,&tumunja[j-1],M_NONE);
+						fprint_uchar(fp,&tumunja[j-1],M_NONE,1);
 						fputs(lethead_suffix,fp);
 					}
 				}
-				else if (initial>=index_normalize(CHOSEONG_TIKEUT_RIEUL) && initial_prev!=initial) {
+				else if (!initial_cmp_char(initial,CHOSEONG_TIKEUT_RIEUL) && ss_comp(initial_prev,initial)) {
 					fputs(group_skip,fp);
 					if (lethead_flag!=0) {
 						fputs(lethead_prefix,fp);
-						fprint_uchar(fp,&tumunja[j-1],M_NONE);
+						fprint_uchar(fp,&tumunja[j-1],M_NONE,1);
 						fputs(lethead_suffix,fp);
 					}
 				}
@@ -612,12 +624,15 @@ static void crcheck(char *lbuff, FILE *fp)
 	}
 }
 
-static UChar index_normalize(UChar ch)
+static void index_normalize(UChar *istr, UChar *ini)
 {
 	int k;
-	UChar src[2],dest[8],strX[2],strZ[3];
+	UChar ch,src[2],dest[8],strX[4],strY[4],strZ[4];
 	UErrorCode perr;
 	UCollationResult order;
+
+	ch=istr[0];
+	ini[1]=L'\0';
 
 	if (is_hiragana(ch)) {
 		ch+=KATATOP-HIRATOP; /* hiragana -> katakana */
@@ -625,15 +640,17 @@ static UChar index_normalize(UChar ch)
 	if (is_katakana(ch)) {
 		for (k=0;k<=KATAEND-KATATOP;k++) {
 			if (ch==k+KATATOP) {
-				return kanatable[k];
+				ini[0]=kanatable[k];
+				return;
 			}
 		}
 		/* error */
-		return ch;
+		ini[0]=ch;
+		return;
 	}
-	else if (ch==0x309F) return 0x30E8; /* HIRAGANA YORI */
-	else if (ch==0x30FF) return 0x30B3; /* KATAKANA KOTO */
-	else if (is_kor_hngl(ch)) {
+	else if (ch==0x309F) { ini[0]=0x30E8; return; } /* HIRAGANA YORI */
+	else if (ch==0x30FF) { ini[0]=0x30B3; return; }  /* KATAKANA KOTO */
+	else if (is_kor_hngl(&ch)) {
 		if ((ch>=0xAC00)&&(ch<=0xD7AF)) {               /* Hangul Syllables */
 			ch=(ch-0xAC00)/(21*28)+CHOSEONG_KIYEOK; /* convert to Hangul Jamo, Initial consonants */
 		}
@@ -694,7 +711,8 @@ static UChar index_normalize(UChar ch)
 			case 0x320D: case 0x321B: case 0x326D: case 0x327B:
 				ch=0x1112; break; /* ᄒ */
 		}
-		return ch;
+		ini[0]=ch;
+		return;
 	}
 	else if (ch==0x0C6||ch==0x0E6||ch==0x152||ch==0x153||ch==0x132||ch==0x133
 		||ch==0x0DF||ch==0x1E9E||ch==0x13F||ch==0x140||ch==0x490||ch==0x491) {
@@ -709,7 +727,7 @@ static UChar index_normalize(UChar ch)
 			case 0x132: case 0x133:        /* Ĳ ĳ */
 				strZ[0] = 0x59;        /* Y   */
 				strZ[1] = 0x00;
-				if (ucol_equal(icu_collator, strZ, -1, strX, -1)) return 0x59;
+				if (ucol_equal(icu_collator, strZ, -1, strX, -1)) { ini[0]=0x59; return; }
 				strZ[0] = 0x49; break; /* I   */
 			case 0x13F: case 0x140:        /* Ŀ ŀ */
 				strZ[0] = 0x4C; break; /* L   */
@@ -719,24 +737,93 @@ static UChar index_normalize(UChar ch)
 		strZ[1] = (ch==0x490||ch==0x491) ? 0x42F : 0x5A;
 		strZ[2] = 0x00;                           /* ex. "AZ" "OZ" "ГЯ" */
 		order = ucol_strcoll(icu_collator, strZ, -1, strX, -1);
-		if (order==UCOL_GREATER) return strZ[0];  /* not ligature */
+		if (order==UCOL_GREATER) { ini[0]=strZ[0]; return; }  /* not ligature */
 	}
-	else if ((is_latin(ch)&&ch>0x7F)||
-		 (is_cyrillic(ch)&&(ch<0x410||ch==0x419||ch==0x439||ch>0x44F))||
-		 (is_greek(ch)&&(ch<0x391||(ch>0x3A9&&ch<0x3B1)||ch>0x3C9))) {  /* check diacritic */
+	else if ((is_latin(&ch)&&ch>0x7F)||
+		 (is_cyrillic(&ch)&&(ch<0x410||ch==0x419||ch==0x439||ch>0x44F))||
+		 (is_greek(&ch)&&(ch<0x391||(ch>0x3A9&&ch<0x3B1)||ch>0x3C9))) {  /* check diacritic */
 		src[0]=ch;  src[1]=0x00;
 		perr=U_ZERO_ERROR;
 		unorm2_normalize(unormalizer_NFD, src, 1, dest, 8, &perr);
 		if (U_SUCCESS(perr)) {
-			if      (is_latin(ch))    { strZ[1] = 0x05A; }  /* Z */
-			else if (is_cyrillic(ch)) { strZ[1] = 0x42F; }  /* Я */
-			else                      { strZ[1] = 0x3A9; }  /* Ω */
-			strZ[0] = u_toupper(dest[0]);  strZ[2] = 0x00;  /* ex. "AZ" */
-			strX[0] = u_toupper(ch);       strX[1] = 0x00;  /* ex. "Å"  */
+			if      (is_latin(&ch))    { strZ[1] = 0x05A; }  /* Z */
+			else if (is_cyrillic(&ch)) { strZ[1] = 0x42F; }  /* Я */
+			else                       { strZ[1] = 0x3A9; }  /* Ω */
+			strZ[0] = u_toupper(dest[0]);  strZ[2] = 0x00;   /* ex. "AZ" */
+			strX[0] = u_toupper(ch);       strX[1] = 0x00;   /* ex. "Å"  */
 			order = ucol_strcoll(icu_collator, strZ, -1, strX, -1);
-			if (order==UCOL_LESS) return strX[0];  /* with diacritic */
-			ch=dest[0];                            /* without diacritic */
+			if (order==UCOL_LESS) { ini[0]=strX[0]; return; }  /* with diacritic */
+			ch=dest[0];                                        /* without diacritic */
 		}
 	}
-	return u_toupper(ch);
+	if (is_latin(istr)&&u_strlen(istr)>1) {
+		for(k=0; k<(u_strlen(istr)>2 ? 3 : 2); k++) {
+			strX[k]=u_toupper(istr[k]);
+		}
+		strX[k]=L'\0';
+		/* DZ, SZ or DZS for Hungarian, ad-hoc treatment */
+		if ((strX[0]==0x44 || strX[0]==0x53) && strX[1]==0x5A) {         /* DZ SZ */
+			strY[0]=0x44; strY[1]=0x5A; strY[2]=0x53; strY[3]=L'\0'; /* DZS */
+			strZ[0]=0x44; strZ[1]=0x5A; strZ[2]=0x5A; strZ[3]=L'\0'; /* DZZ */
+			order = ucol_strcoll(icu_collator, strZ, -1, strY, -1);
+			if (order==UCOL_LESS) {
+				ini[0]=strX[0]; ini[1]=strX[1];
+				if (strX[0]==0x44 && strX[2]==0x53) { /* DZS */
+					ini[2]=0x53; ini[3]=L'\0';
+				} else {                              /* DZ SZ */
+					ini[2]=L'\0';
+				}
+				return;
+			}
+		}
+		/* DZ, DŽ for Slovak or Serbo-Croatian, ad-hoc treatment */
+		if (strX[0]==0x44 && (strX[1]==0x5A || strX[1]==0x17D)) {        /* DZ DŽ */
+			strY[0]=0x44; strY[1]=0x17D; strY[2]=L'\0';              /* DŽ  */
+			strZ[0]=0x44; strZ[1]=0x5A; strZ[2]=0x5A; strZ[3]=L'\0'; /* DZZ */
+			order = ucol_strcoll(icu_collator, strZ, -1, strY, -1);
+			if (order==UCOL_LESS) {
+				if (strX[1]==0x5A) {
+					strY[0]=0xD4; strY[1]=L'\0';                /* Ô  */
+					strZ[0]=0x4F; strZ[1]=0x5A; strZ[2]=L'\0';  /* OZ */
+					order = ucol_strcoll(icu_collator, strZ, -1, strY, -1);
+					if (order==UCOL_LESS) {  /* Slovak DZ */
+						ini[0]=strX[0]; ini[1]=strX[1];
+						ini[2]=L'\0';
+						return;
+					}
+				} else {
+					ini[0]=strX[0]; ini[1]=strX[1]; /* DŽ */
+					ini[2]=L'\0';
+					return;
+				}
+			}
+		}
+		/* other digraphs */
+		if ((strX[0]==0x43 && strX[1]==0x48) ||                   /* CH */
+		    (strX[0]==0x4C && strX[1]==0x4C) ||                   /* LL */
+		   ((strX[0]==0x4C || strX[0]==0x4E) && strX[1]==0x4A) || /* LJ NJ */
+		   ((strX[0]==0x43 || strX[0]==0x5A) && strX[1]==0x53) || /* CS ZS */
+		   ((strX[0]==0x47 || strX[0]==0x4C || strX[0]==0x4E || strX[0]==0x54) && strX[1]==0x59)) /* GY LY NY TY */
+		{
+			strX[2]=L'\0';
+			strZ[0]=strX[0]; strZ[1]=0x5A; strZ[2]=L'\0';
+			order = ucol_strcoll(icu_collator, strZ, -1, strX, -1);
+			if (order==UCOL_LESS) {
+				ini[0]=strX[0]; ini[1]=strX[1]; ini[2]=L'\0';
+				return;
+			}
+		}
+	}
+	ini[0]=u_toupper(ch);
+	return;
+}
+
+static int initial_cmp_char(UChar *ini, UChar ch)
+{
+	UChar initial_tmp[INITIALLEN],istr[2];
+	istr[0]=ch;
+	istr[1]=L'\0';
+
+	index_normalize(istr, initial_tmp);
+	return (ss_comp(ini, initial_tmp)<0);
 }

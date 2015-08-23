@@ -12,8 +12,8 @@ extern UChar GANADA[];
 #define YENSIGN  0xffe5    /* ￥ */
 #define HIRATOP  0x3041    /* ぁ */
 #define HIRAEND  0x3096    /* ゖ */
-#define HIRA_N   0x3093    /* ん */
 #define KATATOP  0x30a1    /* ァ */
+#define KATA_N   0x30F3    /* ン */
 #define KATAEND  0x30fa    /* ヺ */
 
 #define is_katakana(a)  ((a)>=KATATOP && (a)<=KATAEND)

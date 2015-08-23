@@ -8,8 +8,8 @@ int sym,nmbr,ltn,kana,hngl,cyr,grk;
 
 static int wcomp(const void *p, const void *q);
 static int pcomp(const void *p, const void *q);
-static int ordering(UChar c);
-static int charset(UChar c);
+static int ordering(UChar *c);
+static int charset(UChar *c);
 
 /*   sort index   */
 void wsort(struct index *ind, int num)
@@ -121,8 +121,8 @@ static int wcomp(const void *p, const void *q)
 					break;
 				}
 				if (k==0) continue;
-				if (charset(str1[k-1])!=charset(str1[k])) {
-					if (is_comb_diacritical_mark(str1[k])) {
+				if (charset(&str1[k-1])!=charset(&str1[k])) {
+					if (is_comb_diacritical_mark(&str1[k])) {
 						continue;
 					}
 					len1=k-1;
@@ -135,8 +135,8 @@ static int wcomp(const void *p, const void *q)
 					break;
 				}
 				if (k==0) continue;
-				if (charset(str2[k-1])!=charset(str2[k])) {
-					if (is_comb_diacritical_mark(str2[k])) {
+				if (charset(&str2[k-1])!=charset(&str2[k])) {
+					if (is_comb_diacritical_mark(&str2[k])) {
 						continue;
 					}
 					len2=k-1;
@@ -144,24 +144,11 @@ static int wcomp(const void *p, const void *q)
 				}
 			}
 
-#if 0
-/*   priority   */
-			if ((priority!=0)&&(i>0)) {
-				if ((japanese(ch1))
-					&&(!japanese(ch2)))
-						return -1;
-
-				if ((japanese(ch2))
-					&&(!japanese(ch1)))
-					return 1;
-			}
-#endif
-
 /*   compare group   */
-			if (ordering(ch1)<ordering(ch2))
+			if (ordering(str1)<ordering(str2))
 				return -1;
 
-			if (ordering(ch1)>ordering(ch2))
+			if (ordering(str1)>ordering(str2))
 				return 1;
 
 /*   simple compare   */
@@ -248,9 +235,9 @@ static int pcomp(const void *p, const void *q)
 	return 0;
 }
 
-static int ordering(UChar c)
+static int ordering(UChar *c)
 {
-	if (c<0x80) {
+	if (*c<0x80) {
 		if (is_latin(c)) return ltn;
 		else if (is_numeric(c)) return nmbr;
 		else return sym;
@@ -265,10 +252,10 @@ static int ordering(UChar c)
 	}
 }
 
-static int charset(UChar c)
+static int charset(UChar *c)
 {
-	if (c==0x00) return CH_UNKNOWN;
-	else if (c<0x80) {
+	if (*c==0x00) return CH_UNKNOWN;
+	else if (*c<0x80) {
 		if (is_latin(c)) return CH_LATIN;
 		else if (is_numeric(c)) return CH_NUMERIC;
 		else return CH_SYMBOL;
@@ -283,74 +270,74 @@ static int charset(UChar c)
 	}
 }
 
-int is_alphanumeric(UChar c)
+int is_alphanumeric(UChar *c)
 {
-	if (((c>=L'A')&&(c<=L'Z'))||((c>=L'a')&&(c<=L'z'))||((c>=L'0')&&(c<=L'9')))
+	if (((*c>=L'A')&&(*c<=L'Z'))||((*c>=L'a')&&(*c<=L'z'))||((*c>=L'0')&&(*c<=L'9')))
 		return 1;
 	else return 0;
 }
 
-int is_latin(UChar c)
+int is_latin(UChar *c)
 {
-	if (((c>=L'A')&&(c<=L'Z'))||((c>=L'a')&&(c<=L'z'))) return 1;
-	else if ((c>=0x00C0)&&(c<=0x00D6)) return 1; /* Latin-1 Supplement */
-	else if ((c>=0x00D8)&&(c<=0x00F6)) return 1;
-	else if ((c>=0x00F8)&&(c<=0x00FF)) return 1;
-	else if ((c>=0x0100)&&(c<=0x024F)) return 1; /* Latin Extended-A,B */
-	else if ((c>=0x2C60)&&(c<=0x2C7F)) return 1; /* Latin Extended-C */
-	else if ((c>=0xA720)&&(c<=0xA7FF)) return 1; /* Latin Extended-D */
-	else if ((c>=0xAB30)&&(c<=0xAB6F)) return 1; /* Latin Extended-E */
-	else if ((c>=0x1E00)&&(c<=0x1EFF)) return 1; /* Latin Extended Additional */
-	else if ((c>=0xFB00)&&(c<=0xFB06)) return 1; /* Latin ligatures */
+	if (((*c>=L'A')&&(*c<=L'Z'))||((*c>=L'a')&&(*c<=L'z'))) return 1;
+	else if ((*c>=0x00C0)&&(*c<=0x00D6)) return 1; /* Latin-1 Supplement */
+	else if ((*c>=0x00D8)&&(*c<=0x00F6)) return 1;
+	else if ((*c>=0x00F8)&&(*c<=0x00FF)) return 1;
+	else if ((*c>=0x0100)&&(*c<=0x024F)) return 1; /* Latin Extended-A,B */
+	else if ((*c>=0x2C60)&&(*c<=0x2C7F)) return 1; /* Latin Extended-C */
+	else if ((*c>=0xA720)&&(*c<=0xA7FF)) return 1; /* Latin Extended-D */
+	else if ((*c>=0xAB30)&&(*c<=0xAB6F)) return 1; /* Latin Extended-E */
+	else if ((*c>=0x1E00)&&(*c<=0x1EFF)) return 1; /* Latin Extended Additional */
+	else if ((*c>=0xFB00)&&(*c<=0xFB06)) return 1; /* Latin ligatures */
 	else return 0;
 }
 
-int is_numeric(UChar c)
+int is_numeric(UChar *c)
 {
-	if ((c>=L'0')&&(c<=L'9')) return 1;
+	if ((*c>=L'0')&&(*c<=L'9')) return 1;
 	else return 0;
 }
 
-int is_jpn_kana(UChar c)
+int is_jpn_kana(UChar *c)
 {
-	if      ((c>=0x3040)&&(c<=0x30FF)) return 1; /* Hiragana, Katakana */
+	if      ((*c>=0x3040)&&(*c<=0x30FF)) return 1; /* Hiragana, Katakana */
 	else return 0;
 }
 
-int is_kor_hngl(UChar c)
+int is_kor_hngl(UChar *c)
 {
-	if      ((c>=0xAC00)&&(c<=0xD7AF)) return 1; /* Hangul Syllables */
-	else if ((c>=0x1100)&&(c<=0x11FF)) return 1; /* Hangul Jamo */
-	else if ((c>=0xA960)&&(c<=0xA97F)) return 1; /* Hangul Jamo Extended-A */
-	else if ((c>=0xD7B0)&&(c<=0xD7FF)) return 1; /* Hangul Jamo Extended-B */
-	else if ((c>=0x3130)&&(c<=0x318F)) return 1; /* Hangul Compatibility Jamo */
-	else if ((c>=0xFFA0)&&(c<=0xFFDC)) return 1; /* Hangul Halfwidth Jamo */
-	else if ((c>=0x3200)&&(c<=0x321E)) return 1; /* Enclosed CJK Letters and Months */
-	else if ((c>=0x3260)&&(c<=0x327E)) return 1; /* Enclosed CJK Letters and Months */
+	if      ((*c>=0xAC00)&&(*c<=0xD7AF)) return 1; /* Hangul Syllables */
+	else if ((*c>=0x1100)&&(*c<=0x11FF)) return 1; /* Hangul Jamo */
+	else if ((*c>=0xA960)&&(*c<=0xA97F)) return 1; /* Hangul Jamo Extended-A */
+	else if ((*c>=0xD7B0)&&(*c<=0xD7FF)) return 1; /* Hangul Jamo Extended-B */
+	else if ((*c>=0x3130)&&(*c<=0x318F)) return 1; /* Hangul Compatibility Jamo */
+	else if ((*c>=0xFFA0)&&(*c<=0xFFDC)) return 1; /* Hangul Halfwidth Jamo */
+	else if ((*c>=0x3200)&&(*c<=0x321E)) return 1; /* Enclosed CJK Letters and Months */
+	else if ((*c>=0x3260)&&(*c<=0x327E)) return 1; /* Enclosed CJK Letters and Months */
 	else return 0;
 }
 
-int is_cyrillic(UChar c)
+int is_cyrillic(UChar *c)
 {
-	if      ((c>=0x0400)&&(c<=0x052F)) return 1; /* Cyrillic, Cyrillic Supplement */
-	else if ((c>=0x2DE0)&&(c<=0x2DFF)) return 1; /* Cyrillic Extended-A */
-	else if ((c>=0xA640)&&(c<=0xA69F)) return 1; /* Cyrillic Extended-B */
+	if      ((*c>=0x0400)&&(*c<=0x052F)) return 1; /* Cyrillic, Cyrillic Supplement */
+	else if ((*c>=0x2DE0)&&(*c<=0x2DFF)) return 1; /* Cyrillic Extended-A */
+	else if ((*c>=0xA640)&&(*c<=0xA69F)) return 1; /* Cyrillic Extended-B */
 	else return 0;
 }
 
-int is_greek(UChar c)
+int is_greek(UChar *c)
 {
-	if      ((c>=0x0370)&&(c<=0x03FF)) return 1; /* Greek */
-	else if ((c>=0x1F00)&&(c<=0x1FFF)) return 1; /* Greek Extended */
+	if      ((*c>=0x0370)&&(*c<=0x03FF)) return 1; /* Greek */
+	else if ((*c>=0x1F00)&&(*c<=0x1FFF)) return 1; /* Greek Extended */
 	else return 0;
 }
 
-int is_comb_diacritical_mark(UChar c)
+int is_comb_diacritical_mark(UChar *c)
 {
-	if      ((c>=0x0300)&&(c<=0x036F)) return 1; /* Combining Diacritical Marks */
-	else if ((c>=0x1DC0)&&(c<=0x1DFF)) return 1; /* Combining Diacritical Marks Supplement */
-	else if ((c>=0x1AB0)&&(c<=0x1AFF)) return 1; /* Combining Diacritical Marks Extended */
-	else if ((c>=0x3099)&&(c<=0x309A)) return 1; /* Combining Kana Voiced Sound Marks */
+	if      ((*c>=0x0300)&&(*c<=0x036F)) return 1; /* Combining Diacritical Marks */
+	else if ((*c>=0x1DC0)&&(*c<=0x1DFF)) return 1; /* Combining Diacritical Marks Supplement */
+	else if ((*c>=0x1AB0)&&(*c<=0x1AFF)) return 1; /* Combining Diacritical Marks Extended */
+	else if ((*c>=0x3099)&&(*c<=0x309A)) return 1; /* Combining Kana Voiced Sound Marks */
 	else return 0;
 }
 
@@ -388,4 +375,21 @@ int chkcontinue(struct page *p, int num)
 	}
 
 	return 1;
+}
+
+int ss_comp(UChar *s1, UChar *s2)
+{
+	UCollationResult ret;
+
+/*   compare group   */
+	if (ordering(s1)<ordering(s2))
+		return -1;
+	if (ordering(s1)>ordering(s2))
+		return 1;
+
+/*   simple compare   */
+	ret = ucol_strcoll(icu_collator, s1, -1, s2, -1);
+	if (ret == UCOL_LESS) return -1;
+	else if (ret == UCOL_GREATER) return 1;
+	return 0;
 }
