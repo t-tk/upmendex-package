@@ -3,12 +3,16 @@
 \centerline{\bfseries --- a ---}\par\nobreak
   \item a\leaders\hbox{$\cdot$}\hfill 201
   \item A\leaders\hbox{$\cdot$}\hfill 101
+  \item aa\leaders\hbox{$\cdot$}\hfill 1000
+  \item az\leaders\hbox{$\cdot$}\hfill 1001
 
   \indexspace
 
 \centerline{\bfseries --- ą ---}\par\nobreak
   \item ą\leaders\hbox{$\cdot$}\hfill 260
   \item Ą\leaders\hbox{$\cdot$}\hfill 160
+  \item ąa\leaders\hbox{$\cdot$}\hfill 1002
+  \item ąz\leaders\hbox{$\cdot$}\hfill 1003
 
   \indexspace
 
@@ -21,17 +25,21 @@
 \centerline{\bfseries --- c ---}\par\nobreak
   \item c\leaders\hbox{$\cdot$}\hfill 203
   \item C\leaders\hbox{$\cdot$}\hfill 103
+  \item ca\leaders\hbox{$\cdot$}\hfill 2000
   \item cg\leaders\hbox{$\cdot$}\hfill 2001
   \item ch\leaders\hbox{$\cdot$}\hfill 2002
-  \item cha\leaders\hbox{$\cdot$}\hfill 2004
-  \item chz\leaders\hbox{$\cdot$}\hfill 2005
+  \item cha\leaders\hbox{$\cdot$}\hfill 2005
+  \item chz\leaders\hbox{$\cdot$}\hfill 2006
   \item ci\leaders\hbox{$\cdot$}\hfill 2003
+  \item cz\leaders\hbox{$\cdot$}\hfill 2004
 
   \indexspace
 
 \centerline{\bfseries --- ć ---}\par\nobreak
   \item ć\leaders\hbox{$\cdot$}\hfill 261
   \item Ć\leaders\hbox{$\cdot$}\hfill 161
+  \item ća\leaders\hbox{$\cdot$}\hfill 2007
+  \item ćz\leaders\hbox{$\cdot$}\hfill 2008
 
   \indexspace
 
@@ -44,12 +52,16 @@
 \centerline{\bfseries --- e ---}\par\nobreak
   \item e\leaders\hbox{$\cdot$}\hfill 205
   \item E\leaders\hbox{$\cdot$}\hfill 105
+  \item ea\leaders\hbox{$\cdot$}\hfill 3000
+  \item ez\leaders\hbox{$\cdot$}\hfill 3001
 
   \indexspace
 
 \centerline{\bfseries --- ę ---}\par\nobreak
   \item ę\leaders\hbox{$\cdot$}\hfill 262
   \item Ę\leaders\hbox{$\cdot$}\hfill 162
+  \item ęa\leaders\hbox{$\cdot$}\hfill 3002
+  \item ęz\leaders\hbox{$\cdot$}\hfill 3003
 
   \indexspace
 
@@ -92,12 +104,16 @@
 \centerline{\bfseries --- l ---}\par\nobreak
   \item l\leaders\hbox{$\cdot$}\hfill 212
   \item L\leaders\hbox{$\cdot$}\hfill 112
+  \item la\leaders\hbox{$\cdot$}\hfill 4000
+  \item lz\leaders\hbox{$\cdot$}\hfill 4001
 
   \indexspace
 
 \centerline{\bfseries --- ł ---}\par\nobreak
   \item ł\leaders\hbox{$\cdot$}\hfill 263
   \item Ł\leaders\hbox{$\cdot$}\hfill 163
+  \item ła\leaders\hbox{$\cdot$}\hfill 4002
+  \item łz\leaders\hbox{$\cdot$}\hfill 4003
 
   \indexspace
 
@@ -110,24 +126,32 @@
 \centerline{\bfseries --- n ---}\par\nobreak
   \item n\leaders\hbox{$\cdot$}\hfill 214
   \item N\leaders\hbox{$\cdot$}\hfill 114
+  \item na\leaders\hbox{$\cdot$}\hfill 5000
+  \item nz\leaders\hbox{$\cdot$}\hfill 5001
 
   \indexspace
 
 \centerline{\bfseries --- ń ---}\par\nobreak
   \item ń\leaders\hbox{$\cdot$}\hfill 264
   \item Ń\leaders\hbox{$\cdot$}\hfill 164
+  \item ńa\leaders\hbox{$\cdot$}\hfill 5002
+  \item ńz\leaders\hbox{$\cdot$}\hfill 5003
 
   \indexspace
 
 \centerline{\bfseries --- o ---}\par\nobreak
   \item o\leaders\hbox{$\cdot$}\hfill 215
   \item O\leaders\hbox{$\cdot$}\hfill 115
+  \item oa\leaders\hbox{$\cdot$}\hfill 6000
+  \item oz\leaders\hbox{$\cdot$}\hfill 6001
 
   \indexspace
 
 \centerline{\bfseries --- ó ---}\par\nobreak
   \item ó\leaders\hbox{$\cdot$}\hfill 265
   \item Ó\leaders\hbox{$\cdot$}\hfill 165
+  \item óa\leaders\hbox{$\cdot$}\hfill 6002
+  \item óz\leaders\hbox{$\cdot$}\hfill 6003
 
   \indexspace
 
@@ -152,12 +176,16 @@
 \centerline{\bfseries --- s ---}\par\nobreak
   \item s\leaders\hbox{$\cdot$}\hfill 219
   \item S\leaders\hbox{$\cdot$}\hfill 119
+  \item sa\leaders\hbox{$\cdot$}\hfill 7000
+  \item sz\leaders\hbox{$\cdot$}\hfill 7001
 
   \indexspace
 
 \centerline{\bfseries --- ś ---}\par\nobreak
   \item ś\leaders\hbox{$\cdot$}\hfill 266
   \item Ś\leaders\hbox{$\cdot$}\hfill 166
+  \item śa\leaders\hbox{$\cdot$}\hfill 7002
+  \item śz\leaders\hbox{$\cdot$}\hfill 7003
 
   \indexspace
 
@@ -200,17 +228,23 @@
 \centerline{\bfseries --- z ---}\par\nobreak
   \item z\leaders\hbox{$\cdot$}\hfill 226
   \item Z\leaders\hbox{$\cdot$}\hfill 126
+  \item za\leaders\hbox{$\cdot$}\hfill 8000
+  \item zz\leaders\hbox{$\cdot$}\hfill 8001
 
   \indexspace
 
 \centerline{\bfseries --- ź ---}\par\nobreak
   \item ź\leaders\hbox{$\cdot$}\hfill 267
   \item Ź\leaders\hbox{$\cdot$}\hfill 167
+  \item źa\leaders\hbox{$\cdot$}\hfill 8002
+  \item źz\leaders\hbox{$\cdot$}\hfill 8003
 
   \indexspace
 
 \centerline{\bfseries --- ż ---}\par\nobreak
   \item ż\leaders\hbox{$\cdot$}\hfill 268
   \item Ż\leaders\hbox{$\cdot$}\hfill 168
+  \item ża\leaders\hbox{$\cdot$}\hfill 8004
+  \item żz\leaders\hbox{$\cdot$}\hfill 8005
 
 \end{theindex}

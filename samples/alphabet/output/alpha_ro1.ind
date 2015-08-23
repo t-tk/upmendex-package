@@ -3,18 +3,24 @@
 \centerline{\bfseries --- A ---}\par\nobreak
   \item a\leaders\hbox{$\cdot$}\hfill 201
   \item A\leaders\hbox{$\cdot$}\hfill 101
+  \item aa\leaders\hbox{$\cdot$}\hfill 1000
+  \item az\leaders\hbox{$\cdot$}\hfill 1001
 
   \indexspace
 
 \centerline{\bfseries --- Ă ---}\par\nobreak
   \item ă\leaders\hbox{$\cdot$}\hfill 260
   \item Ă\leaders\hbox{$\cdot$}\hfill 160
+  \item ăa\leaders\hbox{$\cdot$}\hfill 1002
+  \item ăz\leaders\hbox{$\cdot$}\hfill 1003
 
   \indexspace
 
 \centerline{\bfseries --- Â ---}\par\nobreak
   \item â\leaders\hbox{$\cdot$}\hfill 261
   \item Â\leaders\hbox{$\cdot$}\hfill 161
+  \item âa\leaders\hbox{$\cdot$}\hfill 1004
+  \item âz\leaders\hbox{$\cdot$}\hfill 1005
 
   \indexspace
 
@@ -63,12 +69,16 @@
 \centerline{\bfseries --- I ---}\par\nobreak
   \item i\leaders\hbox{$\cdot$}\hfill 209
   \item I\leaders\hbox{$\cdot$}\hfill 109
+  \item ia\leaders\hbox{$\cdot$}\hfill 2000
+  \item iz\leaders\hbox{$\cdot$}\hfill 2001
 
   \indexspace
 
 \centerline{\bfseries --- Î ---}\par\nobreak
   \item î\leaders\hbox{$\cdot$}\hfill 262
   \item Î\leaders\hbox{$\cdot$}\hfill 162
+  \item îa\leaders\hbox{$\cdot$}\hfill 2002
+  \item îz\leaders\hbox{$\cdot$}\hfill 2003
 
   \indexspace
 
@@ -129,24 +139,32 @@
 \centerline{\bfseries --- S ---}\par\nobreak
   \item s\leaders\hbox{$\cdot$}\hfill 219
   \item S\leaders\hbox{$\cdot$}\hfill 119
+  \item sa\leaders\hbox{$\cdot$}\hfill 3000
+  \item sz\leaders\hbox{$\cdot$}\hfill 3001
 
   \indexspace
 
 \centerline{\bfseries --- Ș ---}\par\nobreak
   \item ș\leaders\hbox{$\cdot$}\hfill 263
   \item Ș\leaders\hbox{$\cdot$}\hfill 163
+  \item șa\leaders\hbox{$\cdot$}\hfill 3002
+  \item șz\leaders\hbox{$\cdot$}\hfill 3003
 
   \indexspace
 
 \centerline{\bfseries --- T ---}\par\nobreak
   \item t\leaders\hbox{$\cdot$}\hfill 220
   \item T\leaders\hbox{$\cdot$}\hfill 120
+  \item ta\leaders\hbox{$\cdot$}\hfill 4000
+  \item tz\leaders\hbox{$\cdot$}\hfill 4001
 
   \indexspace
 
 \centerline{\bfseries --- Ț ---}\par\nobreak
   \item ț\leaders\hbox{$\cdot$}\hfill 264
   \item Ț\leaders\hbox{$\cdot$}\hfill 164
+  \item ța\leaders\hbox{$\cdot$}\hfill 4002
+  \item țz\leaders\hbox{$\cdot$}\hfill 4003
 
   \indexspace
 
