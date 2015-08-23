@@ -154,7 +154,7 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 	int conv_euc_to_euc;
 	UErrorCode perr;
 
-	if (filename[0]!='\0' && kpse_out_name_ok(filename)) fp=fopen(filename,"wb");
+	if (filename && kpse_out_name_ok(filename)) fp=fopen(filename,"wb");
 	else {
 		fp=stdout;
 #ifdef WIN32
@@ -402,7 +402,7 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 	}
 	fputs(postamble,fp);
 
-	if (filename[0]!='\0') fclose(fp);
+	if (filename) fclose(fp);
 }
 
 /*   write page block   */

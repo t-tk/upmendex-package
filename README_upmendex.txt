@@ -21,7 +21,7 @@ source/ :: sources
 samples/ :: samples for test
 
 [ Building upmendex ]
-The sources work with TeXLive svn r38182 .
+The sources work with TeXLive svn r38186 .
 Ref. TeXLive and Subversion  http://www.tug.org/texlive/svn/
 Tested with ICU 55.1 .
 
