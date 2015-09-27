@@ -8,5 +8,5 @@ lethead_flag 1
 lethead_prefix "\n\\centerline{\\bfseries --- "
 lethead_suffix  " ---}\\par\\nobreak"
 
-character_order  "NSKJHGCL"
+icu_locale  "zh@collation=stroke"
 
