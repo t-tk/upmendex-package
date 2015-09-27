@@ -129,11 +129,15 @@ void styread(const char *filename)
 			continue;
 		}
 		if (getparam(buff,"atama",tmp)) {
-			multibyte_to_widechar(atama,2048,tmp);
+			multibyte_to_widechar(atama,STYBUFSIZE,tmp);
 			continue;
 		}
 		if (getparam(buff,"tumunja",tmp)) {
-			multibyte_to_widechar(tumunja,2048,tmp);
+			multibyte_to_widechar(tumunja,STYBUFSIZE,tmp);
+			continue;
+		}
+		if (getparam(buff,"hanzi_head",tmp)) {
+			multibyte_to_widechar(hanzi_head,STYBUFSIZE,tmp);
 			continue;
 		}
 		if (getparam(buff,"page_compositor",page_compositor)) continue;

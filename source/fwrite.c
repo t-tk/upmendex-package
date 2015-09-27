@@ -6,6 +6,7 @@
 #include <unicode/unorm2.h>
 
 #include "exkana.h"
+#include "exhanzi.h"
 #include "exvar.h"
 
 int line_length=0;
@@ -14,8 +15,9 @@ static void printpage(struct index *ind, FILE *fp, int num, char *lbuff);
 static int range_check(struct index ind, int count, char *lbuff);
 static void linecheck(char *lbuff, char *tmpbuff);
 static void crcheck(char *lbuff, FILE *fp);
-static void index_normalize(UChar *istr, UChar *ini);
+static void index_normalize(UChar *istr, UChar *ini, int *chset);
 static int initial_cmp_char(UChar *ini, UChar ch);
+static int init_hanzi_header(void);
 static const UNormalizer2* unormalizer_NFD;
 
 #define M_NONE      0
@@ -28,7 +30,6 @@ static const UNormalizer2* unormalizer_NFD;
 
 /* All buffers have size BUFFERLEN.  */
 #define BUFFERLEN 4096
-#define INITIALLEN 4
 
 #ifdef HAVE___VA_ARGS__
 /* Use C99 variadic macros if they are supported.  */
@@ -149,9 +150,9 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 {
 	int i,j,hpoint=0,tpoint=0;
 	char lbuff[BUFFERLEN],obuff[BUFFERLEN];
-	UChar datama[256],initial[INITIALLEN],initial_prev[INITIALLEN];
+	UChar datama[256],initial[INITIALLENGTH],initial_prev[INITIALLENGTH];
+	int chset,chset_prev;
 	FILE *fp;
-	int conv_euc_to_euc;
 	UErrorCode perr;
 
 	if (filename && kpse_out_name_ok(filename)) fp=fopen(filename,"wb");
@@ -172,9 +173,9 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 	unormalizer_NFD=unorm2_getInstance(NULL, "nfc", UNORM2_DECOMPOSE, &perr);
 
 	for (i=line_length=0;i<lines;i++) {
-		index_normalize(ind[i].dic[0], initial);
+		index_normalize(ind[i].dic[0], initial, &chset);
 		if (i==0) {
-			if (is_latin(initial)||is_cyrillic(initial)||is_greek(initial)) {
+			if ((CH_LATIN<=chset&&chset<=CH_GREEK) || chset==CH_HANZI) {
 				if (lethead_flag!=0) {
 					fputs(lethead_prefix,fp);
 					fprint_uchar(fp,initial,lethead_flag,-1);
@@ -183,7 +184,7 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 				widechar_to_multibyte(obuff,BUFFERLEN,ind[i].idx[0]);
 				SPRINTF(lbuff,"%s%s",item_0,obuff);
 			}
-			else if (is_jpn_kana(initial)) {
+			else if (chset==CH_KANA) {
 				if (lethead_flag!=0) {
 					fputs(lethead_prefix,fp);
 					for (j=hpoint;j<(u_strlen(datama));j++) {
@@ -206,7 +207,7 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 					}
 				}
 			}
-			else if (is_kor_hngl(initial)) {
+			else if (chset==CH_HANGUL) {
 				if (lethead_flag!=0) {
 					fputs(lethead_prefix,fp);
 					for (j=tpoint;j<(u_strlen(tumunja));j++) {
@@ -269,9 +270,9 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 			printpage(ind,fp,i,lbuff);
 		}
 		else {
-			index_normalize(ind[i-1].dic[0], initial_prev);
-			if (is_latin(initial)||is_cyrillic(initial)||is_greek(initial)) {
-				if (ss_comp(initial,initial_prev)) {
+			index_normalize(ind[i-1].dic[0], initial_prev, &chset_prev);
+			if ((CH_LATIN<=chset&&chset<=CH_GREEK) || chset==CH_HANZI) {
+				if (chset!=chset_prev || ss_comp(initial,initial_prev)) {
 					fputs(group_skip,fp);
 					if (lethead_flag!=0) {
 						fputs(lethead_prefix,fp);
@@ -280,7 +281,7 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 					}
 				}
 			}
-			else if (is_jpn_kana(initial)) {
+			else if (chset==CH_KANA) {
 				for (j=hpoint;j<(u_strlen(datama));j++) {
 					if (initial_cmp_char(initial,datama[j])) {
 						break;
@@ -304,7 +305,7 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 					}
 				}
 			}
-			else if (is_kor_hngl(initial)) {
+			else if (chset==CH_HANGUL) {
 				for (j=tpoint;j<(u_strlen(tumunja));j++) {
 					if (initial_cmp_char(initial,tumunja[j])) {
 						break;
@@ -329,9 +330,7 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 				}
 			}
 			else {
-				if ((is_latin(initial_prev))||is_cyrillic(initial_prev)
-					||is_greek(initial_prev)||(is_jpn_kana(initial_prev)
-					||is_kor_hngl(initial_prev))){
+				if (CH_LATIN<=chset_prev&&chset_prev<=CH_HANZI){
 					fputs(group_skip,fp);
 					if (lethead_flag!=0 && symbol_flag) {
 						if (strlen(symbol)) {
@@ -624,14 +623,16 @@ static void crcheck(char *lbuff, FILE *fp)
 	}
 }
 
-static void index_normalize(UChar *istr, UChar *ini)
+static void index_normalize(UChar *istr, UChar *ini, int *chset)
 {
-	int k;
+	int k, len, hi, lo, mi;
 	UChar ch,src[2],dest[8],strX[4],strY[4],strZ[4];
 	UErrorCode perr;
 	UCollationResult order;
+	static int hanzi_mode=0;
 
 	ch=istr[0];
+	*chset=charset(istr);
 	ini[1]=L'\0';
 
 	if (is_hiragana(ch)) {
@@ -648,7 +649,7 @@ static void index_normalize(UChar *istr, UChar *ini)
 		ini[0]=ch;
 		return;
 	}
-	else if (ch==0x309F) { ini[0]=0x30E8; return; } /* HIRAGANA YORI */
+	else if (ch==0x309F) { ini[0]=0x30E8; return; }  /* HIRAGANA YORI */
 	else if (ch==0x30FF) { ini[0]=0x30B3; return; }  /* KATAKANA KOTO */
 	else if (is_kor_hngl(&ch)) {
 		if ((ch>=0xAC00)&&(ch<=0xD7AF)) {               /* Hangul Syllables */
@@ -712,6 +713,26 @@ static void index_normalize(UChar *istr, UChar *ini)
 				ch=0x1112; break; /* ᄒ */
 		}
 		ini[0]=ch;
+		return;
+	}
+	else if (len=is_hanzi(istr)) {
+		if (hanzi_mode==0) hanzi_mode=init_hanzi_header();
+		if (hanzi_mode==HANZI_UNKNOWN) {
+			u_strcpy(ini, hz_index[0].idx);
+			return;
+		}
+		            strX[0]  =istr[0];
+		if (len==2) strX[1]  =istr[1];
+		            strX[len]=L'\0';
+		lo=0;  hi=hz_index_len;
+		while (lo<hi) {
+			mi = (lo+hi)/2;
+			u_strcpy(strZ,hz_index[mi].threshold);
+			order = ucol_strcoll(icu_collator, strZ, -1, strX, -1);
+			if (order!=UCOL_GREATER) lo=mi+1;
+			else hi=mi;
+		}
+		u_strcpy(ini,hz_index[lo-1].idx);
 		return;
 	}
 	else if (ch==0x0C6||ch==0x0E6||ch==0x152||ch==0x153||ch==0x132||ch==0x133
@@ -820,10 +841,68 @@ static void index_normalize(UChar *istr, UChar *ini)
 
 static int initial_cmp_char(UChar *ini, UChar ch)
 {
-	UChar initial_tmp[INITIALLEN],istr[2];
+	UChar initial_tmp[INITIALLENGTH],istr[2];
+	int chset;
 	istr[0]=ch;
 	istr[1]=L'\0';
 
-	index_normalize(istr, initial_tmp);
+	index_normalize(istr, initial_tmp, &chset);
 	return (ss_comp(ini, initial_tmp)<0);
+}
+
+static int init_hanzi_header(void)
+{
+	UChar strX[2],*pch0,*pch1;
+	int k, hzmode;
+	struct hanzi_index *hz_idx_init;
+
+	strX[0]=0x5B57;  strX[1]=L'\0';
+	if (ucol_strcoll(icu_collator, strX, -1, HZ_RADICAL[0].threshold, -1)==UCOL_GREATER) {
+		hzmode=HANZI_UNIHAN;
+		hz_idx_init=HZ_RADICAL;
+	} else
+	if (ucol_strcoll(icu_collator, strX, -1, HZ_STROKE[0].threshold, -1)==UCOL_GREATER) {
+		hzmode=HANZI_STROKE;
+		hz_idx_init=HZ_STROKE;
+	} else
+	if (ucol_strcoll(icu_collator, strX, -1, HZ_PINYIN[0].threshold, -1)==UCOL_GREATER) {
+		hzmode=HANZI_PINYIN;
+		hz_idx_init=HZ_PINYIN;
+	} else
+	if (ucol_strcoll(icu_collator, strX, -1, HZ_ZHUYIN[0].threshold, -1)==UCOL_GREATER) {
+		hzmode=HANZI_ZHUYIN;
+		hz_idx_init=HZ_ZHUYIN;
+	}
+	else {
+		hzmode=HANZI_UNKNOWN;
+		hz_idx_init=HZ_UNKNOWN;
+	}
+	for (k=0;k<HZIDXSIZE;k++) {
+		hz_index[k]=hz_idx_init[k];
+		if (!hz_index[k].idx[0]) break;
+	}
+	hz_index_len=k;
+
+	pch0=hanzi_head;
+	for (k=0;k<hz_index_len;k++) {
+		if (u_strlen(pch0)==0) break;
+		if ((pch1=u_strchr(pch0,L';'))>0) {
+			if (pch1-pch0>=INITIALLENGTH) {
+				warn_printf(efp, "\nWarning, Too long hanzi header.\n");
+				break;
+			}
+			u_strncpy(hz_index[k].idx,pch0,pch1-pch0);
+			hz_index[k].idx[pch1-pch0]=L'\0';
+			pch0=pch1+1;
+		} else {
+			if (u_strlen(pch0)>=INITIALLENGTH) {
+				warn_printf(efp, "\nWarning, Too long hanzi header.\n");
+				break;
+			}
+			u_strcpy(hz_index[k].idx,pch0);
+			break;
+		}
+	}
+
+	return hzmode;
 }

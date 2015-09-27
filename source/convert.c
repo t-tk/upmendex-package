@@ -195,7 +195,7 @@ int convert(UChar *buff1, UChar *buff2)
 			break;
 		}
 		else {
-			wclen = (U16_IS_SURROGATE_LEAD(buff1[i]) && U16_IS_SURROGATE_TRAIL(buff1[i+1])) ? 2 : 1;
+			wclen = is_surrogate_pair(&buff1[i]) ? 2 : 1;
 			              buff3[0]    =buff1[i];
 			if (wclen==2) buff3[1]    =buff1[i+1];
 			              buff3[wclen]=L'\0';
@@ -212,7 +212,7 @@ int convert(UChar *buff1, UChar *buff2)
 			}
 
 			else if (is_latin(buff3)||is_cyrillic(buff3)||is_greek(buff3)
-					||is_jpn_kana(buff3)||is_kor_hngl(buff3)
+				 ||is_jpn_kana(buff3)||is_kor_hngl(buff3)||is_zhuyin(buff3)
 					||is_comb_diacritical_mark(buff3)) {
 				buff2[j]=buff3[0];
 				i++;
@@ -259,10 +259,12 @@ int convert(UChar *buff1, UChar *buff2)
 						}
 					}
 					if (((k==dlines)&&(elines==0))||((k==elines)&&(elines!=0))) {
-						if (force==1) {
+						if (is_hanzi(buff3) || force==1) {
 /*   forced convert   */
+							buff2[j]=buff3[0];
+							if (wclen==2) buff2[j+1]=buff3[1];
 							i+=wclen;
-							buff2[j++]=buff3[0];
+							j+=wclen;
 						}
 						else {
 							widechar_to_multibyte(errbuff2,4096,&buff1[i]);

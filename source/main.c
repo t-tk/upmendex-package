@@ -3,6 +3,7 @@
 #include <kpathsea/variable.h>
 
 #include "kana.h"
+#include "hanzi.h"
 #include "var.h"
 
 #include "kp.h"
@@ -18,7 +19,7 @@ char *styfile,*idxfile[256],*indfile,*dicfile,*logfile;
 #endif
 KpathseaSupportInfo kp_ist,kp_dict;
 
-#define VERSION "version 0.04"
+#define VERSION "version 0.05"
 
 int main(int argc, char **argv)
 {

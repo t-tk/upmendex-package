@@ -1,3 +1,15 @@
+2015-09-27  TANAKA Takuji  <ttk@t-lab.opal.ne.jp>
+
+	* version 0.05  Alpha version.
+	Support Hanzi ideograph (Han script) indexing.
+	It works when icu_locale is
+	"zh@collation=unihan", "ja@collation=unihan",
+	"ko@collation=unihan" (radical-stroke),
+	"zh@collation=stroke" (stroke),
+	"zh" (pinyin)  or "zh@collation=zhuyin" (zhuyin).
+	Fix bug on surrogate pair.
+	Update samples.
+
 2015-08-23  TANAKA Takuji  <ttk@t-lab.opal.ne.jp>
 
 	* version 0.04  Alpha version.

@@ -27,6 +27,13 @@ struct index {
 	int lnum;
 };
 
+#define INITIALLENGTH 10
+
+struct hanzi_index {
+	UChar idx[INITIALLENGTH];
+	UChar threshold[3];
+};
+
 /* convert.c */
 UChar *u_xstrdup (const UChar *string);
 void initkanatable(void);
@@ -45,6 +52,8 @@ int is_latin(UChar *c);
 int is_numeric(UChar *c);
 int is_jpn_kana(UChar *c);
 int is_kor_hngl(UChar *c);
+int is_hanzi(UChar *c);
+int is_zhuyin(UChar *c);
 int is_cyrillic(UChar *c);
 int is_greek(UChar *c);
 int is_comb_diacritical_mark(UChar *c);
@@ -57,8 +66,12 @@ int ss_comp(UChar *s1, UChar *s2);
 #define CH_GREEK        3
 #define CH_KANA         4
 #define CH_HANGUL       5
+#define CH_HANZI        6
 #define CH_SYMBOL   0x100
 #define CH_NUMERIC  0x101
+
+/* sort.c */
+int charset(UChar *c);
 
 /* styfile.c */
 void styread(const char *filename);
@@ -77,6 +90,7 @@ struct index;
 void indwrite(char *filename, struct index *ind, int pagenum);
 
 #define  multibytelen(a)  ((a)<0xc2 ? 1 : ((a)<0xc2 ? -2 : ((a)<0xe0 ? 2 : ((a)<0xf0 ? 3 : ((a)<0xf5 ? 4 : -1)))))
+#define  is_surrogate_pair(a)   (U16_IS_SURROGATE_LEAD(*(a)) && U16_IS_SURROGATE_TRAIL(*(a+1)))
 
 #ifdef WIN32
 #undef fprintf

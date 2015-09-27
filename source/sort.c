@@ -4,12 +4,11 @@
 #include "exkana.h"
 #include "exvar.h"
 
-int sym,nmbr,ltn,kana,hngl,cyr,grk;
+int sym,nmbr,ltn,kana,hngl,hnz,cyr,grk;
 
 static int wcomp(const void *p, const void *q);
 static int pcomp(const void *p, const void *q);
 static int ordering(UChar *c);
-static int charset(UChar *c);
 
 /*   sort index   */
 void wsort(struct index *ind, int num)
@@ -43,6 +42,10 @@ void wsort(struct index *ind, int num)
 			hngl=order++;
 			break;
 
+		case 'H':
+			hnz=order++;
+			break;
+
 		case 'C':
 			cyr=order++;
 			break;
@@ -63,6 +66,7 @@ BREAK:
 	if (ltn==0) ltn=order++;
 	if (kana==0) kana=order++;
 	if (hngl==0) hngl=order++;
+	if (hnz==0) hnz=order++;
 	if (cyr==0) cyr=order++;
 	if (grk==0) grk=order++;
 
@@ -121,11 +125,14 @@ static int wcomp(const void *p, const void *q)
 					break;
 				}
 				if (k==0) continue;
-				if (charset(&str1[k-1])!=charset(&str1[k])) {
+				if (k>0 && is_surrogate_pair(&str1[k-1])) continue;
+				if (k>1 && is_surrogate_pair(&str1[k-2])) l = k-2;
+				else l = k-1;
+				if (charset(&str1[l])!=charset(&str1[k])) {
 					if (is_comb_diacritical_mark(&str1[k])) {
 						continue;
 					}
-					len1=k-1;
+					len1=k;
 					break;
 				}
 			}
@@ -135,11 +142,14 @@ static int wcomp(const void *p, const void *q)
 					break;
 				}
 				if (k==0) continue;
-				if (charset(&str2[k-1])!=charset(&str2[k])) {
+				if (k>0 && is_surrogate_pair(&str2[k-1])) continue;
+				if (k>1 && is_surrogate_pair(&str2[k-2])) l = k-2;
+				else l = k-1;
+				if (charset(&str2[l])!=charset(&str2[k])) {
 					if (is_comb_diacritical_mark(&str2[k])) {
 						continue;
 					}
-					len2=k-1;
+					len2=k;
 					break;
 				}
 			}
@@ -246,13 +256,14 @@ static int ordering(UChar *c)
 		if (is_latin(c)) return ltn;
 		else if (is_jpn_kana(c)) return kana;
 		else if (is_kor_hngl(c)) return hngl;
+		else if (is_hanzi(c))    return hnz;
 		else if (is_cyrillic(c)) return cyr;
 		else if (is_greek(c))    return grk;
 		else return sym;
 	}
 }
 
-static int charset(UChar *c)
+int charset(UChar *c)
 {
 	if (*c==0x00) return CH_UNKNOWN;
 	else if (*c<0x80) {
@@ -264,6 +275,7 @@ static int charset(UChar *c)
 		if (is_latin(c)) return CH_LATIN;
 		else if (is_jpn_kana(c)) return CH_KANA;
 		else if (is_kor_hngl(c)) return CH_HANGUL;
+		else if (is_hanzi(c))    return CH_HANZI;
 		else if (is_cyrillic(c)) return CH_CYRILLIC;
 		else if (is_greek(c))    return CH_GREEK;
 		else return CH_SYMBOL;
@@ -317,6 +329,33 @@ int is_kor_hngl(UChar *c)
 	else return 0;
 }
 
+int is_hanzi(UChar *c)
+{
+	UChar32 c32;
+
+	if      ((*c>=0x2E80)&&(*c<=0x2EFF)) return 1; /* CJK Radicals Supplement */
+	else if ((*c>=0x2F00)&&(*c<=0x2FDF)) return 1; /* Kangxi Radicals */
+	else if ((*c>=0x31C0)&&(*c<=0x31EF)) return 1; /* CJK Strokes */
+	else if ((*c>=0x3300)&&(*c<=0x33FF)) return 1; /* CJK Compatibility */
+	else if ((*c>=0x3400)&&(*c<=0x4DBF)) return 1; /* CJK Unified Ideographs Extension A */
+	else if ((*c>=0x4E00)&&(*c<=0x9FFF)) return 1; /* CJK Unified Ideographs */
+	else if ((*c>=0xF900)&&(*c<=0xFAFF)) return 1; /* CJK Compatibility Ideographs */
+
+	if (is_surrogate_pair(c)) {
+		c32=U16_GET_SUPPLEMENTARY(*c,*(c+1));
+		if ((c32>=0x20000) &&         /* CJK Unified Ideographs Extension B,C,D,E */
+		    (c32<=0x2FA1F)) return 2; /* CJK Compatibility Ideographs Supplement */
+	}
+	return 0;
+}
+
+int is_zhuyin(UChar *c)
+{
+	if      ((*c>=0x3100)&&(*c<=0x312F)) return 1; /* Bopomofo */
+	else if ((*c>=0x31A0)&&(*c<=0x31BF)) return 1; /* Bopomofo Extended */
+	else return 0;
+}
+
 int is_cyrillic(UChar *c)
 {
 	if      ((*c>=0x0400)&&(*c<=0x052F)) return 1; /* Cyrillic, Cyrillic Supplement */
@@ -334,7 +373,8 @@ int is_greek(UChar *c)
 
 int is_comb_diacritical_mark(UChar *c)
 {
-	if      ((*c>=0x0300)&&(*c<=0x036F)) return 1; /* Combining Diacritical Marks */
+	if      ((*c>=0x02B0)&&(*c<=0x02FF)) return 1; /* Spacing Modifier Letters */
+	else if ((*c>=0x0300)&&(*c<=0x036F)) return 1; /* Combining Diacritical Marks */
 	else if ((*c>=0x1DC0)&&(*c<=0x1DFF)) return 1; /* Combining Diacritical Marks Supplement */
 	else if ((*c>=0x1AB0)&&(*c<=0x1AFF)) return 1; /* Combining Diacritical Marks Extended */
 	else if ((*c>=0x3099)&&(*c<=0x309A)) return 1; /* Combining Kana Voiced Sound Marks */
