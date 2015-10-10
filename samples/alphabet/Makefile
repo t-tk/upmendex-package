@@ -17,7 +17,7 @@ alphabet: zh
 	done ; \
 	done
 	for num in 1 2 3; do \
-	for loc in cs hr hu sk sl srl; do \
+	for loc in az cs hr hu sk sl srl sq tr; do \
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_$$loc$$num.ist -o alpha_$$loc$$num.ind ; \
 	done ; \
 	done
