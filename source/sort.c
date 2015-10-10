@@ -296,6 +296,7 @@ int is_latin(UChar *c)
 	else if ((*c>=0x00D8)&&(*c<=0x00F6)) return 1;
 	else if ((*c>=0x00F8)&&(*c<=0x00FF)) return 1;
 	else if ((*c>=0x0100)&&(*c<=0x024F)) return 1; /* Latin Extended-A,B */
+	else if ((*c>=0x0250)&&(*c<=0x02AF)) return 1; /* IPA Extensions */
 	else if ((*c>=0x2C60)&&(*c<=0x2C7F)) return 1; /* Latin Extended-C */
 	else if ((*c>=0xA720)&&(*c<=0xA7FF)) return 1; /* Latin Extended-D */
 	else if ((*c>=0xAB30)&&(*c<=0xAB6F)) return 1; /* Latin Extended-E */

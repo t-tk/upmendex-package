@@ -19,6 +19,7 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset);
 static int initial_cmp_char(UChar *ini, UChar ch);
 static int init_hanzi_header(void);
 static const UNormalizer2* unormalizer_NFD;
+static int turkish_i;
 
 #define M_NONE      0
 #define M_TO_UPPER  1
@@ -69,7 +70,7 @@ static void fprint_uchar(FILE *fp, const UChar *a, const int mode, const int len
 {
 	int k;
 	char str[15], *ret;
-	UChar istr[5], jstr[5];
+	UChar istr[5];
 	int olen, wclen;
 	UErrorCode perr;
 
@@ -77,23 +78,20 @@ static void fprint_uchar(FILE *fp, const UChar *a, const int mode, const int len
 		for (k=0; a[k] || k<4; k++) istr[k]=a[k];
 		wclen=k;
 	} else {
-		wclen = (U16_IS_LEAD(a[0]) && U16_IS_TRAIL(a[1])) ? 2 : 1;
+		wclen = is_surrogate_pair(a) ? 2 : 1;
 			      istr[0]=a[0];
 		if (wclen==2) istr[1]=a[1];
 	}
 	istr[wclen]=L'\0';
 	if (mode==M_TO_UPPER) {
-		u_strcpy(jstr,istr);
 		perr = U_ZERO_ERROR;
-		u_strToUpper(istr,5,jstr,wclen,"",&perr);
+		u_strToUpper(istr,5,istr,wclen,"",&perr);
 	} else if (mode==M_TO_LOWER) {
-		u_strcpy(jstr,istr);
 		perr = U_ZERO_ERROR;
-		u_strToLower(istr,5,jstr,wclen,"",&perr);
+		u_strToLower(istr,5,istr,wclen, istr[0]==0x130&&turkish_i?"tr":"", &perr);
 	} else if (mode==M_TO_TITLE) {
-		u_strcpy(jstr,istr);
 		perr = U_ZERO_ERROR;
-		u_strToTitle(istr,5,jstr,wclen,NULL,"",&perr);
+		u_strToTitle(istr,5,istr,wclen,NULL,"",&perr);
 	}
 	perr = U_ZERO_ERROR;
 	ret = u_strToUTF8(str, 15, &olen, istr, wclen, &perr);
@@ -735,7 +733,18 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 		u_strcpy(ini,hz_index[lo-1].idx);
 		return;
 	}
-	else if (ch==0x0C6||ch==0x0E6||ch==0x152||ch==0x153||ch==0x132||ch==0x133
+	if (ch==0x049||ch==0x069||ch==0x130||ch==0x131||ch==0x0CE||ch==0x0EE) {
+		/* check dotted/dotless İ,I,i,ı and Î,î for Turkish */
+		strX[0] = 0x131;  strX[1] = 0x5A;  strX[2] = 0x00;  /* ıZ */
+		strZ[0] = 0x069;  strZ[1] = 0x00;                   /* i  */
+		order = ucol_strcoll(icu_collator, strZ, -1, strX, -1);
+		if (order==UCOL_GREATER) {
+			ini[0] = (ch==0x049||ch==0x131) ? 0x131 : 0x130; /* ı or İ */
+			turkish_i=1;
+			return;
+		}
+	}
+	if (ch==0x0C6||ch==0x0E6||ch==0x152||ch==0x153||ch==0x132||ch==0x133
 		||ch==0x0DF||ch==0x1E9E||ch==0x13F||ch==0x140||ch==0x490||ch==0x491) {
 		strX[0] = u_toupper(ch);  strX[1] = 0x00; /* ex. "Æ" "Œ" */
 		switch (ch) {
@@ -820,9 +829,11 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 			}
 		}
 		/* other digraphs */
-		if ((strX[0]==0x43 && strX[1]==0x48) ||                   /* CH */
+		if(((strX[0]==0x43 || strX[0]==0x44 || strX[0]==0x53 || strX[0]==0x54 || strX[0]==0x58 || strX[0]==0x5A)
+		                                     && strX[1]==0x48) || /* CH DH SH TH XH ZH */
 		    (strX[0]==0x4C && strX[1]==0x4C) ||                   /* LL */
-		   ((strX[0]==0x4C || strX[0]==0x4E) && strX[1]==0x4A) || /* LJ NJ */
+		   ((strX[0]==0x47 || strX[0]==0x4C || strX[0]==0x4E) && strX[1]==0x4A) || /* GJ LJ NJ */
+		    (strX[0]==0x52 && strX[1]==0x52) ||                   /* RR */
 		   ((strX[0]==0x43 || strX[0]==0x5A) && strX[1]==0x53) || /* CS ZS */
 		   ((strX[0]==0x47 || strX[0]==0x4C || strX[0]==0x4E || strX[0]==0x54) && strX[1]==0x59)) /* GY LY NY TY */
 		{
