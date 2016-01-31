@@ -1,3 +1,14 @@
+2016-01-31  TANAKA Takuji  <ttk@t-lab.opal.ne.jp>
+
+	* version 0.50  Beta version.
+	Support option "icu_rules" in style file.
+	Support option "icu_attributes" in style file.
+	Support option "priority" in style file
+	as similar to mendex.
+	Refine and fix several bugs in sorting procedure.
+	Fix bug of -g option.
+	Update samples.
+
 2015-10-10  TANAKA Takuji  <ttk@t-lab.opal.ne.jp>
 
 	* version 0.06  Alpha version.

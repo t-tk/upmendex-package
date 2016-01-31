@@ -34,7 +34,7 @@ upmendex - 索引整形ツール
    -g      日本語の頭文字の区切りを "あかさた・・・わ" にします。指定しないと
            "あいうえ・・・わをん" になります。
 
-   -f      辞書ファイルにない漢字も強制的に出力するモードです。
+   -f      upmendexが未対応のスクリプト(言語)も強制的に出力するモードです。
 
    -s sty  sty ファイルをスタイルファイルと見なします。スタイルファイルを指定し
            なければ、デフォルトの索引形式で作成します。
@@ -288,14 +288,53 @@ upmendex - 索引整形ツール
 
    letter_head  <数値>
       1
-      日本語の頭文字の出力のフラグ。0のとき出力しない。1のときカタカナ、2のとき
-      ひらがなで出力する。((up)mendex専用)
+      日本語の頭文字の出力のフラグ。1のときカタカナ、2のときひらがなで出力する。
+      ((up)mendex専用)
+
+   priority  <数値>
+      0
+      日本語以外の文字(ラテン文字など)と日本語との混在した索引語のソート方法についてのフラグ。
+      0でなければ日本語以外の文字と日本語との間に半角スペースを入れた状態でソートする。
+      ((up)mendex専用)
 
    character_order  <文字列>
       "SNLGCJKH"
       記号、英字、日本語の優先順位。'S'は記号、'N'は数字、'L'はラテン文字、
       'G'はギリシャ文字、'C'はキリル文字、'J'は日本語(かな)、'K'はハングル、
       'H'は漢字を表す。(upmendex専用)
+
+   icu_locale  <文字列>
+      ""
+      ICU collatorにおいて従うlocale。
+      空文字列(デフォルト)のときは、"root sort order"に従う。
+      (upmendex専用)
+
+   icu_rules  <文字列>
+      ""
+      ICU collatorにおいてlocaleによらずに照合順序を指定する場合、
+      照合順序のルールを示す文字列。
+      ( Ref. http://userguide.icu-project.org/collation/customization
+             http://www.unicode.org/reports/tr35/tr35-collation.html#Rules )
+      UTF-8のUnicode文字及び、以下のエスケープ文字列が使用可能である:
+      \uhhhh (16進数[0-9A-Fa-f]を4桁), \Uhhhhhhhh (16進数を8桁),
+      \xhh (16進数を2桁), \x{h...} (16進数を1〜8桁), \ooo (8進数[0-7]を3桁)。
+      空文字列(デフォルト)のときは、localeによる照合順序のルールに従う。
+      (upmendex専用)
+
+   icu_attributes  <文字列>
+      ""
+      ICU collatorのattribute指定。
+      ( Ref. http://userguide.icu-project.org/collation/customization
+             http://www.unicode.org/reports/tr35/tr35-collation.html#Setting_Options )
+      以下の文字列を解釈する:
+      "alternate:shifted", "alternate:non-ignorable",
+      "strength:primary", "strength:secondary", "strength:tertiary",
+      "strength:quaternary", "strength:identical",
+      "french-collation:on", "french-collation:off",
+      "case-first:off", "case-first:upper-first", "case-first:lower-first",
+      "case-level:on", "case-level:off",
+      "normalization-mode:on", "normalization-mode:off"
+      (upmendex専用)
 
 
 日本語の扱いについて
@@ -342,6 +381,16 @@ upmendex - 索引整形ツール
     X Window            Xlib
     Xlib                XView
     XView               X Window
+
+  また、日本語〜日本語以外の文字(ラテン文字など)間でも似たようなソート方法があります。
+スタイルファイルでpriority に0以外を指定した場合、隣接した日本語と日本語以外の文字
+(ラテン文字など)の間にスペースを入れてソートします。
+
+  以下に例を示します。
+
+   priority=0          priority=1
+    index sort          indファイル
+    indファイル         index sort
 
 
 環境変数

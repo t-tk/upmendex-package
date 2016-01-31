@@ -7,6 +7,7 @@
 #include "kp.h"
 
 FILE *fp;
+static char icu_attr_str[STYBUFSIZE];
 
 static void convline(char *buff1, int start, char *buff2);
 static int scompare(char *buff1, const char *buff2);
@@ -15,6 +16,7 @@ static int getparachar(char *buff, const char *paraname, char *param);
 static size_t sstrlen(const char *buff);
 static int sstrcmp(const char *s1, const char *s2);
 static int sstrncmp(const char *s1, const char *s2, size_t len);
+static int escape_mode=0;
 
 static char *
 bfgets (char *buf, int size, FILE *fp)
@@ -144,6 +146,14 @@ void styread(const char *filename)
 		if (getparam(buff,"page_precedence",page_precedence)) continue;
 		if (getparam(buff,"character_order",character_order)) continue;
 		if (getparam(buff,"icu_locale",     icu_locale     )) continue;
+		cc=scompare(buff,"icu_rules");
+		if (cc!= -1) {
+			escape_mode=1;
+			getparam(buff,"icu_rules",icu_rules);
+			escape_mode=0;
+			continue;
+		}
+		if (getparam(buff,"icu_attributes", icu_attr_str   )) continue;
 	}
 	fclose(fp);
 }
@@ -187,7 +197,7 @@ static void convline(char *buff1, int start, char *buff2)
 				i--;
 				continue;
 			}
-			else if (buff1[i]=='\\') {
+			else if (buff1[i]=='\\' && !escape_mode) {
 				i++;
 				if (buff1[i]=='\\') buff2[j]='\\';
 				else if (buff1[i]=='n') buff2[j]='\n';
@@ -281,4 +291,53 @@ static int sstrncmp(const char *s1, const char *s2, size_t len)
 	if (s1 == NULL) return -1;
 	if (s2 == NULL) return 1;
 	return strncmp(s1, s2, len);
+}
+
+void set_icu_attributes()
+{
+	int i,attr;
+	char *pos, *tmp;
+
+	for (i=0;i<UCOL_ATTRIBUTE_COUNT;i++) icu_attributes[i]=UCOL_DEFAULT;
+	tmp=icu_attr_str;
+	if (pos=strstr(tmp,"alternate:")) {
+		pos+=10;  attr=UCOL_ALTERNATE_HANDLING;
+		if      (strstr(pos,"shifted"))       icu_attributes[attr]=UCOL_SHIFTED;
+		else if (strstr(pos,"non-ignorable")) icu_attributes[attr]=UCOL_NON_IGNORABLE;
+		else	verb_printf(efp,"\nWarning: Illegal input for icu_attributes (alternate).");
+	}
+	if (pos=strstr(tmp,"strength:")) {
+		pos+=9;   attr=UCOL_STRENGTH;
+		if      (strstr(pos,"primary"))       icu_attributes[attr]=UCOL_PRIMARY;
+		else if (strstr(pos,"secondary"))     icu_attributes[attr]=UCOL_SECONDARY;
+		else if (strstr(pos,"tertiary"))      icu_attributes[attr]=UCOL_TERTIARY;
+		else if (strstr(pos,"quaternary"))    icu_attributes[attr]=UCOL_QUATERNARY;
+		else if (strstr(pos,"identical"))     icu_attributes[attr]=UCOL_IDENTICAL;
+		else	verb_printf(efp,"\nWarning: Illegal input for icu_attributes (strength).");
+	}
+	if (pos=strstr(tmp,"french-collation:")) {
+		pos+=17;  attr=UCOL_FRENCH_COLLATION;
+		if      (strstr(pos,"on"))            icu_attributes[attr]=UCOL_ON;
+		else if (strstr(pos,"off"))           icu_attributes[attr]=UCOL_OFF;
+		else	verb_printf(efp,"\nWarning: Illegal input for icu_attributes (french-collation).");
+	}
+	if (pos=strstr(tmp,"case-first:")) {
+		pos+=11;  attr=UCOL_CASE_FIRST;
+		if      (strstr(pos,"off"))           icu_attributes[attr]=UCOL_OFF;
+		else if (strstr(pos,"upper-first"))   icu_attributes[attr]=UCOL_UPPER_FIRST;
+		else if (strstr(pos,"lower-first"))   icu_attributes[attr]=UCOL_LOWER_FIRST;
+		else	verb_printf(efp,"\nWarning: Illegal input for icu_attributes (case-first).");
+	}
+	if (pos=strstr(tmp,"case-level:")) {
+		pos+=11;  attr=UCOL_CASE_LEVEL;
+		if      (strstr(pos,"on"))            icu_attributes[attr]=UCOL_ON;
+		else if (strstr(pos,"off"))           icu_attributes[attr]=UCOL_OFF;
+		else	verb_printf(efp,"\nWarning: Illegal input for icu_attributes (case-level).");
+	}
+	if (pos=strstr(tmp,"normalization-mode:")) {
+		pos+=19;  attr=UCOL_NORMALIZATION_MODE;
+		if      (strstr(pos,"on"))            icu_attributes[attr]=UCOL_ON;
+		else if (strstr(pos,"off"))           icu_attributes[attr]=UCOL_OFF;
+		else	verb_printf(efp,"\nWarning: Illegal input for icu_attributes (normalization-mode).");
+	}
 }

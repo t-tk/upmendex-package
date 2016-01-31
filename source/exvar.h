@@ -34,6 +34,7 @@ extern int letter_head;
 extern UChar atama[],tumunja[],hanzi_head[];
 extern char page_compositor[],page_precedence[];
 extern char character_order[];
-extern char icu_locale[];
+extern char icu_locale[],icu_rules[];
+extern int icu_attributes[];
 
 extern UCollator * icu_collator;

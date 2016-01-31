@@ -9,12 +9,15 @@ int sym,nmbr,ltn,kana,hngl,hnz,cyr,grk;
 static int wcomp(const void *p, const void *q);
 static int pcomp(const void *p, const void *q);
 static int ordering(UChar *c);
+static int get_charset_juncture(UChar *str);
+static int unescape(const unsigned char *src, UChar *dist);
 
 /*   sort index   */
 void wsort(struct index *ind, int num)
 {
 	int i,order;
-	UErrorCode status = U_ZERO_ERROR;
+	UErrorCode status;
+	UChar rules[STYBUFSIZE];
 
 	for (order=1,i=0;;i++) {
 		switch (character_order[i]) {
@@ -70,9 +73,14 @@ BREAK:
 	if (cyr==0) cyr=order++;
 	if (grk==0) grk=order++;
 
-	icu_collator = ucol_open(icu_locale, &status);
+	status = U_ZERO_ERROR;
+	if (strlen(icu_rules)>0) {
+		unescape((unsigned char *)icu_rules, rules);
+		icu_collator = ucol_openRules(rules, -1, UCOL_OFF, UCOL_TERTIARY, NULL, &status);
+	} else
+		icu_collator = ucol_open(icu_locale, &status);
 	if (U_FAILURE(status)) {
-		verb_printf(efp, "\n[ICU] Collator creation failed.: %d\n", status);
+		verb_printf(efp, "\n[ICU] Collator creation failed.: %s\n", u_errorName(status));
 		exit(254);
 	}
 	if (status == U_USING_DEFAULT_WARNING) {
@@ -83,13 +91,23 @@ BREAK:
 		warn_printf(efp, "\nWarning, [ICU] U_USING_FALLBACK_WARNING for locale %s\n",
 			    icu_locale);
 	}
+	for (i=0;i<UCOL_ATTRIBUTE_COUNT;i++) {
+		if (icu_attributes[i]!=UCOL_DEFAULT) {
+			status = U_ZERO_ERROR;
+			ucol_setAttribute(icu_collator, i, icu_attributes[i], &status);
+		}
+		if (U_FAILURE(status)) {
+			warn_printf(efp, "\nWarning, [ICU] Failed to set attribute (%d): %s\n",
+				    i, u_errorName(status));
+		}
+	}
 	qsort(ind,num,sizeof(struct index),wcomp);
 }
 
 /*   compare for sorting index   */
 static int wcomp(const void *p, const void *q)
 {
-	int i, j, k, l, len1, len2;
+	int i, j, len1, len2, cmp;
 	const struct index *index1 = p, *index2 = q;
 	UChar ch1, ch2;
 	UChar *str1, *str2;
@@ -119,39 +137,13 @@ static int wcomp(const void *p, const void *q)
 /*   index2 is shorter   */
 			if (ch2==L'\0') return 1;
 
-			for(k=0;;k++) {
-				if (str1[k]==L'\0') {
-					len1=k;
-					break;
-				}
-				if (k==0) continue;
-				if (k>0 && is_surrogate_pair(&str1[k-1])) continue;
-				if (k>1 && is_surrogate_pair(&str1[k-2])) l = k-2;
-				else l = k-1;
-				if (charset(&str1[l])!=charset(&str1[k])) {
-					if (is_comb_diacritical_mark(&str1[k])) {
-						continue;
-					}
-					len1=k;
-					break;
-				}
-			}
-			for(k=0;;k++) {
-				if (str2[k]==L'\0') {
-					len2=k;
-					break;
-				}
-				if (k==0) continue;
-				if (k>0 && is_surrogate_pair(&str2[k-1])) continue;
-				if (k>1 && is_surrogate_pair(&str2[k-2])) l = k-2;
-				else l = k-1;
-				if (charset(&str2[l])!=charset(&str2[k])) {
-					if (is_comb_diacritical_mark(&str2[k])) {
-						continue;
-					}
-					len2=k;
-					break;
-				}
+/*   priority   */
+			if ((priority!=0)&&(i>0)) {
+				if ((is_jpn_kana(str1))&&(!is_jpn_kana(str2)))
+					return -1;
+
+				if ((is_jpn_kana(str2))&&(!is_jpn_kana(str1)))
+					return 1;
 			}
 
 /*   compare group   */
@@ -162,21 +154,27 @@ static int wcomp(const void *p, const void *q)
 				return 1;
 
 /*   simple compare   */
+			if (priority==0) len1=len2=-1;
+			else {
+				len1=get_charset_juncture(str1);
+				len2=get_charset_juncture(str2);
+			}
 			col_result = ucol_strcoll(icu_collator, str1, len1, str2, len2);
 			if (col_result == UCOL_LESS) return -1;
 			else if (col_result == UCOL_GREATER) return 1;
+
+			if (priority==0) break;
 		}
 
 /*   compare index   */
-		for (i=0;;i++) {
-			ch1=(*index1).idx[j][i];
-			ch2=(*index2).idx[j][i];
-			if ((ch1==L'\0')&&(ch2==L'\0')) break;
-			else if (ch1==L'\0') return -1;
-			else if (ch2==L'\0') return 1;
-			else if (ch1<ch2) return -1;
-			else if (ch1>ch2) return 1;
-		}
+		str1=&((*index1).idx[j][0]);
+		str2=&((*index2).idx[j][0]);
+		col_result = ucol_strcoll(icu_collator, str1, -1, str2, -1);
+		if (col_result == UCOL_LESS) return -1;
+		else if (col_result == UCOL_GREATER) return 1;
+		cmp=u_strcmp(str1,str2);
+		if (cmp<0) return -1;
+		else if (cmp>0) return 1;
 	}
 	return 0;
 }
@@ -282,6 +280,61 @@ int charset(UChar *c)
 	}
 }
 
+static int get_charset_juncture(UChar *str)
+{
+	int k, l, len, chset0, chset_k, chset_l;
+
+	chset0=CH_UNKNOWN;
+	for(k=0;;k++) {
+		if (str[k]==L'\0') {
+			len=k;
+			return len;
+		}
+		if (k==0) continue;
+		if (k>0 && is_surrogate_pair(&str[k-1])) continue;
+		if (k>1 && is_surrogate_pair(&str[k-2])) l = k-2;
+		else l = k-1;
+		chset_l=charset(&str[l]);
+		chset_k=charset(&str[k]);
+		if (chset0==CH_UNKNOWN && chset_l!=CH_SYMBOL && chset_l!=CH_NUMERIC) {
+			chset0=chset_l;
+		}
+		if (chset_k!=CH_SYMBOL && chset_k!=CH_NUMERIC) {
+			if (chset0!=chset_k) {
+				len=k;
+				return len;
+			}
+		}
+	}
+}
+
+static int unescape(const unsigned char *src, UChar *dist)
+{
+	int i,j,k;
+	unsigned char tmp[STYBUFSIZE];
+
+	for (i=j=0;i<STYBUFSIZE;i++) {
+		if (src[i]=='\0') {
+			return i;
+		}
+		else if (src[i]< 0x80 && (src[i+1]>=0x80 || src[i+1]=='\0')) {
+			strncpy(tmp,&src[j],i-j+1);
+			tmp[i-j+1]='\0';
+			k=u_strlen(dist);
+			u_unescape(tmp, &dist[k], STYBUFSIZE-k);
+			j=i+1;
+		}
+		else if (src[i]>=0x80 && (src[i+1]< 0x80 || src[i+1]=='\0')) {
+			strncpy(tmp,&src[j],i-j+1);
+			tmp[i-j+1]='\0';
+			k=u_strlen(dist);
+			multibyte_to_widechar(&dist[k], STYBUFSIZE-k, tmp);
+			j=i+1;
+		}
+	}
+	return -1;
+}
+
 int is_alphanumeric(UChar *c)
 {
 	if (((*c>=L'A')&&(*c<=L'Z'))||((*c>=L'a')&&(*c<=L'z'))||((*c>=L'0')&&(*c<=L'9')))
@@ -314,6 +367,7 @@ int is_numeric(UChar *c)
 int is_jpn_kana(UChar *c)
 {
 	if      ((*c>=0x3040)&&(*c<=0x30FF)) return 1; /* Hiragana, Katakana */
+	else if ((*c>=0x31F0)&&(*c<=0x31FF)) return 1; /* Katakana Phonetic Extensions */
 	else return 0;
 }
 

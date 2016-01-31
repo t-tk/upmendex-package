@@ -1,5 +1,5 @@
 upmendex  --- unicode version of mendex
-2015.10.10 Ver0.06
+2016.01.31 Ver0.50
 TANAKA, Takuji   ttk(at)t-lab(dot)opal(dot)ne(dot)jp
 
 [ About upmendex ]
@@ -22,12 +22,12 @@ source/ :: sources
 samples/ :: samples for test
 
 [ Building upmendex ]
-The sources work with TeXLive svn r38588 .
+The sources work with TeXLive svn r39498 .
 Ref. TeXLive and Subversion  http://www.tug.org/texlive/svn/
 Tested with ICU 56.1 .
 
 [ Status ]
-Alpha version.
+Beta version.
 No warranty.
 
 [ Copyright ]

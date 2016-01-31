@@ -26,8 +26,7 @@ static int turkish_i;
 #define M_TO_TITLE  2
 #define M_TO_LOWER  -1
 
-#define CHOSEONG_KIYEOK       0x1100
-#define CHOSEONG_TIKEUT_RIEUL 0x115E
+#define CHOSEONG_KIYEOK  0x1100
 
 /* All buffers have size BUFFERLEN.  */
 #define BUFFERLEN 4096
@@ -294,14 +293,6 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 						fputs(lethead_suffix,fp);
 					}
 				}
-				else if (!initial_cmp_char(initial,KATA_N) && ss_comp(initial_prev,initial)) {
-					fputs(group_skip,fp);
-					if (lethead_flag!=0) {
-						fputs(lethead_prefix,fp);
-						fprint_uchar(fp,initial,M_NONE,1);
-						fputs(lethead_suffix,fp);
-					}
-				}
 			}
 			else if (chset==CH_HANGUL) {
 				for (j=tpoint;j<(u_strlen(tumunja));j++) {
@@ -311,14 +302,6 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 				}
 				if ((j!=tpoint)||(j==0)) {
 					tpoint=j;
-					fputs(group_skip,fp);
-					if (lethead_flag!=0) {
-						fputs(lethead_prefix,fp);
-						fprint_uchar(fp,&tumunja[j-1],M_NONE,1);
-						fputs(lethead_suffix,fp);
-					}
-				}
-				else if (!initial_cmp_char(initial,CHOSEONG_TIKEUT_RIEUL) && ss_comp(initial_prev,initial)) {
 					fputs(group_skip,fp);
 					if (lethead_flag!=0) {
 						fputs(lethead_prefix,fp);
@@ -637,14 +620,11 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 		ch+=KATATOP-HIRATOP; /* hiragana -> katakana */
 	}
 	if (is_katakana(ch)) {
-		for (k=0;k<=KATAEND-KATATOP;k++) {
-			if (ch==k+KATATOP) {
-				ini[0]=kanatable[k];
-				return;
-			}
-		}
-		/* error */
-		ini[0]=ch;
+		ini[0]=kanatable[ch-KATATOP];
+		return;
+	}
+	if (is_extkana(ch)) {
+		ini[0]=extkanatable[ch-EXKANATOP];
 		return;
 	}
 	else if (ch==0x309F) { ini[0]=0x30E8; return; }  /* HIRAGANA YORI */

@@ -75,6 +75,7 @@ int charset(UChar *c);
 
 /* styfile.c */
 void styread(const char *filename);
+void set_icu_attributes();
 
 /* fread.c */
 int idxread(char *filename, int start);

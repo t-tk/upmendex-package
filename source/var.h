@@ -35,6 +35,7 @@ int letter_head=1;
 UChar atama[STYBUFSIZE],tumunja[STYBUFSIZE],hanzi_head[STYBUFSIZE]={L'\0'};
 char page_compositor[STYBUFSIZE]={"-"},page_precedence[STYBUFSIZE]={"rnaRA"};
 char character_order[STYBUFSIZE]={"SNLGCJKH"};
-char icu_locale[STYBUFSIZE]={"root"};
+char icu_locale[STYBUFSIZE]={"root"},icu_rules[STYBUFSIZE]={""};
+int icu_attributes[UCOL_ATTRIBUTE_COUNT];
 
 UCollator * icu_collator;

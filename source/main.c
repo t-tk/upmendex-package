@@ -19,7 +19,7 @@ char *styfile,*idxfile[256],*indfile,*dicfile,*logfile;
 #endif
 KpathseaSupportInfo kp_ist,kp_dict;
 
-#define VERSION "version 0.06"
+#define VERSION "version 0.50"
 
 int main(int argc, char **argv)
 {
@@ -157,7 +157,7 @@ int main(int argc, char **argv)
 				u_getVersion(icuVersion);
 				u_versionToString(icuVersion, icu_version);
 				fprintf(stderr,"upmendex - index processor, %s (%s).\n",VERSION, TL_VERSION);
-				fprintf(stderr," Copyright 2009 ASCII MEDIA WORKS, 2015 TANAKA Takuji\n");
+				fprintf(stderr," Copyright 2009 ASCII MEDIA WORKS, 2015-2016 TANAKA Takuji\n");
 				fprintf(stderr," using ICU version %s\n",icu_version);
 				fprintf(stderr,"usage:\n");
 				fprintf(stderr,"%% upmendex [-ilqrcgf] [-s sty] [-d dic] [-o ind] [-t log] [-p no] [--] [idx0 idx1 ...]\n");
@@ -168,7 +168,7 @@ int main(int argc, char **argv)
 				fprintf(stderr,"-r      disable implicit page formation.\n");
 				fprintf(stderr,"-c      compress blanks. (ignore leading and trailing blanks.)\n");
 				fprintf(stderr,"-g      make Japanese index head <%s>.\n", AKASATANAutf8);
-				fprintf(stderr,"-f      force to output kanji.\n");
+				fprintf(stderr,"-f      force to output unknown scripts.\n");
 				fprintf(stderr,"-s sty  take sty as style file.\n");
 				fprintf(stderr,"-d dic  take dic as dictionary file.\n");
 				fprintf(stderr,"-o ind  take ind as the output index file.\n");
@@ -234,6 +234,7 @@ int main(int argc, char **argv)
 		efp=stderr;
 		logfile=xstrdup("stderr");
 	}
+	set_icu_attributes();
 
 	if (strcmp(argv[0],"makeindex")==0) {
 		verb_printf(efp,"This is Not `MAKEINDEX\', But `UPMENDEX\' %s (%s).\n",
