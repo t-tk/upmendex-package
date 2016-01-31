@@ -12,3 +12,8 @@ styles:
 		$(UPMENDEX) multi.idx -s mdxsty$$num.ist -o multi_$$num.ind ; \
 	done
 
+compare:
+	for ind in $(wildcard *.ind); do \
+		diff -qs $$ind output/$$ind ; \
+	done
+
