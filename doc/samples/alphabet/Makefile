@@ -1,37 +1,10 @@
 UPMENDEX = upmendex
 
-alphabet: ltn cyr zh ja
+alphabet: es zh
 
-ltn:
-	for num in 1 2; do \
-	for loc in ca da de eo es fi fr gl lt nb nn no pl ro sv vi; do \
-		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_$$loc$$num.ist -o alpha_$$loc$$num.ind ; \
-	done ; \
-	done
-	for num in 11 12; do \
-	for loc in de; do \
-		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_$$loc$$num.ist -o alpha_$$loc$$num.ind ; \
-	done ; \
-	done
-	for num in 11 12 13 22 22 23; do \
+es:
+	for num in 1 2 11 12 13 22 22 23; do \
 	for loc in es; do \
-		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_$$loc$$num.ist -o alpha_$$loc$$num.ind ; \
-	done ; \
-	done
-	for num in 1 2 3; do \
-	for loc in az cs hr hu sk sl srl sq tr; do \
-		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_$$loc$$num.ist -o alpha_$$loc$$num.ind ; \
-	done ; \
-	done
-	for num in 11 12 13; do \
-	for loc in cs hr sk srl; do \
-		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_$$loc$$num.ist -o alpha_$$loc$$num.ind ; \
-	done ; \
-	done
-
-cyr:
-	for num in 1 2; do \
-	for loc in be bg ru sr uk; do \
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_$$loc$$num.ist -o alpha_$$loc$$num.ind ; \
 	done ; \
 	done
@@ -61,21 +34,4 @@ zh:
 		loc='zh' ; \
 		locx='zhp' ; \
 		$(UPMENDEX) alpha_$$locx.idx -s mdxsty_$$loc$$num.ist -o alpha_$$locx$$num.ind ; \
-	done
-
-ja:
-	for num in 1 2 3 11 12 13 21 22 23; do \
-	for loc in ja; do \
-		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_$$loc$$num.ist -o alpha_$$loc$$num.ind ; \
-	done ; \
-	done
-	for num in 1 2 3; do \
-		loc='ja' ; \
-		locx='jag' ; \
-		$(UPMENDEX) -g alpha_$$loc.idx -s mdxsty_$$loc$$num.ist -o alpha_$$locx$$num.ind ; \
-	done
-
-compare:
-	for ind in $(wildcard *.ind); do \
-		diff -qs $$ind output/$$ind ; \
 	done
