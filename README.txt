@@ -24,8 +24,8 @@ doc/samples/ :: samples for test
   More samples are distributed at Ref. [2].
 
 [ Building upmendex ]
-The sources work with TeXLive svn r39498 .
-Ref. TeXLive and Subversion  http://www.tug.org/texlive/svn/
+The sources work with TeX Live svn r39498 .
+Ref. TeX Live and Subversion  http://www.tug.org/texlive/svn/
 Tested with ICU 56.1 .
 
 [ Status ]
