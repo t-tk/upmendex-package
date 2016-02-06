@@ -61,7 +61,7 @@ Follows are available for setting into "icu_locale".
  Greek script:
   "el" (Greek)
 
- CJK (Han script (Hanzi), Hangul, Kana)
+ CJK (Han script (Hanzi), Hangul, Kana):
   "ja", "ja@collation=unihan" (Japanese),
   "ko", "ko@collation=search", "ko@collation=unihan" (Korean),
   "zh", "zh@collation=unihan", "zh@collation=stroke", "zh@collation=zhuyin" (Chinese)
