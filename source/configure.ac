@@ -13,7 +13,7 @@ AC_CONFIG_AUX_DIR([../../build-aux])
 AC_CONFIG_MACRO_DIR([../../m4])
 
 dnl Common code for all programs using libkpathsea.
-KPSE_COMMON([upmendexk], [no-define])
+KPSE_COMMON([upmendex], [no-define])
 
 AC_CONFIG_HEADERS([c-auto.h:c-auto.in])
 

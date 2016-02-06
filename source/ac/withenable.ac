@@ -1,7 +1,7 @@
-## texk/upmendexk/ac/withenable.ac: configure.ac fragment for the TeX Live subdirectory texk/upmendexk/
+## texk/upmendex/ac/withenable.ac: configure.ac fragment for the TeX Live subdirectory texk/upmendex/
 dnl
 dnl Copyright (C) 2010 Peter Breitenlohner <tex-live@tug.org>
 dnl You may freely use, modify and/or distribute this file.
 dnl
-## configure options and TL libraries required for upmendexk
-KPSE_ENABLE_PROG([upmendexk], [kpathsea icu])
+## configure options and TL libraries required for upmendex
+KPSE_ENABLE_PROG([upmendex], [kpathsea icu])

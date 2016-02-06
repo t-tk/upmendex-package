@@ -1,4 +1,4 @@
-## Makefile.am for the TeX Live subdirectory texk/upmendexk/
+## Makefile.am for the TeX Live subdirectory texk/upmendex/
 ##
 ## Copyright (C) 2010-2014 Peter Breitenlohner <tex-live@tug.org>
 ## You may freely use, modify and/or distribute this file.
