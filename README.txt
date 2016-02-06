@@ -3,7 +3,7 @@ upmendex  --- unicode version of mendex
 TANAKA, Takuji   ttk(at)t-lab(dot)opal(dot)ne(dot)jp
 
 [ About upmendex ]
-upmendex is an index processor with following features:
+upmendex is a multilingual index processor with following features:
  * Mostly compatible with makeindex and
    upper compatible with mendex,
    based on mendex version 2.6f by ASCII media works.
