@@ -19,13 +19,12 @@ char *styfile,*idxfile[256],*indfile,*dicfile,*logfile;
 #endif
 KpathseaSupportInfo kp_ist,kp_dict;
 
-#define VERSION "version 0.50"
+#define VERSION "version 0.51"
 
 int main(int argc, char **argv)
 {
 	int i,j,cc=0,startpagenum=-1,ecount=0,chkopt=1;
 	const char *envbuff;
-	char *p;
 	UVersionInfo icuVersion;
 	char icu_version[U_MAX_VERSION_STRING_LENGTH] = "";
 

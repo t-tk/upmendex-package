@@ -3,12 +3,12 @@
 ## Copyright (C) 2010-2014 Peter Breitenlohner <tex-live@tug.org>
 ## You may freely use, modify and/or distribute this file.
 ##
-AM_CPPFLAGS = $(KPATHSEA_INCLUDES)
+AM_CPPFLAGS = $(KPATHSEA_INCLUDES) $(ICU_INCLUDES)
 AM_CFLAGS = $(WARNING_CFLAGS)
 
 bin_PROGRAMS = upmendex
 
-mendex_SOURCES = \
+upmendex_SOURCES = \
 	convert.c \
 	exkana.h \
 	exvar.h \
@@ -27,9 +27,15 @@ mendex_SOURCES = \
 	styfile.c \
 	var.h
 
-$(mendex_OBJECTS): $(KPATHSEA_DEPEND)
 
-LDADD = $(KPATHSEA_LIBS)
+
+# Force Automake to use CXXLD for linking
+nodist_EXTRA_upmendex_SOURCES = dummy.cxx
+
+
+$(upmendex_OBJECTS): $(KPATHSEA_DEPEND) $(ICU_DEPEND)
+
+LDADD = $(KPATHSEA_LIBS) $(ICU_LIBS)
 
 ## Rebuild libkpathsea
 @KPATHSEA_RULE@
