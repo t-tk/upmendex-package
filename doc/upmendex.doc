@@ -318,7 +318,7 @@ upmendex - 索引整形ツール
       ( Ref. http://userguide.icu-project.org/collation/customization
              http://www.unicode.org/reports/tr35/tr35-collation.html#Rules )
       UTF-8のUnicode文字及び、以下のエスケープ文字列が使用可能である:
-      \uhhhh (16進数[0-9A-Fa-f]を4桁), \Uhhhhhhhh (16進数を8桁),
+      \Uhhhhhhhh (16進数[0-9A-Fa-f]を8桁), \uhhhh (16進数を4桁),
       \xhh (16進数を2桁), \x{h...} (16進数を1〜8桁), \ooo (8進数[0-7]を3桁)。
       空文字列(デフォルト)のときは、localeによる照合順序のルールに従う。
       (upmendex専用)

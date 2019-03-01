@@ -1,4 +1,4 @@
-.TH MENDEX 1
+.TH UPMENDEX 1
 \"=====================================================================
 .if t .ds TX \fRT\\h'-0.1667m'\\v'0.20v'E\\v'-0.20v'\\h'-0.125m'X\fP
 .if n .ds TX TeX
@@ -7,15 +7,19 @@
 .if n .ds LX LaTeX
 \"=====================================================================
 .SH NAME
-mendex \- Japanese index processor
+upmendex \- Multilingual index processor
 .SH SYNOPSIS
-\fBmendex\fR [-ilqrcgfEJSU] [\fB-s\fI sty\fR] [\fB-d\fI dic\fR] [\fB-o\fI ind\fR] [\fB-t\fI log\fR] [\fB-p\fI no\fR] [\fB-I\fI enc\fR] [\fB--help\fR] [\fB--\fR] [\fI idx0 idx1 idx2 ...\fR]
+\fBupmendex\fR [-ilqrcgf] [\fB-s\fI sty\fR] [\fB-d\fI dic\fR] [\fB-o\fI ind\fR] [\fB-t\fI log\fR] [\fB-p\fI no\fR] [\fB--help\fR] [\fB--\fR] [\fI idx0 idx1 idx2 ...\fR]
 .SH DESCRIPTION
 .PP
-The program \fImendex\fR is a general purpose hierarchical index generator;
+The program \fIupmendex\fR is a general purpose multilingual hierarchical
+index generator working with up\*(LX, Xe\*(LX and Lua\*(LX;
 it accepts one or more input files (\fI.idx\fR; often produced by a text
-formatter such as \*(LX), sorts the entries, and produces an output file
-which can be formatted. It is almost compatible with \fImakeindex\fR, and
+formatter such as \*(LX families), sorts the entries, and produces an output file
+which can be formatted.
+It supports Latin (including non-English), Greek, Cyrillic, Korean Hangul and
+Han (Hanzi ideographs) scripts, as well as Japanese Kana.
+It is almost compatible with \fImakeindex\fR and \fImendex\fR, and
 additional feature for handling readings of kanji words is also available.
 .RE
 The formats of the input and output files are specified in a style file.
@@ -52,7 +56,7 @@ syllabary). By default, all the characters in the gojuon table
 are used.
 .TP 10
 \fB-f\fR
-Force to output Kanji characters even non-existent in dictionaries.
+Force to output characters even if the scripts are not supported by \fIupmendex\fR.
 .TP 10
 \fB-s\fI sty\fR
 Employ \fIsty\fR as the style file.
@@ -77,23 +81,6 @@ Set the starting page number of the output index list to be
 the following: \fIany\fR (the next page to the end of contents), \fIodd\fR
 (the next odd page to the end of contents), \fIeven\fR (the next even page to the end of contents).
 .TP 10
-\fB-E\fR
-Set input/output character encoding to EUC-JP.
-.TP 10
-\fB-J\fR
-Set input/output character encoding to JIS (ISO-2022-JP).
-.TP 10
-\fB-S\fR
-Set input/output character encoding to Shift_JIS.
-.TP 10
-\fB-U\fR
-Set input/output character encoding to UTF-8.
-.TP 10
-\fB-I\fI enc\fR
-Set internal character encoding to \fIenc\fR. The argument \fIenc\fR
-may be \fIeuc\fR (EUC-JP) or \fIutf8\fR (UTF-8).
-The default is set to \fIutf8\fR.
-.TP 10
 \fB--help\fR
 Show summary of options.
 .TP 10
@@ -101,10 +88,11 @@ Show summary of options.
 Arguments after \fB--\fR are not taken as options.
 
 .SH "STYLE FILE"
-The style file informs \fImendex\fR about the format of the
+The style file informs \fIupmendex\fR about the format of the
 \fIidx\fR input files and the intended format of the final
 output file. The format is upper compatible with the one for
-\fImakeindex\fR. The style file contains a list of
+\fImakeindex\fR and \fImendex\fR.
+The style file contains a list of
 <\fIspecifier\fR\ \fIattribute\fR> pairs.
 There are two types of specifiers: input and output.
 Pairs do not have to appear in any particular order.
@@ -180,7 +168,7 @@ Priority of expression for page number.
 \fBquote\fR  <char>
 \'"\'
 .RS
-Escape character for \fImendex\fR parameters.
+Escape character for \fIupmendex\fR parameters.
 .RE
 .TP 30
 \fBescape\fR  <char>
@@ -249,13 +237,30 @@ Same as \fBlethead_suffix\fR.
 0
 .RS
 Flag to control output of heading letters.
-\'0\', \'1\' and \'-1\' respectively denotes no output, uppercase and lowercase.
+\'0\', \'1\', \'-1\' and \'2\' respectively denotes no output, uppercase,
+lowercase and titlecase.
 .RE
 .TP 30
 \fBheading_flag\fR  <number>
 0
 .RS
 Same as \fBlethead_flag\fR.
+.RE
+.TP 30
+\fBtumunja\fR  <string>
+"ㄱㄴㄷㄹㅁㅂㅅㅇㅈㅊㅋㅌㅍㅎ"
+.RS
+Heading characters of hangul specified by a string.
+(Extended by upmendex)
+.RE
+.TP 30
+\fBhanzi_head\fR  <string>
+""
+.RS
+Heading strings of hanzi (Kanji, Hanja)
+specified by a string, which is
+concatenated of items with a separator \';\'.
+(Extended by upmendex)
 .RE
 .TP 30
 \fBitem_0\fR  <string>
@@ -429,14 +434,14 @@ Strings to output as heading letter for numbers and symbols
 when symbol_flag is non zero.
 .RE
 If specified, the option is prior to symhead_positive and symhead_negative.
-(Extended by mendex)
+(Extended by (up)mendex)
 .RE
 .TP 30
 \fBsymbol_flag\fR  <number>
 1
 .RS
 Flag to output of symbol. If \'0\', do not output.
-(Extended by mendex)
+(Extended by (up)mendex)
 .RE
 .TP 30
 \fBletter_head\fR  <number>
@@ -444,7 +449,7 @@ Flag to output of symbol. If \'0\', do not output.
 .RS
 Flag of heading letter for Japanese Kana.
 If \'1\' and \'2\', Katakana and Hiragana is used, respectively.
-(Extended by mendex)
+(Extended by (up)mendex)
 .RE
 .TP 30
 \fBpriority\fR  <number>
@@ -454,26 +459,68 @@ Flag of sorting method for index words composed of
 Japanese and non-Japanese (ex. Latin scripts).
 If non zero, one space (U+20) is inserted between
 Japanese sequence and non-Japanese sequence in sorting procedure.
-(Extended by mendex)
+(Extended by (up)mendex)
 .RE
 .TP 30
 \fBcharacter_order\fR  <string>
-"SEJ"
+"SNLGCJKH"
 .RS
 Order of scripts and symbols.
-\'S\', \'E\' and \'J\' respectively denotes symbol, English and Japanese.
-(Extended by mendex)
+\'S\', \'N\', \'L\', \'G\', \'C\', \'J\', \'K\' and \'H\' respectively
+denotes symbol, number, Latin, Greek, Cyrillic, Japanese Kana, Hangul and Hanja.
+(Extended by upmendex)
+.RE
+.TP 30
+\fBicu_locale\fR  <string>
+""
+.RS
+Locale in ICU collator.
+By default, "root sort order" is set.
+(Extended by upmendex)
+.RE
+.TP 30
+\fBicu_rules\fR  <string>
+""
+.RS
+Customized collation rules in ICU collator.
+Unicode characters in UTF-8 encoding and following escape sequences are accepted:
+\fB\\Uhhhhhhhh\fR (8-digit hexadecimal [0-9A-Fa-f]), \fB\\uhhhh\fR (4-digit hexadecimal),
+\fB\\xhh\fR (2-digit hexadecimal), \fB\\x{h...}\fR (1..8-digit hexadecimal), and
+\fB\\ooo\fR (3-digit octal [0-7]).
+By default, locale is used.
+(Extended by upmendex)
+.RE
+Ref. <http://userguide.icu-project.org/collation/customization>,
+<http://www.unicode.org/reports/tr35/tr35-collation.html#Rules>
+.RE
+.TP 30
+\fBicu_rules\fR  <string>
+""
+.RS
+Attributes in ICU collator.
+Followings are available:
+"alternate:shifted", "alternate:non-ignorable",
+"strength:primary", "strength:secondary", "strength:tertiary",
+"strength:quaternary", "strength:identical",
+"french-collation:on", "french-collation:off",
+"case-first:off", "case-first:upper-first", "case-first:lower-first",
+"case-level:on", "case-level:off",
+"normalization-mode:on", "normalization-mode:off"
+(Extended by upmendex)
+.RE
+Ref. <http://userguide.icu-project.org/collation/customization>,
+<http://www.unicode.org/reports/tr35/tr35-collation.html#Setting_Options>
 .RE
 .PP
 .SH ABOUT JAPANESE PROCESSING
 .PP
-\fImendex\fR has an additional feature to simplify the procedure of handling
+\fIupmendex\fR has an additional feature to simplify the procedure of handling
 Japanese indexes, compared to \fImakeindex\fR. Users can save the effort
 of manually specifying a reading for every kanji word.
 .RE
 Japanese kanji words are usually sorted by the syllables of their readings
 (\fI\'Yomi\'\fR), which can be represented by kana (Hiragana, Katakana) scripts.
-\fImendex\fR accepts index words specified in kana expression directly on
+\fIupmendex\fR accepts index words specified in kana expression directly on
 an input file, and also accepts conversion from index words to kana scripts
 by referring to Japanese dictionaries.
 .RE
@@ -521,7 +568,7 @@ together with file(s) specified by \fI-d\fR option.
 .PP
 .SH ABOUT SORTING PROCEDURE
 .PP
-\fImendex\fR sorts indexes as is (\'sort by word order\') by default.
+\fIupmendex\fR sorts indexes as is (\'sort by word order\') by default.
 Setting \fI-l\fR option, spaces between words in an index are truncated prior to
 sorting procedure (\'sort by character order\').
 .RE
@@ -557,7 +604,7 @@ indファイル			index sort
 .RE
 .PP
 .SH ENVIRONMENT VARIABLES
-\fImendex\fR refers environment variables as follows.
+\fIupmendex\fR refers environment variables as follows.
 .PP
 .TP 10
 \fIINDEXSTYLE\fR
@@ -581,6 +628,13 @@ specified along with the order of page numbers. Otherwise,
 wrong page numbers might be output.
 .PP
 .SH "SEE ALSO"
-tex(1), latex(1), makeindex(1)
+.BR tex(1),
+.BR latex(1),
+.BR makeindex(1),
+.BR mendex(1).
+.br
+International Components for Unicode (ICU):
+<http://site.icu-project.org/>
 .SH AUTHOR
-This manual page was written by Japanese \*(TX Development Community.
+This manual page was written by Takuji Tanaka
+based on the mendex manual page written by Japanese \*(TX Development Community.
