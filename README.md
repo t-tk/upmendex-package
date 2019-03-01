@@ -22,7 +22,7 @@ upmendex is a multilingual index processor with following features:
    for sorting process.
 
 ### Contents
- * README_upmendex.md :: This file
+ * README.md :: This file
  * source/ :: sources
  * doc/ :: documents
  * doc/samples/ :: samples for test.
