@@ -3,7 +3,8 @@ upmendex  --- Multilingual index processor
 
 2019.02.17 Ver0.52
 
-TANAKA, Takuji   ttk(at)t-lab(dot)opal(dot)ne(dot)jp
+TANAKA, Takuji
+<ttk(at)t-lab.opal.ne.jp>
 
 
 ### About upmendex
@@ -38,7 +39,7 @@ Beta version.
 No warranty.
 
 ### Copyright
-Lisence notice is written in COPYRIGHT .
+Lisence notice is written in [COPYRIGHT](source/COPYRIGHT) .
 It is as same as [the BSD 3-Clause License](https://opensource.org/licenses/BSD-3-Clause)
 
 ### Supported locale
