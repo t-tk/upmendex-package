@@ -1,7 +1,7 @@
 upmendex  --- Multilingual index processor
 ==========================================
 
-2016.06.19 Ver0.51
+2019.02.17 Ver0.52
 
 TANAKA, Takuji   ttk(at)t-lab(dot)opal(dot)ne(dot)jp
 
@@ -28,10 +28,10 @@ upmendex is a multilingual index processor with following features:
  * doc/samples/ :: samples for test.
 
 ### Building upmendex
-The sources work with TeXLive svn r41496.
+The sources work with TeXLive svn r50040.
 Ref. [TeXLive and Subversion](http://www.tug.org/texlive/svn/)
 
-Tested with ICU 57.1 .
+Tested with ICU 63.1 .
 
 ### Status
 Beta version.
@@ -72,7 +72,8 @@ Follows are available for setting into "icu_locale".
 
 ### References
 1.  [ASCII Nihongo TeX (Publishing TeX)](http://ascii.asciimw.jp/pb/ptex/)
-    ASCII MEDIA WORKS
-2.  [upTeX, upLaTeX ― unicode version of pTeX, pLaTeX](http://www.t-lab.opal.ne.jp/tex/uptex_en.html)
-3.  [International Components for Unicode (ICU)](http://site.icu-project.org/)
+    ASCII MEDIA WORKS (dead link)
+2.  [Source/Document distribution of upmendex --- multilingual index processor @ GitHub](https://github.com/t-tk/upmendex-package)
+3.  [upTeX, upLaTeX ― unicode version of pTeX, pLaTeX](http://www.t-lab.opal.ne.jp/tex/uptex_en.html)
+4.  [International Components for Unicode (ICU)](http://site.icu-project.org/)
 
