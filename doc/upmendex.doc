@@ -2,7 +2,7 @@ upmendex - 索引整形ツール
 
 使用法
 
-    upmendex [-ilqrcg] [-s sty] [-d dic] [-o ind] [-d dic] [-t log] [-p no] [--] [idx0 idx1 idx2 ...]
+    upmendex [-ilqrcgf] [-s sty] [-d dic] [-o ind] [-t log] [-p no] [--help] [--] [idx0 idx1 idx2 ...]
 
 
 解説
@@ -54,6 +54,8 @@ upmendex - 索引整形ツール
            を参照することにより any (最終ページの次のページから)、odd (最終ペー
            ジの次の奇数ページから)、even (最終ページの次の偶数ページから)といっ
            た指定も可能です。
+
+   --help  オプションの要約を表示します。
 
    --      以降はオプション文字列と解釈しません。
 
@@ -153,12 +155,12 @@ upmendex - 索引整形ツール
       ""
       lethead_suffixと同じ。
 
-   lethead_flag  <文字列>
+   lethead_flag  <数値>
       0
       頭文字の出力のフラグ。0のとき出力しない。1のときは英字を大文字で、
       -1のときは小文字で、2のときはタイトルケースで出力する。
 
-   heading_flag  <文字列>
+   heading_flag  <数値>
       0
       lethead_flagと同じ。
 
