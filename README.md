@@ -3,7 +3,8 @@ upmendex  --- Multilingual index processor
 
 2019.02.17 Ver0.52
 
-TANAKA, Takuji   ttk(at)t-lab(dot)opal(dot)ne(dot)jp
+TANAKA, Takuji
+<ttk(at)t-lab.opal.ne.jp>
 
 
 ### About upmendex
@@ -13,23 +14,22 @@ upmendex is a multilingual index processor with following features:
    upper compatible with mendex,
    based on mendex version 2.6f by ASCII media works.
  * Unicode for internal process and
-   support UTF-8 encoding for input/outout.
+   support UTF-8 encoding for input/output.
    Will work with upLaTeX, XeLaTeX and luaLaTeX.
  * Support Latin (including non-English), Greek, Cyrillic,
    Korean Hangul and Han (Hanzi ideographs) scripts
    as well as Japanese Kana.
- * Apply International Components for Unicode (ICU)
+ * Apply International Components for Unicode (ICU)[4]
    for sorting process.
 
 ### Contents
  * README.md :: This file
- * source/ :: sources
  * doc/ :: documents
  * doc/samples/ :: samples for test.
    More samples are distributed at Ref. [2].
 
 ### Building upmendex
-The sources work with TeXLive svn r50040.
+The source files are distributed at GitHub[2] and work with TeXLive svn r50040.
 Ref. [TeXLive and Subversion](http://www.tug.org/texlive/svn/)
 
 Tested with ICU 63.1 .
@@ -39,7 +39,7 @@ Beta version.
 No warranty.
 
 ### Copyright
-Lisence notice is written in COPYRIGHT .
+Lisence notice is written in [COPYRIGHT](./COPYRIGHT).
 It is as same as [the BSD 3-Clause License](https://opensource.org/licenses/BSD-3-Clause)
 
 ### Supported locale
