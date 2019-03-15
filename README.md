@@ -29,7 +29,7 @@ upmendex is a multilingual index processor with following features:
  * doc/samples/ :: samples for test.
 
 ### Building upmendex
-The sources work with TeXLive svn r50040.
+The source files are distributed at GitHub[2] and work with TeXLive svn r50040.
 Ref. [TeXLive and Subversion](http://www.tug.org/texlive/svn/)
 
 Tested with ICU 63.1 .
