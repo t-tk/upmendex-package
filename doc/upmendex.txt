@@ -2,7 +2,8 @@ upmendex - 索引整形ツール
 
 使用法
 
-    upmendex [-ilqrcgf] [-s sty] [-d dic] [-o ind] [-t log] [-p no] [--help] [--] [idx0 idx1 idx2 ...]
+    upmendex [-ilqrcgf] [-s sty] [-d dic] [-o ind] [-t log] [-p no] [--] [idx0 idx1 idx2 ...]
+    upmendex --help
 
 
 解説
