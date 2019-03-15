@@ -39,7 +39,7 @@ Beta version.
 No warranty.
 
 ### Copyright
-Lisence notice is written in [COPYRIGHT](source/COPYRIGHT) .
+Lisence notice is written in [COPYRIGHT](./COPYRIGHT).
 It is as same as [the BSD 3-Clause License](https://opensource.org/licenses/BSD-3-Clause)
 
 ### Supported locale
