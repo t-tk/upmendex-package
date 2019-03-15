@@ -14,12 +14,12 @@ upmendex is a multilingual index processor with following features:
    upper compatible with mendex,
    based on mendex version 2.6f by ASCII media works.
  * Unicode for internal process and
-   support UTF-8 encoding for input/outout.
+   support UTF-8 encoding for input/output.
    Will work with upLaTeX, XeLaTeX and luaLaTeX.
  * Support Latin (including non-English), Greek, Cyrillic,
    Korean Hangul and Han (Hanzi ideographs) scripts
    as well as Japanese Kana.
- * Apply International Components for Unicode (ICU)
+ * Apply International Components for Unicode (ICU)[4]
    for sorting process.
 
 ### Contents
