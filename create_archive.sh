@@ -21,7 +21,7 @@ rm -rf $TMP/$PROJECT/source
 mkdir -p $TMP/$PROJECT/doc/$PROJECT
 mv $TMP/$PROJECT/README.md $TMP/$PROJECT/doc/$PROJECT/
 mv $TMP/$PROJECT/COPYRIGHT $TMP/$PROJECT/doc/$PROJECT/
-mv $TMP/$PROJECT/doc/upmendex.txt $TMP/$PROJECT/doc/$PROJECT/
+mv $TMP/$PROJECT/doc/upmendex.ja.txt $TMP/$PROJECT/doc/$PROJECT/
 
 ### move doc/samples/* to doc/$PROJECT/samples/*
 mv $TMP/$PROJECT/doc/samples $TMP/$PROJECT/doc/$PROJECT/
@@ -46,6 +46,7 @@ rm -rf $TMP/$PROJECT/source
 
 rm $TMP/$PROJECT/doc/upmendex.man1.ps
 
+rm -f $PWDF/$PROJECT.zip
 cd $TMP && zip -r $PWDF/$PROJECT.zip $PROJECT $PROJECT.tds.zip
 rm -rf $TMP/$PROJECT $TMP/$PROJECT.tds.zip
 echo
