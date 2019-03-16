@@ -24,13 +24,15 @@ upmendex is a multilingual index processor with following features:
 
 ### Contents
  * README.md :: This file
+ * source/ :: sources
  * doc/ :: documents
  * doc/samples/ :: samples for test.
    More samples are distributed at Ref. [2].
+ * man/ :: manuals
 
 ### Building upmendex
-The source files are distributed at GitHub[2] and work with TeXLive svn r50040.
-Ref. [TeXLive and Subversion](http://www.tug.org/texlive/svn/)
+The source files are distributed at GitHub[2] and work with TeX Live svn r50040.
+Ref. [TeX Live and Subversion](http://www.tug.org/texlive/svn/)
 
 Tested with ICU 63.1 .
 
