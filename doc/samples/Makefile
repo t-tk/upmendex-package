@@ -17,3 +17,5 @@ compare:
 		diff -qs $$ind output/$$ind ; \
 	done
 
+clean:
+	rm -f *.ind *.ilg

@@ -20,3 +20,6 @@ jp_u:
 		$(UPMENDEX) japanese.idx -r -s mdxsty_j$$sty.ist -o japanese_r_$$sty-umdx.ind ; \
 		$(UPMENDEX) japanese.idx -g -s mdxsty_j$$sty.ist -o japanese_g_$$sty-umdx.ind ; \
 	done
+
+clean:
+	rm -f *.ind *.ilg

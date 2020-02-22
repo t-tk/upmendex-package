@@ -35,3 +35,6 @@ zh:
 		locx='zhp' ; \
 		$(UPMENDEX) alpha_$$locx.idx -s mdxsty_$$loc$$num.ist -o alpha_$$locx$$num.ind ; \
 	done
+
+clean:
+	rm -f *.ind *.ilg
