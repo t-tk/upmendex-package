@@ -1,6 +1,6 @@
 UPMENDEX = upmendex
 
-alphabet: ltn cyr zh ja
+alphabet: ltn cyr grk zh ja
 
 ltn:
 	for num in 1 2; do \
@@ -32,6 +32,13 @@ ltn:
 cyr:
 	for num in 1 2; do \
 	for loc in be bg ru sr uk; do \
+		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_$$loc$$num.ist -o alpha_$$loc$$num.ind ; \
+	done ; \
+	done
+
+grk:
+	for num in 1 2 11 12; do \
+	for loc in el; do \
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_$$loc$$num.ist -o alpha_$$loc$$num.ind ; \
 	done ; \
 	done
@@ -79,3 +86,6 @@ compare:
 	for ind in $(wildcard *.ind); do \
 		diff -qs $$ind output/$$ind ; \
 	done
+
+clean:
+	rm -f *.ind *.ilg

@@ -272,16 +272,23 @@
   \item ヮ\leaders\hbox{$\cdot$}\hfill 610
   \item ワ\leaders\hbox{$\cdot$}\hfill 244
   \item ヷ\leaders\hbox{$\cdot$}\hfill 804
+  \item 𛅐(小さい「ゐ」)\leaders\hbox{$\cdot$}\hfill 6001
   \item ゐ\leaders\hbox{$\cdot$}\hfill 145
+  \item 𛅤(小さい「ヰ」)\leaders\hbox{$\cdot$}\hfill 6004
   \item ヰ\leaders\hbox{$\cdot$}\hfill 245
   \item ヸ\leaders\hbox{$\cdot$}\hfill 805
+  \item 𛅑(小さい「ゑ」)\leaders\hbox{$\cdot$}\hfill 6002
   \item ゑ\leaders\hbox{$\cdot$}\hfill 146
+  \item 𛅥(小さい「ヱ」)\leaders\hbox{$\cdot$}\hfill 6005
   \item ヱ\leaders\hbox{$\cdot$}\hfill 246
   \item ヹ\leaders\hbox{$\cdot$}\hfill 806
+  \item 𛅒(小さい「を」)\leaders\hbox{$\cdot$}\hfill 6003
   \item を\leaders\hbox{$\cdot$}\hfill 147
+  \item 𛅦(小さい「ヲ」)\leaders\hbox{$\cdot$}\hfill 6006
   \item ヲ\leaders\hbox{$\cdot$}\hfill 247
   \item ヺ\leaders\hbox{$\cdot$}\hfill 807
   \item ん\leaders\hbox{$\cdot$}\hfill 148
+  \item 𛅧(小さい「ン」)\leaders\hbox{$\cdot$}\hfill 6007
   \item ン\leaders\hbox{$\cdot$}\hfill 248
 
   \indexspace

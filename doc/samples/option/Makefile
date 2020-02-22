@@ -1,6 +1,8 @@
 UPMENDEX = upmendex
 MENDEX = mendex -U
 
+all: attri rules jp_u
+
 #
 # test for icu_attributes
 #
@@ -77,7 +79,9 @@ jp_cmp:
 
 
 compare:
-	for ind in $(wildcard *.ind); do \
+	for ind in $(wildcard attri*.ind *-umdx.ind); do \
 		diff -qs $$ind output/$$ind ; \
 	done
 
+clean:
+	rm -f *.ind *.ilg

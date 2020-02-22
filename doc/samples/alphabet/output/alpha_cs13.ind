@@ -3,10 +3,6 @@
 \centerline{\bfseries --- A ---}\par\nobreak
   \item a\leaders\hbox{$\cdot$}\hfill 201
   \item A\leaders\hbox{$\cdot$}\hfill 101
-
-  \indexspace
-
-\centerline{\bfseries --- Á ---}\par\nobreak
   \item á\leaders\hbox{$\cdot$}\hfill 260
   \item Á\leaders\hbox{$\cdot$}\hfill 160
 
@@ -21,6 +17,8 @@
 \centerline{\bfseries --- C ---}\par\nobreak
   \item c\leaders\hbox{$\cdot$}\hfill 203
   \item C\leaders\hbox{$\cdot$}\hfill 103
+  \item č\leaders\hbox{$\cdot$}\hfill 261
+  \item Č\leaders\hbox{$\cdot$}\hfill 161
   \item ca\leaders\hbox{$\cdot$}\hfill 2000
   \item cg\leaders\hbox{$\cdot$}\hfill 2001
   \item ch\leaders\hbox{$\cdot$}\hfill 265
@@ -32,19 +30,9 @@
 
   \indexspace
 
-\centerline{\bfseries --- Č ---}\par\nobreak
-  \item č\leaders\hbox{$\cdot$}\hfill 261
-  \item Č\leaders\hbox{$\cdot$}\hfill 161
-
-  \indexspace
-
 \centerline{\bfseries --- D ---}\par\nobreak
   \item d\leaders\hbox{$\cdot$}\hfill 204
   \item D\leaders\hbox{$\cdot$}\hfill 104
-
-  \indexspace
-
-\centerline{\bfseries --- Ď ---}\par\nobreak
   \item ď\leaders\hbox{$\cdot$}\hfill 262
   \item Ď\leaders\hbox{$\cdot$}\hfill 162
 
@@ -53,16 +41,8 @@
 \centerline{\bfseries --- E ---}\par\nobreak
   \item e\leaders\hbox{$\cdot$}\hfill 205
   \item E\leaders\hbox{$\cdot$}\hfill 105
-
-  \indexspace
-
-\centerline{\bfseries --- É ---}\par\nobreak
   \item é\leaders\hbox{$\cdot$}\hfill 263
   \item É\leaders\hbox{$\cdot$}\hfill 163
-
-  \indexspace
-
-\centerline{\bfseries --- Ě ---}\par\nobreak
   \item ě\leaders\hbox{$\cdot$}\hfill 264
   \item Ě\leaders\hbox{$\cdot$}\hfill 164
 
@@ -89,10 +69,6 @@
 \centerline{\bfseries --- I ---}\par\nobreak
   \item i\leaders\hbox{$\cdot$}\hfill 209
   \item I\leaders\hbox{$\cdot$}\hfill 109
-
-  \indexspace
-
-\centerline{\bfseries --- Í ---}\par\nobreak
   \item í\leaders\hbox{$\cdot$}\hfill 266
   \item Í\leaders\hbox{$\cdot$}\hfill 166
 
@@ -125,10 +101,6 @@
 \centerline{\bfseries --- N ---}\par\nobreak
   \item n\leaders\hbox{$\cdot$}\hfill 214
   \item N\leaders\hbox{$\cdot$}\hfill 114
-
-  \indexspace
-
-\centerline{\bfseries --- Ň ---}\par\nobreak
   \item ň\leaders\hbox{$\cdot$}\hfill 267
   \item Ň\leaders\hbox{$\cdot$}\hfill 167
 
@@ -137,10 +109,6 @@
 \centerline{\bfseries --- O ---}\par\nobreak
   \item o\leaders\hbox{$\cdot$}\hfill 215
   \item O\leaders\hbox{$\cdot$}\hfill 115
-
-  \indexspace
-
-\centerline{\bfseries --- Ó ---}\par\nobreak
   \item ó\leaders\hbox{$\cdot$}\hfill 268
   \item Ó\leaders\hbox{$\cdot$}\hfill 168
 
@@ -161,10 +129,6 @@
 \centerline{\bfseries --- R ---}\par\nobreak
   \item r\leaders\hbox{$\cdot$}\hfill 218
   \item R\leaders\hbox{$\cdot$}\hfill 118
-
-  \indexspace
-
-\centerline{\bfseries --- Ř ---}\par\nobreak
   \item ř\leaders\hbox{$\cdot$}\hfill 269
   \item Ř\leaders\hbox{$\cdot$}\hfill 169
 
@@ -173,10 +137,6 @@
 \centerline{\bfseries --- S ---}\par\nobreak
   \item s\leaders\hbox{$\cdot$}\hfill 219
   \item S\leaders\hbox{$\cdot$}\hfill 119
-
-  \indexspace
-
-\centerline{\bfseries --- Š ---}\par\nobreak
   \item š\leaders\hbox{$\cdot$}\hfill 270
   \item Š\leaders\hbox{$\cdot$}\hfill 170
 
@@ -185,10 +145,6 @@
 \centerline{\bfseries --- T ---}\par\nobreak
   \item t\leaders\hbox{$\cdot$}\hfill 220
   \item T\leaders\hbox{$\cdot$}\hfill 120
-
-  \indexspace
-
-\centerline{\bfseries --- Ť ---}\par\nobreak
   \item ť\leaders\hbox{$\cdot$}\hfill 271
   \item Ť\leaders\hbox{$\cdot$}\hfill 171
 
@@ -197,16 +153,8 @@
 \centerline{\bfseries --- U ---}\par\nobreak
   \item u\leaders\hbox{$\cdot$}\hfill 221
   \item U\leaders\hbox{$\cdot$}\hfill 121
-
-  \indexspace
-
-\centerline{\bfseries --- Ú ---}\par\nobreak
   \item ú\leaders\hbox{$\cdot$}\hfill 272
   \item Ú\leaders\hbox{$\cdot$}\hfill 172
-
-  \indexspace
-
-\centerline{\bfseries --- Ů ---}\par\nobreak
   \item ů\leaders\hbox{$\cdot$}\hfill 273
   \item Ů\leaders\hbox{$\cdot$}\hfill 173
 
@@ -233,10 +181,6 @@
 \centerline{\bfseries --- Y ---}\par\nobreak
   \item y\leaders\hbox{$\cdot$}\hfill 225
   \item Y\leaders\hbox{$\cdot$}\hfill 125
-
-  \indexspace
-
-\centerline{\bfseries --- Ý ---}\par\nobreak
   \item ý\leaders\hbox{$\cdot$}\hfill 274
   \item Ý\leaders\hbox{$\cdot$}\hfill 174
 
@@ -245,10 +189,6 @@
 \centerline{\bfseries --- Z ---}\par\nobreak
   \item z\leaders\hbox{$\cdot$}\hfill 226
   \item Z\leaders\hbox{$\cdot$}\hfill 126
-
-  \indexspace
-
-\centerline{\bfseries --- Ž ---}\par\nobreak
   \item ž\leaders\hbox{$\cdot$}\hfill 275
   \item Ž\leaders\hbox{$\cdot$}\hfill 175
 
