@@ -1,7 +1,7 @@
 upmendex  --- Multilingual index processor
 ==========================================
 
-2021.05.19 Ver0.56
+2021.06.06 Ver0.57
 
 TANAKA, Takuji
 <ttk(at)t-lab.opal.ne.jp>
@@ -17,7 +17,7 @@ upmendex is a multilingual index processor with following features:
    support UTF-8 encoding for input/output.
    Will work with upLaTeX, XeLaTeX and luaLaTeX.
  * Support Latin (including non-English), Greek, Cyrillic,
-   Korean Hangul and Han (Hanzi ideographs) scripts
+   Korean Hangul and Chinese Han (Hanzi ideographs) scripts
    as well as Japanese Kana.
  * Apply International Components for Unicode (ICU)[4]
    for sorting process.
@@ -31,7 +31,7 @@ upmendex is a multilingual index processor with following features:
  * man/ :: manuals
 
 ### Building upmendex
-The source files are distributed at GitHub[2] and work with TeX Live svn r59263.
+The source files are distributed at GitHub[2] and work with TeX Live svn r59488.
 Ref. [TeX Live and Subversion](http://www.tug.org/texlive/svn/)
 
 Tested with ICU 68.2 .
@@ -44,10 +44,12 @@ No warranty.
 Lisence notice is written in [COPYRIGHT](./COPYRIGHT).
 It is as same as [the BSD 3-Clause License](https://opensource.org/licenses/BSD-3-Clause)
 
-### Supported locale
+### Supported locales
 In ICU collator, default "root" locale covers several lauguages:
 English, French, Germany, Italian and so on.
-Follows are available for setting into "icu_locale".
+Much of languages and collation options are supported by
+setting into "icu_locale" in style files.
+Currently following locales are available:
 
 #### Latin script
   "az" (Azerbaijani), "ca" (Catalan), "cs", "cs@collation=search" (Czech),
@@ -71,7 +73,8 @@ Follows are available for setting into "icu_locale".
 #### CJK (Han script (Hanzi), Hangul, Kana)
   "ja", "ja@collation=unihan" (Japanese),
   "ko", "ko@collation=search", "ko@collation=unihan" (Korean),
-  "zh", "zh@collation=unihan", "zh@collation=stroke", "zh@collation=zhuyin" (Chinese)
+  "zh" [Pinyin Sort Order], "zh@collation=unihan" [Radical-Stroke Sort Order],
+  "zh@collation=stroke" [Stroke Sort Order], "zh@collation=zhuyin" [Zhuyin Sort Order] (Chinese)
 
 ### References
 1.  [ASCII Nihongo TeX (Publishing TeX)](https://asciidwango.github.io/ptex/)
