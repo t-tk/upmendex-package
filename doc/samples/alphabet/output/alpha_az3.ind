@@ -141,6 +141,15 @@
 \centerline{\bfseries --- N ---}\par\nobreak
   \item n\leaders\hbox{$\cdot$}\hfill 214
   \item N\leaders\hbox{$\cdot$}\hfill 114
+  \item na\leaders\hbox{$\cdot$}\hfill 3000
+  \item ña\leaders\hbox{$\cdot$}\hfill 3007
+  \item nf\leaders\hbox{$\cdot$}\hfill 3002
+  \item ng\leaders\hbox{$\cdot$}\hfill 3003
+  \item nga\leaders\hbox{$\cdot$}\hfill 3005
+  \item ngz\leaders\hbox{$\cdot$}\hfill 3006
+  \item nh\leaders\hbox{$\cdot$}\hfill 3004
+  \item nz\leaders\hbox{$\cdot$}\hfill 3001
+  \item ñz\leaders\hbox{$\cdot$}\hfill 3008
 
   \indexspace
 
