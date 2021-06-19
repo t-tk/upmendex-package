@@ -13,7 +13,7 @@ ltn:
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_$$loc$$num.ist -t alpha_$$loc$$num.ilg -o alpha_$$loc$$num.ind ; \
 	done ; \
 	done
-	for num in 11 12 13 22 22 23; do \
+	for num in 11 12 13 21 22 23; do \
 	for loc in es; do \
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_$$loc$$num.ist -t alpha_$$loc$$num.ilg -o alpha_$$loc$$num.ind ; \
 	done ; \
