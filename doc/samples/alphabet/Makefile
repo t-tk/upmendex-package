@@ -9,7 +9,7 @@ ltn:
 	done ; \
 	done
 	for num in 1 2; do \
-	for loc in da de nb nn ca vi; do \
+	for loc in da fr gl nb nn ca vi; do \
 		locx=$${loc}1 ; \
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head$$num.ist -s mdxsty_$$locx.ist -t alpha_$$locx$$num.ilg -o alpha_$$locx$$num.ind ; \
 	done ; \
@@ -17,6 +17,14 @@ ltn:
 	for num in 1 2; do \
 	for x in 1 2; do \
 	for loc in sv fi; do \
+		locx=$$loc$$x ; \
+		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head$$num.ist -s mdxsty_$$locx.ist -t alpha_$$locx$$num.ilg -o alpha_$$locx$$num.ind ; \
+	done ; \
+	done ; \
+	done
+	for num in 1 2; do \
+	for x in 1 2 3; do \
+	for loc in de; do \
 		locx=$$loc$$x ; \
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head$$num.ist -s mdxsty_$$locx.ist -t alpha_$$locx$$num.ilg -o alpha_$$locx$$num.ind ; \
 	done ; \
