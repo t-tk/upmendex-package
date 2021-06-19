@@ -5,7 +5,7 @@ alphabet: ltn cyr grk zh ja
 ltn:
 	for num in 1 2; do \
 	for loc in ca da de eo es fi fr gl lt nb nn no pl ro sv vi; do \
-		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_$$loc$$num.ist -t alpha_$$loc$$num.ilg -o alpha_$$loc$$num.ind ; \
+		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head$$num.ist -s mdxsty_$$loc.ist -t alpha_$$loc$$num.ilg -o alpha_$$loc$$num.ind ; \
 	done ; \
 	done
 	for num in 11 12; do \
@@ -20,7 +20,7 @@ ltn:
 	done
 	for num in 1 2 3; do \
 	for loc in az cs hr hu sk sl srl sq tr; do \
-		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_$$loc$$num.ist -t alpha_$$loc$$num.ilg -o alpha_$$loc$$num.ind ; \
+		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head$$num.ist -s mdxsty_$$loc.ist -t alpha_$$loc$$num.ilg -o alpha_$$loc$$num.ind ; \
 	done ; \
 	done
 	for num in 11 12 13; do \
@@ -32,12 +32,17 @@ ltn:
 cyr:
 	for num in 1 2; do \
 	for loc in be bg ru sr uk; do \
-		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_$$loc$$num.ist -t alpha_$$loc$$num.ilg -o alpha_$$loc$$num.ind ; \
+		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head$$num.ist -s mdxsty_$$loc.ist -t alpha_$$loc$$num.ilg -o alpha_$$loc$$num.ind ; \
 	done ; \
 	done
 
 grk:
-	for num in 1 2 11 12; do \
+	for num in 1 2; do \
+	for loc in el; do \
+		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head$$num.ist -s mdxsty_$$loc.ist -t alpha_$$loc$$num.ilg -o alpha_$$loc$$num.ind ; \
+	done ; \
+	done
+	for num in 11 12; do \
 	for loc in el; do \
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_$$loc$$num.ist -t alpha_$$loc$$num.ilg -o alpha_$$loc$$num.ind ; \
 	done ; \
