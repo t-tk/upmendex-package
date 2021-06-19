@@ -8,14 +8,18 @@ ltn:
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head$$num.ist -s mdxsty_$$loc.ist -t alpha_$$loc$$num.ilg -o alpha_$$loc$$num.ind ; \
 	done ; \
 	done
-	for num in 11 12; do \
+	for num in 1 2; do \
 	for loc in de; do \
-		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_$$loc$$num.ist -t alpha_$$loc$$num.ilg -o alpha_$$loc$$num.ind ; \
+		locx=$${loc}1 ; \
+		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head$$num.ist -s mdxsty_$$locx.ist -t alpha_$$locx$$num.ilg -o alpha_$$locx$$num.ind ; \
 	done ; \
 	done
-	for num in 11 12 13 21 22 23; do \
+	for num in 1 2 3; do \
+	for x in 1 2; do \
 	for loc in es; do \
-		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_$$loc$$num.ist -t alpha_$$loc$$num.ilg -o alpha_$$loc$$num.ind ; \
+		locx=$$loc$$x ; \
+		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head$$num.ist -s mdxsty_$$locx.ist -t alpha_$$locx$$num.ilg -o alpha_$$locx$$num.ind ; \
+	done ; \
 	done ; \
 	done
 	for num in 1 2 3; do \
@@ -23,9 +27,10 @@ ltn:
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head$$num.ist -s mdxsty_$$loc.ist -t alpha_$$loc$$num.ilg -o alpha_$$loc$$num.ind ; \
 	done ; \
 	done
-	for num in 11 12 13; do \
+	for num in 1 2 3; do \
 	for loc in cs hr sk srl; do \
-		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_$$loc$$num.ist -t alpha_$$loc$$num.ilg -o alpha_$$loc$$num.ind ; \
+		locx=$${loc}1 ; \
+		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head$$num.ist -s mdxsty_$$locx.ist -t alpha_$$locx$$num.ilg -o alpha_$$locx$$num.ind ; \
 	done ; \
 	done
 
@@ -42,9 +47,10 @@ grk:
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head$$num.ist -s mdxsty_$$loc.ist -t alpha_$$loc$$num.ilg -o alpha_$$loc$$num.ind ; \
 	done ; \
 	done
-	for num in 11 12; do \
+	for num in 1 2; do \
 	for loc in el; do \
-		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_$$loc$$num.ist -t alpha_$$loc$$num.ilg -o alpha_$$loc$$num.ind ; \
+		locx=$${loc}1 ; \
+		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head$$num.ist -s mdxsty_$$locx.ist -t alpha_$$locx$$num.ilg -o alpha_$$locx$$num.ind ; \
 	done ; \
 	done
 
