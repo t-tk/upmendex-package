@@ -19,6 +19,8 @@ upmendex is a multilingual index processor with following features:
  * Support Latin (including non-English), Greek, Cyrillic,
    Korean Hangul and Chinese Han (Hanzi ideographs) scripts
    as well as Japanese Kana.
+ * Support four kinds of sort orders (Pinyin, Radical-Stroke,
+   Stroke and Zhuyin) for Chinese Han scripts (Hanzi ideographs).
  * Apply International Components for Unicode (ICU)[4]
    for sorting process.
 
@@ -27,6 +29,8 @@ upmendex is a multilingual index processor with following features:
  * source/ :: sources
  * doc/ :: documents
  * doc/samples/ :: samples for test.
+ * doc/samples/alphabet :: samples for languages and collation options.
+ * doc/samples/option :: samples for ICU attributes/rules options etc.
    More samples are distributed at GitHub[2] than at CTAN[5].
  * man/ :: manuals
 
@@ -46,22 +50,24 @@ It is as same as [the BSD 3-Clause License](https://opensource.org/licenses/BSD-
 
 ### Supported locales
 In ICU collator, default "root" locale covers several lauguages:
-English, French, Germany, Italian and so on.
+English, French, Germany, Italian, Portuguese and so on.
 Much of languages and collation options are supported by
 setting into "icu_locale" in style files.
 Currently following locales are available:
 
 #### Latin script
-  "az" (Azerbaijani), "ca" (Catalan), "cs", "cs@collation=search" (Czech),
-  "da" (Danish), "de@collation=phonebook" (German), "eo" (Espelanto),
-  "es", "es@collation=traditional", "es@collation=search" (Spanish),
-  "fi" (Finnish), "gl" (Galician),
-  "hr", "hr@collation=search" (Croatian), "hu" (Hungarian),
-  "lt" (Lithuanian), "nb", "nn", "no" (Norwegian),
+  "az", "az@collation=search" (Azerbaijani), "ca", "ca@collation=search" (Catalan),
+  "cs", "cs@collation=search" (Czech), "da", "da@collation=search" (Danish),
+  "de@collation=phonebook", "de@collation=search", "de-AT@collation=phonebook" (German),
+  "eo" (Espelanto), "es", "es@collation=traditional", "es@collation=search" (Spanish),
+  "fi", "fi@collation=search", "fi@collation=traditional" (Finnish),
+  "fr-CA" (French), "gl", "gl@collation=search" (Galician),
+  "hr", "hr@collation=search" (Croatian), "hu" (Hungarian), "lt" (Lithuanian),
+  "nb", "nb@collation=search", "nn", "nn@collation=search", "no" (Norwegian),
   "pl" (Polish), "ro" (Romanian), "sk", "sk@collation=search" (Slovak),
-  "sl" (Slovenian), "sq" (Albanian),
-  "sr-Latn", "sr-Latn@collation=search" (Serbian), "sv" (Swedish),
-  "tr" (Turkish), "vi" (Vietnamese)
+  "sl" (Slovenian), "sq" (Albanian), "sr-Latn", "sr-Latn@collation=search" (Serbian),
+  "sv", "sv@collation=search", "sv@collation=standard" (Swedish),
+  "tr" (Turkish), "vi", "vi@collation=traditional" (Vietnamese)
 
 #### Cyrillic script
   "be" (Belarusian), "bg" (Bulgarian), "ru" (Russian),
