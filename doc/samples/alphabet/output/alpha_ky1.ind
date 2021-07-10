@@ -33,11 +33,15 @@
 \centerline{\bfseries --- Е ---}\par\nobreak
   \item е\leaders\hbox{$\cdot$}\hfill 206
   \item Е\leaders\hbox{$\cdot$}\hfill 106
+  \item еа\leaders\hbox{$\cdot$}\hfill 3001
+  \item ея\leaders\hbox{$\cdot$}\hfill 3002
+
+  \indexspace
+
+\centerline{\bfseries --- Ё ---}\par\nobreak
   \item ё\leaders\hbox{$\cdot$}\hfill 260
   \item Ё\leaders\hbox{$\cdot$}\hfill 160
-  \item еа\leaders\hbox{$\cdot$}\hfill 3001
   \item ёа\leaders\hbox{$\cdot$}\hfill 3003
-  \item ея\leaders\hbox{$\cdot$}\hfill 3002
   \item ёя\leaders\hbox{$\cdot$}\hfill 3004
 
   \indexspace
@@ -90,9 +94,21 @@
 
   \indexspace
 
+\centerline{\bfseries --- Ң ---}\par\nobreak
+  \item ң\leaders\hbox{$\cdot$}\hfill 2004
+  \item Ң\leaders\hbox{$\cdot$}\hfill 1004
+
+  \indexspace
+
 \centerline{\bfseries --- О ---}\par\nobreak
   \item о\leaders\hbox{$\cdot$}\hfill 215
   \item О\leaders\hbox{$\cdot$}\hfill 115
+
+  \indexspace
+
+\centerline{\bfseries --- Ө ---}\par\nobreak
+  \item ө\leaders\hbox{$\cdot$}\hfill 2005
+  \item Ө\leaders\hbox{$\cdot$}\hfill 1005
 
   \indexspace
 
@@ -123,6 +139,12 @@
 \centerline{\bfseries --- У ---}\par\nobreak
   \item у\leaders\hbox{$\cdot$}\hfill 220
   \item У\leaders\hbox{$\cdot$}\hfill 120
+
+  \indexspace
+
+\centerline{\bfseries --- Ү ---}\par\nobreak
+  \item ү\leaders\hbox{$\cdot$}\hfill 2007
+  \item Ү\leaders\hbox{$\cdot$}\hfill 1007
 
   \indexspace
 

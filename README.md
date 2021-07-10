@@ -70,8 +70,8 @@ Currently following locales are available:
   "tr" (Turkish), "vi", "vi@collation=traditional" (Vietnamese)
 
 #### Cyrillic script
-  "be" (Belarusian), "bg" (Bulgarian), "ru" (Russian),
-  "sr" (Serbian), "uk" (Ukraine)
+  "be" (Belarusian), "bg" (Bulgarian), "kk" (Kazakh), "ky" (Kyrgyz),
+  "mk" (Macedonian), "ru" (Russian), "sr" (Serbian), "uk" (Ukraine)
 
 #### Greek script
   "el" (Greek)

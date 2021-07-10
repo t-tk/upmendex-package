@@ -30,15 +30,15 @@
 
   \indexspace
 
+\centerline{\bfseries --- Ѓ ---}\par\nobreak
+  \item ѓ\leaders\hbox{$\cdot$}\hfill 2001
+  \item Ѓ\leaders\hbox{$\cdot$}\hfill 1001
+
+  \indexspace
+
 \centerline{\bfseries --- Е ---}\par\nobreak
   \item е\leaders\hbox{$\cdot$}\hfill 206
   \item Е\leaders\hbox{$\cdot$}\hfill 106
-  \item ё\leaders\hbox{$\cdot$}\hfill 260
-  \item Ё\leaders\hbox{$\cdot$}\hfill 160
-  \item еа\leaders\hbox{$\cdot$}\hfill 3001
-  \item ёа\leaders\hbox{$\cdot$}\hfill 3003
-  \item ея\leaders\hbox{$\cdot$}\hfill 3002
-  \item ёя\leaders\hbox{$\cdot$}\hfill 3004
 
   \indexspace
 
@@ -54,15 +54,21 @@
 
   \indexspace
 
+\centerline{\bfseries --- Ѕ ---}\par\nobreak
+  \item ѕ\leaders\hbox{$\cdot$}\hfill 2002
+  \item Ѕ\leaders\hbox{$\cdot$}\hfill 1002
+
+  \indexspace
+
 \centerline{\bfseries --- И ---}\par\nobreak
   \item и\leaders\hbox{$\cdot$}\hfill 209
   \item И\leaders\hbox{$\cdot$}\hfill 109
 
   \indexspace
 
-\centerline{\bfseries --- Й ---}\par\nobreak
-  \item й\leaders\hbox{$\cdot$}\hfill 210
-  \item Й\leaders\hbox{$\cdot$}\hfill 110
+\centerline{\bfseries --- Ј ---}\par\nobreak
+  \item ј\leaders\hbox{$\cdot$}\hfill 2003
+  \item Ј\leaders\hbox{$\cdot$}\hfill 1003
 
   \indexspace
 
@@ -78,6 +84,12 @@
 
   \indexspace
 
+\centerline{\bfseries --- Љ ---}\par\nobreak
+  \item љ\leaders\hbox{$\cdot$}\hfill 2004
+  \item Љ\leaders\hbox{$\cdot$}\hfill 1004
+
+  \indexspace
+
 \centerline{\bfseries --- М ---}\par\nobreak
   \item м\leaders\hbox{$\cdot$}\hfill 213
   \item М\leaders\hbox{$\cdot$}\hfill 113
@@ -87,6 +99,12 @@
 \centerline{\bfseries --- Н ---}\par\nobreak
   \item н\leaders\hbox{$\cdot$}\hfill 214
   \item Н\leaders\hbox{$\cdot$}\hfill 114
+
+  \indexspace
+
+\centerline{\bfseries --- Њ ---}\par\nobreak
+  \item њ\leaders\hbox{$\cdot$}\hfill 2005
+  \item Њ\leaders\hbox{$\cdot$}\hfill 1005
 
   \indexspace
 
@@ -120,6 +138,12 @@
 
   \indexspace
 
+\centerline{\bfseries --- Ќ ---}\par\nobreak
+  \item ќ\leaders\hbox{$\cdot$}\hfill 2006
+  \item Ќ\leaders\hbox{$\cdot$}\hfill 1006
+
+  \indexspace
+
 \centerline{\bfseries --- У ---}\par\nobreak
   \item у\leaders\hbox{$\cdot$}\hfill 220
   \item У\leaders\hbox{$\cdot$}\hfill 120
@@ -150,50 +174,14 @@
 
   \indexspace
 
+\centerline{\bfseries --- Џ ---}\par\nobreak
+  \item џ\leaders\hbox{$\cdot$}\hfill 2007
+  \item Џ\leaders\hbox{$\cdot$}\hfill 1007
+
+  \indexspace
+
 \centerline{\bfseries --- Ш ---}\par\nobreak
   \item ш\leaders\hbox{$\cdot$}\hfill 225
   \item Ш\leaders\hbox{$\cdot$}\hfill 125
-
-  \indexspace
-
-\centerline{\bfseries --- Щ ---}\par\nobreak
-  \item щ\leaders\hbox{$\cdot$}\hfill 226
-  \item Щ\leaders\hbox{$\cdot$}\hfill 126
-
-  \indexspace
-
-\centerline{\bfseries --- Ъ ---}\par\nobreak
-  \item ъ\leaders\hbox{$\cdot$}\hfill 227
-  \item Ъ\leaders\hbox{$\cdot$}\hfill 127
-
-  \indexspace
-
-\centerline{\bfseries --- Ы ---}\par\nobreak
-  \item ы\leaders\hbox{$\cdot$}\hfill 228
-  \item Ы\leaders\hbox{$\cdot$}\hfill 128
-
-  \indexspace
-
-\centerline{\bfseries --- Ь ---}\par\nobreak
-  \item ь\leaders\hbox{$\cdot$}\hfill 229
-  \item Ь\leaders\hbox{$\cdot$}\hfill 129
-
-  \indexspace
-
-\centerline{\bfseries --- Э ---}\par\nobreak
-  \item э\leaders\hbox{$\cdot$}\hfill 230
-  \item Э\leaders\hbox{$\cdot$}\hfill 130
-
-  \indexspace
-
-\centerline{\bfseries --- Ю ---}\par\nobreak
-  \item ю\leaders\hbox{$\cdot$}\hfill 231
-  \item Ю\leaders\hbox{$\cdot$}\hfill 131
-
-  \indexspace
-
-\centerline{\bfseries --- Я ---}\par\nobreak
-  \item я\leaders\hbox{$\cdot$}\hfill 232
-  \item Я\leaders\hbox{$\cdot$}\hfill 132
 
 \end{theindex}
