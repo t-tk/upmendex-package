@@ -52,7 +52,7 @@ ltn:
 
 cyr:
 	for num in 1 2; do \
-	for loc in be bg ru sr uk; do \
+	for loc in be bg kk ky mk ru sr uk; do \
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head$$num.ist -s mdxsty_$$loc.ist -t alpha_$$loc$$num.ilg -o alpha_$$loc$$num.ind ; \
 	done ; \
 	done
