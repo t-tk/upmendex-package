@@ -352,4 +352,10 @@ void set_icu_attributes(void)
 		else if (strstr(pos,"off"))           icu_attributes[attr]=UCOL_OFF;
 		else	verb_printf(efp,"\nWarning: Illegal input for icu_attributes (normalization-mode).");
 	}
+	if ((pos=strstr(tmp,"numeric-ordering:"))>0) {
+		pos+=17;  attr=UCOL_NUMERIC_COLLATION;
+		if      (strstr(pos,"on"))            icu_attributes[attr]=UCOL_ON;
+		else if (strstr(pos,"off"))           icu_attributes[attr]=UCOL_OFF;
+		else	verb_printf(efp,"\nWarning: Illegal input for icu_attributes (numeric-ordering).");
+	}
 }
