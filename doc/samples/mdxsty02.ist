@@ -10,7 +10,12 @@ lethead_suffix  " ---}\\par\\nobreak"
 
 character_order  "JKHGCLSN"
 
-tumunja "가나다라마바사아카"
+hangul_head "가나다라마바사아카"
+%% hangul_head "㉠㉡㉢㉣㉤㉥㉦㉧㉨㉩㉪㉫㉬㉭"
+%% hangul_head "㉮㉯㉰㉱㉲㉳㉴㉵㉶㉷㉸㉹㉺㉻"
+%% hangul_head "㈀㈁㈂㈃㈄㈅㈆㈇㈈㈉㈊㈋㈌㈍"
+%% hangul_head "㈎㈏㈐㈑㈒㈓㈔㈕㈖㈗㈘㈙㈚㈛"
+%% tumunja "가나다라마바사아카"
 %% tumunja "㉠㉡㉢㉣㉤㉥㉦㉧㉨㉩㉪㉫㉬㉭"
 %% tumunja "㉮㉯㉰㉱㉲㉳㉴㉵㉶㉷㉸㉹㉺㉻"
 %% tumunja "㈀㈁㈂㈃㈄㈅㈆㈇㈈㈉㈊㈋㈌㈍"
