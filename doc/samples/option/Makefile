@@ -8,32 +8,32 @@ all: attri rules jp_u
 #
 attri:
 # default
-	for sty in A0_S0_F0_CF0_CL0_N0; do \
-		$(UPMENDEX) -f attri1.idx -s mdxsty_$$sty.ist -o attri1_$$sty.ind ; \
+	for sty in default; do \
+		$(UPMENDEX) -f attri1.idx -s mdxsty_attr_$$sty.ist -o attri1_$$sty.ind ; \
 	done
 # alternate
-	for sty in As_S0_F0_CF0_CL0_N0 An_S0_F0_CF0_CL0_N0 As_Sq_F0_CF0_CL0_N0; do \
-		$(UPMENDEX) -f attri1.idx -s mdxsty_$$sty.ist -o attri1_$$sty.ind ; \
+	for sty in As An As_Sq; do \
+		$(UPMENDEX) -f attri1.idx -s mdxsty_attr_$$sty.ist -o attri1_$$sty.ind ; \
 	done
 # strength
-	for sty in A0_Sp_F0_CF0_CL0_N0 A0_Ss_F0_CF0_CL0_N0 A0_St_F0_CF0_CL0_N0 A0_Sq_F0_CF0_CL0_N0 A0_Si_F0_CF0_CL0_N0; do \
-		$(UPMENDEX) -f attri1.idx -s mdxsty_$$sty.ist -o attri1_$$sty.ind ; \
+	for sty in Sp Ss St Sq Si; do \
+		$(UPMENDEX) -f attri1.idx -s mdxsty_attr_$$sty.ist -o attri1_$$sty.ind ; \
 	done
 # french-collation
-	for sty in A0_S0_Fn_CF0_CL0_N0 A0_S0_Ff_CF0_CL0_N0; do \
-		$(UPMENDEX) -f attri1.idx -s mdxsty_$$sty.ist -o attri1_$$sty.ind ; \
+	for sty in Fn Ff; do \
+		$(UPMENDEX) -f attri1.idx -s mdxsty_attr_$$sty.ist -o attri1_$$sty.ind ; \
 	done
 # case-first
-	for sty in A0_S0_F0_CFf_CL0_N0 A0_S0_F0_CFu_CL0_N0 A0_S0_F0_CFl_CL0_N0; do \
-		$(UPMENDEX) -f attri1.idx -s mdxsty_$$sty.ist -o attri1_$$sty.ind ; \
+	for sty in CFf CFu CFl; do \
+		$(UPMENDEX) -f attri1.idx -s mdxsty_attr_$$sty.ist -o attri1_$$sty.ind ; \
 	done
 # case-level
-	for sty in A0_S0_F0_CF0_CLn_N0 A0_S0_F0_CF0_CLf_N0; do \
-		$(UPMENDEX) -f attri1.idx -s mdxsty_$$sty.ist -o attri1_$$sty.ind ; \
+	for sty in CLn CLf; do \
+		$(UPMENDEX) -f attri1.idx -s mdxsty_attr_$$sty.ist -o attri1_$$sty.ind ; \
 	done
 # normalization-mode
-	for sty in A0_S0_F0_CF0_CL0_Nn A0_S0_F0_CF0_CL0_Nf; do \
-		$(UPMENDEX) -f attri1.idx -s mdxsty_$$sty.ist -o attri1_$$sty.ind ; \
+	for sty in Nn Nf; do \
+		$(UPMENDEX) -f attri1.idx -s mdxsty_attr_$$sty.ist -o attri1_$$sty.ind ; \
 	done
 
 #
