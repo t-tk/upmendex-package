@@ -6,42 +6,50 @@ all: attri rules jp_u
 #
 # test for icu_attributes
 #
-attri:
-# default
+attri: default alternate strength french-collation case-first case-level normalization-mode
+
+default:
 	for sty in default; do \
-		$(UPMENDEX) -f attri1.idx -s mdxsty_attr_$$sty.ist -o attri1_$$sty.ind ; \
+		$(UPMENDEX) -f attri1.idx -s mdxsty_attr_$$sty.ist -t attri1_$$sty.ilg -o attri1_$$sty.ind ; \
 	done
-# alternate
+
+alternate:
 	for sty in As An As_Sq; do \
-		$(UPMENDEX) -f attri1.idx -s mdxsty_attr_$$sty.ist -o attri1_$$sty.ind ; \
+		$(UPMENDEX) -f attri1.idx -s mdxsty_attr_$$sty.ist -t attri1_$$sty.ilg -o attri1_$$sty.ind ; \
 	done
-# strength
+
+strength:
 	for sty in Sp Ss St Sq Si; do \
-		$(UPMENDEX) -f attri1.idx -s mdxsty_attr_$$sty.ist -o attri1_$$sty.ind ; \
+		$(UPMENDEX) -f attri1.idx -s mdxsty_attr_$$sty.ist -t attri1_$$sty.ilg -o attri1_$$sty.ind ; \
 	done
-# french-collation
+
+french-collation:
 	for sty in Fn Ff; do \
-		$(UPMENDEX) -f attri1.idx -s mdxsty_attr_$$sty.ist -o attri1_$$sty.ind ; \
+		$(UPMENDEX) -f attri1.idx -s mdxsty_attr_$$sty.ist -t attri1_$$sty.ilg -o attri1_$$sty.ind ; \
 	done
-# case-first
+
+case-first:
 	for sty in CFf CFu CFl; do \
-		$(UPMENDEX) -f attri1.idx -s mdxsty_attr_$$sty.ist -o attri1_$$sty.ind ; \
+		$(UPMENDEX) -f attri1.idx -s mdxsty_attr_$$sty.ist -t attri1_$$sty.ilg -o attri1_$$sty.ind ; \
 	done
-# case-level
+
+case-level:
 	for sty in CLn CLf; do \
-		$(UPMENDEX) -f attri1.idx -s mdxsty_attr_$$sty.ist -o attri1_$$sty.ind ; \
+		$(UPMENDEX) -f attri1.idx -s mdxsty_attr_$$sty.ist -t attri1_$$sty.ilg -o attri1_$$sty.ind ; \
 	done
-# normalization-mode
+
+normalization-mode:
 	for sty in Nn Nf; do \
-		$(UPMENDEX) -f attri1.idx -s mdxsty_attr_$$sty.ist -o attri1_$$sty.ind ; \
+		$(UPMENDEX) -f attri1.idx -s mdxsty_attr_$$sty.ist -t attri1_$$sty.ilg -o attri1_$$sty.ind ; \
 	done
+
 
 #
 # test for icu_rules
 #
 rules:
 	for sty in rule0; do \
-		$(UPMENDEX) -f attri1.idx -s mdxsty_$$sty.ist -o attri1_$$sty.ind ; \
+		$(UPMENDEX) -f attri1.idx -s mdxsty_$$sty.ist -t attri1_$$sty.ilg -o attri1_$$sty.ind ; \
 	done
 
 #
