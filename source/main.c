@@ -245,8 +245,8 @@ int main(int argc, char **argv)
 
 	initkanatable();
 
-/*   init hangul tumunja table   */
-	u_strcpy(tumunja,GANADA);
+/*   init hangul hangul_head table   */
+	u_strcpy(hangul_head,GANADA);
 
 	for (k=0;styfile[k]!=NULL;k++) {
 		styread(styfile[k]);

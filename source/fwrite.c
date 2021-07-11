@@ -213,22 +213,22 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 			else if (chset==CH_HANGUL) {
 				if (lethead_flag!=0) {
 					fputs(lethead_prefix,fp);
-					for (j=tpoint;j<(u_strlen(tumunja));j++) {
-						if (initial_cmp_char(initial,tumunja[j])) {
-							fprint_uchar(fp,&tumunja[j-1],M_NONE,1);
+					for (j=tpoint;j<(u_strlen(hangul_head));j++) {
+						if (initial_cmp_char(initial,hangul_head[j])) {
+							fprint_uchar(fp,&hangul_head[j-1],M_NONE,1);
 							tpoint=j;
 							break;
 						}
 					}
-					if (j==(u_strlen(tumunja))) {
-						fprint_uchar(fp,&tumunja[j-1],M_NONE,1);
+					if (j==(u_strlen(hangul_head))) {
+						fprint_uchar(fp,&hangul_head[j-1],M_NONE,1);
 					}
 					fputs(lethead_suffix,fp);
 				}
 				widechar_to_multibyte(obuff,BUFFERLEN,ind[i].idx[0]);
 				SPRINTF(lbuff,"%s%s",item_0,obuff);
-				for (tpoint=0;tpoint<(u_strlen(tumunja));tpoint++) {
-					if (initial_cmp_char(initial,tumunja[tpoint])) {
+				for (tpoint=0;tpoint<(u_strlen(hangul_head));tpoint++) {
+					if (initial_cmp_char(initial,hangul_head[tpoint])) {
 						break;
 					}
 				}
@@ -304,8 +304,8 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 				}
 			}
 			else if (chset==CH_HANGUL) {
-				for (j=tpoint;j<(u_strlen(tumunja));j++) {
-					if (initial_cmp_char(initial,tumunja[j])) {
+				for (j=tpoint;j<(u_strlen(hangul_head));j++) {
+					if (initial_cmp_char(initial,hangul_head[j])) {
 						break;
 					}
 				}
@@ -314,7 +314,7 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 					fputs(group_skip,fp);
 					if (lethead_flag!=0) {
 						fputs(lethead_prefix,fp);
-						fprint_uchar(fp,&tumunja[j-1],M_NONE,1);
+						fprint_uchar(fp,&hangul_head[j-1],M_NONE,1);
 						fputs(lethead_suffix,fp);
 					}
 				}

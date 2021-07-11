@@ -136,8 +136,8 @@ void styread(const char *filename)
 			multibyte_to_widechar(kana_head,STYBUFSIZE,tmp);
 			continue;
 		}
-		if (getparam(buff,"tumunja",tmp)) {
-			multibyte_to_widechar(tumunja,STYBUFSIZE,tmp);
+		if (getparam(buff,"hangul_head",tmp) || getparam(buff,"tumunja",tmp)) {
+			multibyte_to_widechar(hangul_head,STYBUFSIZE,tmp);
 			continue;
 		}
 		if (getparam(buff,"hanzi_head",tmp)) {
