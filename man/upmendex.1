@@ -249,11 +249,18 @@ lowercase and titlecase.
 Same as \fBlethead_flag\fR.
 .RE
 .TP 30
-\fBtumunja\fR  <string>
+\fBhangul_head\fR  <string>
 "ㄱㄴㄷㄹㅁㅂㅅㅇㅈㅊㅋㅌㅍㅎ"
 .RS
 Heading characters of hangul specified by a string.
 (Extended by upmendex)
+.RE
+.TP 30
+\fBtumunja\fR  <string>
+"ㄱㄴㄷㄹㅁㅂㅅㅇㅈㅊㅋㅌㅍㅎ"
+.RS
+Heading characters of hangul specified by a string.
+(Deprecated, Extended by upmendex)
 .RE
 .TP 30
 \fBhanzi_head\fR  <string>
@@ -263,6 +270,20 @@ Heading strings of hanzi (Kanji, Hanja)
 specified by a string, which is
 concatenated of items with a separator \';\'.
 (Extended by upmendex)
+.RE
+.TP 30
+\fBdevanagari_head\fR  <string>
+"ऄअआइईउऊऋऌऍऎएऐऑऒओऔकखगघङचछजझञटठडढणतथदधनपफबभमयरलळवशषसह"
+.RS
+Heading characters of Devanagari specified by a string.
+(Experimental, Extended by upmendex)
+.RE
+.TP 30
+\fBthai_head\fR  <string>
+"กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรฤลฦวศษสหฬอฮ"
+.RS
+Heading characters of Thai script specified by a string.
+(Experimental, Extended by upmendex)
 .RE
 .TP 30
 \fBitem_0\fR  <string>
@@ -465,11 +486,14 @@ Japanese sequence and non-Japanese sequence in sorting procedure.
 .RE
 .TP 30
 \fBcharacter_order\fR  <string>
-"SNLGCJKH"
+"SNLGCJKHDT"
 .RS
 Order of scripts and symbols.
-\'S\', \'N\', \'L\', \'G\', \'C\', \'J\', \'K\' and \'H\' respectively
-denotes symbol, number, Latin, Greek, Cyrillic, Japanese Kana, Korean Hangul and Hanja.
+\'S\', \'N\', \'L\', \'G\', \'C\', \'J\', \'K\', \'H\', \'D\' and \'T\' respectively
+denotes symbol, number, Latin, Greek, Cyrillic, Japanese Kana, Korean Hangul, Hanja,
+Devanagari and Thai script.
+Please make sure that \'S\' and \'N\' are next to each other,
+since \fBupmendex\fR considers numbers as a part of symbol.
 (Extended by upmendex)
 .RE
 .TP 30
@@ -496,7 +520,7 @@ Ref. <http://userguide.icu-project.org/collation/customization>,
 <http://www.unicode.org/reports/tr35/tr35-collation.html#Rules>
 .RE
 .TP 30
-\fBicu_rules\fR  <string>
+\fBicu_attributes\fR  <string>
 ""
 .RS
 Attributes in ICU collator.
@@ -507,7 +531,8 @@ Followings are available:
 "french-collation:on", "french-collation:off",
 "case-first:off", "case-first:upper-first", "case-first:lower-first",
 "case-level:on", "case-level:off",
-"normalization-mode:on", "normalization-mode:off"
+"normalization-mode:on", "normalization-mode:off",
+"numeric-ordering:on", "numeric-ordering:off"
 (Extended by upmendex)
 .RE
 Ref. <http://userguide.icu-project.org/collation/customization>,
