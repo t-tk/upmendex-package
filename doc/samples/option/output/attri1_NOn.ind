@@ -1,5 +1,12 @@
 \begin{theindex}
 
+\centerline{\bfseries --- Symbols ---}\par\nobreak
+  \item $9.00\leaders\hbox{$\cdot$}\hfill 605
+  \item $21.00\leaders\hbox{$\cdot$}\hfill 604
+  \item $1234.50\leaders\hbox{$\cdot$}\hfill 603
+
+  \indexspace
+
 \centerline{\bfseries --- A ---}\par\nobreak
   \item a\leaders\hbox{$\cdot$}\hfill 401
   \item A\leaders\hbox{$\cdot$}\hfill 400
@@ -7,6 +14,9 @@
   \item Å\leaders\hbox{$\cdot$}\hfill 404
   \item ä\leaders\hbox{$\cdot$}\hfill 403
   \item Ä\leaders\hbox{$\cdot$}\hfill 402
+  \item A-9\leaders\hbox{$\cdot$}\hfill 602
+  \item A-21\leaders\hbox{$\cdot$}\hfill 601
+  \item A-123\leaders\hbox{$\cdot$}\hfill 600
 
   \indexspace
 
@@ -27,8 +37,8 @@
 
 \centerline{\bfseries --- C ---}\par\nobreak
   \item cote\leaders\hbox{$\cdot$}\hfill 200
-  \item côte\leaders\hbox{$\cdot$}\hfill 202
   \item coté\leaders\hbox{$\cdot$}\hfill 201
+  \item côte\leaders\hbox{$\cdot$}\hfill 202
   \item côté\leaders\hbox{$\cdot$}\hfill 203
 
   \indexspace

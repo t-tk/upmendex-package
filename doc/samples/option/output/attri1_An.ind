@@ -1,26 +1,36 @@
 \begin{theindex}
 
+\centerline{\bfseries --- Symbols ---}\par\nobreak
+  \item $1234.50\leaders\hbox{$\cdot$}\hfill 603
+  \item $21.00\leaders\hbox{$\cdot$}\hfill 604
+  \item $9.00\leaders\hbox{$\cdot$}\hfill 605
+
+  \indexspace
+
 \centerline{\bfseries --- A ---}\par\nobreak
-  \item A\leaders\hbox{$\cdot$}\hfill 400
   \item a\leaders\hbox{$\cdot$}\hfill 401
-  \item Ä\leaders\hbox{$\cdot$}\hfill 402
+  \item A\leaders\hbox{$\cdot$}\hfill 400
+  \item å\leaders\hbox{$\cdot$}\hfill 405
   \item Å\leaders\hbox{$\cdot$}\hfill 404
   \item ä\leaders\hbox{$\cdot$}\hfill 403
-  \item å\leaders\hbox{$\cdot$}\hfill 405
+  \item Ä\leaders\hbox{$\cdot$}\hfill 402
+  \item A-123\leaders\hbox{$\cdot$}\hfill 600
+  \item A-21\leaders\hbox{$\cdot$}\hfill 601
+  \item A-9\leaders\hbox{$\cdot$}\hfill 602
 
   \indexspace
 
 \centerline{\bfseries --- B ---}\par\nobreak
-  \item B\leaders\hbox{$\cdot$}\hfill 406
   \item b\leaders\hbox{$\cdot$}\hfill 407
-  \item black Bird\leaders\hbox{$\cdot$}\hfill 301
+  \item B\leaders\hbox{$\cdot$}\hfill 406
   \item black bird\leaders\hbox{$\cdot$}\hfill 300
+  \item black Bird\leaders\hbox{$\cdot$}\hfill 301
   \item black birds\leaders\hbox{$\cdot$}\hfill 302
-  \item black-Bird\leaders\hbox{$\cdot$}\hfill 304
   \item black-bird\leaders\hbox{$\cdot$}\hfill 303
+  \item black-Bird\leaders\hbox{$\cdot$}\hfill 304
   \item black-birds\leaders\hbox{$\cdot$}\hfill 305
-  \item blackBird\leaders\hbox{$\cdot$}\hfill 307
   \item blackbird\leaders\hbox{$\cdot$}\hfill 306
+  \item blackBird\leaders\hbox{$\cdot$}\hfill 307
   \item blackbirds\leaders\hbox{$\cdot$}\hfill 308
 
   \indexspace
@@ -37,17 +47,17 @@
   \item de-luge\leaders\hbox{$\cdot$}\hfill 101
   \item delu-ge\leaders\hbox{$\cdot$}\hfill 102
   \item delug\leaders\hbox{$\cdot$}\hfill 100
-  \item Deluge\leaders\hbox{$\cdot$}\hfill 104
   \item deluge\leaders\hbox{$\cdot$}\hfill 103
+  \item Deluge\leaders\hbox{$\cdot$}\hfill 104
   \item deluge-\leaders\hbox{$\cdot$}\hfill 105
 
   \indexspace
 
 \centerline{\bfseries --- E ---}\par\nobreak
-  \item E\leaders\hbox{$\cdot$}\hfill 408
   \item e\leaders\hbox{$\cdot$}\hfill 409
-  \item Ë\leaders\hbox{$\cdot$}\hfill 410
+  \item E\leaders\hbox{$\cdot$}\hfill 408
   \item ë\leaders\hbox{$\cdot$}\hfill 411
+  \item Ë\leaders\hbox{$\cdot$}\hfill 410
 
   \indexspace
 

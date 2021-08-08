@@ -1,6 +1,6 @@
 UPMENDEX = upmendex
 
-alphabet: ltn cyr grk zh ja
+alphabet: ltn cyr grk zh ja dev th
 
 ltn:
 	for num in 1 2; do \
@@ -107,6 +107,28 @@ ja:
 		loc='ja' ; \
 		locx='jag' ; \
 		$(UPMENDEX) -g alpha_$$loc.idx -s mdxsty_$$loc$$num.ist -t alpha_$$locx$$num.ilg -o alpha_$$locx$$num.ind ; \
+	done
+
+dev:
+	for loc in hi mr ne; do \
+		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head1.ist -s mdxsty_$$loc.ist -t alpha_$$loc.ilg -o alpha_$$loc.ind ; \
+	done ; \
+	for x in 1; do \
+	for loc in hi mr ne; do \
+		locx=$$loc$$x ; \
+		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head1.ist -s mdxsty_$$locx.ist -t alpha_$$locx.ilg -o alpha_$$locx.ind ; \
+	done ; \
+	done
+
+th:
+	for loc in th; do \
+		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head1.ist -s mdxsty_$$loc.ist -t alpha_$$loc.ilg -o alpha_$$loc.ind ; \
+	done ; \
+	for x in 1; do \
+	for loc in th; do \
+		locx=$$loc$$x ; \
+		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head1.ist -s mdxsty_$$locx.ist -t alpha_$$locx.ilg -o alpha_$$locx.ind ; \
+	done ; \
 	done
 
 compare:
