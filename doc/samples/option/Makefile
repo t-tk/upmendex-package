@@ -6,7 +6,7 @@ all: attri rules jp_u
 #
 # test for icu_attributes
 #
-attri: default alternate strength french-collation case-first case-level normalization-mode
+attri: default alternate strength french-collation case-first case-level normalization-mode numeric-ordering
 
 default:
 	for sty in default; do \
@@ -40,6 +40,11 @@ case-level:
 
 normalization-mode:
 	for sty in Nn Nf; do \
+		$(UPMENDEX) -f attri1.idx -s mdxsty_attr_$$sty.ist -t attri1_$$sty.ilg -o attri1_$$sty.ind ; \
+	done
+
+numeric-ordering:
+	for sty in NOn NOf; do \
 		$(UPMENDEX) -f attri1.idx -s mdxsty_attr_$$sty.ist -t attri1_$$sty.ilg -o attri1_$$sty.ind ; \
 	done
 

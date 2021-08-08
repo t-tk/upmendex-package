@@ -1,9 +1,9 @@
 \begin{theindex}
 
 \centerline{\bfseries --- Symbols ---}\par\nobreak
-  \item $1234.50\leaders\hbox{$\cdot$}\hfill 603
-  \item $21.00\leaders\hbox{$\cdot$}\hfill 604
   \item $9.00\leaders\hbox{$\cdot$}\hfill 605
+  \item $21.00\leaders\hbox{$\cdot$}\hfill 604
+  \item $1234.50\leaders\hbox{$\cdot$}\hfill 603
 
   \indexspace
 
@@ -12,21 +12,11 @@
   \item A\leaders\hbox{$\cdot$}\hfill 400
   \item å\leaders\hbox{$\cdot$}\hfill 405
   \item Å\leaders\hbox{$\cdot$}\hfill 404
-  \item A-123\leaders\hbox{$\cdot$}\hfill 600
-  \item A-21\leaders\hbox{$\cdot$}\hfill 601
-  \item A-9\leaders\hbox{$\cdot$}\hfill 602
-
-  \indexspace
-
-\centerline{\bfseries --- E ---}\par\nobreak
-  \item ë\leaders\hbox{$\cdot$}\hfill 411
-  \item Ë\leaders\hbox{$\cdot$}\hfill 410
-
-  \indexspace
-
-\centerline{\bfseries --- Ä ---}\par\nobreak
-  \item Ä\leaders\hbox{$\cdot$}\hfill 402
   \item ä\leaders\hbox{$\cdot$}\hfill 403
+  \item Ä\leaders\hbox{$\cdot$}\hfill 402
+  \item A-9\leaders\hbox{$\cdot$}\hfill 602
+  \item A-21\leaders\hbox{$\cdot$}\hfill 601
+  \item A-123\leaders\hbox{$\cdot$}\hfill 600
 
   \indexspace
 
@@ -66,16 +56,18 @@
 \centerline{\bfseries --- E ---}\par\nobreak
   \item e\leaders\hbox{$\cdot$}\hfill 409
   \item E\leaders\hbox{$\cdot$}\hfill 408
+  \item ë\leaders\hbox{$\cdot$}\hfill 411
+  \item Ë\leaders\hbox{$\cdot$}\hfill 410
 
   \indexspace
 
 \centerline{\bfseries --- ア ---}\par\nobreak
-  \item アいウえオ\leaders\hbox{$\cdot$}\hfill 505
-  \item アイうえお\leaders\hbox{$\cdot$}\hfill 502
-  \item アイウエオ\leaders\hbox{$\cdot$}\hfill 501
   \item あいうえお\leaders\hbox{$\cdot$}\hfill 500
   \item あいウエオ\leaders\hbox{$\cdot$}\hfill 503
   \item あイうエお\leaders\hbox{$\cdot$}\hfill 504
+  \item アいウえオ\leaders\hbox{$\cdot$}\hfill 505
+  \item アイうえお\leaders\hbox{$\cdot$}\hfill 502
+  \item アイウエオ\leaders\hbox{$\cdot$}\hfill 501
 
   \indexspace
 
