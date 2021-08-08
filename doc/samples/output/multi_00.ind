@@ -39,4 +39,16 @@
 \centerline{\bfseries --- 漢字 ---}\par\nobreak
   \item 王羲之\leaders\hbox{$\cdot$}\hfill 7
 
+  \indexspace
+
+\centerline{\bfseries --- ग ---}\par\nobreak
+  \item गौतम सिद्धार्थ\leaders\hbox{$\cdot$}\hfill 
+		11
+
+  \indexspace
+
+\centerline{\bfseries --- พ ---}\par\nobreak
+  \item พ่อขุนรามคำแหงมหาราช\leaders\hbox{$\cdot$}\hfill 
+		10
+
 \end{theindex}
