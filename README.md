@@ -1,7 +1,7 @@
 upmendex  --- Multilingual index processor
 ==========================================
 
-2021.06.06 Ver0.57
+2021.08.08 Ver0.58
 
 TANAKA, Takuji
 <ttk(at)t-lab.opal.ne.jp>
@@ -19,6 +19,7 @@ upmendex is a multilingual index processor with following features:
  * Support Latin (including non-English), Greek, Cyrillic,
    Korean Hangul and Chinese Han (Hanzi ideographs) scripts
    as well as Japanese Kana.
+ * Support Devanagari and Thai scripts (experimental).
  * Support four kinds of sort orders (Pinyin, Radical-Stroke,
    Stroke and Zhuyin) for Chinese Han scripts (Hanzi ideographs).
  * Apply International Components for Unicode (ICU)[4]
@@ -35,7 +36,7 @@ upmendex is a multilingual index processor with following features:
  * man/ :: manuals
 
 ### Building upmendex
-The source files are distributed at GitHub[2] and work with TeX Live svn r59488.
+The source files are distributed at GitHub[2] and work with TeX Live svn r60191.
 Ref. [TeX Live and Subversion](http://www.tug.org/texlive/svn/)
 
 Tested with ICU 68.2 .
@@ -81,6 +82,12 @@ Currently following locales are available:
   "ko", "ko@collation=search", "ko@collation=unihan" (Korean),
   "zh" [Pinyin Sort Order], "zh@collation=unihan" [Radical-Stroke Sort Order],
   "zh@collation=stroke" [Stroke Sort Order], "zh@collation=zhuyin" [Zhuyin Sort Order] (Chinese)
+
+#### Devanagari (experimental)
+  "hi" (Hindi), "mr" (Marathi), "ne" (Nepali)
+
+#### Thai script (experimental)
+  "th" (Thai)
 
 ### References
 1.  [ASCII Nihongo TeX (Publishing TeX)](https://asciidwango.github.io/ptex/)
