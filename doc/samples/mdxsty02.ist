@@ -8,7 +8,7 @@ lethead_flag -1
 lethead_prefix "\n\\centerline{\\bfseries --- "
 lethead_suffix  " ---}\\par\\nobreak"
 
-character_order  "JKHGCLSN"
+character_order  "JKHGCLTDSN"
 
 hangul_head "가나다라마바사아카"
 %% hangul_head "㉠㉡㉢㉣㉤㉥㉦㉧㉨㉩㉪㉫㉬㉭"
