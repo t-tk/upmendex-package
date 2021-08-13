@@ -47,8 +47,9 @@ void styread(const char *filename)
 		fp=NULL;
 	if (fp==NULL) {
 		fprintf(stderr,"%s does not exist.\n",filename);
-		exit(0);
+		exit(255);
 	}
+	verb_printf(efp,"Scanning style file %s.",filename);
 
 	for (i=0;;i++) {
 		if (fgets(buff,4095,fp)==NULL) break;
@@ -131,16 +132,24 @@ void styread(const char *filename)
 			letter_head=atoi(&buff[cc]);
 			continue;
 		}
-		if (getparam(buff,"atama",tmp)) {
-			multibyte_to_widechar(atama,STYBUFSIZE,tmp);
+		if (getparam(buff,"kana_head",tmp)) {
+			multibyte_to_widechar(kana_head,STYBUFSIZE,tmp);
 			continue;
 		}
-		if (getparam(buff,"tumunja",tmp)) {
-			multibyte_to_widechar(tumunja,STYBUFSIZE,tmp);
+		if (getparam(buff,"hangul_head",tmp) || getparam(buff,"tumunja",tmp)) {
+			multibyte_to_widechar(hangul_head,STYBUFSIZE,tmp);
 			continue;
 		}
 		if (getparam(buff,"hanzi_head",tmp)) {
 			multibyte_to_widechar(hanzi_head,STYBUFSIZE,tmp);
+			continue;
+		}
+		if (getparam(buff,"thai_head",tmp)) {
+			multibyte_to_widechar(thai_head,STYBUFSIZE,tmp);
+			continue;
+		}
+		if (getparam(buff,"devanagari_head",tmp)) {
+			multibyte_to_widechar(devanagari_head,STYBUFSIZE,tmp);
 			continue;
 		}
 		if (getparam(buff,"page_compositor",page_compositor)) continue;
@@ -157,6 +166,8 @@ void styread(const char *filename)
 		if (getparam(buff,"icu_attributes", icu_attr_str   )) continue;
 	}
 	fclose(fp);
+
+	verb_printf(efp,"...done.\n");
 }
 
 /*   analize string parameter of style file   */
@@ -348,5 +359,11 @@ void set_icu_attributes(void)
 		if      (strstr(pos,"on"))            icu_attributes[attr]=UCOL_ON;
 		else if (strstr(pos,"off"))           icu_attributes[attr]=UCOL_OFF;
 		else	verb_printf(efp,"\nWarning: Illegal input for icu_attributes (normalization-mode).");
+	}
+	if ((pos=strstr(tmp,"numeric-ordering:"))>0) {
+		pos+=17;  attr=UCOL_NUMERIC_COLLATION;
+		if      (strstr(pos,"on"))            icu_attributes[attr]=UCOL_ON;
+		else if (strstr(pos,"off"))           icu_attributes[attr]=UCOL_OFF;
+		else	verb_printf(efp,"\nWarning: Illegal input for icu_attributes (numeric-ordering).");
 	}
 }
