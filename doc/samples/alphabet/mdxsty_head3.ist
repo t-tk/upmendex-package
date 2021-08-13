@@ -8,5 +8,3 @@ lethead_flag 2
 lethead_prefix "\n\\centerline{\\bfseries --- "
 lethead_suffix  " ---}\\par\\nobreak"
 
-icu_locale  "es@collation=search"
-
