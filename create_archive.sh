@@ -17,6 +17,7 @@ rm $TMP/$PROJECT/create_archive.sh
 #perl -pi.bak -e "s/\\\$RELEASEDATE/$RELEASEDATE/g" $TMP/$PROJECT/README.md
 #rm -f $TMP/$PROJECT/README.md.bak
 
+rm $TMP/$PROJECT/.gitignore
 rm $TMP/$PROJECT/man/upmendex.man1.ps
 
 rm -f $PWDF/$PROJECT.zip
