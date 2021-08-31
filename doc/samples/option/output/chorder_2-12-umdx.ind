@@ -1,0 +1,44 @@
+\begin{theindex}
+
+\centerline{\bfseries --- あ ---}\par\nobreak
+  \item あ\leaders\hbox{$\cdot$}\hfill 1
+
+  \indexspace
+
+\centerline{\bfseries --- い ---}\par\nobreak
+  \item い\leaders\hbox{$\cdot$}\hfill 2
+
+  \indexspace
+
+\centerline{\bfseries --- う ---}\par\nobreak
+  \item う\leaders\hbox{$\cdot$}\hfill 3
+
+  \indexspace
+
+\centerline{\bfseries --- A ---}\par\nobreak
+  \item A\leaders\hbox{$\cdot$}\hfill 101
+
+  \indexspace
+
+\centerline{\bfseries --- B ---}\par\nobreak
+  \item B\leaders\hbox{$\cdot$}\hfill 102
+
+  \indexspace
+
+\centerline{\bfseries --- C ---}\par\nobreak
+  \item C\leaders\hbox{$\cdot$}\hfill 103
+
+  \indexspace
+
+\centerline{\bfseries --- Numbers ---}\par\nobreak
+  \item 1\leaders\hbox{$\cdot$}\hfill 201
+  \item 2\leaders\hbox{$\cdot$}\hfill 202
+  \item 3\leaders\hbox{$\cdot$}\hfill 203
+
+  \indexspace
+
+\centerline{\bfseries --- Symbols ---}\par\nobreak
+  \item #\leaders\hbox{$\cdot$}\hfill 301
+  \item $\leaders\hbox{$\cdot$}\hfill 302
+
+\end{theindex}

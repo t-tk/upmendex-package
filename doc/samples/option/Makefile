@@ -1,7 +1,7 @@
 UPMENDEX = upmendex
 MENDEX = mendex -U
 
-all: attri rules jp_u
+all: attri rules jp_u char_order_u
 
 #
 # test for icu_attributes
@@ -88,6 +88,35 @@ jp_cmp:
 		diff -qs japanese_lc_$$sty-umdx.ind japanese_lc_$$sty-amdx.ind ; \
 		diff -qs japanese_r_$$sty-umdx.ind japanese_r_$$sty-amdx.ind ; \
 		diff -qs japanese_g_$$sty-umdx.ind japanese_g_$$sty-amdx.ind ; \
+	done
+
+char_order_u:
+	for sym in 0 1 2; do \
+	for ord in `seq -f %02g 0 16`; do \
+		$(UPMENDEX) chorder.idx -s mdxsty_j02.ist -s symbol_$$sym.ist -s order_u$$ord.ist \
+			-t chorder_$$sym-$$ord-umdx.ilg -o chorder_$$sym-$$ord-umdx.ind ; \
+	done ; \
+	done
+	for sym in 0 1 2; do \
+	for ord in 00 02 09 10 13 14; do \
+		$(UPMENDEX) chorder.idx -s mdxsty_j03.ist -s symbol_$$sym.ist -s order_u$$ord.ist \
+			-t chorder_a$$sym-$$ord-umdx.ilg -o chorder_a$$sym-$$ord-umdx.ind ; \
+	done ; \
+	done
+
+char_order_a:
+	for sym in 0 1; do \
+	for ord in `seq -f %02g 0 12`; do \
+		$(MENDEX) chorder.idx -s mdxsty_j02.ist -s symbol_$$sym.ist -s order_a$$ord.ist \
+			-t chorder_$$sym-$$ord-amdx.ilg -o chorder_$$sym-$$ord-amdx.ind ; \
+	done ; \
+	done
+
+char_order_cmp:
+	for sym in 0 1; do \
+	for ord in `seq -f %02g 0 12`; do \
+		diff -qs chorder_$$sym-$$ord-umdx.ind chorder_$$sym-$$ord-amdx.ind ; \
+	done ; \
 	done
 
 
