@@ -10,5 +10,7 @@ heading_suffix  " ---}\\par\\nobreak"
 
 priority 1
 letter_head 2
-symbol  "SYMBOL"
-number  "NUMBER"
+symhead_positive  "SYMBOLS"
+symhead_negative  "SYMBOLS"
+numhead_positive  "NUMBERS"
+numhead_negative  "NUMBERS"
