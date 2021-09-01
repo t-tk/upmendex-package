@@ -92,8 +92,16 @@ jp_cmp:
 
 char_order_u:
 	for sty in 02; do \
-	for sym in 0 1 2; do \
+	for sym in 0; do \
 	for ord in `seq -f %02g 0 16`; do \
+		$(UPMENDEX) chorder.idx -s mdxsty_j$$sty.ist -s symbol_$$sym.ist -s order_u$$ord.ist \
+			-t chorder_$$sty-$$sym-$$ord-umdx.ilg -o chorder_$$sty-$$sym-$$ord-umdx.ind ; \
+	done ; \
+	done ; \
+	done
+	for sty in 02; do \
+	for sym in 1 2; do \
+	for ord in 00 02 09 10 13 14; do \
 		$(UPMENDEX) chorder.idx -s mdxsty_j$$sty.ist -s symbol_$$sym.ist -s order_u$$ord.ist \
 			-t chorder_$$sty-$$sym-$$ord-umdx.ilg -o chorder_$$sty-$$sym-$$ord-umdx.ind ; \
 	done ; \
@@ -118,8 +126,16 @@ char_order_u:
 
 char_order_a:
 	for sty in 02; do \
-	for sym in 0 1 2; do \
+	for sym in 0; do \
 	for ord in `seq -f %02g 0 16`; do \
+		$(MENDEX) chorder.idx -s mdxsty_j$$sty.ist -s symbol_$$sym.ist -s order_a$$ord.ist \
+			-t chorder_$$sty-$$sym-$$ord-amdx.ilg -o chorder_$$sty-$$sym-$$ord-amdx.ind ; \
+	done ; \
+	done ; \
+	done
+	for sty in 02; do \
+	for sym in 1 2; do \
+	for ord in 00 02 09 10 13 14; do \
 		$(MENDEX) chorder.idx -s mdxsty_j$$sty.ist -s symbol_$$sym.ist -s order_a$$ord.ist \
 			-t chorder_$$sty-$$sym-$$ord-amdx.ilg -o chorder_$$sty-$$sym-$$ord-amdx.ind ; \
 	done ; \
@@ -144,8 +160,15 @@ char_order_a:
 
 char_order_cmp:
 	for sty in 02; do \
-	for sym in 0 1 2; do \
+	for sym in 0; do \
 	for ord in `seq -f %02g 0 16`; do \
+		diff -qs chorder_$$sty-$$sym-$$ord-umdx.ind chorder_$$sty-$$sym-$$ord-amdx.ind ; \
+	done ; \
+	done ; \
+	done
+	for sty in 02; do \
+	for sym in 1 2; do \
+	for ord in 00 02 09 10 13 14; do \
 		diff -qs chorder_$$sty-$$sym-$$ord-umdx.ind chorder_$$sty-$$sym-$$ord-amdx.ind ; \
 	done ; \
 	done ; \
