@@ -1,0 +1,29 @@
+\begin{theindex}
+
+  \item #\leaders\hbox{$\cdot$}\hfill 301
+  \item $\leaders\hbox{$\cdot$}\hfill 302
+
+  \indexspace
+
+  \item a\leaders\hbox{$\cdot$}\hfill 104
+  \item A\leaders\hbox{$\cdot$}\hfill 101
+
+  \indexspace
+
+  \item b\leaders\hbox{$\cdot$}\hfill 105
+  \item B\leaders\hbox{$\cdot$}\hfill 102
+
+  \indexspace
+
+  \item c\leaders\hbox{$\cdot$}\hfill 106
+  \item C\leaders\hbox{$\cdot$}\hfill 103
+
+  \indexspace
+
+  \item 1\leaders\hbox{$\cdot$}\hfill 201
+  \item 2\leaders\hbox{$\cdot$}\hfill 202
+  \item 3\leaders\hbox{$\cdot$}\hfill 203
+  \item 20\leaders\hbox{$\cdot$}\hfill 220
+  \item 100\leaders\hbox{$\cdot$}\hfill 221
+
+\end{theindex}

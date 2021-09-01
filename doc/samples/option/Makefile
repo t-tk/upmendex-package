@@ -1,5 +1,6 @@
 UPMENDEX = upmendex
 MENDEX = mendex -U
+MAKEINDEX = makeindex
 
 all: attri rules jp_u char_order_u
 
@@ -158,7 +159,7 @@ char_order_a:
 	done ; \
 	done
 
-char_order_cmp:
+char_order_cmp_au:
 	for sty in 02; do \
 	for sym in 0; do \
 	for ord in `seq -f %02g 0 16`; do \
@@ -186,6 +187,28 @@ char_order_cmp:
 		diff -qs chorder_$$sty-$$sym-$$ord-umdx.ind chorder_$$sty-$$sym-$$ord-amdx.ind ; \
 	done ; \
 	done ; \
+	done
+
+char_order_m1:
+	for sty in 00 01 02; do \
+		$(MAKEINDEX) chorder1.idx -s mdxsty_m$$sty.ist \
+			-t chorder1_$$sty-mkid.ilg -o chorder1_$$sty-mkid.ind ; \
+		$(MAKEINDEX) -g chorder1.idx -s mdxsty_m$$sty.ist \
+			-t chorder1_g_$$sty-mkid.ilg -o chorder1_g_$$sty-mkid.ind ; \
+	done
+
+char_order_u1:
+	for sty in 00 01 02; do \
+		$(UPMENDEX) chorder1.idx -s mdxsty_m$$sty.ist -s order_u100.ist \
+			-t chorder1_$$sty-umdx.ilg -o chorder1_$$sty-umdx.ind ; \
+		$(UPMENDEX) chorder1.idx -s mdxsty_m$$sty.ist -s order_u101.ist \
+			-t chorder1_g_$$sty-umdx.ilg -o chorder1_g_$$sty-umdx.ind ; \
+	done
+
+char_order_cmp_mu:
+	for sty in 00 01 02; do \
+		diff -qs chorder1_$$sty-umdx.ind chorder1_$$sty-mkid.ind ; \
+		diff -qs chorder1_g_$$sty-umdx.ind chorder1_g_$$sty-mkid.ind ; \
 	done
 
 
