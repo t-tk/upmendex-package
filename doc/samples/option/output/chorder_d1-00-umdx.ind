@@ -1,6 +1,6 @@
 \begin{theindex}
 
-\centerline{\bfseries --- SYMBOLS ---}\par\nobreak
+\centerline{\bfseries --- SYMBOL ---}\par\nobreak
   \item #\leaders\hbox{$\cdot$}\hfill 301
   \item $\leaders\hbox{$\cdot$}\hfill 302
   \item 1\leaders\hbox{$\cdot$}\hfill 201
@@ -9,17 +9,17 @@
 
   \indexspace
 
-\centerline{\bfseries --- A ---}\par\nobreak
+\centerline{\bfseries --- a ---}\par\nobreak
   \item A\leaders\hbox{$\cdot$}\hfill 101
 
   \indexspace
 
-\centerline{\bfseries --- B ---}\par\nobreak
+\centerline{\bfseries --- b ---}\par\nobreak
   \item B\leaders\hbox{$\cdot$}\hfill 102
 
   \indexspace
 
-\centerline{\bfseries --- C ---}\par\nobreak
+\centerline{\bfseries --- c ---}\par\nobreak
   \item C\leaders\hbox{$\cdot$}\hfill 103
 
   \indexspace
