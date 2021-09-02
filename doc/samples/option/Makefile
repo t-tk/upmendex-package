@@ -54,8 +54,8 @@ numeric-ordering:
 # test for icu_rules
 #
 rules:
-	for sty in rule0; do \
-		$(UPMENDEX) -f -s mdxsty_$$sty.ist -t attri1_$$sty.ilg -o attri1_$$sty.ind attri1.idx ; \
+	for sty in rule1; do \
+		$(UPMENDEX) -f -s mdxsty_attr_default.ist -s $$sty.ist -t attri1_$$sty.ilg -o attri1_$$sty.ind attri1.idx ; \
 	done
 
 #
