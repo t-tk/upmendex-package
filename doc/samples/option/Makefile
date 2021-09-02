@@ -55,7 +55,7 @@ numeric-ordering:
 #
 rules:
 	for sty in rule0; do \
-		$(UPMENDEX) -f attri1.idx -s mdxsty_$$sty.ist -t attri1_$$sty.ilg -o attri1_$$sty.ind ; \
+		$(UPMENDEX) -f -s mdxsty_$$sty.ist -t attri1_$$sty.ilg -o attri1_$$sty.ind attri1.idx ; \
 	done
 
 #

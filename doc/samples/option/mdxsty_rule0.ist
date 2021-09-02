@@ -10,3 +10,6 @@ lethead_suffix  " ---}\\par\\nobreak"
 
 priority 0
 icu_rules "&a<<<A<\u00EB<<<\xCB<Ä<<<\x{00E4}<b<<B &ア<<<あ"
+% U+00EB: ë
+% U+00CB: Ë
+% U+00E4: ä
