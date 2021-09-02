@@ -55,7 +55,17 @@ numeric-ordering:
 #
 rules:
 	for sty in 0 1; do \
-		$(UPMENDEX) -f -s mdxsty_attr_default.ist -s rule$$sty.ist -t rule0_$$sty.ilg -o rule0_$$sty.ind attri1.idx ; \
+		$(UPMENDEX) -s mdxsty_attr_default.ist -s rule$$sty.ist -t rule0_$$sty.ilg -o rule0_$$sty.ind attri1.idx ; \
+	done
+	for sty in 0; do \
+	for loc in root zh0; do \
+		$(UPMENDEX) -s mdxsty_attr_default.ist -s rule$$sty.ist -s locale_$$loc -t rule1_$$sty-$$loc.ilg -o rule1_$$sty-$$loc.ind attri1.idx hanzi1.idx ; \
+	done ; \
+	done
+	for sty in 1; do \
+	for loc in root zh0 zh1 zh2 zh3 ja0; do \
+		$(UPMENDEX) -s mdxsty_attr_default.ist -s rule$$sty.ist -s locale_$$loc -t rule1_$$sty-$$loc.ilg -o rule1_$$sty-$$loc.ind attri1.idx hanzi1.idx ; \
+	done ; \
 	done
 
 #
