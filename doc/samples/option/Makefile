@@ -54,8 +54,8 @@ numeric-ordering:
 # test for icu_rules
 #
 rules:
-	for sty in rule1; do \
-		$(UPMENDEX) -f -s mdxsty_attr_default.ist -s $$sty.ist -t attri1_$$sty.ilg -o attri1_$$sty.ind attri1.idx ; \
+	for sty in 0 1; do \
+		$(UPMENDEX) -f -s mdxsty_attr_default.ist -s rule$$sty.ist -t rule0_$$sty.ilg -o rule0_$$sty.ind attri1.idx ; \
 	done
 
 #
@@ -213,7 +213,7 @@ char_order_cmp_mu:
 
 
 compare:
-	for ind in $(wildcard attri*.ind *-umdx.ind); do \
+	for ind in $(wildcard attri*.ind rule*.ind *-umdx.ind); do \
 		diff -qs $$ind output/$$ind ; \
 	done
 
