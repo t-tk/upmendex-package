@@ -4,9 +4,14 @@ delim_0 "\\leaders\\hbox{$\\cdot$}\\hfill "
 delim_1 "\\leaders\\hbox{$\\cdot$}\\hfill "
 delim_2 "\\leaders\\hbox{$\\cdot$}\\hfill "
 
-headings_flag 1
+headings_flag 0
 heading_prefix "\n\\centerline{\\bfseries --- "
 heading_suffix  " ---}\\par\\nobreak"
 
-priority 1
-letter_head 2
+%symhead_positive  "SYMBOLS"
+%symhead_negative  "symbol"
+%numhead_positive  "NUMBERS"
+%numhead_negative  "number"
+
+% to accept makeindex -g (German word ordering) optoin
+quote '+'

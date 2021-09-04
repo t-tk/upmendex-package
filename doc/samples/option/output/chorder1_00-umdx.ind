@@ -1,0 +1,34 @@
+\begin{theindex}
+
+\centerline{\bfseries --- SYMBOLS ---}\par\nobreak
+  \item #\leaders\hbox{$\cdot$}\hfill 301
+  \item $\leaders\hbox{$\cdot$}\hfill 302
+
+  \indexspace
+
+\centerline{\bfseries --- NUMBERS ---}\par\nobreak
+  \item 1\leaders\hbox{$\cdot$}\hfill 201
+  \item 2\leaders\hbox{$\cdot$}\hfill 202
+  \item 3\leaders\hbox{$\cdot$}\hfill 203
+  \item 20\leaders\hbox{$\cdot$}\hfill 220
+  \item 100\leaders\hbox{$\cdot$}\hfill 221
+
+  \indexspace
+
+\centerline{\bfseries --- A ---}\par\nobreak
+  \item A\leaders\hbox{$\cdot$}\hfill 101
+  \item a\leaders\hbox{$\cdot$}\hfill 104
+
+  \indexspace
+
+\centerline{\bfseries --- B ---}\par\nobreak
+  \item B\leaders\hbox{$\cdot$}\hfill 102
+  \item b\leaders\hbox{$\cdot$}\hfill 105
+
+  \indexspace
+
+\centerline{\bfseries --- C ---}\par\nobreak
+  \item C\leaders\hbox{$\cdot$}\hfill 103
+  \item c\leaders\hbox{$\cdot$}\hfill 106
+
+\end{theindex}

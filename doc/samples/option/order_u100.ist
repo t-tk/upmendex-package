@@ -1,0 +1,3 @@
+character_order "SNL"
+symbol_flag 2
+icu_attributes "numeric-ordering:on case-first:upper-first"

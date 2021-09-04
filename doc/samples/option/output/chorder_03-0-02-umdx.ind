@@ -1,0 +1,33 @@
+\begin{theindex}
+
+  \item 1\leaders\hbox{$\cdot$}\hfill 201
+  \item 2\leaders\hbox{$\cdot$}\hfill 202
+  \item 3\leaders\hbox{$\cdot$}\hfill 203
+  \item #\leaders\hbox{$\cdot$}\hfill 301
+  \item $\leaders\hbox{$\cdot$}\hfill 302
+
+  \indexspace
+
+  \item A\leaders\hbox{$\cdot$}\hfill 101
+
+  \indexspace
+
+  \item B\leaders\hbox{$\cdot$}\hfill 102
+
+  \indexspace
+
+  \item C\leaders\hbox{$\cdot$}\hfill 103
+
+  \indexspace
+
+  \item あ\leaders\hbox{$\cdot$}\hfill 1
+
+  \indexspace
+
+  \item い\leaders\hbox{$\cdot$}\hfill 2
+
+  \indexspace
+
+  \item う\leaders\hbox{$\cdot$}\hfill 3
+
+\end{theindex}

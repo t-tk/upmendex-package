@@ -8,5 +8,5 @@ headings_flag 1
 heading_prefix "\n\\centerline{\\bfseries --- "
 heading_suffix  " ---}\\par\\nobreak"
 
-priority 1
-letter_head 2
+character_order  "SHJKDTLCGN"
+symbol_flag 2
