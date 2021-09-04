@@ -303,12 +303,12 @@ upmendex - 索引整形ツール
 
    numhead_positive  <文字列>
       "Numbers"
-      lethead_flag または heading_flag が正数の場合に数字の頭文字として
+      lethead_flag または heading_flag が正数かつ symbol_flag が2の場合に数字の頭文字として
       出力する文字列。
 
    numhead_negative  <文字列>
       "numbers"
-      lethead_flag または heading_flag が負数の場合に数字の頭文字として
+      lethead_flag または heading_flag が負数かつ symbol_flag が2の場合に数字の頭文字として
       出力する文字列。
 
    symbol_flag  <数値>
