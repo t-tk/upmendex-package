@@ -4,6 +4,22 @@
 #include "exkana.h"
 #include "exvar.h"
 
+#define RULEBUFSIZE  29210+STYBUFSIZE
+/*
+	length of collation rule in ICU 68.2
+
+	icu_locale          length
+	ja                    6410
+	ja@collation=unihan     61
+	ko                   12577
+	ko@collation=unihan     51
+	ko@collation=search    782
+	zh  (pinin)          26909
+	zh@collation=unihan     82
+	zh@collation=stroke  29208
+	zh@collation=zhuyin  28880
+*/
+
 int sym,nmbr,ltn,kana,hngl,hnz,cyr,grk,dvng,thai;
 
 static int wcomp(const void *p, const void *q);
@@ -17,7 +33,9 @@ void wsort(struct index *ind, int num)
 {
 	int i,order;
 	UErrorCode status;
-	UChar rules[STYBUFSIZE];
+	UParseError parse_error;
+	UChar rules[RULEBUFSIZE] = {'\0'};
+	int32_t len;
 
 	for (order=1,i=0;;i++) {
 		switch (character_order[i]) {
@@ -66,6 +84,7 @@ void wsort(struct index *ind, int num)
 			break;
 
 		default:
+			verb_printf(efp,"\nWarning: Illegal input for character_order (%c).",character_order[i]);
 			break;
 		}
 	}
@@ -85,8 +104,23 @@ BREAK:
 
 	status = U_ZERO_ERROR;
 	if (strlen(icu_rules)>0) {
+		if (strcmp(icu_locale,"root")!=0) {
+			icu_collator = ucol_open(icu_locale, &status);
+			if (U_FAILURE(status)) {
+				verb_printf(efp, "\n[ICU] Collator creation failed.: %s\n", u_errorName(status));
+				exit(254);
+			}
+			len = ucol_getRulesEx(icu_collator, UCOL_TAILORING_ONLY, rules, RULEBUFSIZE);
+			if (u_strlen(rules)<len) {
+				verb_printf(efp, "\n[ICU] Failed to extract collation rules by locale (%s). Need buffer size %d.\n",
+					icu_locale, len);
+				exit(254);
+			}
+			ucol_close(icu_collator);
+		}
 		unescape((unsigned char *)icu_rules, rules);
-		icu_collator = ucol_openRules(rules, -1, UCOL_OFF, UCOL_TERTIARY, NULL, &status);
+		status = U_ZERO_ERROR;
+		icu_collator = ucol_openRules(rules, -1, UCOL_OFF, UCOL_TERTIARY, &parse_error, &status);
 	} else
 		icu_collator = ucol_open(icu_locale, &status);
 	if (U_FAILURE(status)) {
@@ -324,10 +358,11 @@ static int get_charset_juncture(UChar *str)
 	}
 }
 
-static int unescape(const unsigned char *src, UChar *dist)
+static int unescape(const unsigned char *src, UChar *dest)
 {
-	int i,j,k;
+	int i,j,k,ret;
 	char tmp[STYBUFSIZE];
+	UErrorCode status;
 
 	for (i=j=0;i<STYBUFSIZE;i++) {
 		if (src[i]=='\0') {
@@ -336,15 +371,24 @@ static int unescape(const unsigned char *src, UChar *dist)
 		else if (src[i]< 0x80 && (src[i+1]>=0x80 || src[i+1]=='\0')) {
 			strncpy(tmp,(char *)&src[j],i-j+1);
 			tmp[i-j+1]='\0';
-			k=u_strlen(dist);
-			u_unescape(tmp, &dist[k], STYBUFSIZE-k);
+			k=u_strlen(dest);
+			ret=u_unescape(tmp, &dest[k], RULEBUFSIZE-k);
+			if (ret==0) {
+				verb_printf(efp, "\n[ICU] Escape sequence in input seems malformed.\n");
+				exit(254);
+			}
 			j=i+1;
 		}
 		else if (src[i]>=0x80 && (src[i+1]< 0x80 || src[i+1]=='\0')) {
 			strncpy(tmp,(char *)&src[j],i-j+1);
 			tmp[i-j+1]='\0';
-			k=u_strlen(dist);
-			multibyte_to_widechar(&dist[k], STYBUFSIZE-k, tmp);
+			k=u_strlen(dest);
+			status=U_ZERO_ERROR;
+			u_strFromUTF8(&dest[k], RULEBUFSIZE-k, NULL, tmp, -1, &status);
+			if (U_FAILURE(status)) {
+				verb_printf(efp, "\n[ICU] Input string seems malformed.: %s\n", u_errorName(status));
+				exit(254);
+			}
 			j=i+1;
 		}
 	}

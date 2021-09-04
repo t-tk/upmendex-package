@@ -51,7 +51,7 @@ It is as same as [the BSD 3-Clause License](https://opensource.org/licenses/BSD-
 
 ### Supported locales
 In ICU collator, default "root" locale covers several lauguages:
-English, French, Germany, Italian, Portuguese and so on.
+English, French, German, Italian, Portuguese and so on.
 Much of languages and collation options are supported by
 setting into "icu_locale" in style files.
 Currently following locales are available:
