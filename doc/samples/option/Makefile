@@ -2,7 +2,7 @@ UPMENDEX = upmendex
 MENDEX = mendex -U
 MAKEINDEX = makeindex
 
-all: attri rules jp_u char_order_u
+all: attri rules jp_u char_order_u char_order_u1
 
 #
 # test for icu_attributes
@@ -101,6 +101,9 @@ jp_cmp:
 		diff -qs japanese_g_$$sty-umdx.ind japanese_g_$$sty-amdx.ind ; \
 	done
 
+#
+# test for character order, comparing upmendex & mendex
+#
 char_order_u:
 	for sty in 02; do \
 	for sym in 0; do \
@@ -199,6 +202,9 @@ char_order_cmp_au:
 	done ; \
 	done
 
+#
+# test for character order, comparing upmendex & makeindex
+#
 char_order_m1:
 	for sty in 00 01 02; do \
 		$(MAKEINDEX) chorder1.idx -s mdxsty_m$$sty.ist \
