@@ -167,6 +167,10 @@ upmendex - 索引整形ツール
       0
       lethead_flagと同じ。
 
+   headings_flag  <数値>
+      0
+      lethead_flagと同じ。
+
    kana_head  <文字列>
       ""
       仮名見出し文字。見出し文字を文字列で指定する。
@@ -283,23 +287,36 @@ upmendex - 索引整形ツール
 
    symhead_positive  <文字列>
       "Symbols"
-      lethead_flag または heading_flag が正数の場合に数字・記号の頭文字として
+      lethead_flag または heading_flag または headings_flag が正数の場合に記号の頭文字として
       出力する文字列。
 
    symhead_negative  <文字列>
       "symbols"
-      lethead_flag または heading_flag が負数の場合に数字・記号の頭文字として
+      lethead_flag または heading_flag または headings_flag が負数の場合に記号の頭文字として
       出力する文字列。
 
    symbol  <文字列>
       ""
-      symbol_flag が0でない場合に、数字・記号の頭文字として出力する文字列。
+      symbol_flag が0でない場合に、記号の頭文字として出力する文字列。
       文字列が定義されていれば、symhead_positive および symhead_negative より
       優先される。((up)mendex専用)
 
+   numhead_positive  <文字列>
+      "Numbers"
+      lethead_flag または heading_flag が正数の場合に数字の頭文字として
+      出力する文字列。
+
+   numhead_negative  <文字列>
+      "numbers"
+      lethead_flag または heading_flag が負数の場合に数字の頭文字として
+      出力する文字列。
+
    symbol_flag  <数値>
       1
-      symbol の出力フラグ。0のとき出力しない。((up)mendex専用)
+      symbol の出力フラグ。0のとき出力しない。
+      1のとき数字を記号の一部として扱い記号の見出しを出力する。
+      2のとき数字と記号を別の集合に分類し数字と記号の見出しを出力する。
+      ((up)mendex専用)
 
    letter_head  <数値>
       1
@@ -317,7 +334,7 @@ upmendex - 索引整形ツール
       記号、英字、日本語の優先順位。'S'は記号、'N'は数字、'L'はラテン文字、
       'G'はギリシャ文字、'C'はキリル文字、'J'は日本語(かな)、'K'はハングル、
       'H'は漢字、'D'はデーヴァナーガリー、'T'はタイ文字を表す。
-      upendexでは索引項目の分類として「数字」は「記号」に含める仕様なので、
+      symbol_flag=1のとき、索引項目の分類として「数字」は「記号」に含めるので、
       'S'と'N'は必ず隣り合わせること（数字と数字以外の記号の順序入れ替えは可能）。
       (upmendex専用)
 
@@ -337,6 +354,8 @@ upmendex - 索引整形ツール
       UTF-8のUnicode文字及び、以下のエスケープ文字列が使用可能である:
       \Uhhhhhhhh (16進数[0-9A-Fa-f]を8桁), \uhhhh (16進数を4桁),
       \xhh (16進数を2桁), \x{h...} (16進数を1〜8桁), \ooo (8進数[0-7]を3桁)。
+      icu_localeとicu_rulesを同時に指定した場合、icu_localeで指定したルールの上に
+      icu_rulesで指定したルールを追加する。
       空文字列(デフォルト)のときは、localeによる照合順序のルールに従う。
       (upmendex専用)
 

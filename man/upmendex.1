@@ -249,6 +249,12 @@ lowercase and titlecase.
 Same as \fBlethead_flag\fR.
 .RE
 .TP 30
+\fBheadings_flag\fR  <number>
+0
+.RS
+Same as \fBlethead_flag\fR.
+.RE
+.TP 30
 \fBkana_head\fR  <string>
 ""
 .RS
@@ -448,15 +454,15 @@ Length of space for indent which inserted to top of folded line.
 \fBsymhead_positive\fR  <string>
 "Symbols"
 .RS
-Strings to output as heading letter for numbers and symbols
-when lethead_flag or heading_flag is positive number.
+Strings to output as heading letter for symbols
+when lethead_flag or heading_flag or headings_flag is positive number.
 .RE
 .TP 30
 \fBsymhead_negative\fR  <string>
 "symbols"
 .RS
-Strings to output as heading letter for numbers and symbols
-when lethead_flag or heading_flag is negative number.
+Strings to output as heading letter for symbols
+when lethead_flag or heading_flag or headings_flag is negative number.
 .RE
 .TP 30
 \fBsymbol\fR  <string>
@@ -469,10 +475,26 @@ If specified, the option is prior to symhead_positive and symhead_negative.
 (Extended by (up)mendex)
 .RE
 .TP 30
+\fBnummhead_positive\fR  <string>
+"Symbols"
+.RS
+Strings to output as heading letter for numbers
+when lethead_flag or heading_flag or headings_flag is positive number.
+.RE
+.TP 30
+\fBnumhead_negative\fR  <string>
+"symbols"
+.RS
+Strings to output as heading letter for numbers
+when lethead_flag or heading_flag or headings_flag is negative number.
+.RE
+.TP 30
 \fBsymbol_flag\fR  <number>
 1
 .RS
-Flag to output of symbol. If \'0\', do not output.
+Flag to output of symbol. If \'0\', do not output headings for symbols and numbers.
+If \'1\', output symbols and numbers as a group of symbols.
+If \'2\', output symbols and numbers separately.
 (Extended by (up)mendex)
 .RE
 .TP 30
@@ -501,8 +523,8 @@ Order of scripts and symbols.
 \'S\', \'N\', \'L\', \'G\', \'C\', \'J\', \'K\', \'H\', \'D\' and \'T\' respectively
 denotes symbol, number, Latin, Greek, Cyrillic, Japanese Kana, Korean Hangul, Hanja,
 Devanagari and Thai script.
-Please make sure that \'S\' and \'N\' are next to each other,
-since \fBupmendex\fR considers numbers as a part of symbol.
+Please make sure that \'S\' and \'N\' are next to each other if symbol_flag=1,
+since numbers are classified as a part of symbol.
 (Extended by upmendex)
 .RE
 .TP 30
@@ -522,6 +544,8 @@ Unicode characters in UTF-8 encoding and following escape sequences are accepted
 \fB\\Uhhhhhhhh\fR (8-digit hexadecimal [0-9A-Fa-f]), \fB\\uhhhh\fR (4-digit hexadecimal),
 \fB\\xhh\fR (2-digit hexadecimal), \fB\\x{h...}\fR (1..8-digit hexadecimal), and
 \fB\\ooo\fR (3-digit octal [0-7]).
+If icu_rules and icu_locale are simultaneously specified, collation rules specified
+by icu_rules are added on collation rules specified by icu_locale.
 By default, locale is used.
 (Extended by upmendex)
 .RE
