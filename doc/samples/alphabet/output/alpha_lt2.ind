@@ -87,8 +87,22 @@
 \centerline{\bfseries --- i ---}\par\nobreak
   \item ia\leaders\hbox{$\cdot$}\hfill 3000
   \item įa\leaders\hbox{$\cdot$}\hfill 3002
+
+  \indexspace
+
+\centerline{\bfseries --- y ---}\par\nobreak
+  \item ya\leaders\hbox{$\cdot$}\hfill 5000
+
+  \indexspace
+
+\centerline{\bfseries --- i ---}\par\nobreak
   \item iz\leaders\hbox{$\cdot$}\hfill 3001
   \item įz\leaders\hbox{$\cdot$}\hfill 3003
+
+  \indexspace
+
+\centerline{\bfseries --- y ---}\par\nobreak
+  \item yz\leaders\hbox{$\cdot$}\hfill 5001
 
   \indexspace
 
