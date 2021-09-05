@@ -1,7 +1,7 @@
 upmendex  --- Multilingual index processor
 ==========================================
 
-2021.09.04 Ver0.59
+2021.09.05 Ver0.59
 
 TANAKA, Takuji
 <ttk(at)t-lab.opal.ne.jp>
@@ -36,7 +36,7 @@ upmendex is a multilingual index processor with following features:
  * man/ :: manuals
 
 ### Building upmendex
-The source files are distributed at GitHub[2] and work with TeX Live svn r60419.
+The source files are distributed at GitHub[2] and work with TeX Live svn r60426.
 Ref. [TeX Live and Subversion](http://www.tug.org/texlive/svn/)
 
 Tested with ICU 68.2 .
@@ -71,8 +71,8 @@ Currently following locales are available:
   "tr" (Turkish), "vi", "vi@collation=traditional" (Vietnamese)
 
 ##### Supported by default "root" collator. Do not need to set locale
-  "ca" (Catalan), "de" (German), "en" (English), "fr" (French),
-  "it" (Italian), "nl" (Dutch), "pt" (Portuguese)
+  "ca" (Catalan), "de" (German), "en" (English), "fr" (French), "id" (Indonesian),
+  "it" (Italian), "jv" (Javanese), "ms" (Malay), "nl" (Dutch), "pt" (Portuguese)
 
 #### Cyrillic script
   "be" (Belarusian), "bg" (Bulgarian), "kk" (Kazakh), "ky" (Kyrgyz),
