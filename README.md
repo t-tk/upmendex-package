@@ -57,7 +57,7 @@ setting into "icu_locale" in style files.
 Currently following locales are available:
 
 #### Latin script
-  "az", "az@collation=search" (Azerbaijani), "ca", "ca@collation=search" (Catalan),
+  "az", "az@collation=search" (Azerbaijani), "ca@collation=search" (Catalan),
   "cs", "cs@collation=search" (Czech), "da", "da@collation=search" (Danish),
   "de@collation=phonebook", "de@collation=search", "de-AT@collation=phonebook" (German),
   "eo" (Espelanto), "es", "es@collation=traditional", "es@collation=search" (Spanish),
@@ -69,6 +69,10 @@ Currently following locales are available:
   "sl" (Slovenian), "sq" (Albanian), "sr-Latn", "sr-Latn@collation=search" (Serbian),
   "sv", "sv@collation=search", "sv@collation=standard" (Swedish),
   "tr" (Turkish), "vi", "vi@collation=traditional" (Vietnamese)
+
+##### Supported by default "root" collator. Do not need to set locale
+  "ca" (Catalan), "de" (German), "en" (English), "fr" (French),
+  "it" (Italian), "nl" (Dutch), "pt" (Portuguese)
 
 #### Cyrillic script
   "be" (Belarusian), "bg" (Bulgarian), "kk" (Kazakh), "ky" (Kyrgyz),
