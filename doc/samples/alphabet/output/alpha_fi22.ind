@@ -111,6 +111,12 @@
 \centerline{\bfseries --- s ---}\par\nobreak
   \item s\leaders\hbox{$\cdot$}\hfill 219
   \item S\leaders\hbox{$\cdot$}\hfill 119
+  \item š\leaders\hbox{$\cdot$}\hfill 266
+  \item Š\leaders\hbox{$\cdot$}\hfill 166
+  \item sa\leaders\hbox{$\cdot$}\hfill 6000
+  \item ša\leaders\hbox{$\cdot$}\hfill 6002
+  \item sz\leaders\hbox{$\cdot$}\hfill 6001
+  \item šz\leaders\hbox{$\cdot$}\hfill 6003
 
   \indexspace
 
@@ -153,6 +159,12 @@
 \centerline{\bfseries --- z ---}\par\nobreak
   \item z\leaders\hbox{$\cdot$}\hfill 226
   \item Z\leaders\hbox{$\cdot$}\hfill 126
+  \item ž\leaders\hbox{$\cdot$}\hfill 267
+  \item Ž\leaders\hbox{$\cdot$}\hfill 167
+  \item za\leaders\hbox{$\cdot$}\hfill 7001
+  \item ža\leaders\hbox{$\cdot$}\hfill 7003
+  \item zz\leaders\hbox{$\cdot$}\hfill 7002
+  \item žz\leaders\hbox{$\cdot$}\hfill 7004
 
   \indexspace
 

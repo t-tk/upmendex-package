@@ -1,0 +1,5 @@
+% -*- coding: utf-8 -*-
+
+% ICU 68.2 shows "U_USING_DEFAULT_WARNING"
+%icu_locale  "nl"
+

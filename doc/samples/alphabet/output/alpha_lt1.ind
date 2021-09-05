@@ -75,20 +75,14 @@
   \item I\leaders\hbox{$\cdot$}\hfill 109
   \item į\leaders\hbox{$\cdot$}\hfill 264
   \item Į\leaders\hbox{$\cdot$}\hfill 164
-
-  \indexspace
-
-\centerline{\bfseries --- Y ---}\par\nobreak
   \item y\leaders\hbox{$\cdot$}\hfill 225
   \item Y\leaders\hbox{$\cdot$}\hfill 125
-
-  \indexspace
-
-\centerline{\bfseries --- I ---}\par\nobreak
   \item ia\leaders\hbox{$\cdot$}\hfill 3000
   \item įa\leaders\hbox{$\cdot$}\hfill 3002
+  \item ya\leaders\hbox{$\cdot$}\hfill 5000
   \item iz\leaders\hbox{$\cdot$}\hfill 3001
   \item įz\leaders\hbox{$\cdot$}\hfill 3003
+  \item yz\leaders\hbox{$\cdot$}\hfill 5001
 
   \indexspace
 

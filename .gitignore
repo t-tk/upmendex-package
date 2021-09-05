@@ -6,3 +6,7 @@ Makefile_*
 
 /upmendex*.zip
 
+/doc/samples/**/*.ilg
+/doc/samples/*.ind
+/doc/samples/alphabet/*.ind
+/doc/samples/option/*.ind

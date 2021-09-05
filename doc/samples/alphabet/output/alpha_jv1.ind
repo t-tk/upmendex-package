@@ -1,187 +1,189 @@
 \begin{theindex}
 
-\centerline{\bfseries --- a ---}\par\nobreak
+\centerline{\bfseries --- A ---}\par\nobreak
   \item a\leaders\hbox{$\cdot$}\hfill 201
   \item A\leaders\hbox{$\cdot$}\hfill 101
 
   \indexspace
 
-\centerline{\bfseries --- b ---}\par\nobreak
+\centerline{\bfseries --- B ---}\par\nobreak
   \item b\leaders\hbox{$\cdot$}\hfill 202
   \item B\leaders\hbox{$\cdot$}\hfill 102
 
   \indexspace
 
-\centerline{\bfseries --- c ---}\par\nobreak
+\centerline{\bfseries --- C ---}\par\nobreak
   \item c\leaders\hbox{$\cdot$}\hfill 203
   \item C\leaders\hbox{$\cdot$}\hfill 103
 
   \indexspace
 
-\centerline{\bfseries --- d ---}\par\nobreak
+\centerline{\bfseries --- D ---}\par\nobreak
   \item d\leaders\hbox{$\cdot$}\hfill 204
   \item D\leaders\hbox{$\cdot$}\hfill 104
+  \item da\leaders\hbox{$\cdot$}\hfill 503
+  \item dh\leaders\hbox{$\cdot$}\hfill 502
+  \item DH\leaders\hbox{$\cdot$}\hfill 501
+  \item dz\leaders\hbox{$\cdot$}\hfill 504
 
   \indexspace
 
-\centerline{\bfseries --- e ---}\par\nobreak
+\centerline{\bfseries --- E ---}\par\nobreak
   \item e\leaders\hbox{$\cdot$}\hfill 205
   \item E\leaders\hbox{$\cdot$}\hfill 105
+  \item é\leaders\hbox{$\cdot$}\hfill 3003
+  \item É\leaders\hbox{$\cdot$}\hfill 3002
+  \item è\leaders\hbox{$\cdot$}\hfill 5003
+  \item È\leaders\hbox{$\cdot$}\hfill 5002
+  \item ea\leaders\hbox{$\cdot$}\hfill 3000
+  \item éa\leaders\hbox{$\cdot$}\hfill 3004
+  \item èa\leaders\hbox{$\cdot$}\hfill 5004
+  \item ez\leaders\hbox{$\cdot$}\hfill 3001
+  \item éz\leaders\hbox{$\cdot$}\hfill 3005
+  \item èz\leaders\hbox{$\cdot$}\hfill 5005
 
   \indexspace
 
-\centerline{\bfseries --- f ---}\par\nobreak
+\centerline{\bfseries --- F ---}\par\nobreak
   \item f\leaders\hbox{$\cdot$}\hfill 206
   \item F\leaders\hbox{$\cdot$}\hfill 106
 
   \indexspace
 
-\centerline{\bfseries --- g ---}\par\nobreak
+\centerline{\bfseries --- G ---}\par\nobreak
   \item g\leaders\hbox{$\cdot$}\hfill 207
   \item G\leaders\hbox{$\cdot$}\hfill 107
 
   \indexspace
 
-\centerline{\bfseries --- h ---}\par\nobreak
+\centerline{\bfseries --- H ---}\par\nobreak
   \item h\leaders\hbox{$\cdot$}\hfill 208
   \item H\leaders\hbox{$\cdot$}\hfill 108
 
   \indexspace
 
-\centerline{\bfseries --- i ---}\par\nobreak
+\centerline{\bfseries --- I ---}\par\nobreak
   \item i\leaders\hbox{$\cdot$}\hfill 209
   \item I\leaders\hbox{$\cdot$}\hfill 109
 
   \indexspace
 
-\centerline{\bfseries --- j ---}\par\nobreak
+\centerline{\bfseries --- J ---}\par\nobreak
   \item j\leaders\hbox{$\cdot$}\hfill 210
   \item J\leaders\hbox{$\cdot$}\hfill 110
 
   \indexspace
 
-\centerline{\bfseries --- k ---}\par\nobreak
+\centerline{\bfseries --- K ---}\par\nobreak
   \item k\leaders\hbox{$\cdot$}\hfill 211
   \item K\leaders\hbox{$\cdot$}\hfill 111
+  \item ka\leaders\hbox{$\cdot$}\hfill 603
+  \item kh\leaders\hbox{$\cdot$}\hfill 602
+  \item KH\leaders\hbox{$\cdot$}\hfill 601
+  \item kz\leaders\hbox{$\cdot$}\hfill 604
 
   \indexspace
 
-\centerline{\bfseries --- l ---}\par\nobreak
+\centerline{\bfseries --- L ---}\par\nobreak
   \item l\leaders\hbox{$\cdot$}\hfill 212
   \item L\leaders\hbox{$\cdot$}\hfill 112
 
   \indexspace
 
-\centerline{\bfseries --- m ---}\par\nobreak
+\centerline{\bfseries --- M ---}\par\nobreak
   \item m\leaders\hbox{$\cdot$}\hfill 213
   \item M\leaders\hbox{$\cdot$}\hfill 113
 
   \indexspace
 
-\centerline{\bfseries --- n ---}\par\nobreak
+\centerline{\bfseries --- N ---}\par\nobreak
   \item n\leaders\hbox{$\cdot$}\hfill 214
   \item N\leaders\hbox{$\cdot$}\hfill 114
+  \item na\leaders\hbox{$\cdot$}\hfill 705
+  \item ng\leaders\hbox{$\cdot$}\hfill 702
+  \item NG\leaders\hbox{$\cdot$}\hfill 701
+  \item ny\leaders\hbox{$\cdot$}\hfill 704
+  \item NY\leaders\hbox{$\cdot$}\hfill 703
+  \item nz\leaders\hbox{$\cdot$}\hfill 706
 
   \indexspace
 
-\centerline{\bfseries --- o ---}\par\nobreak
+\centerline{\bfseries --- O ---}\par\nobreak
   \item o\leaders\hbox{$\cdot$}\hfill 215
   \item O\leaders\hbox{$\cdot$}\hfill 115
 
   \indexspace
 
-\centerline{\bfseries --- p ---}\par\nobreak
+\centerline{\bfseries --- P ---}\par\nobreak
   \item p\leaders\hbox{$\cdot$}\hfill 216
   \item P\leaders\hbox{$\cdot$}\hfill 116
 
   \indexspace
 
-\centerline{\bfseries --- q ---}\par\nobreak
+\centerline{\bfseries --- Q ---}\par\nobreak
   \item q\leaders\hbox{$\cdot$}\hfill 217
   \item Q\leaders\hbox{$\cdot$}\hfill 117
 
   \indexspace
 
-\centerline{\bfseries --- r ---}\par\nobreak
+\centerline{\bfseries --- R ---}\par\nobreak
   \item r\leaders\hbox{$\cdot$}\hfill 218
   \item R\leaders\hbox{$\cdot$}\hfill 118
 
   \indexspace
 
-\centerline{\bfseries --- s ---}\par\nobreak
+\centerline{\bfseries --- S ---}\par\nobreak
   \item s\leaders\hbox{$\cdot$}\hfill 219
   \item S\leaders\hbox{$\cdot$}\hfill 119
-  \item š\leaders\hbox{$\cdot$}\hfill 266
-  \item Š\leaders\hbox{$\cdot$}\hfill 166
-  \item sa\leaders\hbox{$\cdot$}\hfill 6000
-  \item ša\leaders\hbox{$\cdot$}\hfill 6002
-  \item sz\leaders\hbox{$\cdot$}\hfill 6001
-  \item šz\leaders\hbox{$\cdot$}\hfill 6003
+  \item sa\leaders\hbox{$\cdot$}\hfill 803
+  \item sy\leaders\hbox{$\cdot$}\hfill 802
+  \item SY\leaders\hbox{$\cdot$}\hfill 801
+  \item sz\leaders\hbox{$\cdot$}\hfill 804
 
   \indexspace
 
-\centerline{\bfseries --- t ---}\par\nobreak
+\centerline{\bfseries --- T ---}\par\nobreak
   \item t\leaders\hbox{$\cdot$}\hfill 220
   \item T\leaders\hbox{$\cdot$}\hfill 120
+  \item ta\leaders\hbox{$\cdot$}\hfill 903
+  \item th\leaders\hbox{$\cdot$}\hfill 902
+  \item TH\leaders\hbox{$\cdot$}\hfill 901
+  \item tz\leaders\hbox{$\cdot$}\hfill 904
 
   \indexspace
 
-\centerline{\bfseries --- u ---}\par\nobreak
+\centerline{\bfseries --- U ---}\par\nobreak
   \item u\leaders\hbox{$\cdot$}\hfill 221
   \item U\leaders\hbox{$\cdot$}\hfill 121
 
   \indexspace
 
-\centerline{\bfseries --- v ---}\par\nobreak
+\centerline{\bfseries --- V ---}\par\nobreak
   \item v\leaders\hbox{$\cdot$}\hfill 222
   \item V\leaders\hbox{$\cdot$}\hfill 122
 
   \indexspace
 
-\centerline{\bfseries --- w ---}\par\nobreak
+\centerline{\bfseries --- W ---}\par\nobreak
   \item w\leaders\hbox{$\cdot$}\hfill 223
   \item W\leaders\hbox{$\cdot$}\hfill 123
 
   \indexspace
 
-\centerline{\bfseries --- x ---}\par\nobreak
+\centerline{\bfseries --- X ---}\par\nobreak
   \item x\leaders\hbox{$\cdot$}\hfill 224
   \item X\leaders\hbox{$\cdot$}\hfill 124
 
   \indexspace
 
-\centerline{\bfseries --- y ---}\par\nobreak
+\centerline{\bfseries --- Y ---}\par\nobreak
   \item y\leaders\hbox{$\cdot$}\hfill 225
   \item Y\leaders\hbox{$\cdot$}\hfill 125
 
   \indexspace
 
-\centerline{\bfseries --- z ---}\par\nobreak
+\centerline{\bfseries --- Z ---}\par\nobreak
   \item z\leaders\hbox{$\cdot$}\hfill 226
   \item Z\leaders\hbox{$\cdot$}\hfill 126
-  \item ž\leaders\hbox{$\cdot$}\hfill 267
-  \item Ž\leaders\hbox{$\cdot$}\hfill 167
-  \item za\leaders\hbox{$\cdot$}\hfill 7001
-  \item ža\leaders\hbox{$\cdot$}\hfill 7003
-  \item zz\leaders\hbox{$\cdot$}\hfill 7002
-  \item žz\leaders\hbox{$\cdot$}\hfill 7004
-
-  \indexspace
-
-\centerline{\bfseries --- å ---}\par\nobreak
-  \item å\leaders\hbox{$\cdot$}\hfill 227
-  \item Å\leaders\hbox{$\cdot$}\hfill 127
-
-  \indexspace
-
-\centerline{\bfseries --- ä ---}\par\nobreak
-  \item ä\leaders\hbox{$\cdot$}\hfill 228
-  \item Ä\leaders\hbox{$\cdot$}\hfill 128
-
-  \indexspace
-
-\centerline{\bfseries --- ö ---}\par\nobreak
-  \item ö\leaders\hbox{$\cdot$}\hfill 229
-  \item Ö\leaders\hbox{$\cdot$}\hfill 129
 
 \end{theindex}
