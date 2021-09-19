@@ -5,23 +5,17 @@
   \item entryB1, IX[[sfx 2p]], 1[[sfx 2p]], c[[sfx 2p]]
   \item entryC, IX[[sfx 3p]], 1[[sfx 3p]], c[[sfx 3p]]
   \item entryC1, IX[[sfx 3p]], 1[[sfx 3p]], c[[sfx 3p]]
-  \item entryD, IX, \bold{X}, XI[[sfx 2p]], 1[[delim r]]4, 
-		\bold{c[[delim r]]f}
-  \item entryD1, \bold{X}, IX[[delim r]]XII, 1[[delim r]]4, 
-		\bold{c[[delim r]]f}
+  \item entryD, IX, \bold{X}, XI[[sfx 2p]], 1[[delim r]]4, \bold{c[[delim r]]f}
+  \item entryD1, \bold{X}, IX[[delim r]]XII, 1[[delim r]]4, \bold{c[[delim r]]f}
   \item entryG, 1-IX[[sfx 2p]], 3-c[[sfx 2p]], 5-1[[sfx 2p]]
   \item entryG1, 1-IX[[sfx 2p]], 3-c[[sfx 2p]], 5-1[[sfx 2p]]
   \item entryH, i-IX[[sfx 3p]], v-1[[sfx 3p]], x-c[[sfx 3p]]
   \item entryH1, i-IX[[sfx 3p]], v-1[[sfx 3p]], x-c[[sfx 3p]]
-  \item entryI, I-DI[[delim r]]I-DIV, V-LIII[[delim r]]V-LVI, 
-		X-I[[delim r]]X-IV
-  \item entryI1, I-DI[[delim r]]I-DIV, V-LIII[[delim r]]V-LVI, 
-		X-I[[delim r]]X-IV
-  \item entryP, I-i-1-I-c[[sfx 3p]], I-i-1-II-c, I-i-1-III-c, 
-		I-i-2-I-c, I-i-3-I-c
+  \item entryI, I-DI[[delim r]]I-DIV, V-LIII[[delim r]]V-LVI, X-I[[delim r]]X-IV
+  \item entryI1, I-DI[[delim r]]I-DIV, V-LIII[[delim r]]V-LVI, X-I[[delim r]]X-IV
+  \item entryP, I-i-1-I-c[[sfx 3p]], I-i-1-II-c, I-i-1-III-c, I-i-2-I-c, I-i-3-I-c
   \item entryQ, 1-2-3-4-5-6-7-8-9-I[[delim r]]1-2-3-4-5-6-7-8-9-V, 
-		1-2-3-4-5-6-7-8-9-10[[sfx 2p]], 
-		1-2-3-4-5-6-7-8-9-14[[sfx 3p]], 
+		1-2-3-4-5-6-7-8-9-10[[sfx 2p]], 1-2-3-4-5-6-7-8-9-14[[sfx 3p]], 
 		1-2-3-4-5-6-7-8-9-22[[delim r]]1-2-3-4-5-6-7-8-9-25
 
 \end{theindex}
