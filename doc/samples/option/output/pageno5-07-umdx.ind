@@ -1,12 +1,12 @@
 \begin{theindex}
 
-  \item entryA, iii, vi, 1, 4, IX, XII
-  \item entryB, iii[[sfx 2p]], 1[[sfx 2p]], IX[[sfx 2p]]
-  \item entryB1, iii[[sfx 2p]], 1[[sfx 2p]], IX[[sfx 2p]]
-  \item entryC, iii[[sfx 3p]], 1[[sfx 3p]], IX[[sfx 3p]]
-  \item entryC1, iii[[sfx 3p]], 1[[sfx 3p]], IX[[sfx 3p]]
-  \item entryD, \bold{iii[[delim r]]vi}, 1[[delim r]]4, IX, \bold{X}, XI[[sfx 2p]]
-  \item entryD1, \bold{iii[[delim r]]vi}, 1[[delim r]]4, \bold{X}, IX[[delim r]]XII
+  \item entryA, IX, XII, iii, vi, 1, 4
+  \item entryB, IX[[sfx 2p]], iii[[sfx 2p]], 1[[sfx 2p]]
+  \item entryB1, IX[[sfx 2p]], iii[[sfx 2p]], 1[[sfx 2p]]
+  \item entryC, IX[[sfx 3p]], iii[[sfx 3p]], 1[[sfx 3p]]
+  \item entryC1, IX[[sfx 3p]], iii[[sfx 3p]], 1[[sfx 3p]]
+  \item entryD, IX, \bold{X}, XI[[sfx 2p]], \bold{iii[[delim r]]vi}, 1[[delim r]]4
+  \item entryD1, \bold{X}, IX[[delim r]]XII, \bold{iii[[delim r]]vi}, 1[[delim r]]4
   \item entryG, 1-IX[[sfx 2p]], 3-iii[[sfx 2p]], 5-1[[sfx 2p]]
   \item entryG1, 1-IX[[sfx 2p]], 3-iii[[sfx 2p]], 5-1[[sfx 2p]]
   \item entryH, i-IX[[sfx 3p]], v-1[[sfx 3p]], \bold{x-iii[[sfx 3p]]}
