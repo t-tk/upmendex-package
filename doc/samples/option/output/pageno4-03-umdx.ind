@@ -1,0 +1,25 @@
+\begin{theindex}
+
+  \item entryA, 1, 4, iii, vi, x, l, c, m, L, O, R, T, V, X
+  \item entryB, 1[[sfx 2p]], iii[[sfx 2p]], I[[sfx 2p]]
+  \item entryB1, 1[[sfx 2p]], iii[[sfx 2p]], I[[sfx 2p]]
+  \item entryC, 1[[sfx 3p]], iii[[sfx 3p]], I[[sfx 3p]]
+  \item entryC1, 1[[sfx 3p]], iii[[sfx 3p]], I[[sfx 3p]]
+  \item entryD, 1[[delim r]]4, \bold{iii[[delim r]]vi}, I, \bold{J}, 
+		K[[sfx 2p]]
+  \item entryD1, 1[[delim r]]4, \bold{iii[[delim r]]vi}, \bold{J}, 
+		I[[delim r]]L
+  \item entryG, 1-I[[sfx 2p]], 3-iii[[sfx 2p]], 5-1[[sfx 2p]]
+  \item entryG1, 1-I[[sfx 2p]], 3-iii[[sfx 2p]], 5-1[[sfx 2p]]
+  \item entryH, i-I[[sfx 3p]], v-1[[sfx 3p]], x-iii[[sfx 3p]]
+  \item entryH1, i-I[[sfx 3p]], v-1[[sfx 3p]], x-iii[[sfx 3p]]
+  \item entryI, I-W[[delim r]]I-Z, V-L[[delim r]]V-O, X-A[[delim r]]X-D
+  \item entryI1, I-W[[delim r]]I-Z, V-L[[delim r]]V-O, X-A[[delim r]]X-D
+  \item entryP, I-i-1-A-iii[[sfx 3p]], I-i-1-B-iii, I-i-1-C-iii, 
+		I-i-2-A-iii, I-i-3-A-iii
+  \item entryQ, 1-2-3-4-5-6-7-8-9-10[[sfx 2p]], 
+		1-2-3-4-5-6-7-8-9-14[[sfx 3p]], 
+		1-2-3-4-5-6-7-8-9-22[[delim r]]1-2-3-4-5-6-7-8-9-25, 
+		1-2-3-4-5-6-7-8-9-i[[delim r]]1-2-3-4-5-6-7-8-9-v
+
+\end{theindex}

@@ -227,6 +227,44 @@ char_order_cmp_mu:
 		diff -qs chorder1_g_$$sty-umdx.ind chorder1_g_$$sty-mkid.ind ; \
 	done
 
+#
+# test for page number, page_precedence, range etc. comparing upmendex & makeindex
+#
+page_number_m1:
+	for pnr in `seq 1 4`; do \
+	for sty in `seq -f %02g 0 7`; do \
+		$(MAKEINDEX) pageno$$pnr.idx -s pprec$$pnr-$$sty.ist \
+			-t pageno$$pnr-$$sty-mkid.ilg -o pageno$$pnr-$$sty-mkid.ind ; \
+	done ; \
+	done
+	for pnr in 5; do \
+	for sty in `seq -f %02g 0 1`; do \
+		$(MAKEINDEX) pageno$$pnr.idx -s pprec$$pnr-$$sty.ist \
+			-t pageno$$pnr-$$sty-mkid.ilg -o pageno$$pnr-$$sty-mkid.ind ; \
+	done ; \
+	done
+
+page_number_u1:
+	for pnr in `seq 1 4`; do \
+	for sty in `seq -f %02g 0 7`; do \
+		$(UPMENDEX) pageno$$pnr.idx -s pprec$$pnr-$$sty.ist \
+			-t pageno$$pnr-$$sty-umdx.ilg -o pageno$$pnr-$$sty-umdx.ind ; \
+	done ; \
+	done
+	for pnr in 5; do \
+	for sty in `seq -f %02g 0 1`; do \
+		$(UPMENDEX) pageno$$pnr.idx -s pprec$$pnr-$$sty.ist \
+			-t pageno$$pnr-$$sty-umdx.ilg -o pageno$$pnr-$$sty-umdx.ind ; \
+	done ; \
+	done
+
+page_number_cmp_mu:
+	for pnr in `seq 1 5`; do \
+	for sty in `seq -f %02g 0 7`; do \
+		diff -qs pageno$$pnr-$$sty-umdx.ind pageno$$pnr-$$sty-mkid.ind ; \
+	done ; \
+	done
+
 
 compare:
 	for ind in $(wildcard attri*.ind rule*.ind *-umdx.ind); do \
