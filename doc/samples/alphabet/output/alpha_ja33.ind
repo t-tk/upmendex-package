@@ -21,47 +21,69 @@
 \centerline{\bfseries --- ㋐ ---}\par\nobreak
   \item ぁ\leaders\hbox{$\cdot$}\hfill 501
   \item ァ\leaders\hbox{$\cdot$}\hfill 601
+  \item ｧ\leaders\hbox{$\cdot$}\hfill 8007
   \item あ\leaders\hbox{$\cdot$}\hfill 101
   \item ア\leaders\hbox{$\cdot$}\hfill 201
+  \item ｱ\leaders\hbox{$\cdot$}\hfill 8017
   \item ㋐\leaders\hbox{$\cdot$}\hfill 7001
+  \item ㌃\leaders\hbox{$\cdot$}\hfill 9004
+  \item ㌀\leaders\hbox{$\cdot$}\hfill 9001
+  \item ㌁\leaders\hbox{$\cdot$}\hfill 9002
+  \item ㌂\leaders\hbox{$\cdot$}\hfill 9003
 
   \indexspace
 
 \centerline{\bfseries --- ㋑ ---}\par\nobreak
   \item ぃ\leaders\hbox{$\cdot$}\hfill 502
   \item ィ\leaders\hbox{$\cdot$}\hfill 602
+  \item ｨ\leaders\hbox{$\cdot$}\hfill 8008
   \item い\leaders\hbox{$\cdot$}\hfill 102
   \item イ\leaders\hbox{$\cdot$}\hfill 202
+  \item ｲ\leaders\hbox{$\cdot$}\hfill 8018
   \item ㋑\leaders\hbox{$\cdot$}\hfill 7002
+  \item ㌄\leaders\hbox{$\cdot$}\hfill 9005
+  \item ㌅\leaders\hbox{$\cdot$}\hfill 9006
 
   \indexspace
 
 \centerline{\bfseries --- ㋒ ---}\par\nobreak
   \item ぅ\leaders\hbox{$\cdot$}\hfill 503
   \item ゥ\leaders\hbox{$\cdot$}\hfill 603
+  \item ｩ\leaders\hbox{$\cdot$}\hfill 8009
   \item う\leaders\hbox{$\cdot$}\hfill 103
   \item ウ\leaders\hbox{$\cdot$}\hfill 203
+  \item ｳ\leaders\hbox{$\cdot$}\hfill 8019
   \item ㋒\leaders\hbox{$\cdot$}\hfill 7003
   \item ゔ\leaders\hbox{$\cdot$}\hfill 701
   \item ヴ\leaders\hbox{$\cdot$}\hfill 801
+  \item ㌆\leaders\hbox{$\cdot$}\hfill 9007
 
   \indexspace
 
 \centerline{\bfseries --- ㋓ ---}\par\nobreak
+  \item 𛀀(旧式の「エ」)\leaders\hbox{$\cdot$}\hfill 6008
   \item ぇ\leaders\hbox{$\cdot$}\hfill 504
   \item ェ\leaders\hbox{$\cdot$}\hfill 604
+  \item ｪ\leaders\hbox{$\cdot$}\hfill 8010
   \item え\leaders\hbox{$\cdot$}\hfill 104
   \item エ\leaders\hbox{$\cdot$}\hfill 204
+  \item ｴ\leaders\hbox{$\cdot$}\hfill 8020
   \item ㋓\leaders\hbox{$\cdot$}\hfill 7004
+  \item ㌈\leaders\hbox{$\cdot$}\hfill 9009
+  \item ㌇\leaders\hbox{$\cdot$}\hfill 9008
 
   \indexspace
 
 \centerline{\bfseries --- ㋔ ---}\par\nobreak
   \item ぉ\leaders\hbox{$\cdot$}\hfill 505
   \item ォ\leaders\hbox{$\cdot$}\hfill 605
+  \item ｫ\leaders\hbox{$\cdot$}\hfill 8011
   \item お\leaders\hbox{$\cdot$}\hfill 105
   \item オ\leaders\hbox{$\cdot$}\hfill 205
+  \item ｵ\leaders\hbox{$\cdot$}\hfill 8021
   \item ㋔\leaders\hbox{$\cdot$}\hfill 7005
+  \item ㌊\leaders\hbox{$\cdot$}\hfill 9011
+  \item ㌉\leaders\hbox{$\cdot$}\hfill 9010
 
   \indexspace
 
@@ -70,6 +92,7 @@
   \item ヵ\leaders\hbox{$\cdot$}\hfill 802
   \item か\leaders\hbox{$\cdot$}\hfill 106
   \item カ\leaders\hbox{$\cdot$}\hfill 206
+  \item ｶ\leaders\hbox{$\cdot$}\hfill 8022
   \item ㋕\leaders\hbox{$\cdot$}\hfill 7006
   \item が\leaders\hbox{$\cdot$}\hfill 301
   \item ガ\leaders\hbox{$\cdot$}\hfill 401
@@ -77,12 +100,18 @@
   \item カ゚\leaders\hbox{$\cdot$}\hfill 3100
   \item か゚ぁ\leaders\hbox{$\cdot$}\hfill 3005
   \item カ゚ァ\leaders\hbox{$\cdot$}\hfill 3105
+  \item ㌋\leaders\hbox{$\cdot$}\hfill 9012
+  \item ㌌\leaders\hbox{$\cdot$}\hfill 9013
+  \item ㌍\leaders\hbox{$\cdot$}\hfill 9014
+  \item ㌎\leaders\hbox{$\cdot$}\hfill 9015
+  \item ㌏\leaders\hbox{$\cdot$}\hfill 9016
 
   \indexspace
 
 \centerline{\bfseries --- ㋖ ---}\par\nobreak
   \item き\leaders\hbox{$\cdot$}\hfill 107
   \item キ\leaders\hbox{$\cdot$}\hfill 207
+  \item ｷ\leaders\hbox{$\cdot$}\hfill 8023
   \item ㋖\leaders\hbox{$\cdot$}\hfill 7007
   \item ぎ\leaders\hbox{$\cdot$}\hfill 302
   \item ギ\leaders\hbox{$\cdot$}\hfill 402
@@ -90,12 +119,21 @@
   \item キ゚\leaders\hbox{$\cdot$}\hfill 3101
   \item き゚ぁ\leaders\hbox{$\cdot$}\hfill 3006
   \item キ゚ァ\leaders\hbox{$\cdot$}\hfill 3106
+  \item ㌐\leaders\hbox{$\cdot$}\hfill 9017
+  \item ㌑\leaders\hbox{$\cdot$}\hfill 9018
+  \item ㌒\leaders\hbox{$\cdot$}\hfill 9019
+  \item ㌓\leaders\hbox{$\cdot$}\hfill 9020
+  \item ㌔\leaders\hbox{$\cdot$}\hfill 9021
+  \item ㌕\leaders\hbox{$\cdot$}\hfill 9022
+  \item ㌖\leaders\hbox{$\cdot$}\hfill 9023
+  \item ㌗\leaders\hbox{$\cdot$}\hfill 9024
 
   \indexspace
 
 \centerline{\bfseries --- ㋗ ---}\par\nobreak
   \item く\leaders\hbox{$\cdot$}\hfill 108
   \item ク\leaders\hbox{$\cdot$}\hfill 208
+  \item ｸ\leaders\hbox{$\cdot$}\hfill 8024
   \item ㇰ\leaders\hbox{$\cdot$}\hfill 900
   \item ㋗\leaders\hbox{$\cdot$}\hfill 7008
   \item ぐ\leaders\hbox{$\cdot$}\hfill 303
@@ -104,6 +142,10 @@
   \item ク゚\leaders\hbox{$\cdot$}\hfill 3102
   \item く゚ぁ\leaders\hbox{$\cdot$}\hfill 3007
   \item ク゚ァ\leaders\hbox{$\cdot$}\hfill 3107
+  \item ㌘\leaders\hbox{$\cdot$}\hfill 9025
+  \item ㌙\leaders\hbox{$\cdot$}\hfill 9026
+  \item ㌚\leaders\hbox{$\cdot$}\hfill 9027
+  \item ㌛\leaders\hbox{$\cdot$}\hfill 9028
 
   \indexspace
 
@@ -112,11 +154,13 @@
   \item ヶ\leaders\hbox{$\cdot$}\hfill 803
   \item け\leaders\hbox{$\cdot$}\hfill 109
   \item ケ\leaders\hbox{$\cdot$}\hfill 209
+  \item ｹ\leaders\hbox{$\cdot$}\hfill 8025
   \item ㋘\leaders\hbox{$\cdot$}\hfill 7009
   \item げ\leaders\hbox{$\cdot$}\hfill 304
   \item ゲ\leaders\hbox{$\cdot$}\hfill 404
   \item け゚\leaders\hbox{$\cdot$}\hfill 3003
   \item ケ゚\leaders\hbox{$\cdot$}\hfill 3103
+  \item ㌜\leaders\hbox{$\cdot$}\hfill 9029
   \item け゚ぁ\leaders\hbox{$\cdot$}\hfill 3008
   \item ケ゚ァ\leaders\hbox{$\cdot$}\hfill 3108
 
@@ -125,42 +169,51 @@
 \centerline{\bfseries --- ㋙ ---}\par\nobreak
   \item こ\leaders\hbox{$\cdot$}\hfill 110
   \item コ\leaders\hbox{$\cdot$}\hfill 210
+  \item ｺ\leaders\hbox{$\cdot$}\hfill 8026
   \item ㋙\leaders\hbox{$\cdot$}\hfill 7010
   \item ご\leaders\hbox{$\cdot$}\hfill 305
   \item ゴ\leaders\hbox{$\cdot$}\hfill 405
   \item こ゚\leaders\hbox{$\cdot$}\hfill 3004
   \item コ゚\leaders\hbox{$\cdot$}\hfill 3104
+  \item ㌞\leaders\hbox{$\cdot$}\hfill 9031
   \item こ゚ぁ\leaders\hbox{$\cdot$}\hfill 3009
   \item コ゚ァ\leaders\hbox{$\cdot$}\hfill 3109
   \item コタン\leaders\hbox{$\cdot$}\hfill 1101
   \item コト\leaders\hbox{$\cdot$}\hfill 1102
   \item ヿ\leaders\hbox{$\cdot$}\hfill 1100
   \item コトァ\leaders\hbox{$\cdot$}\hfill 1103
+  \item ㌝\leaders\hbox{$\cdot$}\hfill 9030
 
   \indexspace
 
 \centerline{\bfseries --- ㋚ ---}\par\nobreak
   \item さ\leaders\hbox{$\cdot$}\hfill 111
   \item サ\leaders\hbox{$\cdot$}\hfill 211
+  \item ｻ\leaders\hbox{$\cdot$}\hfill 8027
   \item ㋚\leaders\hbox{$\cdot$}\hfill 7011
   \item ざ\leaders\hbox{$\cdot$}\hfill 306
   \item ザ\leaders\hbox{$\cdot$}\hfill 406
+  \item ㌟\leaders\hbox{$\cdot$}\hfill 9032
+  \item ㌠\leaders\hbox{$\cdot$}\hfill 9033
 
   \indexspace
 
 \centerline{\bfseries --- ㋛ ---}\par\nobreak
   \item し\leaders\hbox{$\cdot$}\hfill 112
   \item シ\leaders\hbox{$\cdot$}\hfill 212
+  \item ｼ\leaders\hbox{$\cdot$}\hfill 8028
   \item ㇱ\leaders\hbox{$\cdot$}\hfill 901
   \item ㋛\leaders\hbox{$\cdot$}\hfill 7012
   \item じ\leaders\hbox{$\cdot$}\hfill 307
   \item ジ\leaders\hbox{$\cdot$}\hfill 407
+  \item ㌡\leaders\hbox{$\cdot$}\hfill 9034
 
   \indexspace
 
 \centerline{\bfseries --- ㋜ ---}\par\nobreak
   \item す\leaders\hbox{$\cdot$}\hfill 113
   \item ス\leaders\hbox{$\cdot$}\hfill 213
+  \item ｽ\leaders\hbox{$\cdot$}\hfill 8029
   \item ㇲ\leaders\hbox{$\cdot$}\hfill 902
   \item ㋜\leaders\hbox{$\cdot$}\hfill 7013
   \item ず\leaders\hbox{$\cdot$}\hfill 308
@@ -171,17 +224,21 @@
 \centerline{\bfseries --- ㋝ ---}\par\nobreak
   \item せ\leaders\hbox{$\cdot$}\hfill 114
   \item セ\leaders\hbox{$\cdot$}\hfill 214
+  \item ｾ\leaders\hbox{$\cdot$}\hfill 8030
   \item ㋝\leaders\hbox{$\cdot$}\hfill 7014
   \item ぜ\leaders\hbox{$\cdot$}\hfill 309
   \item ゼ\leaders\hbox{$\cdot$}\hfill 409
   \item セ゚\leaders\hbox{$\cdot$}\hfill 3110
   \item セ゚ァ\leaders\hbox{$\cdot$}\hfill 3113
+  \item ㌢\leaders\hbox{$\cdot$}\hfill 9035
+  \item ㌣\leaders\hbox{$\cdot$}\hfill 9036
 
   \indexspace
 
 \centerline{\bfseries --- ㋞ ---}\par\nobreak
   \item そ\leaders\hbox{$\cdot$}\hfill 115
   \item ソ\leaders\hbox{$\cdot$}\hfill 215
+  \item ｿ\leaders\hbox{$\cdot$}\hfill 8031
   \item ㋞\leaders\hbox{$\cdot$}\hfill 7015
   \item ぞ\leaders\hbox{$\cdot$}\hfill 310
   \item ゾ\leaders\hbox{$\cdot$}\hfill 410
@@ -191,15 +248,18 @@
 \centerline{\bfseries --- ㋟ ---}\par\nobreak
   \item た\leaders\hbox{$\cdot$}\hfill 116
   \item タ\leaders\hbox{$\cdot$}\hfill 216
+  \item ﾀ\leaders\hbox{$\cdot$}\hfill 8032
   \item ㋟\leaders\hbox{$\cdot$}\hfill 7016
   \item だ\leaders\hbox{$\cdot$}\hfill 311
   \item ダ\leaders\hbox{$\cdot$}\hfill 411
+  \item ㌤\leaders\hbox{$\cdot$}\hfill 9037
 
   \indexspace
 
 \centerline{\bfseries --- ㋠ ---}\par\nobreak
   \item ち\leaders\hbox{$\cdot$}\hfill 117
   \item チ\leaders\hbox{$\cdot$}\hfill 217
+  \item ﾁ\leaders\hbox{$\cdot$}\hfill 8033
   \item ㋠\leaders\hbox{$\cdot$}\hfill 7017
   \item ぢ\leaders\hbox{$\cdot$}\hfill 312
   \item ヂ\leaders\hbox{$\cdot$}\hfill 412
@@ -209,8 +269,10 @@
 \centerline{\bfseries --- ㋡ ---}\par\nobreak
   \item っ\leaders\hbox{$\cdot$}\hfill 506
   \item ッ\leaders\hbox{$\cdot$}\hfill 606
+  \item ｯ\leaders\hbox{$\cdot$}\hfill 8015
   \item つ\leaders\hbox{$\cdot$}\hfill 118
   \item ツ\leaders\hbox{$\cdot$}\hfill 218
+  \item ﾂ\leaders\hbox{$\cdot$}\hfill 8034
   \item ㋡\leaders\hbox{$\cdot$}\hfill 7018
   \item づ\leaders\hbox{$\cdot$}\hfill 313
   \item ヅ\leaders\hbox{$\cdot$}\hfill 413
@@ -222,34 +284,42 @@
 \centerline{\bfseries --- ㋢ ---}\par\nobreak
   \item て\leaders\hbox{$\cdot$}\hfill 119
   \item テ\leaders\hbox{$\cdot$}\hfill 219
+  \item ﾃ\leaders\hbox{$\cdot$}\hfill 8035
   \item ㋢\leaders\hbox{$\cdot$}\hfill 7019
   \item で\leaders\hbox{$\cdot$}\hfill 314
   \item デ\leaders\hbox{$\cdot$}\hfill 414
+  \item ㌥\leaders\hbox{$\cdot$}\hfill 9038
 
   \indexspace
 
 \centerline{\bfseries --- ㋣ ---}\par\nobreak
   \item と\leaders\hbox{$\cdot$}\hfill 120
   \item ト\leaders\hbox{$\cdot$}\hfill 220
+  \item ﾄ\leaders\hbox{$\cdot$}\hfill 8036
   \item ㇳ\leaders\hbox{$\cdot$}\hfill 903
   \item ㋣\leaders\hbox{$\cdot$}\hfill 7020
   \item ど\leaders\hbox{$\cdot$}\hfill 315
   \item ド\leaders\hbox{$\cdot$}\hfill 415
   \item ト゚\leaders\hbox{$\cdot$}\hfill 3112
   \item ト゚ァ\leaders\hbox{$\cdot$}\hfill 3115
+  \item ㌦\leaders\hbox{$\cdot$}\hfill 9039
+  \item ㌧\leaders\hbox{$\cdot$}\hfill 9040
 
   \indexspace
 
 \centerline{\bfseries --- ㋤ ---}\par\nobreak
   \item な\leaders\hbox{$\cdot$}\hfill 121
   \item ナ\leaders\hbox{$\cdot$}\hfill 221
+  \item ﾅ\leaders\hbox{$\cdot$}\hfill 8037
   \item ㋤\leaders\hbox{$\cdot$}\hfill 7021
+  \item ㌨\leaders\hbox{$\cdot$}\hfill 9041
 
   \indexspace
 
 \centerline{\bfseries --- ㋥ ---}\par\nobreak
   \item に\leaders\hbox{$\cdot$}\hfill 122
   \item ニ\leaders\hbox{$\cdot$}\hfill 222
+  \item ﾆ\leaders\hbox{$\cdot$}\hfill 8038
   \item ㋥\leaders\hbox{$\cdot$}\hfill 7022
 
   \indexspace
@@ -257,6 +327,7 @@
 \centerline{\bfseries --- ㋦ ---}\par\nobreak
   \item ぬ\leaders\hbox{$\cdot$}\hfill 123
   \item ヌ\leaders\hbox{$\cdot$}\hfill 223
+  \item ﾇ\leaders\hbox{$\cdot$}\hfill 8039
   \item ㇴ\leaders\hbox{$\cdot$}\hfill 904
   \item ㋦\leaders\hbox{$\cdot$}\hfill 7023
 
@@ -265,6 +336,7 @@
 \centerline{\bfseries --- ㋧ ---}\par\nobreak
   \item ね\leaders\hbox{$\cdot$}\hfill 124
   \item ネ\leaders\hbox{$\cdot$}\hfill 224
+  \item ﾈ\leaders\hbox{$\cdot$}\hfill 8040
   \item ㋧\leaders\hbox{$\cdot$}\hfill 7024
 
   \indexspace
@@ -272,37 +344,50 @@
 \centerline{\bfseries --- ㋨ ---}\par\nobreak
   \item の\leaders\hbox{$\cdot$}\hfill 125
   \item ノ\leaders\hbox{$\cdot$}\hfill 225
+  \item ﾉ\leaders\hbox{$\cdot$}\hfill 8041
   \item ㋨\leaders\hbox{$\cdot$}\hfill 7025
+  \item ㌩\leaders\hbox{$\cdot$}\hfill 9042
 
   \indexspace
 
 \centerline{\bfseries --- ㋩ ---}\par\nobreak
   \item は\leaders\hbox{$\cdot$}\hfill 126
   \item ハ\leaders\hbox{$\cdot$}\hfill 226
+  \item ﾊ\leaders\hbox{$\cdot$}\hfill 8042
   \item ㇵ\leaders\hbox{$\cdot$}\hfill 905
   \item ㋩\leaders\hbox{$\cdot$}\hfill 7026
   \item ば\leaders\hbox{$\cdot$}\hfill 316
   \item バ\leaders\hbox{$\cdot$}\hfill 416
   \item ぱ\leaders\hbox{$\cdot$}\hfill 321
   \item パ\leaders\hbox{$\cdot$}\hfill 421
+  \item ㌫\leaders\hbox{$\cdot$}\hfill 9044
+  \item ㌬\leaders\hbox{$\cdot$}\hfill 9045
+  \item ㌭\leaders\hbox{$\cdot$}\hfill 9046
+  \item ㌪\leaders\hbox{$\cdot$}\hfill 9043
 
   \indexspace
 
 \centerline{\bfseries --- ㋪ ---}\par\nobreak
   \item ひ\leaders\hbox{$\cdot$}\hfill 127
   \item ヒ\leaders\hbox{$\cdot$}\hfill 227
+  \item ﾋ\leaders\hbox{$\cdot$}\hfill 8043
   \item ㇶ\leaders\hbox{$\cdot$}\hfill 906
   \item ㋪\leaders\hbox{$\cdot$}\hfill 7027
   \item び\leaders\hbox{$\cdot$}\hfill 317
   \item ビ\leaders\hbox{$\cdot$}\hfill 417
   \item ぴ\leaders\hbox{$\cdot$}\hfill 322
   \item ピ\leaders\hbox{$\cdot$}\hfill 422
+  \item ㌮\leaders\hbox{$\cdot$}\hfill 9047
+  \item ㌯\leaders\hbox{$\cdot$}\hfill 9048
+  \item ㌰\leaders\hbox{$\cdot$}\hfill 9049
+  \item ㌱\leaders\hbox{$\cdot$}\hfill 9050
 
   \indexspace
 
 \centerline{\bfseries --- ㋫ ---}\par\nobreak
   \item ふ\leaders\hbox{$\cdot$}\hfill 128
   \item フ\leaders\hbox{$\cdot$}\hfill 228
+  \item ﾌ\leaders\hbox{$\cdot$}\hfill 8044
   \item ㇷ\leaders\hbox{$\cdot$}\hfill 907
   \item ㋫\leaders\hbox{$\cdot$}\hfill 7028
   \item ぶ\leaders\hbox{$\cdot$}\hfill 318
@@ -311,50 +396,84 @@
   \item プ\leaders\hbox{$\cdot$}\hfill 423
   \item ㇷ゚\leaders\hbox{$\cdot$}\hfill 3112
   \item ㇷ゚ァ\leaders\hbox{$\cdot$}\hfill 3116
+  \item ㌲\leaders\hbox{$\cdot$}\hfill 9051
+  \item ㌳\leaders\hbox{$\cdot$}\hfill 9052
+  \item ㌴\leaders\hbox{$\cdot$}\hfill 9053
+  \item ㌵\leaders\hbox{$\cdot$}\hfill 9054
 
   \indexspace
 
 \centerline{\bfseries --- ㋬ ---}\par\nobreak
   \item へ\leaders\hbox{$\cdot$}\hfill 129
   \item ヘ\leaders\hbox{$\cdot$}\hfill 229
+  \item ﾍ\leaders\hbox{$\cdot$}\hfill 8045
   \item ㇸ\leaders\hbox{$\cdot$}\hfill 908
   \item ㋬\leaders\hbox{$\cdot$}\hfill 7029
   \item べ\leaders\hbox{$\cdot$}\hfill 319
   \item ベ\leaders\hbox{$\cdot$}\hfill 419
   \item ぺ\leaders\hbox{$\cdot$}\hfill 324
   \item ペ\leaders\hbox{$\cdot$}\hfill 424
+  \item ㌻\leaders\hbox{$\cdot$}\hfill 9060
+  \item ㌼\leaders\hbox{$\cdot$}\hfill 9061
+  \item ㌶\leaders\hbox{$\cdot$}\hfill 9055
+  \item ㌷\leaders\hbox{$\cdot$}\hfill 9056
+  \item ㌸\leaders\hbox{$\cdot$}\hfill 9057
+  \item ㌹\leaders\hbox{$\cdot$}\hfill 9058
+  \item ㌺\leaders\hbox{$\cdot$}\hfill 9059
 
   \indexspace
 
 \centerline{\bfseries --- ㋭ ---}\par\nobreak
   \item ほ\leaders\hbox{$\cdot$}\hfill 130
   \item ホ\leaders\hbox{$\cdot$}\hfill 230
+  \item ﾎ\leaders\hbox{$\cdot$}\hfill 8046
   \item ㇹ\leaders\hbox{$\cdot$}\hfill 909
   \item ㋭\leaders\hbox{$\cdot$}\hfill 7030
   \item ぼ\leaders\hbox{$\cdot$}\hfill 320
   \item ボ\leaders\hbox{$\cdot$}\hfill 420
   \item ぽ\leaders\hbox{$\cdot$}\hfill 325
   \item ポ\leaders\hbox{$\cdot$}\hfill 425
+  \item ㍁\leaders\hbox{$\cdot$}\hfill 9066
+  \item ㍂\leaders\hbox{$\cdot$}\hfill 9067
+  \item ㌽\leaders\hbox{$\cdot$}\hfill 9062
+  \item ほおん\leaders\hbox{$\cdot$}\hfill 1201
+  \item ほか\leaders\hbox{$\cdot$}\hfill 1202
+  \item 🈀\leaders\hbox{$\cdot$}\hfill 1200
+  \item ほかぁ\leaders\hbox{$\cdot$}\hfill 1203
+  \item ㌾\leaders\hbox{$\cdot$}\hfill 9063
+  \item ㌿\leaders\hbox{$\cdot$}\hfill 9064
+  \item ㍀\leaders\hbox{$\cdot$}\hfill 9065
 
   \indexspace
 
 \centerline{\bfseries --- ㋮ ---}\par\nobreak
   \item ま\leaders\hbox{$\cdot$}\hfill 131
   \item マ\leaders\hbox{$\cdot$}\hfill 231
+  \item ﾏ\leaders\hbox{$\cdot$}\hfill 8047
   \item ㋮\leaders\hbox{$\cdot$}\hfill 7031
+  \item ㍃\leaders\hbox{$\cdot$}\hfill 9068
+  \item ㍄\leaders\hbox{$\cdot$}\hfill 9069
+  \item ㍅\leaders\hbox{$\cdot$}\hfill 9070
+  \item ㍆\leaders\hbox{$\cdot$}\hfill 9071
+  \item ㍇\leaders\hbox{$\cdot$}\hfill 9072
 
   \indexspace
 
 \centerline{\bfseries --- ㋯ ---}\par\nobreak
   \item み\leaders\hbox{$\cdot$}\hfill 132
   \item ミ\leaders\hbox{$\cdot$}\hfill 232
+  \item ﾐ\leaders\hbox{$\cdot$}\hfill 8048
   \item ㋯\leaders\hbox{$\cdot$}\hfill 7032
+  \item ㍈\leaders\hbox{$\cdot$}\hfill 9073
+  \item ㍉\leaders\hbox{$\cdot$}\hfill 9074
+  \item ㍊\leaders\hbox{$\cdot$}\hfill 9075
 
   \indexspace
 
 \centerline{\bfseries --- ㋰ ---}\par\nobreak
   \item む\leaders\hbox{$\cdot$}\hfill 133
   \item ム\leaders\hbox{$\cdot$}\hfill 233
+  \item ﾑ\leaders\hbox{$\cdot$}\hfill 8049
   \item ㇺ\leaders\hbox{$\cdot$}\hfill 910
   \item ㋰\leaders\hbox{$\cdot$}\hfill 7033
 
@@ -363,13 +482,18 @@
 \centerline{\bfseries --- ㋱ ---}\par\nobreak
   \item め\leaders\hbox{$\cdot$}\hfill 134
   \item メ\leaders\hbox{$\cdot$}\hfill 234
+  \item ﾒ\leaders\hbox{$\cdot$}\hfill 8050
   \item ㋱\leaders\hbox{$\cdot$}\hfill 7034
+  \item ㍍\leaders\hbox{$\cdot$}\hfill 9078
+  \item ㍋\leaders\hbox{$\cdot$}\hfill 9076
+  \item ㍌\leaders\hbox{$\cdot$}\hfill 9077
 
   \indexspace
 
 \centerline{\bfseries --- ㋲ ---}\par\nobreak
   \item も\leaders\hbox{$\cdot$}\hfill 135
   \item モ\leaders\hbox{$\cdot$}\hfill 235
+  \item ﾓ\leaders\hbox{$\cdot$}\hfill 8051
   \item ㋲\leaders\hbox{$\cdot$}\hfill 7035
 
   \indexspace
@@ -377,26 +501,35 @@
 \centerline{\bfseries --- ㋳ ---}\par\nobreak
   \item ゃ\leaders\hbox{$\cdot$}\hfill 507
   \item ャ\leaders\hbox{$\cdot$}\hfill 607
+  \item ｬ\leaders\hbox{$\cdot$}\hfill 8012
   \item や\leaders\hbox{$\cdot$}\hfill 136
   \item ヤ\leaders\hbox{$\cdot$}\hfill 236
+  \item ﾔ\leaders\hbox{$\cdot$}\hfill 8052
   \item ㋳\leaders\hbox{$\cdot$}\hfill 7036
+  \item ㍎\leaders\hbox{$\cdot$}\hfill 9079
+  \item ㍏\leaders\hbox{$\cdot$}\hfill 9080
 
   \indexspace
 
 \centerline{\bfseries --- ㋴ ---}\par\nobreak
   \item ゅ\leaders\hbox{$\cdot$}\hfill 508
   \item ュ\leaders\hbox{$\cdot$}\hfill 608
+  \item ｭ\leaders\hbox{$\cdot$}\hfill 8013
   \item ゆ\leaders\hbox{$\cdot$}\hfill 137
   \item ユ\leaders\hbox{$\cdot$}\hfill 237
+  \item ﾕ\leaders\hbox{$\cdot$}\hfill 8053
   \item ㋴\leaders\hbox{$\cdot$}\hfill 7037
+  \item ㍐\leaders\hbox{$\cdot$}\hfill 9081
 
   \indexspace
 
 \centerline{\bfseries --- ㋵ ---}\par\nobreak
   \item ょ\leaders\hbox{$\cdot$}\hfill 509
   \item ョ\leaders\hbox{$\cdot$}\hfill 609
+  \item ｮ\leaders\hbox{$\cdot$}\hfill 8014
   \item よ\leaders\hbox{$\cdot$}\hfill 138
   \item ヨ\leaders\hbox{$\cdot$}\hfill 238
+  \item ﾖ\leaders\hbox{$\cdot$}\hfill 8054
   \item ㋵\leaders\hbox{$\cdot$}\hfill 7038
   \item よらん\leaders\hbox{$\cdot$}\hfill 1001
   \item より\leaders\hbox{$\cdot$}\hfill 1002
@@ -408,6 +541,7 @@
 \centerline{\bfseries --- ㋶ ---}\par\nobreak
   \item ら\leaders\hbox{$\cdot$}\hfill 139
   \item ラ\leaders\hbox{$\cdot$}\hfill 239
+  \item ﾗ\leaders\hbox{$\cdot$}\hfill 8055
   \item ㇻ\leaders\hbox{$\cdot$}\hfill 911
   \item ㋶\leaders\hbox{$\cdot$}\hfill 7039
 
@@ -416,30 +550,40 @@
 \centerline{\bfseries --- ㋷ ---}\par\nobreak
   \item り\leaders\hbox{$\cdot$}\hfill 140
   \item リ\leaders\hbox{$\cdot$}\hfill 240
+  \item ﾘ\leaders\hbox{$\cdot$}\hfill 8056
   \item ㇼ\leaders\hbox{$\cdot$}\hfill 912
   \item ㋷\leaders\hbox{$\cdot$}\hfill 7040
+  \item ㍑\leaders\hbox{$\cdot$}\hfill 9082
+  \item ㍒\leaders\hbox{$\cdot$}\hfill 9083
 
   \indexspace
 
 \centerline{\bfseries --- ㋸ ---}\par\nobreak
   \item る\leaders\hbox{$\cdot$}\hfill 141
   \item ル\leaders\hbox{$\cdot$}\hfill 241
+  \item ﾙ\leaders\hbox{$\cdot$}\hfill 8057
   \item ㇽ\leaders\hbox{$\cdot$}\hfill 913
   \item ㋸\leaders\hbox{$\cdot$}\hfill 7041
+  \item ㍔\leaders\hbox{$\cdot$}\hfill 9085
+  \item ㍓\leaders\hbox{$\cdot$}\hfill 9084
 
   \indexspace
 
 \centerline{\bfseries --- ㋹ ---}\par\nobreak
   \item れ\leaders\hbox{$\cdot$}\hfill 142
   \item レ\leaders\hbox{$\cdot$}\hfill 242
+  \item ﾚ\leaders\hbox{$\cdot$}\hfill 8058
   \item ㇾ\leaders\hbox{$\cdot$}\hfill 914
   \item ㋹\leaders\hbox{$\cdot$}\hfill 7042
+  \item ㍕\leaders\hbox{$\cdot$}\hfill 9086
+  \item ㍖\leaders\hbox{$\cdot$}\hfill 9087
 
   \indexspace
 
 \centerline{\bfseries --- ㋺ ---}\par\nobreak
   \item ろ\leaders\hbox{$\cdot$}\hfill 143
   \item ロ\leaders\hbox{$\cdot$}\hfill 243
+  \item ﾛ\leaders\hbox{$\cdot$}\hfill 8059
   \item ㇿ\leaders\hbox{$\cdot$}\hfill 915
   \item ㋺\leaders\hbox{$\cdot$}\hfill 7043
 
@@ -450,8 +594,10 @@
   \item ヮ\leaders\hbox{$\cdot$}\hfill 610
   \item わ\leaders\hbox{$\cdot$}\hfill 144
   \item ワ\leaders\hbox{$\cdot$}\hfill 244
+  \item ﾜ\leaders\hbox{$\cdot$}\hfill 8060
   \item ㋻\leaders\hbox{$\cdot$}\hfill 7044
   \item ヷ\leaders\hbox{$\cdot$}\hfill 804
+  \item ㍗\leaders\hbox{$\cdot$}\hfill 9088
 
   \indexspace
 
@@ -479,11 +625,13 @@
   \item 𛅒(小さい「を」)\leaders\hbox{$\cdot$}\hfill 6003
   \item を\leaders\hbox{$\cdot$}\hfill 147
   \item ヲ\leaders\hbox{$\cdot$}\hfill 247
+  \item ｦ\leaders\hbox{$\cdot$}\hfill 8006
   \item 𛅦(小さい「ヲ」)\leaders\hbox{$\cdot$}\hfill 6006
   \item ㋾\leaders\hbox{$\cdot$}\hfill 7047
   \item ヺ\leaders\hbox{$\cdot$}\hfill 807
   \item ん\leaders\hbox{$\cdot$}\hfill 148
   \item ン\leaders\hbox{$\cdot$}\hfill 248
+  \item ﾝ\leaders\hbox{$\cdot$}\hfill 8061
   \item 𛅧(小さい「ン」)\leaders\hbox{$\cdot$}\hfill 6007
 
   \indexspace
