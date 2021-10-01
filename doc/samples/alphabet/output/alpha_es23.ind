@@ -3,6 +3,7 @@
 \centerline{\bfseries --- A ---}\par\nobreak
   \item a\leaders\hbox{$\cdot$}\hfill 201
   \item A\leaders\hbox{$\cdot$}\hfill 101
+  \item ª\leaders\hbox{$\cdot$}\hfill 501
 
   \indexspace
 
@@ -120,6 +121,7 @@
 \centerline{\bfseries --- O ---}\par\nobreak
   \item o\leaders\hbox{$\cdot$}\hfill 215
   \item O\leaders\hbox{$\cdot$}\hfill 115
+  \item º\leaders\hbox{$\cdot$}\hfill 502
 
   \indexspace
 
