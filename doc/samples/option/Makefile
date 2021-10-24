@@ -2,7 +2,7 @@ UPMENDEX = upmendex
 MENDEX = mendex -U
 MAKEINDEX = makeindex
 
-all: attri rules jp_u char_order_u char_order_u1 page_number_u1
+all: attri rules symbol jp_u char_order_u char_order_u1 page_number_u1
 
 #
 # test for icu_attributes
@@ -66,6 +66,15 @@ rules:
 	for loc in root zh0 zh1 zh2 zh3 ja0; do \
 		$(UPMENDEX) -s mdxsty_attr_default.ist -s rule$$sty.ist -s locale_$$loc -t rule1_$$sty-$$loc.ilg -o rule1_$$sty-$$loc.ind attri1.idx hanzi1.idx ; \
 	done ; \
+	done
+
+#
+# test for symbols
+#
+symbol:
+	for sty in 00 01 02; do \
+		$(UPMENDEX) symbol.idx -s mdxsty_j00.ist -s symbol_$$sty.ist -t symbol_$$sty-umdx.ilg -o symbol_$$sty-umdx.ind ; \
+		$(UPMENDEX) symbol.idx -s mdxsty_j00.ist -s symbol_$$sty.ist -d number.dic -t symbol_d_$$sty-umdx.ilg -o symbol_d_$$sty-umdx.ind ; \
 	done
 
 #
