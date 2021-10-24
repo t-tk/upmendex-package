@@ -17,6 +17,7 @@
 \indexentry{index sort}{200}
 \indexentry{indファイル}{201}
 \indexentry{ind file}{202}
+\indexentry{ind ファイル}{203}
 \indexentry{か}{1}
 \indexentry{カ}{2}
 \indexentry{かかか}{3}
@@ -29,6 +30,32 @@
 \indexentry{A}{4001}
 \indexentry{B}{4002}
 \indexentry{C}{4003}
-\indexentry{Ａ}{4004}
-\indexentry{Ｂ}{4005}
-\indexentry{Ｃ}{4006}
+\indexentry{X}{4024}
+\indexentry{Y}{4025}
+\indexentry{Z}{4026}
+\indexentry{Ａ}{4101}
+\indexentry{Ｂ}{4102}
+\indexentry{Ｃ}{4103}
+\indexentry{Ｘ}{4124}
+\indexentry{Ｙ}{4125}
+\indexentry{Ｚ}{4126}
+\indexentry{0}{6016}
+\indexentry{1}{6017}
+\indexentry{2}{6018}
+\indexentry{3}{6019}
+\indexentry{4}{6020}
+\indexentry{5}{6021}
+\indexentry{6}{6022}
+\indexentry{7}{6023}
+\indexentry{8}{6024}
+\indexentry{9}{6025}
+\indexentry{０}{4016}
+\indexentry{１}{4017}
+\indexentry{２}{4018}
+\indexentry{３}{4019}
+\indexentry{４}{4020}
+\indexentry{５}{4021}
+\indexentry{６}{4022}
+\indexentry{７}{4023}
+\indexentry{８}{4024}
+\indexentry{９}{4025}

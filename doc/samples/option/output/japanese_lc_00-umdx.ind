@@ -1,31 +1,58 @@
 \begin{theindex}
 
+\centerline{\bfseries --- Symbols ---}\par\nobreak
+  \item 0\leaders\hbox{$\cdot$}\hfill 6016
+  \item ０\leaders\hbox{$\cdot$}\hfill 4016
+  \item 1\leaders\hbox{$\cdot$}\hfill 6017
+  \item １\leaders\hbox{$\cdot$}\hfill 4017
+  \item 2\leaders\hbox{$\cdot$}\hfill 6018
+  \item ２\leaders\hbox{$\cdot$}\hfill 4018
+  \item 3\leaders\hbox{$\cdot$}\hfill 6019
+  \item ３\leaders\hbox{$\cdot$}\hfill 4019
+  \item 4\leaders\hbox{$\cdot$}\hfill 6020
+  \item ４\leaders\hbox{$\cdot$}\hfill 4020
+  \item 5\leaders\hbox{$\cdot$}\hfill 6021
+  \item ５\leaders\hbox{$\cdot$}\hfill 4021
+  \item 6\leaders\hbox{$\cdot$}\hfill 6022
+  \item ６\leaders\hbox{$\cdot$}\hfill 4022
+  \item 7\leaders\hbox{$\cdot$}\hfill 6023
+  \item ７\leaders\hbox{$\cdot$}\hfill 4023
+  \item 8\leaders\hbox{$\cdot$}\hfill 6024
+  \item ８\leaders\hbox{$\cdot$}\hfill 4024
+  \item 9\leaders\hbox{$\cdot$}\hfill 6025
+  \item ９\leaders\hbox{$\cdot$}\hfill 4025
+
+  \indexspace
+
 \centerline{\bfseries --- A ---}\par\nobreak
   \item A\leaders\hbox{$\cdot$}\hfill 4001
-  \item Ａ\leaders\hbox{$\cdot$}\hfill 4004
+  \item Ａ\leaders\hbox{$\cdot$}\hfill 4101
 
   \indexspace
 
 \centerline{\bfseries --- B ---}\par\nobreak
   \item B\leaders\hbox{$\cdot$}\hfill 4002
-  \item Ｂ\leaders\hbox{$\cdot$}\hfill 4005
+  \item Ｂ\leaders\hbox{$\cdot$}\hfill 4102
 
   \indexspace
 
 \centerline{\bfseries --- C ---}\par\nobreak
   \item C\leaders\hbox{$\cdot$}\hfill 4003
-  \item Ｃ\leaders\hbox{$\cdot$}\hfill 4006
+  \item Ｃ\leaders\hbox{$\cdot$}\hfill 4103
 
   \indexspace
 
 \centerline{\bfseries --- I ---}\par\nobreak
   \item index sort\leaders\hbox{$\cdot$}\hfill 200
   \item ind file\leaders\hbox{$\cdot$}\hfill 202
+  \item ind ファイル\leaders\hbox{$\cdot$}\hfill 203
   \item indファイル\leaders\hbox{$\cdot$}\hfill 201
 
   \indexspace
 
 \centerline{\bfseries --- X ---}\par\nobreak
+  \item X\leaders\hbox{$\cdot$}\hfill 4024
+  \item Ｘ\leaders\hbox{$\cdot$}\hfill 4124
   \item Xlib\leaders\hbox{$\cdot$}\hfill 100
   \item X s\leaders\hbox{$\cdot$}\hfill 102, 103
   \item X T\leaders\hbox{$\cdot$}\hfill 102
@@ -33,6 +60,18 @@
   \item XView\leaders\hbox{$\cdot$}\hfill 101
   \item X Window\leaders\hbox{$\cdot$}\hfill 102
   \item X X\leaders\hbox{$\cdot$}\hfill 102
+
+  \indexspace
+
+\centerline{\bfseries --- Y ---}\par\nobreak
+  \item Y\leaders\hbox{$\cdot$}\hfill 4025
+  \item Ｙ\leaders\hbox{$\cdot$}\hfill 4125
+
+  \indexspace
+
+\centerline{\bfseries --- Z ---}\par\nobreak
+  \item Z\leaders\hbox{$\cdot$}\hfill 4026
+  \item Ｚ\leaders\hbox{$\cdot$}\hfill 4126
 
   \indexspace
 

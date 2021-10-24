@@ -1,6 +1,6 @@
 UPMENDEX = upmendex
 
-alphabet: ltn cyr grk zh ja dev th
+alphabet: ltn cyr grk zh ja ko dev th
 
 ltn:
 	for num in 1 2; do \
@@ -107,6 +107,13 @@ ja:
 		loc='ja' ; \
 		locx='jag' ; \
 		$(UPMENDEX) -g alpha_$$loc.idx -s mdxsty_$$loc$$num.ist -t alpha_$$locx$$num.ilg -o alpha_$$locx$$num.ind ; \
+	done
+
+ko:
+	for num in `seq 1 11`; do \
+	for loc in ko; do \
+		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_$$loc$$num.ist -t alpha_$$loc$$num.ilg -o alpha_$$loc$$num.ind ; \
+	done ; \
 	done
 
 dev:

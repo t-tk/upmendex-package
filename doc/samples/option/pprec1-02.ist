@@ -1,0 +1,8 @@
+% -*- coding: utf-8 -*-
+
+page_precedence "rRn"
+delim_r "[[delim r]]"
+suffix_2p "[[sfx 2p]]"
+suffix_3p "[[sfx 3p]]"
+
+line_max  90
