@@ -98,6 +98,6 @@ Currently following locales are available:
     ASCII MEDIA WORKS (web site by DWANGO Co., Ltd.)
 2.  [Source/Document distribution of upmendex --- multilingual index processor @ GitHub](https://github.com/t-tk/upmendex-package)
 3.  [upTeX, upLaTeX ― unicode version of pTeX, pLaTeX](http://www.t-lab.opal.ne.jp/tex/uptex_en.html)
-4.  [International Components for Unicode (ICU)](http://site.icu-project.org/)
+4.  [International Components for Unicode (ICU)](https://icu.unicode.org/)
 5.  [upmendex @ CTAN](https://ctan.org/pkg/upmendex/)
 
