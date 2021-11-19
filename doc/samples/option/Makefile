@@ -216,9 +216,9 @@ char_order_cmp_au:
 #
 char_order_m1:
 	for sty in 00 01 02; do \
-		$(MAKEINDEX) chorder1.idx -s mdxsty_m$$sty.ist \
+		$(MAKEINDEX) chorder1.idx -s ./mdxsty_m$$sty.ist \
 			-t chorder1_$$sty-mkid.ilg -o chorder1_$$sty-mkid.ind ; \
-		$(MAKEINDEX) -g chorder1.idx -s mdxsty_m$$sty.ist \
+		$(MAKEINDEX) -g chorder1.idx -s ./mdxsty_m$$sty.ist \
 			-t chorder1_g_$$sty-mkid.ilg -o chorder1_g_$$sty-mkid.ind ; \
 	done
 
