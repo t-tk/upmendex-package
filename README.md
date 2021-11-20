@@ -1,7 +1,7 @@
 upmendex  --- Multilingual index processor
 ==========================================
 
-2021.09.05 Ver0.59
+2021.11.20 Ver1.00
 
 TANAKA, Takuji
 <ttk(at)t-lab.opal.ne.jp>
@@ -19,7 +19,7 @@ upmendex is a multilingual index processor with following features:
  * Support Latin (including non-English), Greek, Cyrillic,
    Korean Hangul and Chinese Han (Hanzi ideographs) scripts
    as well as Japanese Kana.
- * Support Devanagari and Thai scripts (experimental).
+ * Support Devanagari, Thai, Arabic and Hebrew scripts (experimental).
  * Support four kinds of sort orders (Pinyin, Radical-Stroke,
    Stroke and Zhuyin) for Chinese Han scripts (Hanzi ideographs).
  * Apply International Components for Unicode (ICU)[4]
@@ -36,13 +36,13 @@ upmendex is a multilingual index processor with following features:
  * man/ :: manuals
 
 ### Building upmendex
-The source files are distributed at GitHub[2] and work with TeX Live svn r60427.
+The source files are distributed at GitHub[2] and work with TeX Live svn r61096.
 Ref. [TeX Live and Subversion](http://www.tug.org/texlive/svn/)
 
 Tested with ICU 68.2 .
 
 ### Status
-Beta version.
+Stable version.
 No warranty.
 
 ### Copyright
@@ -93,11 +93,17 @@ Currently following locales are available:
 #### Thai script (experimental)
   "th" (Thai)
 
+#### Arabic (experimental)
+  "ar", "ar@collation=compat" (Arabic), "fa" (Persian), "ps" (Pashto), "ur" (Urdu)
+
+#### Hebrew (experimental)
+  "he", "he@collation=search" (Hebrew), "yi" (Yiddish)
+
 ### References
 1.  [ASCII Nihongo TeX (Publishing TeX)](https://asciidwango.github.io/ptex/)
     ASCII MEDIA WORKS (web site by DWANGO Co., Ltd.)
 2.  [Source/Document distribution of upmendex --- multilingual index processor @ GitHub](https://github.com/t-tk/upmendex-package)
 3.  [upTeX, upLaTeX ― unicode version of pTeX, pLaTeX](http://www.t-lab.opal.ne.jp/tex/uptex_en.html)
-4.  [International Components for Unicode (ICU)](http://site.icu-project.org/)
+4.  [International Components for Unicode (ICU)](https://icu.unicode.org/)
 5.  [upmendex @ CTAN](https://ctan.org/pkg/upmendex/)
 

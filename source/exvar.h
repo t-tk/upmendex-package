@@ -2,7 +2,7 @@ extern FILE *efp;
 
 extern int lines,idxcount,acc,reject;
 extern int prange,fsti,lorder,bcomp,force,fpage,gflg,verb,debug;
-extern int warn,scount,pattr[3];
+extern int warn,scount,pattr[];
 
 extern struct index *ind;
 
@@ -35,6 +35,7 @@ extern UChar atama[],hangul_head[],hanzi_head[],kana_head[];
 extern UChar devanagari_head[],thai_head[];
 extern char page_compositor[],page_precedence[];
 extern char character_order[];
+extern char script_preamble[][STYBUFSIZE],script_postamble[][STYBUFSIZE];
 extern char icu_locale[],icu_rules[];
 extern int icu_attributes[];
 
