@@ -1,0 +1,7 @@
+% -*- coding: utf-8 -*-
+
+icu_locale  "ps"
+
+script_preamble   arabic  "\n% begin arabic"
+script_postamble  arabic  "\n% end   arabic"
+
