@@ -3,33 +3,59 @@
 \centerline{\bfseries --- Symbols ---}\par\nobreak
   \item ☃☎♥⚽☺☝✈🀅🍣👻\leaders\hbox{$\cdot$}\hfill 10
   \item €$＄¢￠£￡¥￥₩￦฿₹\leaders\hbox{$\cdot$}\hfill 9
+% begin arabic
+
+  \indexspace
+
+\centerline{\bfseries --- م ---}\par\nobreak
+  \item محمد‎\leaders\hbox{$\cdot$}\hfill 13
+% end   arabic
+% begin hebrew
+
+  \indexspace
+
+\centerline{\bfseries --- א ---}\par\nobreak
+  \item אֱלִיעֶזֶר בֶּן־יְהוּדָה‎\leaders\hbox{$\cdot$}\hfill 
+		14
+% end   hebrew
+% begin hanzi
 
   \indexspace
 
 \centerline{\bfseries --- 漢字 ---}\par\nobreak
   \item 王羲之\leaders\hbox{$\cdot$}\hfill 7
+% end   hanzi
+% begin kana
 
   \indexspace
 
 \centerline{\bfseries --- モ ---}\par\nobreak
   \item 森鷗外\leaders\hbox{$\cdot$}\hfill 5
+% end   kana
+% begin hangul
 
   \indexspace
 
 \centerline{\bfseries --- ㅅ ---}\par\nobreak
   \item 세종대왕(世宗大王)\leaders\hbox{$\cdot$}\hfill 6
+% end   hangul
+% begin devanagari
 
   \indexspace
 
 \centerline{\bfseries --- ग ---}\par\nobreak
   \item गौतम सिद्धार्थ\leaders\hbox{$\cdot$}\hfill 
 		12
+% end   devanagari
+% begin thai
 
   \indexspace
 
 \centerline{\bfseries --- พ ---}\par\nobreak
   \item พ่อขุนรามคำแหงมหาราช\leaders\hbox{$\cdot$}\hfill 
 		11
+% end   thai
+% begin latin
 
   \indexspace
 
@@ -40,16 +66,21 @@
 
 \centerline{\bfseries --- K ---}\par\nobreak
   \item Kästner\leaders\hbox{$\cdot$}\hfill 4
+% end   latin
+% begin cyrillic
 
   \indexspace
 
 \centerline{\bfseries --- Ч ---}\par\nobreak
   \item Чайковский\leaders\hbox{$\cdot$}\hfill 2
+% end   cyrillic
+% begin greek
 
   \indexspace
 
 \centerline{\bfseries --- Σ ---}\par\nobreak
   \item Σωκράτης\leaders\hbox{$\cdot$}\hfill 1
+% end   greek
 
   \indexspace
 
