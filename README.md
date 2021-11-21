@@ -93,10 +93,10 @@ Currently following locales are available:
 #### Thai script (experimental)
   "th" (Thai)
 
-#### Arabic (experimental)
+#### Arabic script (experimental)
   "ar", "ar@collation=compat" (Arabic), "fa" (Persian), "ps" (Pashto), "ur" (Urdu)
 
-#### Hebrew (experimental)
+#### Hebrew script (experimental)
   "he", "he@collation=search" (Hebrew), "yi" (Yiddish)
 
 ### References
