@@ -8,8 +8,8 @@ scripts:
 	done
 
 styles:
-	for num in 00 01 02; do \
-		$(UPMENDEX) multi.idx -s mdxsty$$num.ist -o multi_$$num.ind ; \
+	for num in 00 01 02 03; do \
+		$(UPMENDEX) multi.idx -s mdxsty$$num.ist -t multi_$$num.ilg -o multi_$$num.ind ; \
 	done
 
 compare:
