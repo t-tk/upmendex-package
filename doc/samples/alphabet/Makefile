@@ -1,15 +1,15 @@
 UPMENDEX = upmendex
 
-alphabet: ltn cyr grk zh ja ko dev th ar he
+alphabet: ltn cyr grk zh ja ko dev th arb he
 
 ltn:
 	for num in 1 2; do \
-	for loc in ca da de eo es fi fr gl jv lt nb nl nn no pl ro sv vi; do \
+	for loc in af ca da de eo es et fi fr gl is jv lt lv nb nl nn no pl ro sv tk vi; do \
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head$$num.ist -s mdxsty_$$loc.ist -t alpha_$$loc$$num.ilg -o alpha_$$loc$$num.ind ; \
 	done ; \
 	done
 	for num in 1 2; do \
-	for loc in da fr gl nb nn ca vi; do \
+	for loc in da fr gl is nb nn ca vi; do \
 		locx=$${loc}1 ; \
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head$$num.ist -s mdxsty_$$locx.ist -t alpha_$$locx$$num.ilg -o alpha_$$locx$$num.ind ; \
 	done ; \
@@ -39,7 +39,7 @@ ltn:
 	done ; \
 	done
 	for num in 1 2 3; do \
-	for loc in az cs hr hu sk sl srl sq tr; do \
+	for loc in az cs cy hr hu sk sl srl sq tr; do \
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head$$num.ist -s mdxsty_$$loc.ist -t alpha_$$loc$$num.ilg -o alpha_$$loc$$num.ind ; \
 	done ; \
 	done
@@ -138,8 +138,8 @@ th:
 	done ; \
 	done
 
-ar:
-	for loc in ar fa ps ur; do \
+arb:
+	for loc in ar fa ps ug ur; do \
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head1.ist -s mdxsty_$$loc.ist -t alpha_$$loc.ilg -o alpha_$$loc.ind ; \
 	done ; \
 	for x in 1; do \

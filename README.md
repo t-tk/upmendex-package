@@ -1,7 +1,7 @@
 upmendex  --- Multilingual index processor
 ==========================================
 
-2022.05.22 Ver1.01
+2022.09.04 Ver1.02
 
 TANAKA, Takuji
 <ttk(at)t-lab.opal.ne.jp>
@@ -36,10 +36,10 @@ upmendex is a multilingual index processor with following features:
  * man/ :: manuals
 
 ### Building upmendex
-The source files are distributed at GitHub[2] and work with TeX Live svn r63363.
+The source files are distributed at GitHub[2] and work with TeX Live svn r64285.
 Ref. [TeX Live and Subversion](http://www.tug.org/texlive/svn/)
 
-Tested with ICU 70.1 .
+Tested with ICU 71.1 .
 
 ### Status
 Stable version.
@@ -57,17 +57,19 @@ setting into "icu_locale" in style files.
 Currently following locales are available:
 
 #### Latin script
-  "az", "az@collation=search" (Azerbaijani), "ca@collation=search" (Catalan),
-  "cs", "cs@collation=search" (Czech), "da", "da@collation=search" (Danish),
+  "af" (Afrikaans), "az", "az@collation=search" (Azerbaijani),
+  "ca@collation=search" (Catalan), "cs", "cs@collation=search" (Czech),
+  "cy" (Welsh), "da", "da@collation=search" (Danish),
   "de@collation=phonebook", "de@collation=search", "de-AT@collation=phonebook" (German),
   "eo" (Espelanto), "es", "es@collation=traditional", "es@collation=search" (Spanish),
-  "fi", "fi@collation=search", "fi@collation=traditional" (Finnish),
+  "et" (Estonian), "fi", "fi@collation=search", "fi@collation=traditional" (Finnish),
   "fr-CA" (French), "gl", "gl@collation=search" (Galician),
-  "hr", "hr@collation=search" (Croatian), "hu" (Hungarian), "lt" (Lithuanian),
+  "hr", "hr@collation=search" (Croatian), "hu" (Hungarian),
+  "is", "is@collation=search" (Icelandic), "lt" (Lithuanian), "lv" (Latvian),
   "nb", "nb@collation=search", "nn", "nn@collation=search", "no" (Norwegian),
   "pl" (Polish), "ro" (Romanian), "sk", "sk@collation=search" (Slovak),
   "sl" (Slovenian), "sq" (Albanian), "sr-Latn", "sr-Latn@collation=search" (Serbian),
-  "sv", "sv@collation=search", "sv@collation=standard" (Swedish),
+  "sv", "sv@collation=search", "sv@collation=standard" (Swedish), "tk" (Turkmen),
   "tr" (Turkish), "vi", "vi@collation=traditional" (Vietnamese)
 
 ##### Supported by default "root" collator. Do not need to set locale
@@ -94,7 +96,7 @@ Currently following locales are available:
   "th" (Thai)
 
 #### Arabic script (experimental)
-  "ar", "ar@collation=compat" (Arabic), "fa" (Persian), "ps" (Pashto), "ur" (Urdu)
+  "ar", "ar@collation=compat" (Arabic), "fa" (Persian), "ps" (Pashto), "ug" (Uyghur), "ur" (Urdu)
 
 #### Hebrew script (experimental)
   "he", "he@collation=search" (Hebrew), "yi" (Yiddish)
