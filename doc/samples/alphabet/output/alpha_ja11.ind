@@ -511,6 +511,12 @@
 
   \indexspace
 
+\centerline{\bfseries --- 𛄠 ---}\par\nobreak
+  \item 𛄠(KATAKANA LETTER ARCHAIC YI)\leaders\hbox{$\cdot$}\hfill 
+		7002
+
+  \indexspace
+
 \centerline{\bfseries --- ユ ---}\par\nobreak
   \item ゅ\leaders\hbox{$\cdot$}\hfill 508
   \item ュ\leaders\hbox{$\cdot$}\hfill 608
@@ -520,6 +526,12 @@
   \item ﾕ\leaders\hbox{$\cdot$}\hfill 8053
   \item ㋴\leaders\hbox{$\cdot$}\hfill 7037
   \item ㍐\leaders\hbox{$\cdot$}\hfill 9081
+
+  \indexspace
+
+\centerline{\bfseries --- 𛄡 ---}\par\nobreak
+  \item 𛄡(KATAKANA LETTER ARCHAIC YE)\leaders\hbox{$\cdot$}\hfill 
+		7003
 
   \indexspace
 
@@ -608,6 +620,14 @@
   \item 𛅤(小さい「ヰ」)\leaders\hbox{$\cdot$}\hfill 6004
   \item ㋼\leaders\hbox{$\cdot$}\hfill 7045
   \item ヸ\leaders\hbox{$\cdot$}\hfill 805
+
+  \indexspace
+
+\centerline{\bfseries --- 𛄢 ---}\par\nobreak
+  \item 𛄟(HIRAGANA LETTER ARCHAIC WU)\leaders\hbox{$\cdot$}\hfill 
+		7001
+  \item 𛄢(KATAKANA LETTER ARCHAIC WU)\leaders\hbox{$\cdot$}\hfill 
+		7004
 
   \indexspace
 
