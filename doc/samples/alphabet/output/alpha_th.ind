@@ -61,6 +61,8 @@
 
 \centerline{\bfseries --- ช ---}\par\nobreak
   \item ช\leaders\hbox{$\cdot$}\hfill 110
+  \item เชี\leaders\hbox{$\cdot$}\hfill 2002
+  \item ใช้\leaders\hbox{$\cdot$}\hfill 2004
 
   \indexspace
 
@@ -176,6 +178,7 @@
 
 \centerline{\bfseries --- ม ---}\par\nobreak
   \item ม\leaders\hbox{$\cdot$}\hfill 133
+  \item ไม่\leaders\hbox{$\cdot$}\hfill 2003
 
   \indexspace
 
@@ -226,6 +229,7 @@
 
 \centerline{\bfseries --- ห ---}\par\nobreak
   \item ห\leaders\hbox{$\cdot$}\hfill 143
+  \item เห\leaders\hbox{$\cdot$}\hfill 2001
 
   \indexspace
 
