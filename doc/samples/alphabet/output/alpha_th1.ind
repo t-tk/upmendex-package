@@ -29,33 +29,27 @@
   \item จ\leaders\hbox{$\cdot$}\hfill 108
   \item ฉ\leaders\hbox{$\cdot$}\hfill 109
   \item ช\leaders\hbox{$\cdot$}\hfill 110
-  \item ซ\leaders\hbox{$\cdot$}\hfill 111
-  \item ฌ\leaders\hbox{$\cdot$}\hfill 112
-  \item ญ\leaders\hbox{$\cdot$}\hfill 113
 
   \indexspace
 
-\centerline{\bfseries --- ฎ ---}\par\nobreak
+\centerline{\bfseries --- ฬ ---}\par\nobreak
+  \item เชี\leaders\hbox{$\cdot$}\hfill 2002
+  \item ใช้\leaders\hbox{$\cdot$}\hfill 2004
+  \item ซ\leaders\hbox{$\cdot$}\hfill 111
+  \item ฌ\leaders\hbox{$\cdot$}\hfill 112
+  \item ญ\leaders\hbox{$\cdot$}\hfill 113
   \item ฎ\leaders\hbox{$\cdot$}\hfill 114
   \item ฏ\leaders\hbox{$\cdot$}\hfill 115
   \item ฐ\leaders\hbox{$\cdot$}\hfill 116
   \item ฑ\leaders\hbox{$\cdot$}\hfill 117
   \item ฒ\leaders\hbox{$\cdot$}\hfill 118
   \item ณ\leaders\hbox{$\cdot$}\hfill 119
-
-  \indexspace
-
-\centerline{\bfseries --- ด ---}\par\nobreak
   \item ด\leaders\hbox{$\cdot$}\hfill 120
   \item ต\leaders\hbox{$\cdot$}\hfill 121
   \item ถ\leaders\hbox{$\cdot$}\hfill 122
   \item ท\leaders\hbox{$\cdot$}\hfill 123
   \item ธ\leaders\hbox{$\cdot$}\hfill 124
   \item น\leaders\hbox{$\cdot$}\hfill 125
-
-  \indexspace
-
-\centerline{\bfseries --- บ ---}\par\nobreak
   \item บ\leaders\hbox{$\cdot$}\hfill 126
   \item ป\leaders\hbox{$\cdot$}\hfill 127
   \item ผ\leaders\hbox{$\cdot$}\hfill 128
@@ -64,28 +58,18 @@
   \item ฟ\leaders\hbox{$\cdot$}\hfill 131
   \item ภ\leaders\hbox{$\cdot$}\hfill 132
   \item ม\leaders\hbox{$\cdot$}\hfill 133
-
-  \indexspace
-
-\centerline{\bfseries --- ย ---}\par\nobreak
+  \item ไม่\leaders\hbox{$\cdot$}\hfill 2003
   \item ย\leaders\hbox{$\cdot$}\hfill 134
   \item ร\leaders\hbox{$\cdot$}\hfill 135
   \item ฤ\leaders\hbox{$\cdot$}\hfill 136
   \item ล\leaders\hbox{$\cdot$}\hfill 137
   \item ฦ\leaders\hbox{$\cdot$}\hfill 138
   \item ว\leaders\hbox{$\cdot$}\hfill 139
-
-  \indexspace
-
-\centerline{\bfseries --- ศ ---}\par\nobreak
   \item ศ\leaders\hbox{$\cdot$}\hfill 140
   \item ษ\leaders\hbox{$\cdot$}\hfill 141
   \item ส\leaders\hbox{$\cdot$}\hfill 142
   \item ห\leaders\hbox{$\cdot$}\hfill 143
-
-  \indexspace
-
-\centerline{\bfseries --- ฬ ---}\par\nobreak
+  \item เห\leaders\hbox{$\cdot$}\hfill 2001
   \item ฬ\leaders\hbox{$\cdot$}\hfill 144
   \item อ\leaders\hbox{$\cdot$}\hfill 145
   \item ฮ\leaders\hbox{$\cdot$}\hfill 146

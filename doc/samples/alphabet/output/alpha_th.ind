@@ -64,182 +64,46 @@
 
   \indexspace
 
-\centerline{\bfseries --- ซ ---}\par\nobreak
-  \item ซ\leaders\hbox{$\cdot$}\hfill 111
-
-  \indexspace
-
-\centerline{\bfseries --- ฌ ---}\par\nobreak
-  \item ฌ\leaders\hbox{$\cdot$}\hfill 112
-
-  \indexspace
-
-\centerline{\bfseries --- ญ ---}\par\nobreak
-  \item ญ\leaders\hbox{$\cdot$}\hfill 113
-
-  \indexspace
-
-\centerline{\bfseries --- ฎ ---}\par\nobreak
-  \item ฎ\leaders\hbox{$\cdot$}\hfill 114
-
-  \indexspace
-
-\centerline{\bfseries --- ฏ ---}\par\nobreak
-  \item ฏ\leaders\hbox{$\cdot$}\hfill 115
-
-  \indexspace
-
-\centerline{\bfseries --- ฐ ---}\par\nobreak
-  \item ฐ\leaders\hbox{$\cdot$}\hfill 116
-
-  \indexspace
-
-\centerline{\bfseries --- ฑ ---}\par\nobreak
-  \item ฑ\leaders\hbox{$\cdot$}\hfill 117
-
-  \indexspace
-
-\centerline{\bfseries --- ฒ ---}\par\nobreak
-  \item ฒ\leaders\hbox{$\cdot$}\hfill 118
-
-  \indexspace
-
-\centerline{\bfseries --- ณ ---}\par\nobreak
-  \item ณ\leaders\hbox{$\cdot$}\hfill 119
-
-  \indexspace
-
-\centerline{\bfseries --- ด ---}\par\nobreak
-  \item ด\leaders\hbox{$\cdot$}\hfill 120
-
-  \indexspace
-
-\centerline{\bfseries --- ต ---}\par\nobreak
-  \item ต\leaders\hbox{$\cdot$}\hfill 121
-
-  \indexspace
-
-\centerline{\bfseries --- ถ ---}\par\nobreak
-  \item ถ\leaders\hbox{$\cdot$}\hfill 122
-
-  \indexspace
-
-\centerline{\bfseries --- ท ---}\par\nobreak
-  \item ท\leaders\hbox{$\cdot$}\hfill 123
-
-  \indexspace
-
-\centerline{\bfseries --- ธ ---}\par\nobreak
-  \item ธ\leaders\hbox{$\cdot$}\hfill 124
-
-  \indexspace
-
-\centerline{\bfseries --- น ---}\par\nobreak
-  \item น\leaders\hbox{$\cdot$}\hfill 125
-
-  \indexspace
-
-\centerline{\bfseries --- บ ---}\par\nobreak
-  \item บ\leaders\hbox{$\cdot$}\hfill 126
-
-  \indexspace
-
-\centerline{\bfseries --- ป ---}\par\nobreak
-  \item ป\leaders\hbox{$\cdot$}\hfill 127
-
-  \indexspace
-
-\centerline{\bfseries --- ผ ---}\par\nobreak
-  \item ผ\leaders\hbox{$\cdot$}\hfill 128
-
-  \indexspace
-
-\centerline{\bfseries --- ฝ ---}\par\nobreak
-  \item ฝ\leaders\hbox{$\cdot$}\hfill 129
-
-  \indexspace
-
-\centerline{\bfseries --- พ ---}\par\nobreak
-  \item พ\leaders\hbox{$\cdot$}\hfill 130
-
-  \indexspace
-
-\centerline{\bfseries --- ฟ ---}\par\nobreak
-  \item ฟ\leaders\hbox{$\cdot$}\hfill 131
-
-  \indexspace
-
-\centerline{\bfseries --- ภ ---}\par\nobreak
-  \item ภ\leaders\hbox{$\cdot$}\hfill 132
-
-  \indexspace
-
-\centerline{\bfseries --- ม ---}\par\nobreak
-  \item ม\leaders\hbox{$\cdot$}\hfill 133
-
-  \indexspace
-
-\centerline{\bfseries --- ย ---}\par\nobreak
-  \item ย\leaders\hbox{$\cdot$}\hfill 134
-
-  \indexspace
-
-\centerline{\bfseries --- ร ---}\par\nobreak
-  \item ร\leaders\hbox{$\cdot$}\hfill 135
-
-  \indexspace
-
-\centerline{\bfseries --- ฤ ---}\par\nobreak
-  \item ฤ\leaders\hbox{$\cdot$}\hfill 136
-
-  \indexspace
-
-\centerline{\bfseries --- ล ---}\par\nobreak
-  \item ล\leaders\hbox{$\cdot$}\hfill 137
-
-  \indexspace
-
-\centerline{\bfseries --- ฦ ---}\par\nobreak
-  \item ฦ\leaders\hbox{$\cdot$}\hfill 138
-
-  \indexspace
-
-\centerline{\bfseries --- ว ---}\par\nobreak
-  \item ว\leaders\hbox{$\cdot$}\hfill 139
-
-  \indexspace
-
-\centerline{\bfseries --- ศ ---}\par\nobreak
-  \item ศ\leaders\hbox{$\cdot$}\hfill 140
-
-  \indexspace
-
-\centerline{\bfseries --- ษ ---}\par\nobreak
-  \item ษ\leaders\hbox{$\cdot$}\hfill 141
-
-  \indexspace
-
-\centerline{\bfseries --- ส ---}\par\nobreak
-  \item ส\leaders\hbox{$\cdot$}\hfill 142
-
-  \indexspace
-
-\centerline{\bfseries --- ห ---}\par\nobreak
-  \item ห\leaders\hbox{$\cdot$}\hfill 143
-
-  \indexspace
-
-\centerline{\bfseries --- ฬ ---}\par\nobreak
-  \item ฬ\leaders\hbox{$\cdot$}\hfill 144
-
-  \indexspace
-
-\centerline{\bfseries --- อ ---}\par\nobreak
-  \item อ\leaders\hbox{$\cdot$}\hfill 145
-
-  \indexspace
-
 \centerline{\bfseries --- ฮ ---}\par\nobreak
+  \item เชี\leaders\hbox{$\cdot$}\hfill 2002
+  \item ใช้\leaders\hbox{$\cdot$}\hfill 2004
+  \item ซ\leaders\hbox{$\cdot$}\hfill 111
+  \item ฌ\leaders\hbox{$\cdot$}\hfill 112
+  \item ญ\leaders\hbox{$\cdot$}\hfill 113
+  \item ฎ\leaders\hbox{$\cdot$}\hfill 114
+  \item ฏ\leaders\hbox{$\cdot$}\hfill 115
+  \item ฐ\leaders\hbox{$\cdot$}\hfill 116
+  \item ฑ\leaders\hbox{$\cdot$}\hfill 117
+  \item ฒ\leaders\hbox{$\cdot$}\hfill 118
+  \item ณ\leaders\hbox{$\cdot$}\hfill 119
+  \item ด\leaders\hbox{$\cdot$}\hfill 120
+  \item ต\leaders\hbox{$\cdot$}\hfill 121
+  \item ถ\leaders\hbox{$\cdot$}\hfill 122
+  \item ท\leaders\hbox{$\cdot$}\hfill 123
+  \item ธ\leaders\hbox{$\cdot$}\hfill 124
+  \item น\leaders\hbox{$\cdot$}\hfill 125
+  \item บ\leaders\hbox{$\cdot$}\hfill 126
+  \item ป\leaders\hbox{$\cdot$}\hfill 127
+  \item ผ\leaders\hbox{$\cdot$}\hfill 128
+  \item ฝ\leaders\hbox{$\cdot$}\hfill 129
+  \item พ\leaders\hbox{$\cdot$}\hfill 130
+  \item ฟ\leaders\hbox{$\cdot$}\hfill 131
+  \item ภ\leaders\hbox{$\cdot$}\hfill 132
+  \item ม\leaders\hbox{$\cdot$}\hfill 133
+  \item ไม่\leaders\hbox{$\cdot$}\hfill 2003
+  \item ย\leaders\hbox{$\cdot$}\hfill 134
+  \item ร\leaders\hbox{$\cdot$}\hfill 135
+  \item ฤ\leaders\hbox{$\cdot$}\hfill 136
+  \item ล\leaders\hbox{$\cdot$}\hfill 137
+  \item ฦ\leaders\hbox{$\cdot$}\hfill 138
+  \item ว\leaders\hbox{$\cdot$}\hfill 139
+  \item ศ\leaders\hbox{$\cdot$}\hfill 140
+  \item ษ\leaders\hbox{$\cdot$}\hfill 141
+  \item ส\leaders\hbox{$\cdot$}\hfill 142
+  \item ห\leaders\hbox{$\cdot$}\hfill 143
+  \item เห\leaders\hbox{$\cdot$}\hfill 2001
+  \item ฬ\leaders\hbox{$\cdot$}\hfill 144
+  \item อ\leaders\hbox{$\cdot$}\hfill 145
   \item ฮ\leaders\hbox{$\cdot$}\hfill 146
 
 \end{theindex}
