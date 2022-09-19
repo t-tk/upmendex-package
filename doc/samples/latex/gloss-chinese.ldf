@@ -1,4 +1,10 @@
 \ProvidesFile{gloss-chinese.ldf}[polyglossia: module for chinese]
+%%%
+%%% This file is not a part of upmendex
+%%% See polyglossia LICENSE:
+%%%  https://github.com/reutenauer/polyglossia
+%%%  https://github.com/reutenauer/polyglossia/blob/master/LICENSE.txt
+%%%
 
 \PolyglossiaSetup{chinese}{
     bcp47=zh,

@@ -1,4 +1,10 @@
 \ProvidesFile{gloss-zh-CN.ldf}[polyglossia: module for zh-CN (chinese)]
+%%%
+%%% This file is not a part of upmendex
+%%% See polyglossia LICENSE:
+%%%  https://github.com/reutenauer/polyglossia
+%%%  https://github.com/reutenauer/polyglossia/blob/master/LICENSE.txt
+%%%
 
 % We provide this as a bcp47-compliant alias
 
