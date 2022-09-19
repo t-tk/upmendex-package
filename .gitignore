@@ -10,3 +10,6 @@ Makefile_*
 /doc/samples/*.ind
 /doc/samples/alphabet/*.ind
 /doc/samples/option/*.ind
+/doc/samples/latex/*.aux
+/doc/samples/latex/*.log
+
