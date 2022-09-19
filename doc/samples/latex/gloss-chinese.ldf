@@ -101,8 +101,12 @@
     \def\refname{參考文獻}%
     \def\partname##1##2{第##1##2 部分}%
     \def\chaptername##1##2{第##1##2 章}%
+    \def\pagename##1##2{第##1##2 頁}%
     \def\seename{參照}%
     \def\alsoname{參照}%
+    \def\enclname{附件}%
+    \def\ccname{抄送}%
+    \def\headtoname{收件人}%
 }
 \def\captions@chinese@simplified{%
     \def\contentsname{目录}%
@@ -118,8 +122,12 @@
     \def\refname{参考文献}%
     \def\partname##1##2{第##1##2 部分}%
     \def\chaptername##1##2{第##1##2 章}%
+    \def\pagename##1##2{第##1##2 页}%
     \def\seename{参照}%
     \def\alsoname{参照}%
+    \def\enclname{附件}%
+    \def\ccname{抄送}%
+    \def\headtoname{收件人}%
 }
 
 \newcount\c@TempJNum%
