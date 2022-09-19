@@ -32,6 +32,7 @@ upmendex is a multilingual index processor with following features:
  * doc/samples/ :: samples for test.
  * doc/samples/alphabet :: samples for languages and collation options.
  * doc/samples/option :: samples for ICU attributes/rules options etc.
+ * doc/samples/latex :: samples for upLaTeX and XeLaTeX.
    More samples are distributed at GitHub[2] than at CTAN[5].
  * man/ :: manuals
 
