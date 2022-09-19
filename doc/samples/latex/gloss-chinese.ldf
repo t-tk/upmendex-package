@@ -9,6 +9,7 @@
 \PolyglossiaSetup{chinese}{
     bcp47=zh,
     script=CJK,
+    scripttag=hani,
     language=Chinese,
     hyphennames={nohyphenation},
     frenchspacing=false,
