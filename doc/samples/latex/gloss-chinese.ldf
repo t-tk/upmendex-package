@@ -94,6 +94,7 @@
     \def\figurename{圖}%
     \def\tablename{表}%
     \def\abstractname{摘要}%
+    \def\prefacename{前言}%
     \def\indexname{索引}%
     \def\bibname{參考文獻}%
     \def\appendixname{附錄}%
@@ -107,6 +108,7 @@
     \def\enclname{附件}%
     \def\ccname{抄送}%
     \def\headtoname{收件人}%
+    \def\\glossaryname{詞彙表}%
 }
 \def\captions@chinese@simplified{%
     \def\contentsname{目录}%
@@ -115,6 +117,7 @@
     \def\figurename{图}%
     \def\tablename{表}%
     \def\abstractname{摘要}%
+    \def\prefacename{前言}%
     \def\indexname{索引}%
     \def\bibname{参考文献}%
     \def\appendixname{附录}%
@@ -128,6 +131,7 @@
     \def\enclname{附件}%
     \def\ccname{抄送}%
     \def\headtoname{收件人}%
+    \def\\glossaryname{词汇表}%
 }
 
 \newcount\c@TempJNum%
