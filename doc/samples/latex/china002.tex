@@ -1,0 +1,165 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+
+\usepackage{polyglossia}
+%\usepackage{xeCJK}
+\setdefaultlanguage{english}
+\setotherlanguages{english,french,chinese,japanese}
+%\setmainfont{Noto Serif}
+%\setCJKmainfont{Noto Serif CJK SC}
+\newfontfamily\chinesefont{Noto Serif CJK SC}[Script=CJK]
+\newfontfamily\japanesefont{Noto Serif CJK JP}[Language=Japanese,Script=CJK]
+\title{XeLaTeX and Polyglossia}
+\author{author}
+\date{2022年9月1日}
+\begin{document}
+\begin{chinese}
+
+\tableofcontents
+
+\addcontentsline{toc}{section}{\listfigurename}
+\listoftables
+\addcontentsline{toc}{section}{\listtablename}
+\listoffigures
+\end{chinese}
+\pagebreak
+
+\begin{chinese}
+\section{中文}
+中文。
+\end{chinese}
+
+\section{English}
+\begin{english}
+This is an English text.
+\section{English}
+This is an English text.
+\subsection{English}
+This is an English text.
+\subsection{English}
+This is an English text.
+\subsubsection{English}
+This is an English text.
+
+\begin{figure}
+\caption{fig English}
+\end{figure}
+\begin{table}
+\caption{tbl English}
+\end{table}
+\begin{proof}
+$E = mc^2.$
+\end{proof}
+
+\today
+\end{english}
+
+\begin{french}
+\section{Français}
+Ceci est un texte français.
+\section{Français}
+Ceci est un texte français.
+\subsection{Français}
+Ceci est un texte français.
+\subsection{Français}
+Ceci est un texte français.
+\subsubsection{Français}
+Ceci est un texte français.
+
+\begin{figure}
+\caption{fig français}
+\end{figure}
+\begin{table}
+\caption{tbl français}
+\end{table}
+\begin{proof}
+$E = mc^2.$
+\end{proof}
+
+\today
+\end{french}
+
+\begin{chinese}[variant=simplified]
+\section{中文}
+这是中文文本。
+骨海直器述与 早上好，你呢？加油！谢谢你。完
+\section{中文}
+这是中文文本。
+\subsection{中文}
+这是中文文本。
+\subsection{中文}
+这是中文文本。
+\subsubsection{中文}
+这是中文文本。
+
+\begin{figure}
+\caption{fig 中文。骨海直器述与}
+\end{figure}
+\begin{table}
+\caption{tbl 中文。骨海直器述与}
+\end{table}
+\begin{proof}
+$E = mc^2.$
+\end{proof}
+
+\today
+\end{chinese}
+
+\renewfontfamily\chinesefont{Noto Serif CJK TC}[Script=CJK]
+\begin{chinese}[variant=traditional,numerals=chinese]
+\section{中文}
+這是中文文本。
+骨海直器述与 早上好，你呢？加油！謝謝你。完
+\section{中文}
+這是中文文本。
+\subsection{中文}
+這是中文文本。
+\subsection{中文}
+這是中文文本。
+\subsubsection{中文}
+這是中文文本。
+
+\begin{figure}
+\caption{fig 中文。骨海直器述与}
+\end{figure}
+\begin{table}
+\caption{tbl 中文。骨海直器述与}
+\end{table}
+\begin{proof}
+$E = mc^2.$
+\end{proof}
+
+\today
+\end{chinese}
+
+\begin{japanese}
+\section{日本語}
+これは日本語のテキストです。
+骨海直器述与 おはよう，元気？頑張れ！有難う。おわり
+\section{日本語}
+これは日本語のテキストです。
+\subsection{日本語}
+これは日本語のテキストです。
+\subsection{日本語}
+これは日本語のテキストです。
+\subsubsection{日本語}
+これは日本語のテキストです。
+
+\begin{figure}
+\caption{fig 日本語。骨海直器述与}
+\end{figure}
+\begin{table}
+\caption{tbl 日本語。骨海直器述与}
+\end{table}
+\begin{proof}
+$E = mc^2.$
+\end{proof}
+
+\today
+\end{japanese}
+
+
+
+\end{document}
