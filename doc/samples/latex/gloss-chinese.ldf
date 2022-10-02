@@ -222,19 +222,49 @@
     \fi
 }
 
-\def\chinesenumber#1{%
-    \expandafter\@chinesenumber\csname c@#1\endcsname%
+
+\def\tmp@chinese{chinese}
+\newif\ifchinese@numerals
+\chinese@numeralsfalse
+
+\define@key{chinese}{numerals}[chinese]{%
+  \def\@tmpa{#1}%
+  \ifx\@tmpa\tmp@chinese
+    \chinese@numeralstrue
+  \fi%
 }
+
+\def\chinesenumber#1{%
+  \ifchinese@numerals
+    \@chinesenumber{\number#1}%
+  \else
+    \number#1%
+  \fi}
+
+% Register default options
+\xpg@initialize@gloss@options{chinese}{numerals=arabic}
 
 \newcommand{\chinesenumerals}[2]{\@chinesenumber{#2}}
 
 \def\datechinese{%
     \def\today{%
-        \number\year\,%
+        \ifchinese@numerals
+           \@chinesenumber{\number\year}%
+        \else
+           \number\year\,%
+        \fi
         {年}%
-        \,\number\month\,%
+        \ifchinese@numerals
+           \@chinesenumber{\number\month}%
+        \else
+           \,\chinesenumber\month\,%
+        \fi
         {月}%
-        \,\number\day\,%
+        \ifchinese@numerals
+           \@chinesenumber{\number\day}%
+        \else
+           \,\chinesenumber\day\,%
+        \fi
         {日}%
     }%
 }
