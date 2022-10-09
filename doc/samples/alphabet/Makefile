@@ -39,12 +39,12 @@ ltn:
 	done ; \
 	done
 	for num in 1 2 3; do \
-	for loc in az cs cy hr hu sk sl srl sq tr; do \
+	for loc in az bs cs cy hr hu sk sl srl sq tr; do \
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head$$num.ist -s mdxsty_$$loc.ist -t alpha_$$loc$$num.ilg -o alpha_$$loc$$num.ind ; \
 	done ; \
 	done
 	for num in 1 2 3; do \
-	for loc in az cs hr sk srl; do \
+	for loc in az bs cs hr sk srl; do \
 		locx=$${loc}1 ; \
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head$$num.ist -s mdxsty_$$locx.ist -t alpha_$$locx$$num.ilg -o alpha_$$locx$$num.ind ; \
 	done ; \
@@ -52,7 +52,7 @@ ltn:
 
 cyr:
 	for num in 1 2; do \
-	for loc in be bg kk ky mk ru sr uk; do \
+	for loc in be bg bsc kk ky mk ru sr uk; do \
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head$$num.ist -s mdxsty_$$loc.ist -t alpha_$$loc$$num.ilg -o alpha_$$loc$$num.ind ; \
 	done ; \
 	done
