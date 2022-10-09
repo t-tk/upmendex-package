@@ -397,7 +397,7 @@
   \item ㍎\leaders\hbox{$\cdot$}\hfill 9079
   \item ㍏\leaders\hbox{$\cdot$}\hfill 9080
   \item 𛄠(KATAKANA LETTER ARCHAIC YI)\leaders\hbox{$\cdot$}\hfill 
-		7002
+		6502
   \item ゅ\leaders\hbox{$\cdot$}\hfill 508
   \item ゆ\leaders\hbox{$\cdot$}\hfill 137
   \item ュ\leaders\hbox{$\cdot$}\hfill 608
@@ -407,7 +407,7 @@
   \item ㋴\leaders\hbox{$\cdot$}\hfill 7037
   \item ㍐\leaders\hbox{$\cdot$}\hfill 9081
   \item 𛄡(KATAKANA LETTER ARCHAIC YE)\leaders\hbox{$\cdot$}\hfill 
-		7003
+		6503
   \item ょ\leaders\hbox{$\cdot$}\hfill 509
   \item よ\leaders\hbox{$\cdot$}\hfill 138
   \item ョ\leaders\hbox{$\cdot$}\hfill 609
@@ -473,9 +473,9 @@
   \item ㋼\leaders\hbox{$\cdot$}\hfill 7045
   \item ヸ\leaders\hbox{$\cdot$}\hfill 805
   \item 𛄟(HIRAGANA LETTER ARCHAIC WU)\leaders\hbox{$\cdot$}\hfill 
-		7001
+		6501
   \item 𛄢(KATAKANA LETTER ARCHAIC WU)\leaders\hbox{$\cdot$}\hfill 
-		7004
+		6504
   \item 𛅑(小さい「ゑ」)\leaders\hbox{$\cdot$}\hfill 6002
   \item ゑ\leaders\hbox{$\cdot$}\hfill 146
   \item 𛅥(小さい「ヱ」)\leaders\hbox{$\cdot$}\hfill 6005
