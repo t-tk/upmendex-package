@@ -98,7 +98,20 @@ zh:
 	done
 
 ja:
-	for num in 1 2 3 11 12 13 21 22 23 31 32 33; do \
+	for num in 1 2 3; do \
+	for loc in ja; do \
+		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head_ja$$num.ist -t alpha_$$loc$$num.ilg -o alpha_$$loc$$num.ind ; \
+	done ; \
+	done
+	for num in 1 2 3; do \
+	for x in 1 2; do \
+	for loc in ja; do \
+		locx=$$loc$$x ; \
+		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head_ja$$num.ist -s mdxsty_$$locx.ist -t alpha_$$locx$$num.ilg -o alpha_$$locx$$num.ind ; \
+	done ; \
+	done ; \
+	done
+	for num in 31 32 33; do \
 	for loc in ja; do \
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_$$loc$$num.ist -t alpha_$$loc$$num.ilg -o alpha_$$loc$$num.ind ; \
 	done ; \
@@ -106,7 +119,7 @@ ja:
 	for num in 1 2 3; do \
 		loc='ja' ; \
 		locx='jag' ; \
-		$(UPMENDEX) -g alpha_$$loc.idx -s mdxsty_$$loc$$num.ist -t alpha_$$locx$$num.ilg -o alpha_$$locx$$num.ind ; \
+		$(UPMENDEX) -g alpha_$$loc.idx -s mdxsty_head_ja$$num.ist -t alpha_$$locx$$num.ilg -o alpha_$$locx$$num.ind ; \
 	done
 
 ko:
