@@ -1,6 +1,7 @@
 % -*- coding: utf-8 -*-
 
-icu_locale  "ar@collation=compat"
+%icu_locale  "ar@collation=compat"
+icu_locale  "ar-u-co-compat"
 
 script_preamble   arabic  "\n% begin arabic"
 script_postamble  arabic  "\n% end   arabic"

@@ -1,4 +1,5 @@
 % -*- coding: utf-8 -*-
 
-icu_locale  "de-AT@collation=phonebook"
+%icu_locale  "de-AT@collation=phonebook"
+icu_locale  "de-AT-u-co-phonebk"
 

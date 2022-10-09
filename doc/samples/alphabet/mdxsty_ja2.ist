@@ -1,4 +1,5 @@
 % -*- coding: utf-8 -*-
 
-icu_locale  "ja@collation=unihan"
+%icu_locale  "ja@collation=unihan"
+icu_locale  "ja-u-co-unihan"
 

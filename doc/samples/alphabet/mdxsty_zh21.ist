@@ -8,5 +8,6 @@ lethead_flag 1
 lethead_prefix "\n\\centerline{\\bfseries --- "
 lethead_suffix  " ---}\\par\\nobreak"
 
-icu_locale  "zh@collation=stroke"
+%icu_locale  "zh@collation=stroke"
+icu_locale  "zh-u-co-stroke"
 
