@@ -121,6 +121,22 @@ ja:
 		locx='jag' ; \
 		$(UPMENDEX) -g alpha_$$loc.idx -s mdxsty_head_ja$$num.ist -t alpha_$$locx$$num.ilg -o alpha_$$locx$$num.ind ; \
 	done
+	for num in 1 2 3; do \
+	for x in 4; do \
+	for loc in ja; do \
+		locx=$$loc$$x ; \
+		$(UPMENDEX) alpha_ja.idx alpha_jaA.idx -s mdxsty_head_ja$$num.ist -s mdxsty_$$locx.ist -d kana.dic -t alpha_$$locx$$num.ilg -o alpha_$$locx$$num.ind ; \
+	done ; \
+	done ; \
+	done
+	for num in 1 2 3; do \
+	for x in 5; do \
+	for loc in ja; do \
+		locx=$$loc$$x ; \
+		$(UPMENDEX) alpha_ja.idx alpha_jaA.idx -s mdxsty_head_ja$$num.ist -s mdxsty_ja1.ist -d kana.dic -t alpha_$$locx$$num.ilg -o alpha_$$locx$$num.ind ; \
+	done ; \
+	done ; \
+	done
 
 ko:
 	for num in `seq 1 11`; do \

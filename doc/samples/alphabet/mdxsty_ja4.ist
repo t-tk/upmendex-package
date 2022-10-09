@@ -1,0 +1,5 @@
+% -*- coding: utf-8 -*-
+
+icu_locale  "ja"
+icu_rules   "&ゆ<𛀁<<<𛄡"
+
