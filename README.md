@@ -1,7 +1,7 @@
 upmendex  --- Multilingual index processor
 ==========================================
 
-2022.09.11 Ver1.03
+2022.10.08 Ver1.05
 
 TANAKA, Takuji
 <ttk(at)t-lab.opal.ne.jp>
@@ -37,7 +37,7 @@ upmendex is a multilingual index processor with following features:
  * man/ :: manuals
 
 ### Building upmendex
-The source files are distributed at GitHub[2] and work with TeX Live svn r64341.
+The source files are distributed at GitHub[2] and work with TeX Live svn r64660.
 Ref. [TeX Live and Subversion](http://www.tug.org/texlive/svn/)
 
 Tested with ICU 71.1 .
@@ -59,6 +59,7 @@ Currently following locales are available:
 
 #### Latin script
   "af" (Afrikaans), "az", "az@collation=search" (Azerbaijani),
+  "bs", "bs@collation=search" (Bosnian),
   "ca@collation=search" (Catalan), "cs", "cs@collation=search" (Czech),
   "cy" (Welsh), "da", "da@collation=search" (Danish),
   "de@collation=phonebook", "de@collation=search", "de-AT@collation=phonebook" (German),
@@ -78,7 +79,7 @@ Currently following locales are available:
   "it" (Italian), "jv" (Javanese), "ms" (Malay), "nl" (Dutch), "pt" (Portuguese)
 
 #### Cyrillic script
-  "be" (Belarusian), "bg" (Bulgarian), "kk" (Kazakh), "ky" (Kyrgyz),
+  "be" (Belarusian), "bg" (Bulgarian), "bs-Cyrl" (Bosnian), "kk" (Kazakh), "ky" (Kyrgyz),
   "mk" (Macedonian), "ru" (Russian), "sr" (Serbian), "uk" (Ukraine)
 
 #### Greek script
