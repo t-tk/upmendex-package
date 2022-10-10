@@ -39,12 +39,12 @@ ltn:
 	done ; \
 	done
 	for num in 1 2 3; do \
-	for loc in az cs cy hr hu sk sl srl sq tr; do \
+	for loc in az bs cs cy hr hu sk sl srl sq tr; do \
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head$$num.ist -s mdxsty_$$loc.ist -t alpha_$$loc$$num.ilg -o alpha_$$loc$$num.ind ; \
 	done ; \
 	done
 	for num in 1 2 3; do \
-	for loc in az cs hr sk srl; do \
+	for loc in az bs cs hr sk srl; do \
 		locx=$${loc}1 ; \
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head$$num.ist -s mdxsty_$$locx.ist -t alpha_$$locx$$num.ilg -o alpha_$$locx$$num.ind ; \
 	done ; \
@@ -52,7 +52,7 @@ ltn:
 
 cyr:
 	for num in 1 2; do \
-	for loc in be bg kk ky mk ru sr uk; do \
+	for loc in be bg bsc kk ky mk ru sr uk; do \
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head$$num.ist -s mdxsty_$$loc.ist -t alpha_$$loc$$num.ilg -o alpha_$$loc$$num.ind ; \
 	done ; \
 	done
@@ -98,7 +98,20 @@ zh:
 	done
 
 ja:
-	for num in 1 2 3 11 12 13 21 22 23 31 32 33; do \
+	for num in 1 2 3; do \
+	for loc in ja; do \
+		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head_ja$$num.ist -t alpha_$$loc$$num.ilg -o alpha_$$loc$$num.ind ; \
+	done ; \
+	done
+	for num in 1 2 3; do \
+	for x in 1 2; do \
+	for loc in ja; do \
+		locx=$$loc$$x ; \
+		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head_ja$$num.ist -s mdxsty_$$locx.ist -t alpha_$$locx$$num.ilg -o alpha_$$locx$$num.ind ; \
+	done ; \
+	done ; \
+	done
+	for num in 31 32 33; do \
 	for loc in ja; do \
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_$$loc$$num.ist -t alpha_$$loc$$num.ilg -o alpha_$$loc$$num.ind ; \
 	done ; \
@@ -106,7 +119,23 @@ ja:
 	for num in 1 2 3; do \
 		loc='ja' ; \
 		locx='jag' ; \
-		$(UPMENDEX) -g alpha_$$loc.idx -s mdxsty_$$loc$$num.ist -t alpha_$$locx$$num.ilg -o alpha_$$locx$$num.ind ; \
+		$(UPMENDEX) -g alpha_$$loc.idx -s mdxsty_head_ja$$num.ist -t alpha_$$locx$$num.ilg -o alpha_$$locx$$num.ind ; \
+	done
+	for num in 1 2 3; do \
+	for x in 4; do \
+	for loc in ja; do \
+		locx=$$loc$$x ; \
+		$(UPMENDEX) alpha_ja.idx alpha_jaA.idx -s mdxsty_head_ja$$num.ist -s mdxsty_$$locx.ist -d kana.dic -t alpha_$$locx$$num.ilg -o alpha_$$locx$$num.ind ; \
+	done ; \
+	done ; \
+	done
+	for num in 1 2 3; do \
+	for x in 5; do \
+	for loc in ja; do \
+		locx=$$loc$$x ; \
+		$(UPMENDEX) alpha_ja.idx alpha_jaA.idx -s mdxsty_head_ja$$num.ist -s mdxsty_ja1.ist -d kana.dic -t alpha_$$locx$$num.ilg -o alpha_$$locx$$num.ind ; \
+	done ; \
+	done ; \
 	done
 
 ko:

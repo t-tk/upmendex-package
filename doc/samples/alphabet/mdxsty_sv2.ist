@@ -1,4 +1,5 @@
 % -*- coding: utf-8 -*-
 
-icu_locale  "sv@collation=standard"
+%icu_locale  "sv@collation=standard"
+icu_locale  "sv-u-co-standard"
 

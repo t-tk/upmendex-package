@@ -2,4 +2,5 @@
 
 % ICU 66.1 shows "U_USING_DEFAULT_WARNING"
 %icu_locale  "cs@collation=search"
+%icu_locale  "cs-u-co-search"
 

@@ -1,4 +1,5 @@
 % -*- coding: utf-8 -*-
 
-icu_locale  "vi@collation=traditional"
+%icu_locale  "vi@collation=traditional"
+icu_locale  "vi-u-co-trad"
 

@@ -1,0 +1,5 @@
+% -*- coding: utf-8 -*-
+
+%icu_locale  "bs@collation=search"
+icu_locale  "bs-u-co-search"
+

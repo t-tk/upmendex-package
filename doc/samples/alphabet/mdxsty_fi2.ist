@@ -1,4 +1,5 @@
 % -*- coding: utf-8 -*-
 
-icu_locale  "fi@collation=traditional"
+%icu_locale  "fi@collation=traditional"
+icu_locale  "fi-u-co-trad"
 

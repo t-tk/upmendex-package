@@ -1,4 +1,5 @@
 % -*- coding: utf-8 -*-
 
-icu_locale  "sk@collation=search"
+%icu_locale  "sk@collation=search"
+icu_locale  "sk-u-co-search"
 
