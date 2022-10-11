@@ -98,7 +98,8 @@ Currently following locales are available:
   "th" (Thai)
 
 #### Arabic script (experimental)
-  "ar", "ar@collation=compat" (Arabic), "fa" (Persian), "ps" (Pashto), "ug" (Uyghur), "ur" (Urdu)
+  "ar", "ar@collation=compat" (Arabic), "fa" (Persian), "fa-AF" (Dari), "ps" (Pashto),
+  "ug" (Uyghur), "ur" (Urdu)
 
 #### Hebrew script (experimental)
   "he", "he@collation=search" (Hebrew), "yi" (Yiddish)
