@@ -168,7 +168,7 @@ th:
 	done
 
 arb:
-	for loc in ar fa ps ug ur; do \
+	for loc in ar fa faa ps ug ur; do \
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head1.ist -s mdxsty_$$loc.ist -t alpha_$$loc.ilg -o alpha_$$loc.ind ; \
 	done ; \
 	for x in 1; do \
