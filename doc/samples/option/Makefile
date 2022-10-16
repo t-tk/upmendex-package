@@ -82,22 +82,22 @@ symbol:
 #
 jp_u:
 	for sty in 00 01 02; do \
-		$(UPMENDEX) japanese.idx -s mdxsty_j$$sty.ist -o japanese_$$sty-umdx.ind ; \
-		$(UPMENDEX) japanese.idx -l -s mdxsty_j$$sty.ist -o japanese_l_$$sty-umdx.ind ; \
-		$(UPMENDEX) japanese.idx -c -s mdxsty_j$$sty.ist -o japanese_c_$$sty-umdx.ind ; \
-		$(UPMENDEX) japanese.idx -l -c -s mdxsty_j$$sty.ist -o japanese_lc_$$sty-umdx.ind ; \
-		$(UPMENDEX) japanese.idx -r -s mdxsty_j$$sty.ist -o japanese_r_$$sty-umdx.ind ; \
-		$(UPMENDEX) japanese.idx -g -s mdxsty_j$$sty.ist -o japanese_g_$$sty-umdx.ind ; \
+		$(UPMENDEX) japanese.idx -s mdxsty_j$$sty.ist -d kana.dic -t japanese_$$sty-umdx.ilg -o japanese_$$sty-umdx.ind ; \
+		$(UPMENDEX) japanese.idx -l -s mdxsty_j$$sty.ist -d kana.dic -t japanese_l_$$sty-umdx.ilg -o japanese_l_$$sty-umdx.ind ; \
+		$(UPMENDEX) japanese.idx -c -s mdxsty_j$$sty.ist -d kana.dic -t japanese_c_$$sty-umdx.ilg -o japanese_c_$$sty-umdx.ind ; \
+		$(UPMENDEX) japanese.idx -l -c -s mdxsty_j$$sty.ist -d kana.dic -t japanese_lc_$$sty-umdx.ilg -o japanese_lc_$$sty-umdx.ind ; \
+		$(UPMENDEX) japanese.idx -r -s mdxsty_j$$sty.ist -d kana.dic -t japanese_r_$$sty-umdx.ilg -o japanese_r_$$sty-umdx.ind ; \
+		$(UPMENDEX) japanese.idx -g -s mdxsty_j$$sty.ist -d kana.dic -t japanese_g_$$sty-umdx.ilg -o japanese_g_$$sty-umdx.ind ; \
 	done
 
 jp_a:
 	for sty in 00 01 02; do \
-		$(MENDEX)   japanese.idx -s mdxsty_j$$sty.ist -o japanese_$$sty-amdx.ind ; \
-		$(MENDEX)   japanese.idx -l -s mdxsty_j$$sty.ist -o japanese_l_$$sty-amdx.ind ; \
-		$(MENDEX)   japanese.idx -c -s mdxsty_j$$sty.ist -o japanese_c_$$sty-amdx.ind ; \
-		$(MENDEX)   japanese.idx -l -c -s mdxsty_j$$sty.ist -o japanese_lc_$$sty-amdx.ind ; \
-		$(MENDEX)   japanese.idx -r -s mdxsty_j$$sty.ist -o japanese_r_$$sty-amdx.ind ; \
-		$(MENDEX)   japanese.idx -g -s mdxsty_j$$sty.ist -o japanese_g_$$sty-amdx.ind ; \
+		$(MENDEX)   japanese.idx -s mdxsty_j$$sty.ist -d kana.dic -t japanese_$$sty-amdx.ilg -o japanese_$$sty-amdx.ind ; \
+		$(MENDEX)   japanese.idx -l -s mdxsty_j$$sty.ist -d kana.dic -t japanese_l_$$sty-amdx.ilg -o japanese_l_$$sty-amdx.ind ; \
+		$(MENDEX)   japanese.idx -c -s mdxsty_j$$sty.ist -d kana.dic -t japanese_c_$$sty-amdx.ilg -o japanese_c_$$sty-amdx.ind ; \
+		$(MENDEX)   japanese.idx -l -c -s mdxsty_j$$sty.ist -d kana.dic -t japanese_lc_$$sty-amdx.ilg -o japanese_lc_$$sty-amdx.ind ; \
+		$(MENDEX)   japanese.idx -r -s mdxsty_j$$sty.ist -d kana.dic -t japanese_r_$$sty-amdx.ilg -o japanese_r_$$sty-amdx.ind ; \
+		$(MENDEX)   japanese.idx -g -s mdxsty_j$$sty.ist -d kana.dic -t japanese_g_$$sty-amdx.ilg -o japanese_g_$$sty-amdx.ind ; \
 	done
 
 jp_cmp:
