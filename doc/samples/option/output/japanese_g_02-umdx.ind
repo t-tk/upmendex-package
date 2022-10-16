@@ -76,6 +76,12 @@
 
   \indexspace
 
+\centerline{\bfseries --- あ ---}\par\nobreak
+  \item うなぎ\leaders\hbox{$\cdot$}\hfill 6602
+  \item う𛂁ぎ\leaders\hbox{$\cdot$}\hfill 6603
+
+  \indexspace
+
 \centerline{\bfseries --- か ---}\par\nobreak
   \item か\leaders\hbox{$\cdot$}\hfill 1
   \item カ\leaders\hbox{$\cdot$}\hfill 2
@@ -85,6 +91,10 @@
   \indexspace
 
 \centerline{\bfseries --- さ ---}\par\nobreak
+  \item しるこ\leaders\hbox{$\cdot$}\hfill 6604
+  \item 𛁈る𛀸\leaders\hbox{$\cdot$}\hfill 6605
+  \item すし\leaders\hbox{$\cdot$}\hfill 6606
+  \item 𛁋𛁅\leaders\hbox{$\cdot$}\hfill 6607
   \item ソウル\leaders\hbox{$\cdot$}\hfill 1
 
   \indexspace
