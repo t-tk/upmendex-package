@@ -26,6 +26,13 @@
 
 \def\chinese@variant{chinese}
 
+\newif\ifchinese@numerals
+\define@key{chinese}{numerals}[arabic]{%
+   \ifstrequal{#1}{chinese}%
+      {\chinese@numeralstrue}%
+      {\chinese@numeralsfalse}%
+}
+
 
 \define@choicekey*+{chinese}{variant}[\xpg@val\xpg@nr]{cn,simplified,tw,traditional}[cn]{%
    \ifcase\xpg@nr\relax
@@ -52,8 +59,8 @@
 }{\xpg@warning{Unknown Chinese variant `#1'}}
 
 % Register default options
-\xpg@initialize@gloss@options{chinese}{variant=cn}
-%\xpg@initialize@gloss@options{chinese}{variant=tw}
+\xpg@initialize@gloss@options{chinese}{variant=cn,numerals=arabic}
+%\xpg@initialize@gloss@options{chinese}{variant=tw,numerals=arabic}
 % Register alias options
 \xpg@set@alias@values{chinese}{variant}{cn}{simplified}
 \xpg@set@alias@values{chinese}{variant}{tw}{traditional}
@@ -223,16 +230,7 @@
 }
 
 
-\def\tmp@chinese{chinese}
-\newif\ifchinese@numerals
-\chinese@numeralsfalse
-
-\define@key{chinese}{numerals}[chinese]{%
-  \def\@tmpa{#1}%
-  \ifx\@tmpa\tmp@chinese
-    \chinese@numeralstrue
-  \fi%
-}
+\newcommand{\chinesenumerals}[2]{\chinesenumber{#2}}
 
 \def\chinesenumber#1{%
   \ifchinese@numerals
@@ -241,10 +239,7 @@
     \number#1%
   \fi}
 
-% Register default options
-\xpg@initialize@gloss@options{chinese}{numerals=arabic}
-
-\newcommand{\chinesenumerals}[2]{\@chinesenumber{#2}}
+\let\chinesenumeral=\chinesenumber
 
 \def\datechinese{%
     \def\today{%
@@ -257,13 +252,13 @@
         \ifchinese@numerals
            \@chinesenumber{\number\month}%
         \else
-           \,\chinesenumber\month\,%
+           \,\number\month\,%
         \fi
         {月}%
         \ifchinese@numerals
            \@chinesenumber{\number\day}%
         \else
-           \,\chinesenumber\day\,%
+           \,\number\day\,%
         \fi
         {日}%
     }%
