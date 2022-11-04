@@ -1,0 +1,30 @@
+\documentclass[12pt]{article}
+
+\usepackage{fontspec}
+\usepackage{polyglossia}
+
+\usepackage{makeidx}
+\makeindex
+
+\setdefaultlanguage{thai}
+\setromanfont{Noto Serif}
+%\setmainfont{Noto Serif}
+\setsansfont{Noto Serif}
+\setmainfont{Noto Serif Thai}[Language=Thai,Script=Thai]
+\newfontfamily\englishfont{Noto Serif}
+\setotherlanguage{english}
+
+\pagestyle{empty}
+\begin{document}
+\thispagestyle{empty}
+
+ดอกไม้\index{ดอกไม้}
+นก\index{นก}
+ลม\index{ลม}
+ดวงจันทร์\index{ดวงจันทร์}
+
+\printindex
+
+\end{document}
+
+\index{}.

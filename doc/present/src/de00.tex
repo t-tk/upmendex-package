@@ -1,0 +1,33 @@
+\documentclass[12pt]{article}
+
+\usepackage{fontspec}
+\usepackage{polyglossia}
+
+\usepackage{makeidx}
+\makeindex
+
+\setdefaultlanguage{german}
+\setmainfont{Noto Serif}
+\setsansfont{Noto Serif}
+
+\pagestyle{empty}
+\begin{document}
+\thispagestyle{empty}
+
+a\index{a}.
+A\index{A}.
+ad\index{ad}.
+AD\index{AD}.
+ae\index{ae}.
+AE\index{AE}.
+ä\index{ä}.
+Ä\index{Ä}.
+af\index{af}.
+AF\index{AF}.
+
+\printindex
+
+\end{document}
+
+
+\index{}.

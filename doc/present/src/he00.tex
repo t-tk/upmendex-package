@@ -1,0 +1,30 @@
+\documentclass[12pt]{article}
+
+\usepackage{fontspec}
+\usepackage{polyglossia}
+
+\usepackage{makeidx}
+\makeindex
+
+\setdefaultlanguage{hebrew}
+\setromanfont{Noto Serif}
+%\setmainfont{Noto Serif}
+\setsansfont{Noto Serif}
+\setmainfont{Noto Serif Hebrew}[Script=Hebrew]
+\newfontfamily\englishfont{Noto Serif}
+\setotherlanguage{english}
+
+\pagestyle{empty}
+\begin{document}
+\thispagestyle{empty}
+
+פֶּרַח\index{פֶּרַח}
+ציפור\index{ציפור}
+רוּחַ\index{רוּחַ}
+ירח\index{ירח}
+
+\printindex
+
+\end{document}
+
+\index{}.

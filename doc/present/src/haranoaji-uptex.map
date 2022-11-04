@@ -1,0 +1,44 @@
+%
+%  dvipdfmx map file for upTeX and HaranoAji fonts
+%
+%  Ref.
+%    https://github.com/trueroad/HaranoAjiFonts
+%    https://github.com/trueroad/HaranoAjiFontsCN
+%    https://github.com/trueroad/HaranoAjiFontsTW
+%    https://github.com/trueroad/HaranoAjiFontsK1
+%
+% You may freely use, modify and/or distribute this file.
+%
+rml	H	HaranoAjiMincho-Regular.otf
+rmlv	V	HaranoAjiMincho-Regular.otf
+gbm	H	HaranoAjiGothic-Medium.otf
+gbmv	V	HaranoAjiGothic-Medium.otf
+%rml-h	UniJISup-UTF16-H	HaranoAjiMincho-Regular.otf
+%rml-v	UniJISup-UTF16-V	HaranoAjiMincho-Regular.otf
+%gbm-h	UniJISup-UTF16-H	HaranoAjiGothic-Medium.otf
+%gbm-v	UniJISup-UTF16-V	HaranoAjiGothic-Medium.otf
+
+urml	UniJISup-UTF16-H	HaranoAjiMincho-Regular.otf
+urmlv	UniJISup-UTF16-V	HaranoAjiMincho-Regular.otf
+ugbm	UniJISup-UTF16-H	HaranoAjiGothic-Medium.otf
+ugbmv	UniJISup-UTF16-V	HaranoAjiGothic-Medium.otf
+uprml-h	UniJISup-UTF16-H	HaranoAjiMincho-Regular.otf
+uprml-v	UniJISup-UTF16-V	HaranoAjiMincho-Regular.otf
+upgbm-h	UniJISup-UTF16-H	HaranoAjiGothic-Medium.otf
+upgbm-v	UniJISup-UTF16-V	HaranoAjiGothic-Medium.otf
+uprml-hq	UniJIS-UCS2-H	HaranoAjiMincho-Regular.otf
+upgbm-hq	UniJIS-UCS2-H	HaranoAjiGothic-Medium.otf
+
+uphysmjm-h	UniKS-UTF16-H	HaranoAjiMinchoK1-Regular.otf
+uphysmjm-v	UniKS-UTF16-V	HaranoAjiMinchoK1-Regular.otf
+uphygt-h	UniKS-UTF16-H	HaranoAjiGothicK1-Medium.otf
+uphygt-v	UniKS-UTF16-V	HaranoAjiGothicK1-Medium.otf
+upstsl-h	UniGB-UTF16-H	HaranoAjiMinchoCN-Regular.otf
+upstsl-v	UniGB-UTF16-V	HaranoAjiMinchoCN-Regular.otf
+upstht-h	UniGB-UTF16-H	HaranoAjiGothicCN-Medium.otf
+upstht-v	UniGB-UTF16-V	HaranoAjiGothicCN-Medium.otf
+upmsl-h	UniCNS-UTF16-H	HaranoAjiMinchoTW-Regular.otf
+upmsl-v	UniCNS-UTF16-V	HaranoAjiMinchoTW-Regular.otf
+upmhm-h	UniCNS-UTF16-H	HaranoAjiGothicTW-Medium.otf
+upmhm-v	UniCNS-UTF16-V	HaranoAjiGothicTW-Medium.otf
+
