@@ -7,6 +7,7 @@
 \usepackage{anyfontsize}
 \usepackage{fancyvrb}
 \usepackage{multirow}
+\usepackage{arydshln}
 
 \usepackage{makeidx}
 \makeindex
@@ -80,7 +81,7 @@
 \begin{column}{70mm}
 
   \begin{itemize}
-  \item Feature of upmendex\\
+  \item Feature of \textbf{upmendex}\\
      --- Multilingual index processor
   \item Treatment for Scripts
      \begin{itemize}
@@ -111,7 +112,7 @@
   \begin{itemize}
   \item Index processor
     \begin{itemize}
-    \item Upper compatible with MakeIndex/Mendex
+    \item Upper compatible with \textbf{MakeIndex}/\textbf{Mendex}
     \item Work with upLaTeX/LuaLaTeX/XeLaTeX\\
           \hspace{15mm}\& babel/polyglossia
     \item Support Languages / Scripts
@@ -135,6 +136,67 @@
 {\footnotesize $\dagger$ ICU: International Components for Unicode}
 %\footnotetext[1]{International Components for Unicode}
 \end{frame}
+
+% - - % - - % - - % - - % - - % - - % - - % - - % - - %
+
+\subsection{Script, Language, Locale}
+
+%\setmonofont{Noto Sans Mono CJK TC}
+\begin{frame}[fragile]{Language, Script, Locale}
+
+\setlength\dashlinedash{0.5pt}
+\setlength\dashlinegap{1.0pt}
+
+\begin{columns}
+\begin{column}{70mm}
+\footnotesize
+\begin{center}
+\begin{tabular}{ccc}
+  Language  & Script / Index             & ICU locale \\\hline\hline
+  English   & Latin                      & root           \\
+  Spanish   & Latin                      & es             \\
+  German    & Latin                      & de             \\
+  Turkish   & Latin                      & tr             \\
+  \ldots    &                            &                \\\hdashline
+  Russian   & Cyrillic                   & ru             \\
+  Ukrainian & Cyrillic                   & uk             \\
+  \ldots    &                            &                \\\hdashline
+  Greek     & Greek                      & el             \\\hline
+  \multirow{4}{*}{Chinese}   & Hanzi / Pinyin         & zh             \\
+            & Hanzi       / Stroke         & zh-u-co-stroke \\
+            & Hanzi       / Radical-Stroke & zh-u-co-unihan \\
+            & Hanzi       / Zhuyin         & zh-u-co-zhuyin \\\hdashline
+  Japanese  & Kana \& Hanzi / Kana       & ja             \\\hdashline
+  Korean    & Hangul                     & ko             \\\hline
+\end{tabular}
+\end{center}
+\end{column}
+\begin{column}{58mm}
+\footnotesize
+\begin{center}
+\begin{tabular}{ccc}
+  Language  & Script / Index & ICU locale \\\hline\hline
+  Hindi     & Devanagari     & hi             \\
+  Marathi   & Devanagari     & mr             \\
+  \ldots    &                &                \\\hdashline
+  Thai      & Thai           & th             \\\hline
+  Persian   & Arabic         & fa             \\
+  Arabic    & Arabic         & ar             \\
+  \ldots    &                &                \\\hdashline
+  Hebrew    & Hebrew         & he             \\
+  Yiddish   & Hebrew         & yi             \\\hline
+  \multirow{2}{*}{Common}  & Symbol   &       \\
+            & Number         &                \\\hline
+\end{tabular}
+\end{center}
+\textbf{upmendex} supports 60 languages,\\12 scripts \& 95 locales.
+\end{column}
+\end{columns}
+%\vskip2ex
+\end{frame}
+
+% - - % - - % - - % - - % - - % - - % - - % - - % - - %
+
 \section{Scripts}
 \subsection{Latin, Cyrillic, Greek}
 \begin{frame}{Latin, Cyrillic, Greek}
@@ -650,7 +712,7 @@ radical-stroke
   \includegraphics[scale=0.48]{zh00d-02-crop.pdf}%
 }\\[2mm]%
 注音符號\\
-zhuyin
+zhuyin (bopomofo)
 \end{center}
 \end{column}
 \end{columns}
@@ -663,7 +725,7 @@ zhuyin
 \begin{frame}[fragile]{Japanese, Sort by Reading (yomi)}
 
 \begin{columns}
-\begin{column}{75mm}
+\begin{column}{85mm}
 \begin{exampleblock}{Japanese Inputs with Reading {\footnotesize(Yomi)} in *.tex}
 \begin{Verbatim}[%
   fontfamily=tt,
@@ -685,10 +747,11 @@ zhuyin
 \end{Verbatim}
 \end{exampleblock}
 %\vspace{2mm}
+{\footnotesize Hanzi/Kana words are sorted by reading (yomi), indexed by Kana.}\\
 {\footnotesize This feature is implemented by \textbf{ASCII mendex}.}
 \end{column}
 
-\begin{column}{60mm}
+\begin{column}{50mm}
 \begin{center}
 \fbox{%
   \includegraphics[scale=0.48]{yomi01-02-crop.pdf}%
@@ -769,11 +832,12 @@ zhuyin
 \end{Verbatim}
 \end{exampleblock}
 \begin{exampleblock}{Dictionary for Hentaigana *.dic}
+\setsansfont{Noto Sans}
 \begin{Verbatim}[%
   fontfamily=tt,
   fontsize=\fontsize{8.0}{8.0},
   commandchars=!<>]
-!colRd!-index_word!colBk!-  !colRd!-reading!colBk!-
+!sffamily!-!colRd!-index_word!colBk!-  !colRd!-reading!colBk!-
 𛀥                  き
 𛁛                  そ
 𛂦                  は
@@ -966,7 +1030,7 @@ icu_rules "!colRd!-&ゆ<𛀁<<<𛄡<よ!colBk!-"
 \begin{column}{18mm}
 \begin{block}{\hfil ideograph\hfil\\\hfil\scriptsize 한자\hfil}
 \begin{center}
-  \LARGE 日
+  \LARGE \colBl 日
 \end{center}
 \end{block}
 \end{column}
@@ -974,7 +1038,7 @@ icu_rules "!colRd!-&ゆ<𛀁<<<𛄡<よ!colBk!-"
 \begin{block}{\hfil modarn\hfil\\\hfil\scriptsize 현대 한글\hfil}
 \begin{center}
 \begin{tabular}{c}
-  \LARGE 일 \\[0.5mm]
+  \LARGE {\colBl 일} \\[0.5mm]
   \scriptsize U+C77C
 \end{tabular}
 \end{center}
@@ -983,7 +1047,7 @@ icu_rules "!colRd!-&ゆ<𛀁<<<𛄡<よ!colBk!-"
 \begin{column}{87mm}
 \begin{block}{\hfil archaic, composed / decomposed\hfil\\\hfil\scriptsize 옛 한글, 완성형 / 조합형 (完成型 / 組合型)\hfil}
 \begin{tabular}{cccccccc}
-\multirow{2}{*}{\LARGE{ᅀᅵᇙ〮} =~} & \Large ᅀ & \multirow{2}{*}{+} & \Large ᅵ & \multirow{2}{*}{+}& \Large ᇙ & \multirow{2}{*}{+} & \Large 〮 \\[2mm]
+\multirow{2}{*}{\LARGE{\colBl ᅀᅵᇙ〮} =~} & \Large{\colBl ᅀ} & \multirow{2}{*}{+} & \Large{\colBl ᅵ} & \multirow{2}{*}{+}& \Large{\colBl ᇙ} & \multirow{2}{*}{+} & \Large{\colBl 〮} \\[2mm]
                                 & \scriptsize{\parbox[u]{7.8mm}{\hfil U+1140\hfil\\\hspace*{0.8mm}첫소리\\\hspace*{1.7mm}初聲}} &&
                                   \scriptsize{\parbox[u]{11.3mm}{\hfil U+1175\hfil\\가운뎃소리\\\hspace*{2.7mm}中聲}} &&
                                   \scriptsize{\parbox[u]{7.8mm}{\hfil U+11D9\hfil\\\hspace*{0.8mm}끝소리\\\hspace*{1.7mm}終聲}} &&
@@ -1107,6 +1171,9 @@ archaic                     & Private Use Area & composed    & \footnotesize{via
 \end{exampleblock}
 \end{column}
 
+\begin{column}{76mm}
+
+\begin{columns}
 \begin{column}{38mm}
 \begin{center}
 \fbox{%
@@ -1124,6 +1191,13 @@ Hindi
 Thai
 \end{center}
 \end{column}
+\end{columns}
+\vspace{2mm}
+\begin{center}
+{\footnotesize Typeset by XeLaTeX}
+\end{center}
+\end{column}
+
 \end{columns}
 
 \end{frame}
@@ -1176,6 +1250,9 @@ Thai
 
 \end{column}
 
+\begin{column}{76mm}
+
+\begin{columns}
 \begin{column}{38mm}
 \begin{center}
 \fbox{%
@@ -1191,6 +1268,13 @@ Arabic
   \includegraphics[scale=0.48]{he00-02-crop.pdf}%
 }\\[2mm]%
 Hebrew
+\end{center}
+\end{column}
+\end{columns}
+\vspace{2mm}
+\begin{center}
+{\footnotesize R-to-L typeset by XeLaTeX.\\
+\textbf{upmendex} processes only indexing.}
 \end{center}
 \end{column}
 \end{columns}
@@ -1392,15 +1476,15 @@ internal encoding & 8bit 1byte & EUC-JP    & UTF-16         & Unicode \\
 Collator    & locale    & ASCII, Kana & ICU collator        &         \\\hline
 Latin       & ✓        & ✓ ASCII    & Lang:37, Locale:62  & Lang:32 \\
 Greek       &           &             & Lang:1, Locale:1    & Lang:1 \\
-Cyrillic    &           &             & Lang:9, Locale:9    & Lang:6 \\\hline
+Cyrillic    &           &             & Lang:9, Locale:9    & Lang:6 \\\hdashline
 Chinese     &           &             & Lang:1, Locale:4    &  \\
 \multirow{2}{*}{Japanese} & & \multirow{2}{*}{✓ (Yomi, Dict)} & ✓ (Yomi, Dict) & \\
             &           &             & Lang:1, Locale:2    & \\
-Korean      &           &             & Lang:1, Locale:3    & \\\hline
+Korean      &           &             & Lang:1, Locale:3    & \\\hdashline
 Devanagari  &           &             & Lang:3, Locale:3    & \\
 Thai        &           &             & Lang:1, Locale:1    & \\
 Arabic      &           &             & Lang:6, Locale:7    & \\
-Hebrew      &           &             & Lang:2, Locale:3    & Lang:1  \\\hline
+Hebrew      &           &             & Lang:2, Locale:3    & Lang:1  \\\hdashline
 Other       &           &             &                     & Lang:4  \\\hline
 Total       &           & Lang:2      & Lang:60, Locale:95  & Lang:44 \\\hline
 \end{tabular}
@@ -1412,30 +1496,33 @@ Total       &           & Lang:2      & Lang:60, Locale:95  & Lang:44 \\\hline
 
 \begin{frame}{Languages by Number of Native Speakers}
 
+\setlength\dashlinedash{0.5pt}
+\setlength\dashlinegap{1.0pt}
+
 \begin{center}
 \scriptsize
 \begin{tabular}{ccc|r|cccc}
   & Language    & Script & speakers & ICU & polyglossia & upmendex & xindy \\\hline\hline
-1 & Chinese     & \colRd Hanzi      & 1,370,000,000 & ✓ &    & ✓ &    \\
+1 & Chinese     & {\colRd Hanzi     } & 1,370,000,000 & ✓ &    & ✓ &    \\
 2 & Engish      & Latin      &   530,000,000 & ✓ & ✓ & ✓ & ✓ \\
-3 & Hindi       & \colBl Devanagari &   490,000,000 & ✓ & ✓ & ✓ &    \\
+3 & Hindi       & {\colBl Devanagari} &   490,000,000 & ✓ & ✓ & ✓ &    \\
 4 & Spanish     & Latin      &   420,000,000 & ✓ & ✓ & ✓ & ✓ \\
-5 & Arabic      & \colGn Arabic     &   230,000,000 & ✓ & ✓ & ✓ &    \\
-6 & Bengali     & \colBl Bengali    &   220,000,000 & ✓ & ✓ &    &    \\
+5 & Arabic      & {\colGn Arabic    } &   230,000,000 & ✓ & ✓ & ✓ &    \\\hdashline
+6 & Bengali     & {\colBl Bengali   } &   220,000,000 & ✓ & ✓ &    &    \\
 7 & Portuguese  & Latin      &   215,000,000 & ✓ & ✓ & ✓ & ✓ \\
 8 & Russian     & Cyrillic   &   180,000,000 & ✓ & ✓ & ✓ & ✓ \\
-9 & Japanese    & \colRd Kana       &   134,000,000 & ✓ & ✓ & ✓ &    \\
+9 & Japanese    & {\colRd Kana \& Hanzi } &   134,000,000 & ✓ & ✓ & ✓ &    \\
 10 & German     & Latin      &   130,000,000 & ✓ & ✓ & ✓ & ✓ \\\hline
 11 & French     & Latin      &   123,000,000 & ✓ & ✓ & ✓ & ✓ \\
-12 & Punjabi    & \colBl Gurmukhi   &    90,000,000 & ✓ &    &    &    \\
+12 & Punjabi    & {\colBl Gurmukhi  } &    90,000,000 & ✓ &    &    &    \\
 13 & Javanese   & Latin      &    75,000,000 & ✓ & ✓ & ✓ &    \\
-14 & Korean     & \colRd Hangul     &    75,000,000 & ✓ & ✓ & ✓ &    \\
-15 & Vietnamese & Latin      &    70,000,000 & ✓ & ✓ & ✓ & ✓ \\
-16 & Telugu     & \colBl Telugu     &    70,000,000 & ✓ & ✓ &    &    \\
-17 & Marathi    & \colBl Devanagari &    68,000,000 & ✓ & ✓ & ✓ &    \\
-18 & Tamil      & \colBl Tamil      &    74,000,000 & ✓ & ✓ &    &    \\
-19 & Persian    & \colGn Arabic     &    46,000,000 & ✓ & ✓ & ✓ &    \\
-20 & Urdu       & \colGn Arabic     &    61,000,000 & ✓ & ✓ & ✓ &    \\\hline
+14 & Korean     & {\colRd Hangul    } &    75,000,000 & ✓ & ✓ & ✓ &    \\
+15 & Vietnamese & Latin      &    70,000,000 & ✓ & ✓ & ✓ & ✓ \\\hdashline
+16 & Telugu     & {\colBl Telugu    } &    70,000,000 & ✓ & ✓ &    &    \\
+17 & Marathi    & {\colBl Devanagari} &    68,000,000 & ✓ & ✓ & ✓ &    \\
+18 & Tamil      & {\colBl Tamil     } &    74,000,000 & ✓ & ✓ &    &    \\
+19 & Persian    & {\colGn Arabic    } &    46,000,000 & ✓ & ✓ & ✓ &    \\
+20 & Urdu       & {\colGn Arabic    } &    61,000,000 & ✓ & ✓ & ✓ &    \\\hline
 \end{tabular}
 \\
 {\tiny Ref. https://ja.wikipedia.org/wiki/ネイティブスピーカーの数が多い言語の一覧}
@@ -1445,6 +1532,9 @@ Total       &           & Lang:2      & Lang:60, Locale:95  & Lang:44 \\\hline
 % - - % - - % - - % - - % - - % - - % - - % - - % - - %
 
 \begin{frame}{Languages used on the Internet}
+
+\setlength\dashlinedash{0.5pt}
+\setlength\dashlinegap{1.0pt}
 
 \begin{columns}
 \begin{column}{69mm}
@@ -1457,22 +1547,22 @@ Total       &           & Lang:2      & Lang:60, Locale:95  & Lang:44 \\\hline
 2 & Russian & 7.1~\%      &   Cyrillic & ru    & ✓ & ✓ & ✓  \\
 3 & Spanish & 3.9~\%      &   Latin &    es    & ✓ & ✓ & ✓  \\
 4 & German & 3.7~\%       &   Latin &    de    & ✓ & ✓ & ✓  \\
-5 & Turkish & 3.5~\%      &   Latin &    tr    & ✓ & ✓ & ✓  \\
-6 & Persian & 2.5~\%      &   \colGn Arabic &   fa    & ✓ & ✓ &     \\
+5 & Turkish & 3.5~\%      &   Latin &    tr    & ✓ & ✓ & ✓  \\\hdashline
+6 & Persian & 2.5~\%      &   {\colGn Arabic } &   fa    & ✓ & ✓ &     \\
 7 & French & 2.0~\%       &   Latin &    root  & ✓ & ✓ & ✓  \\
-8 & Japanese & 1.9~\%     &   \colRd Kana  &    ja    & ✓ & ✓ &     \\
+8 & Japanese & 1.9~\%     &   {\colRd Kana   } &   ja    & ✓ & ✓ &     \\
 9 & Portuguese & 1.8~\%   &   Latin &    pt    & ✓ & ✓ & ✓  \\
-10 & Chinese & 1.3~\%     &   \colRd Hanzi &    zh    &    & ✓ &     \\\hline
+10 & Chinese & 1.3~\%     &   {\colRd Hanzi  } &   zh    &    & ✓ &     \\\hline
 11 & Vietnamese & 1.3~\%  &   Latin &    vi    & ✓ & ✓ & ✓  \\
 12 & Italian & 1.0~\%     &   Latin &    root  & ✓ & ✓ & ✓  \\
-13 & Arabic & 0.9~\%      &   \colGn Arabic &   ar    & ✓ & ✓ &     \\
+13 & Arabic & 0.9~\%      &   {\colGn Arabic } &   ar    & ✓ & ✓ &     \\
 14 & Polish & 0.9~\%      &   Latin &    pl    & ✓ & ✓ & ✓  \\
-15 & Greek & 0.7~\%       &   Greek &    el    & ✓ & ✓ & ✓  \\
+15 & Greek & 0.7~\%       &   Greek &    el    & ✓ & ✓ & ✓  \\\hdashline
 16 & Dutch & 0.7~\%       &   Latin &    nl    & ✓ & ✓ & ✓  \\
 17 & Indonesian & 0.7~\%  &   Latin &    root  & ✓ & ✓ &     \\% polyglossia では malayのvariant
-18 & Korean & 0.6~\%      &   \colRd Hangul &   ko    & ✓ & ✓ &     \\
+18 & Korean & 0.6~\%      &   {\colRd Hangul } &   ko    & ✓ & ✓ &     \\
 19 & Czech & 0.4~\%       &   Latin &    cs    & ✓ & ✓ & ✓  \\
-20 & Thai & 0.4~\%        &   \colBl Thai &     th    & ✓ & ✓ &     \\\hline
+20 & Thai & 0.4~\%        &   {\colBl Thai   } &   th    & ✓ & ✓ &     \\\hline
 \end{tabular}
 \end{center}
 \end{column}
@@ -1483,10 +1573,10 @@ Total       &           & Lang:2      & Lang:60, Locale:95  & Lang:44 \\\hline
 \begin{tabular}{cc@{~}c@{~}c|c@{~~}c@{~~}c@{~~}c}
   & Language & share & Script & ICU & pg & upm & xnd\\\hline\hline
 21 & Ukrainian & 0.3~\%   &   Cyrillic & uk    & ✓ & ✓ & ✓  \\
-22 & Hebrew & 0.3~\%      &   \colGn Hebrew &   he    & ✓ & ✓ & ✓  \\
+22 & Hebrew & 0.3~\%      &   {\colGn Hebrew } &   he    & ✓ & ✓ & ✓  \\
 23 & Swedish & 0.3~\%     &   Latin &    sv    & ✓ & ✓ & ✓  \\
 24 & Romanian & 0.3~\%    &   Latin &    ro    & ✓ & ✓ & ✓  \\
-25 & Hungarian & 0.3~\%   &   Latin &    hu    & ✓ & ✓ & ✓  \\
+25 & Hungarian & 0.3~\%   &   Latin &    hu    & ✓ & ✓ & ✓  \\\hdashline
 26 & Danish & 0.2~\%      &   Latin &    da    & ✓ & ✓ & ✓  \\
 27 & Slovak & 0.2~\%      &   Latin &    sk    & ✓ & ✓ & ✓  \\
 28 & Serbian & 0.2~\%     &   Latn, Cyrl & sr  & ✓ & ✓ & ✓  \\ %Latin, Cyrillic
@@ -1495,8 +1585,8 @@ Total       &           & Lang:2      & Lang:60, Locale:95  & Lang:44 \\\hline
 31 & Croatian & 0.1~\%    &   Latin &    hr    & ✓ & ✓ & ✓  \\
 32 & Lithuanian & 0.1~\%  &   Latin &    lt    & ✓ & ✓ & ✓  \\
 33 & Norwegian (Bokmål)   & 0.1~\% &   Latin &    nb & ✓ & ✓ & ✓ \\
-34 & Hindi & 0.1~\%       &   \colBl Devanagari & hi  & ✓ & ✓ &    \\
-35 & Norwegian (nynorsk)  & 0.1~\% &   Latin &    nn & ✓ & ✓ & ✓ \\
+34 & Hindi & 0.1~\%       &   {\colBl Devanagari} & hi  & ✓ & ✓ &    \\
+35 & Norwegian (nynorsk)  & 0.1~\% &   Latin &    nn & ✓ & ✓ & ✓ \\\hdashline
 36 & Slovenian & 0.1~\%   &   Latin &    sl    & ✓ & ✓ & ✓  \\ % Slovenian
 37 & Latvian & 0.1~\%     &   Latin &    lv    & ✓ & ✓ & ✓  \\ %(1.02)
 38 & Estonian & 0.1~\%    &   Latin &    et    & ✓ & ✓ & ✓  \\%(1.02)
@@ -1512,8 +1602,64 @@ Total       &           & Lang:2      & Lang:60, Locale:95  & Lang:44 \\\hline
 
 % - - % - - % - - % - - % - - % - - % - - % - - % - - %
 
+\begin{frame}{ToDo}
+
+\begin{center}
+  \begin{itemize}
+  \item Support more scripts\\
+     \begin{itemize}
+      \item Bengali, Telugu, Tamil, Malayalam, Kannada, Gujarati, Sinhala, etc.
+      \item Khmer, Lao, Myanmar (Burmese)
+      \item Tibetan, Mongolian
+      \item Armenian, Georgian
+      \item Ethiopic (Amharic)
+      \item etc.
+     \end{itemize}
+  \item Support more locales\\
+     \begin{itemize}
+      \item Latin: Sorbian, Hausa, Kalaallisut, Breton, Uzbek
+      \item etc.
+     \end{itemize}
+  \end{itemize}
+
+\end{center}
+
+\end{frame}
+
+% - - % - - % - - % - - % - - % - - % - - % - - % - - %
+
 \section{Summary}
 \begin{frame}{Summary}
+
+\begin{columns}
+\begin{column}{70mm}
+
+I introduced multilingual index processor \textbf{upmendex}.
+
+  \begin{itemize}
+  \item Feature\\
+  \item Support for 60 Languages, 12 Scripts
+     \begin{itemize}
+      \item Latin, Cyrillic, Greek
+      \item CJK (Chinese, Japanese, Korean)
+      \item Devanagari, Thai, Arabic, Hebrew
+      \item Symbol, Number
+     \end{itemize}
+  \item Multilingual environment with\\
+        upLaTeX/babel \& XeLaTeX/polyglossia
+  \end{itemize}
+\end{column}
+
+\begin{column}{65mm}
+
+\begin{center}
+\fbox{%
+  \includegraphics[scale=0.47]{city_texconf-03-cropa.pdf}%
+}
+\end{center}
+\end{column}
+\end{columns}
+
 \end{frame}
 
 
