@@ -1,5 +1,6 @@
 UPMENDEX = upmendex
 DVIPDFMX = dvipdfmx -f haranoaji-uptex.map
+XDVIPDFMX = xdvipdfmx
 
 yomi00.pdf: yomi00.tex
 	uplatex yomi00.tex
@@ -322,3 +323,29 @@ city_texconf.pdf:
 city_texconf-03-cropa.pdf:
 	pdfcrop --margins "10 10 10 -260" city_texconf-03.pdf city_texconf-03-cropa.pdf
 
+
+city0.ind:
+	$(UPMENDEX) city0 -s mlg0.ist
+
+city0.pdf:
+	xelatex city0.tex
+	xelatex city0.tex
+	$(UPMENDEX) city0 -s mlg0.ist
+	xelatex city0.tex
+	xelatex -no-pdf city0.tex
+	${XDVIPDFMX} -s 3 -o city0-03.pdf city0.xdv
+	pdfcrop --margins 10 city0-03.pdf
+
+city1.ind:
+	$(UPMENDEX) city1 -s mlg1.ist
+
+city1.dvi:
+	uplatex city1.tex
+	uplatex city1.tex
+	$(UPMENDEX) city1 -s mlg1.ist
+	uplatex city1.tex
+
+city1.pdf:
+	$(DVIPDFMX) city1.dvi
+	$(DVIPDFMX) -s 3 -o city1-03.pdf city1.dvi
+	pdfcrop --margins 10 city1-03.pdf

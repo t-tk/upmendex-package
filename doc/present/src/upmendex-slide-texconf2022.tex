@@ -107,7 +107,7 @@
 
 \end{frame}
 \subsection{Feature of upmendex}
-\begin{frame}{Feature of upmendex}
+\begin{frame}{Feature of upmendex~~{\scriptsize (Ver. 1.05)}}
 \renewcommand{\thefootnote}{$\dagger$}
   \begin{itemize}
   \item Index processor
@@ -115,6 +115,9 @@
     \item Upper compatible with \textbf{MakeIndex}/\textbf{Mendex}
     \item Work with upLaTeX/LuaLaTeX/XeLaTeX\\
           \hspace{15mm}\& babel/polyglossia
+    \end{itemize}
+  \item Localization
+    \begin{itemize}
     \item Support Languages / Scripts
       \begin{itemize}
       \item Latin (incl. non-English), Cyrillic, Greek
@@ -124,15 +127,14 @@
       \item Symbol, Number
       \end{itemize}
     \end{itemize}
-  \item Multilingual processing
+  \item Multilingualization
     \begin{itemize}
     \item Unicode, UTF-8
     \item ICU\footnotemark{} (Collation / Upper/Lowercase)
     \item Flexible customization
     \end{itemize}
   \end{itemize}
-
-\vspace{4mm}
+\vspace{3mm}
 {\footnotesize $\dagger$ ICU: International Components for Unicode}
 %\footnotetext[1]{International Components for Unicode}
 \end{frame}
@@ -1133,7 +1135,7 @@ archaic                     & Private Use Area & composed    & \footnotesize{via
 \begin{frame}[fragile]{Devanagari \& Thai}
 
 \begin{columns}
-\begin{column}{55mm}
+\begin{column}{50mm}
 
 %\setsansfont{Noto Sans}
 \setmonofont{Noto Serif Devanagari}[Language=Hindi,Script=Devanagari]
@@ -1171,10 +1173,10 @@ archaic                     & Private Use Area & composed    & \footnotesize{via
 \end{exampleblock}
 \end{column}
 
-\begin{column}{76mm}
+\begin{column}{79mm}
 
 \begin{columns}
-\begin{column}{38mm}
+\begin{column}{39mm}
 \begin{center}
 \fbox{%
   \includegraphics[scale=0.48]{hi00-02-crop.pdf}%
@@ -1183,7 +1185,7 @@ Hindi
 \end{center}
 \end{column}
 
-\begin{column}{38mm}
+\begin{column}{39mm}
 \begin{center}
 \fbox{%
   \includegraphics[scale=0.48]{th00-02-crop.pdf}%
@@ -1209,7 +1211,7 @@ Thai
 \begin{frame}[fragile]{Arabic \& Hebrew}
 
 \begin{columns}
-\begin{column}{55mm}
+\begin{column}{50mm}
 
 %\setsansfont{Noto Sans}
 %\setmonofont{Noto Serif Devanagari}[Language=Hindi,Script=Devanagari]
@@ -1250,10 +1252,10 @@ Thai
 
 \end{column}
 
-\begin{column}{76mm}
+\begin{column}{79mm}
 
 \begin{columns}
-\begin{column}{38mm}
+\begin{column}{39mm}
 \begin{center}
 \fbox{%
   \includegraphics[scale=0.48]{ar00-02-crop.pdf}%
@@ -1262,7 +1264,7 @@ Arabic
 \end{center}
 \end{column}
 
-\begin{column}{38mm}
+\begin{column}{39mm}
 \begin{center}
 \fbox{%
   \includegraphics[scale=0.48]{he00-02-crop.pdf}%
@@ -1289,7 +1291,7 @@ Hebrew
 \setsansfont{Noto Sans CJK JP}[Language=Japanese,Script=CJK]
 \setmonofont{Noto Sans Mono CJK JP}
 
-\subsection{Symbol, Number}
+%\subsection{Symbol, Number}
 \begin{frame}{Symbol, Number}
 
 \begin{center}
@@ -1465,6 +1467,32 @@ script_postamble  hebrew   "\n!colRd!-\\end{hebrew}!colBk!-"
 
 % - - % - - % - - % - - % - - % - - % - - % - - % - - %
 
+\begin{frame}[fragile]{Output of Multilingual Index}
+\begin{columns}
+
+\begin{column}{60mm}
+\begin{center}
+\fbox{%
+  \includegraphics[scale=0.41]{city1-03-crop.pdf}%
+}\\[1mm]%
+\footnotesize with upLaTeX \& pxbabel
+\end{center}
+\end{column}
+
+\begin{column}{60mm}
+\begin{center}
+\fbox{%
+  \includegraphics[scale=0.41]{city0-03-crop.pdf}%
+}\\[1mm]%
+\footnotesize with XeLaTeX \& polyglossia
+\end{center}
+\end{column}
+\end{columns}
+
+\end{frame}
+
+% - - % - - % - - % - - % - - % - - % - - % - - % - - %
+
 \section{Benchmark}
 \begin{frame}{Benchmark}
 
@@ -1620,8 +1648,13 @@ Total       &           & Lang:2      & Lang:60, Locale:95  & Lang:44 \\\hline
       \item Latin: Sorbian, Hausa, Kalaallisut, Breton, Uzbek
       \item etc.
      \end{itemize}
+  \item Add style options\\
+     \begin{itemize}
+      \item \texttt{script\_head}
+     \end{itemize}
   \end{itemize}
-
+\vskip1.5ex
+{\Large Feedback is welcome}
 \end{center}
 
 \end{frame}
@@ -1638,15 +1671,18 @@ I introduced multilingual index processor \textbf{upmendex}.
 
   \begin{itemize}
   \item Feature\\
-  \item Support for 60 Languages, 12 Scripts
+  \item Localization: 60 Languages, 12 Scripts
      \begin{itemize}
       \item Latin, Cyrillic, Greek
       \item CJK (Chinese, Japanese, Korean)
       \item Devanagari, Thai, Arabic, Hebrew
       \item Symbol, Number
      \end{itemize}
-  \item Multilingual environment with\\
+  \item Multilingualization
+     \begin{itemize}
+      \item Environment for\\
         upLaTeX/babel \& XeLaTeX/polyglossia
+     \end{itemize}
   \end{itemize}
 \end{column}
 
