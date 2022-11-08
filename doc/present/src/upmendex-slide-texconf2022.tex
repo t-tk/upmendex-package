@@ -40,7 +40,8 @@
 \newfontfamily\arabicfont{DejaVu Sans}[Script=Arabic]
 \setotherlanguage{arabic}
 
-\usetheme{Copenhagen}
+\usetheme{Tokyo}
+%\usetheme{Copenhagen}
 %\usetheme{CambridgeUS}
 %\usetheme{Berlin}
 %\usetheme{Boadilla}
@@ -49,9 +50,19 @@
 %\usetheme{Montpellier}
 %\usetheme{Berkeley}
 %\usetheme{Goettingen}
-\usetheme{Singapore}%% 候補
+%\usetheme{Singapore}%% 候補
 %\usetheme{Szeged}
+%\usetheme{Luebeck}
+%\usetheme{Warsaw}
+%\usetheme{AnnArbor}
 \usecolortheme{seahorse}%% 候補
+%\useoutertheme[subsection=false]{miniframes}
+%\useoutertheme{infolines}
+%\setbeamertemplate{headline}[infolines theme]
+%\setbeamertemplate{footline}[miniframes theme]
+%\setbeamertemplate{footline}[split]
+%\setbeamertemplate{footline}[miniframes theme]
+%\setbeamertemplate{footline}[split theme]
 
 \newcommand{\colRd}{\color{purple}}
 \newcommand{\colBk}{\color{black}}
@@ -78,12 +89,12 @@
 \begin{frame}{Overview}
 
 \begin{columns}
-\begin{column}{70mm}
+\begin{column}{65mm}
 
   \begin{itemize}
   \item Feature of \textbf{upmendex}\\
      --- Multilingual index processor
-  \item Treatment for Scripts
+  \item Localization for Language / Scripts
      \begin{itemize}
       \item Latin, Cyrillic, Greek
       \item CJK (Chinese, Japanese, Korean)
@@ -99,7 +110,7 @@
 
 \begin{center}
 \fbox{%
-  \includegraphics[scale=0.47]{city_texconf-03-cropa.pdf}%
+  \includegraphics[scale=0.50]{city_texconf-03-cropa.pdf}%
 }
 \end{center}
 \end{column}
@@ -109,6 +120,9 @@
 \subsection{Feature of upmendex}
 \begin{frame}{Feature of upmendex~~{\scriptsize (Ver. 1.05)}}
 \renewcommand{\thefootnote}{$\dagger$}
+\begin{columns}
+\begin{column}{120mm}
+\begin{center}
   \begin{itemize}
   \item Index processor
     \begin{itemize}
@@ -134,9 +148,12 @@
     \item Flexible customization
     \end{itemize}
   \end{itemize}
-\vspace{3mm}
+\end{center}
+\vspace{2mm}
 {\footnotesize $\dagger$ ICU: International Components for Unicode}
 %\footnotetext[1]{International Components for Unicode}
+\end{column}
+\end{columns}
 \end{frame}
 
 % - - % - - % - - % - - % - - % - - % - - % - - % - - %
@@ -202,11 +219,17 @@
 \section{Scripts}
 \subsection{Latin, Cyrillic, Greek}
 \begin{frame}{Latin, Cyrillic, Greek}
+\begin{columns}
+\begin{column}{120mm}
+\begin{center}
   \begin{itemize}
     \item Sorting (Collation) | ソート順
     \item Diacritical mark | ダイアクリティカルマーク
     \item Digraph/Trigraph | ダイグラフ/トライグラフ
   \end{itemize}
+\end{center}
+\end{column}
+\end{columns}
 \end{frame}
 
 % - - % - - % - - % - - % - - % - - % - - % - - % - - %
@@ -1196,7 +1219,7 @@ Thai
 \end{columns}
 \vspace{2mm}
 \begin{center}
-{\footnotesize Typeset by XeLaTeX}
+{\normalsize Typeset by XeLaTeX}
 \end{center}
 \end{column}
 
@@ -1275,7 +1298,7 @@ Hebrew
 \end{columns}
 \vspace{2mm}
 \begin{center}
-{\footnotesize R-to-L typeset by XeLaTeX.\\
+{\normalsize R-to-L typeset by XeLaTeX.\\
 \textbf{upmendex} processes only indexing.}
 \end{center}
 \end{column}
@@ -1291,7 +1314,7 @@ Hebrew
 \setsansfont{Noto Sans CJK JP}[Language=Japanese,Script=CJK]
 \setmonofont{Noto Sans Mono CJK JP}
 
-%\subsection{Symbol, Number}
+\subsection{Symbol, Number}
 \begin{frame}{Symbol, Number}
 
 \begin{center}
@@ -1395,7 +1418,7 @@ script_postamble  hanzi    "\n!colRd!-\\end{otherlanguage}!colBk!-"
 %\setmainfont{SILEOT.ttf}
 %\setsansfont{SILEOT.ttf}
 %\setmonofont{SILEOT.ttf}
-\begin{frame}[fragile]{Multilingual Environment with polyglossia}
+\begin{frame}[fragile]{Multilingual Environment with XeLaTeX/polyglossia}
 \begin{columns}
 \begin{column}{72mm}
 \begin{exampleblock}{Block Setting for Scripts in Style File *.ist}
@@ -1418,13 +1441,14 @@ script_postamble  hebrew   "\n!colRd!-\\end{hebrew}!colBk!-"
 \end{exampleblock}
 \end{column}
 
-\begin{column}{72mm}
+\begin{column}{64mm}
 \begin{exampleblock}{Output *.ind}
 \setmonofont{Noto Sans Mono CJK JP}
 \begin{Verbatim}[%
   fontfamily=tt,
   fontsize=\fontsize{7.5}{7.5},
   commandchars=!<>]
+  \item さいたま\leaders\hbox{~}\hfill {1}
 !colGy!-...
 !colRd!-\end{japanese}
 
@@ -1473,7 +1497,7 @@ script_postamble  hebrew   "\n!colRd!-\\end{hebrew}!colBk!-"
 \begin{column}{60mm}
 \begin{center}
 \fbox{%
-  \includegraphics[scale=0.41]{city1-03-crop.pdf}%
+  \includegraphics[scale=0.43]{city1-03-crop.pdf}%
 }\\[1mm]%
 \footnotesize with upLaTeX \& pxbabel
 \end{center}
@@ -1482,7 +1506,7 @@ script_postamble  hebrew   "\n!colRd!-\\end{hebrew}!colBk!-"
 \begin{column}{60mm}
 \begin{center}
 \fbox{%
-  \includegraphics[scale=0.41]{city0-03-crop.pdf}%
+  \includegraphics[scale=0.43]{city0-03-crop.pdf}%
 }\\[1mm]%
 \footnotesize with XeLaTeX \& polyglossia
 \end{center}
@@ -1630,8 +1654,9 @@ Total       &           & Lang:2      & Lang:60, Locale:95  & Lang:44 \\\hline
 
 % - - % - - % - - % - - % - - % - - % - - % - - % - - %
 
-\begin{frame}{ToDo}
-
+\begin{frame}{To Do}
+\begin{columns}
+\begin{column}{120mm}
 \begin{center}
   \begin{itemize}
   \item Support more scripts\\
@@ -1654,8 +1679,11 @@ Total       &           & Lang:2      & Lang:60, Locale:95  & Lang:44 \\\hline
      \end{itemize}
   \end{itemize}
 \vskip1.5ex
-{\Large Feedback is welcome}
+{\Large Feedback is welcome}\\
+{\tiny https://github.com/t-tk/upmendex-package/issues}
 \end{center}
+\end{column}
+\end{columns}
 
 \end{frame}
 
@@ -1690,7 +1718,7 @@ I introduced multilingual index processor \textbf{upmendex}.
 
 \begin{center}
 \fbox{%
-  \includegraphics[scale=0.47]{city_texconf-03-cropa.pdf}%
+  \includegraphics[scale=0.50]{city_texconf-03-cropa.pdf}%
 }
 \end{center}
 \end{column}
