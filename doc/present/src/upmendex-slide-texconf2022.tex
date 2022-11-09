@@ -8,6 +8,7 @@
 \usepackage{fancyvrb}
 \usepackage{multirow}
 \usepackage{arydshln}
+\usepackage{hyperref}
 
 \usepackage{makeidx}
 \makeindex
@@ -94,12 +95,12 @@
   \begin{itemize}
   \item Feature of \textbf{upmendex}\\
      --- Multilingual index processor
-  \item Localization for Language / Scripts
+  \item Localization
      \begin{itemize}
       \item Latin, Cyrillic, Greek
       \item CJK (Chinese, Japanese, Korean)
-      \item Devanagari, Thai, Arabic, Hebrew
-      \item Symbol, Number
+      \item Devanagari, Thai
+      \item Arabic, Hebrew
      \end{itemize}
   \item Multilingual environment
   \item Benchmark
@@ -127,8 +128,7 @@
   \item Index processor
     \begin{itemize}
     \item Upper compatible with \textbf{MakeIndex}/\textbf{Mendex}
-    \item Work with upLaTeX/LuaLaTeX/XeLaTeX\\
-          \hspace{15mm}\& babel/polyglossia
+    \item Work with upLaTeX/LuaLaTeX/XeLaTeX
     \end{itemize}
   \item Localization
     \begin{itemize}
@@ -144,8 +144,8 @@
   \item Multilingualization
     \begin{itemize}
     \item Unicode, UTF-8
-    \item ICU\footnotemark{} (Collation / Upper/Lowercase)
-    \item Flexible customization
+    \item ICU\footnotemark{} (Collation / Upper-/Lowercase)
+    \item Environment for babel/polyglossia
     \end{itemize}
   \end{itemize}
 \end{center}
@@ -208,6 +208,7 @@
             & Number         &                \\\hline
 \end{tabular}
 \end{center}
+\vspace{2mm}
 \textbf{upmendex} supports 60 languages,\\12 scripts \& 95 locales.
 \end{column}
 \end{columns}
@@ -222,6 +223,7 @@
 \begin{columns}
 \begin{column}{120mm}
 \begin{center}
+\large
   \begin{itemize}
     \item Sorting (Collation) | ソート順
     \item Diacritical mark | ダイアクリティカルマーク
@@ -418,7 +420,7 @@ English & I & i \\
 %\end{center}
 \end{column}
 
-\begin{column}{43mm}
+\begin{column}{40mm}
 \setmonofont{Noto Sans}
 \begin{block}{Collation Rule~~\scriptsize locale: tr}
 \begin{Verbatim}[%
@@ -514,7 +516,7 @@ e\index{e}.
 \begin{frame}[fragile]{Cyrillic \& Greek}
 
 \begin{columns}
-\begin{column}{50mm}
+\begin{column}{46mm}
 
 \setmonofont{Noto Sans Mono}
 \begin{exampleblock}{Russian Inputs in *.tex}
@@ -542,7 +544,7 @@ e\index{e}.
 \end{exampleblock}
 \end{column}
 
-\begin{column}{42mm}
+\begin{column}{43mm}
 \begin{center}
 \fbox{%
   \includegraphics[scale=0.48]{ru00-02-crop.pdf}%
@@ -551,7 +553,7 @@ Russian
 \end{center}
 \end{column}
 
-\begin{column}{42mm}
+\begin{column}{38mm}
 \begin{center}
 \fbox{%
   \includegraphics[scale=0.48]{el00-02-crop.pdf}%
@@ -566,6 +568,23 @@ Greek
 % - - % - - % - - % - - % - - % - - % - - % - - % - - %
 
 \subsection{CJK (Chinese, Japanese, Korean)}
+\begin{frame}{CJK (Chinese, Japanese, Korean)}
+\begin{columns}
+\begin{column}{120mm}
+\begin{center}
+\large
+  \begin{itemize}
+    \item Chinese: 4 kinds of sort order | 中国語: 4種のソート順
+    \item Japanese: Reading, Extended Kana\\
+          \hspace{57mm} | 日本語: 読み、仮名拡張
+    \item Korean: composed/decomposed | 韓国語: 完成型・組合型
+  \end{itemize}
+\end{center}
+\end{column}
+\end{columns}
+\end{frame}
+
+% - - % - - % - - % - - % - - % - - % - - % - - % - - %
 
 \setmonofont{Noto Sans Mono CJK TC}
 \begin{frame}[fragile]{Chinese, Han Ideograph Sort Order}
@@ -590,7 +609,7 @@ hanzi_head  "一部;丨部;丶部;丿部;乙部;亅部;二部;亠部;
 \end{exampleblock}
 \end{column}
 
-\begin{column}{60mm}
+\begin{column}{52mm}
 \begin{exampleblock}{Chinese Inputs in *.tex}
 \begin{Verbatim}[%
   fontfamily=tt,
@@ -971,13 +990,13 @@ zhuyin (bopomofo)
 \setmonofont{mkanaplus-regular.ttf}[Language=Japanese,Script=CJK]
 
 \begin{center}
-  \includegraphics[scale=0.20]{Gojuon000.png}\\
+  \includegraphics[scale=0.23]{Gojuon000.png}\\
   Katakana Letter Archaic YE =「\texttt{𛄡}」\\
   {\footnotesize defined in Unicode 14.0 (2021)}\\
 \vskip1.5ex
 \tiny
-Ref. http://www.unicode.org/L2/L2019/19381-missing-kana.pdf\\
-https://dl.ndl.go.jp/info:ndljp/pid/993592
+Ref. \url{http://www.unicode.org/L2/L2019/19381-missing-kana.pdf}\\
+\url{https://dl.ndl.go.jp/info:ndljp/pid/993592}
 \end{center}
 
 \end{column}
@@ -1149,13 +1168,28 @@ archaic                     & Private Use Area & composed    & \footnotesize{via
 
 \end{frame}
 
+% - - % - - % - - % - - % - - % - - % - - % - - % - - %
+
+\subsection{Complex Text Layout}
+\begin{frame}{Complex Text Layout}
+\begin{columns}
+\begin{column}{80mm}
+\begin{center}
+\large
+  \begin{itemize}
+    \item Devanagari, Thai
+    \item Arabic, Hebrew: R-to-L typeset
+    \item Symbol, Number
+  \end{itemize}
+\end{center}
+\end{column}
+\end{columns}
+\end{frame}
 
 % - - % - - % - - % - - % - - % - - % - - % - - % - - %
 
-\subsection{Devanagari, Thai, Arabic, Hebrew}
-
 \setmonofont{Noto Sans Mono}
-\begin{frame}[fragile]{Devanagari \& Thai}
+\begin{frame}[fragile]{Devanagari \& Thai~~{\scriptsize (experimental)}}
 
 \begin{columns}
 \begin{column}{50mm}
@@ -1231,7 +1265,7 @@ Thai
 % - - % - - % - - % - - % - - % - - % - - % - - % - - %
 
 \setmonofont{Noto Sans Mono}
-\begin{frame}[fragile]{Arabic \& Hebrew}
+\begin{frame}[fragile]{Arabic \& Hebrew~~{\scriptsize (experimental)}}
 
 \begin{columns}
 \begin{column}{50mm}
@@ -1314,7 +1348,6 @@ Hebrew
 \setsansfont{Noto Sans CJK JP}[Language=Japanese,Script=CJK]
 \setmonofont{Noto Sans Mono CJK JP}
 
-\subsection{Symbol, Number}
 \begin{frame}{Symbol, Number}
 
 \begin{center}
@@ -1350,7 +1383,8 @@ Characters are classified by Unicode ``charType''
 
 % - - % - - % - - % - - % - - % - - % - - % - - % - - %
 
-\section{Multilingual environment}
+\section{Multilingual Environment}
+\subsection{with upLaTeX/pxbabel}
 
 \setmonofont{Noto Sans Mono CJK JP}
 \begin{frame}[fragile]{Multilingual Environment with upLaTeX/pxbabel}
@@ -1410,6 +1444,7 @@ script_postamble  hanzi    "\n!colRd!-\\end{otherlanguage}!colBk!-"
 
 % - - % - - % - - % - - % - - % - - % - - % - - % - - %
 
+\subsection{with XeLaTeX/polyglossia}
 %\setmainfont{DejaVu Sans}
 %\setsansfont{DejaVu Sans}
 %\setmainfont{Noto Serif Hebrew}[Script=Hebrew]
@@ -1491,6 +1526,7 @@ script_postamble  hebrew   "\n!colRd!-\\end{hebrew}!colBk!-"
 
 % - - % - - % - - % - - % - - % - - % - - % - - % - - %
 
+\subsection{Output}
 \begin{frame}[fragile]{Output of Multilingual Index}
 \begin{columns}
 
@@ -1577,7 +1613,7 @@ Total       &           & Lang:2      & Lang:60, Locale:95  & Lang:44 \\\hline
 20 & Urdu       & {\colGn Arabic    } &    61,000,000 & ✓ & ✓ & ✓ &    \\\hline
 \end{tabular}
 \\
-{\tiny Ref. https://ja.wikipedia.org/wiki/ネイティブスピーカーの数が多い言語の一覧}
+{\tiny Ref. \url{https://ja.wikipedia.org/wiki/ネイティブスピーカーの数が多い言語の一覧}}
 \end{center}
 \end{frame}
 
@@ -1649,7 +1685,7 @@ Total       &           & Lang:2      & Lang:60, Locale:95  & Lang:44 \\\hline
 \end{column}
 \end{columns}
 %\\
-{\tiny Ref. https://ja.wikipedia.org/wiki/インターネットにおける言語の使用}
+{\tiny Ref. \url{https://ja.wikipedia.org/wiki/インターネットにおける言語の使用}}
 \end{frame}
 
 % - - % - - % - - % - - % - - % - - % - - % - - % - - %
@@ -1680,7 +1716,7 @@ Total       &           & Lang:2      & Lang:60, Locale:95  & Lang:44 \\\hline
   \end{itemize}
 \vskip1.5ex
 {\Large Feedback is welcome}\\
-{\tiny https://github.com/t-tk/upmendex-package/issues}
+{\tiny \url{https://github.com/t-tk/upmendex-package/issues}}
 \end{center}
 \end{column}
 \end{columns}
