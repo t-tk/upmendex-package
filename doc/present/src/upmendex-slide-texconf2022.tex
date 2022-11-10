@@ -766,10 +766,10 @@ zhuyin (bopomofo)
 % - - % - - % - - % - - % - - % - - % - - % - - % - - %
 
 \setmonofont{Noto Sans Mono CJK JP}[Language=Japanese,Script=CJK]
-\begin{frame}[fragile]{Japanese, Sort by Reading (yomi)}
+\begin{frame}[fragile]{Japanese, Sort by Reading}
 
 \begin{columns}
-\begin{column}{85mm}
+\begin{column}{75mm}
 \begin{exampleblock}{Japanese Inputs with Reading {\footnotesize(Yomi)} in *.tex}
 \begin{Verbatim}[%
   fontfamily=tt,
@@ -791,8 +791,10 @@ zhuyin (bopomofo)
 \end{Verbatim}
 \end{exampleblock}
 %\vspace{2mm}
-{\footnotesize Hanzi/Kana words are sorted by reading (yomi), indexed by Kana.}\\
-{\footnotesize This feature is implemented by \textbf{ASCII mendex}.}
+{\footnotesize
+Japanese words consist of Hanzi (ideographs) \& Kana (syllabaries),
+sorted by reading (yomi), indexed by Kana.\\[1.0ex]
+This feature is implemented by \textbf{ASCII mendex}.}
 \end{column}
 
 \begin{column}{50mm}
@@ -808,7 +810,7 @@ zhuyin (bopomofo)
 
 % - - % - - % - - % - - % - - % - - % - - % - - % - - %
 
-\begin{frame}[fragile]{Japanese, Reading (yomi) \& Dictionary}
+\begin{frame}[fragile]{Japanese, Reading \& Dictionary}
 
 \begin{columns}
 \begin{column}{70mm}
@@ -841,7 +843,7 @@ zhuyin (bopomofo)
 %生飯        さば
 \end{exampleblock}
 %\vspace{2mm}
-{\footnotesize This feature is implemented by \textbf{ASCII mendex}.}
+{\footnotesize Implemented by \textbf{ASCII mendex}.}
 \end{column}
 
 \begin{column}{60mm}
@@ -1102,12 +1104,13 @@ icu_rules "!colRd!-&ゆ<𛀁<<<𛄡<よ!colBk!-"
 \end{columns}
 \vskip3ex
 \begin{center}
-\begin{tabular}{c|cc|ccc}
-        & Unicode block     &     style       & upmendex    &  upLaTeX & XeLaTeX                \\\hline\hline
-modarn                      & Hangul Syllables & composed    & ✓             &   ✓     &  ✓ \\
-\footnotesize{ex. 일}       & Hangul Jamo      & decompopsed & ✓             &  N.A.    &  ✓ \\\hline
-archaic                     & Private Use Area & composed    & \footnotesize{via dictionary} &  ✓ & ✓ \\
-\footnotesize{ex. ᅀᅵᇙ〮} & Hangul Jamo      & decomposed  & ✓             &  N.A.    &  ✓ \\\hline
+%\footnotesize
+\begin{tabular}{c|cc@{~~}c|c@{~~}c@{~~}c}
+        & Unicode block     & \multicolumn{2}{c|}{style} & upmendex    &  upLaTeX & XeLaTeX                \\\hline\hline
+modarn                      & Hangul Syllables & composed    & 완성형 & ✓             &   ✓     &  ✓ \\
+\footnotesize{ex. 일}       & Hangul Jamo      & decompopsed & 조합형 & ✓             &  N.A.    &  ✓ \\\hline
+archaic                     & Private Use Area & composed    & 완성형 & \footnotesize{via dictionary} &  ✓ & ✓ \\
+\footnotesize{ex. ᅀᅵᇙ〮} & Hangul Jamo      & decomposed  & 조합형 & ✓             &  N.A.    &  ✓ \\\hline
 \end{tabular}
 \end{center}
 
@@ -1179,6 +1182,9 @@ archaic                     & Private Use Area & composed    & \footnotesize{via
   \begin{itemize}
     \item Devanagari, Thai
     \item Arabic, Hebrew: R-to-L typeset
+  \end{itemize}
+\vskip2ex
+  \begin{itemize}
     \item Symbol, Number
   \end{itemize}
 \end{center}
@@ -1762,7 +1768,28 @@ I introduced multilingual index processor \textbf{upmendex}.
 
 \end{frame}
 
+% - - % - - % - - % - - % - - % - - % - - % - - % - - %
+
+\section{References}
+\begin{frame}{References}
+
+\begin{enumerate}
+ \item \href{https://asciidwango.github.io/ptex/}{ASCII Nihongo TeX (Publishing TeX)}, ASCII MEDIA WORKS (web site by DWANGO Co., Ltd.).
+  The site includes \href{https://asciidwango.github.io/ptex/base/sources.html\#mendexk}{mendexk} source files.
+ \item \href{https://github.com/t-tk/upmendex-package}{Source/Document distribution of upmendex --- multilingual index processor @ GitHub}
+ \item \href{http://www.t-lab.opal.ne.jp/tex/uptex_en.html}{upTeX, upLaTeX ― unicode version of pTeX, pLaTeX}
+ \item \href{https://icu.unicode.org/}{International Components for Unicode (ICU)}
+ \item \href{https://ctan.org/pkg/upmendex/}{upmendex @ CTAN}
+ \item \href{https://tug.org/tug2013/slides/shikano.pdf}{Indexing Makes Your Book Perfect by SHIKANO Keiichiro} at \href{https://tug.org/tug2013/}{TUG2013}, October.
+\end{enumerate}
+
+
+\end{frame}
 
 \end{document}
+
+
+
+\end{frame}
 
 
