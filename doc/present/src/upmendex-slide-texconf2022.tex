@@ -144,7 +144,7 @@
   \item Multilingualization
     \begin{itemize}
     \item Unicode, UTF-8
-    \item ICU\footnotemark{} (Collation / Upper-/Lowercase)
+    \item ICU\footnotemark{} (Collation, Upper-/Lowercase)
     \item Environment for babel/polyglossia
     \end{itemize}
   \end{itemize}
@@ -209,6 +209,7 @@
 \end{tabular}
 \end{center}
 \vspace{2mm}
+\normalsize
 \textbf{upmendex} supports 60 languages,\\12 scripts \& 95 locales.
 \end{column}
 \end{columns}
@@ -549,7 +550,7 @@ e\index{e}.
 \fbox{%
   \includegraphics[scale=0.48]{ru00-02-crop.pdf}%
 }\\[2mm]%
-Russian
+Russian, Cyrillic
 \end{center}
 \end{column}
 
@@ -797,10 +798,11 @@ sorted by reading (yomi), indexed by Kana.\\[1.0ex]
 This feature is implemented by \textbf{ASCII mendex}.}
 \end{column}
 
-\begin{column}{50mm}
+\begin{column}{60mm}
+\vspace{-2mm}
 \begin{center}
 \fbox{%
-  \includegraphics[scale=0.48]{yomi01-02-crop.pdf}%
+  \includegraphics[scale=0.48]{yomi00-02-crop.pdf}%
 }%
 \end{center}
 \end{column}
@@ -824,6 +826,7 @@ This feature is implemented by \textbf{ASCII mendex}.}
 生け簀\index{生け簀}。
 生絹\index{生絹}%
     \index{すずし@生絹\YomiTag{すずし}}。
+生え抜き\index{生え抜き}。
 !colGy!-...
 \end{Verbatim}
 \end{exampleblock}
@@ -837,6 +840,7 @@ This feature is implemented by \textbf{ASCII mendex}.}
 生一本      きいっぽん
 生け簀      いけす
 生絹        きぎぬ
+生え抜き    はえぬき
 !colGy!-...
 \end{Verbatim}
 %生飯\index{生飯}。
@@ -847,6 +851,7 @@ This feature is implemented by \textbf{ASCII mendex}.}
 \end{column}
 
 \begin{column}{60mm}
+\vspace{-2mm}
 \begin{center}
 \fbox{%
   \includegraphics[scale=0.48]{yomi01-02-crop.pdf}%
@@ -1244,7 +1249,7 @@ archaic                     & Private Use Area & composed    & 완성형 & \foot
 \fbox{%
   \includegraphics[scale=0.48]{hi00-02-crop.pdf}%
 }\\[2mm]%
-Hindi
+Hindi, Devanagari
 \end{center}
 \end{column}
 
@@ -1408,8 +1413,10 @@ Characters are classified by Unicode ``charType''
 
 script_preamble   cyrillic "\n!colRd!-\\fontencoding{T2A}\\selectfont!colBk!-"
 script_postamble  cyrillic "\n!colRd!-\\fontencoding{T1}\\selectfont!colBk!-"
+
 script_preamble   hangul   "\n!colRd!-\\begin{otherlanguage}{korean}!colBk!-"
 script_postamble  hangul   "\n!colRd!-\\end{otherlanguage}!colBk!-"
+
 script_preamble   hanzi    "\n!colRd!-\\begin{otherlanguage}{tchinese}!colBk!-"
 script_postamble  hanzi    "\n!colRd!-\\end{otherlanguage}!colBk!-"
 
@@ -1417,7 +1424,7 @@ script_postamble  hanzi    "\n!colRd!-\\end{otherlanguage}!colBk!-"
 \end{exampleblock}
 \end{column}
 \begin{column}{60mm}
-\begin{exampleblock}{Output *.ind}
+\begin{exampleblock}{\textbf{upmendex} Output *.ind}
 \begin{Verbatim}[%
   fontfamily=tt,
   fontsize=\fontsize{7.5}{7.5},
@@ -1471,10 +1478,13 @@ script_postamble  hanzi    "\n!colRd!-\\end{otherlanguage}!colBk!-"
 
 script_preamble   cyrillic "\n!colRd!-\\begin{russian}!colBk!-"
 script_postamble  cyrillic "\n!colRd!-\\end{russian}!colBk!-"
+
 script_preamble   kana     "\n!colRd!-\\begin{japanese}!colBk!-"
 script_postamble  kana     "\n!colRd!-\\end{japanese}!colBk!-"
+
 script_preamble   hangul   "\n\n!colRd!-\\begin{korean}!colBk!-"
 script_postamble  hangul   "\n!colRd!-\\end{korean}!colBk!-"
+
 script_preamble   hebrew   "\n!colRd!-\\begin{hebrew}!colBk!-"
 script_postamble  hebrew   "\n!colRd!-\\end{hebrew}!colBk!-"
 
@@ -1483,12 +1493,14 @@ script_postamble  hebrew   "\n!colRd!-\\end{hebrew}!colBk!-"
 \end{column}
 
 \begin{column}{64mm}
-\begin{exampleblock}{Output *.ind}
+\vspace{-2mm}
+\begin{exampleblock}{\textbf{upmendex} Output *.ind}
 \setmonofont{Noto Sans Mono CJK JP}
 \begin{Verbatim}[%
   fontfamily=tt,
   fontsize=\fontsize{7.5}{7.5},
   commandchars=!<>]
+\centerline{--- さ ---}\par\nobreak
   \item さいたま\leaders\hbox{~}\hfill {1}
 !colGy!-...
 !colRd!-\end{japanese}
@@ -1580,7 +1592,7 @@ Thai        &           &             & Lang:1, Locale:1    & \\
 Arabic      &           &             & Lang:6, Locale:7    & \\
 Hebrew      &           &             & Lang:2, Locale:3    & Lang:1  \\\hdashline
 Other       &           &             &                     & Lang:4  \\\hline
-Total       &           & Lang:2      & Lang:60, Locale:95  & Lang:44 \\\hline
+Total       &           & Lang:2      & Lang:60, Locale:95  & Lang:44 \\
 \end{tabular}
 \end{center}
 
@@ -1780,7 +1792,7 @@ I introduced multilingual index processor \textbf{upmendex}.
  \item \href{http://www.t-lab.opal.ne.jp/tex/uptex_en.html}{upTeX, upLaTeX ― unicode version of pTeX, pLaTeX}
  \item \href{https://icu.unicode.org/}{International Components for Unicode (ICU)}
  \item \href{https://ctan.org/pkg/upmendex/}{upmendex @ CTAN}
- \item \href{https://tug.org/tug2013/slides/shikano.pdf}{Indexing Makes Your Book Perfect by SHIKANO Keiichiro} at \href{https://tug.org/tug2013/}{TUG2013}, October.
+ \item \href{https://tug.org/tug2013/slides/shikano.pdf}{``Indexing Makes Your Book Perfect''} by SHIKANO Keiichiro at \href{https://tug.org/tug2013/}{TUG2013}, October.
 \end{enumerate}
 
 
