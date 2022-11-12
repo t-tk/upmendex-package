@@ -132,7 +132,7 @@
     \end{itemize}
   \item Localization
     \begin{itemize}
-    \item Support Languages / Scripts
+    \item Support 60 Languages / 12 Scripts
       \begin{itemize}
       \item Latin (incl. non-English), Cyrillic, Greek
       \item CJK (Chinese, Japanese, Korean)
@@ -255,19 +255,25 @@
 !colGy!-...
 \end{Verbatim}
 \end{block}
+\begin{exampleblock}{Style File *.ist~~\scriptsize locale: de-u-co-phonebk}
+\begin{Verbatim}[%
+  fontfamily=tt,
+  fontsize=\fontsize{8.0}{8.0},
+  commandchars=!<>]
+!colRd!-icu_locale "de-u-co-phonebk"
+\end{Verbatim}
+\end{exampleblock}
 \begin{exampleblock}{German Inputs in *.tex}
 \begin{Verbatim}[%
   fontfamily=tt,
   fontsize=\fontsize{8.0}{8.0},
   commandchars=!<>]
 ad\index{ad}.
-AD\index{AD}.
 ae\index{!colRd!-ae!colBk!-}.
 AE\index{!colRd!-AE!colBk!-}.
 ä\index{!colRd!-ä!colBk!-}.
 Ä\index{!colRd!-Ä!colBk!-}.
 af\index{af}.
-AF\index{AF}.
 !colGy!-...
 \end{Verbatim}
 \end{exampleblock}
@@ -293,6 +299,9 @@ phonebook sort order
 \end{columns}
 
 \end{frame}
+
+%AD\index{AD}.
+%AF\index{AF}.
 
 % - - % - - % - - % - - % - - % - - % - - % - - % - - %
 
@@ -767,7 +776,7 @@ zhuyin (bopomofo)
 % - - % - - % - - % - - % - - % - - % - - % - - % - - %
 
 \setmonofont{Noto Sans Mono CJK JP}[Language=Japanese,Script=CJK]
-\begin{frame}[fragile]{Japanese, Sort by Reading}
+\begin{frame}[fragile]{Japanese, Sort by Reading~{\normalsize (Yomi)}}
 
 \begin{columns}
 \begin{column}{75mm}
@@ -815,7 +824,7 @@ This feature is implemented by \textbf{ASCII mendex}.}
 \begin{frame}[fragile]{Japanese, Reading \& Dictionary}
 
 \begin{columns}
-\begin{column}{70mm}
+\begin{column}{57mm}
 \begin{exampleblock}{Japanese Inputs in *.tex}
 \begin{Verbatim}[%
   fontfamily=tt,
@@ -850,8 +859,7 @@ This feature is implemented by \textbf{ASCII mendex}.}
 {\footnotesize Implemented by \textbf{ASCII mendex}.}
 \end{column}
 
-\begin{column}{60mm}
-\vspace{-2mm}
+\begin{column}{82mm}
 \begin{center}
 \fbox{%
   \includegraphics[scale=0.48]{yomi01-02-crop.pdf}%
@@ -868,8 +876,8 @@ This feature is implemented by \textbf{ASCII mendex}.}
 
 \setmonofont{ipamjm.ttf}[Language=Japanese,Script=CJK]
 \begin{columns}
-\begin{column}{70mm}
-\begin{exampleblock}{Japanese Inputs with Hentaigana in *.tex}
+\begin{column}{57mm}
+\begin{exampleblock}{Inputs with Hentaigana in *.tex}
 \begin{Verbatim}[%
   fontfamily=tt,
   fontsize=\fontsize{8.0}{8.0},
@@ -901,7 +909,7 @@ This feature is implemented by \textbf{ASCII mendex}.}
 \end{exampleblock}
 \end{column}
 
-\begin{column}{60mm}
+\begin{column}{82mm}
 \begin{center}
 \fbox{%
   \includegraphics[scale=0.48]{jp01-02-crop.pdf}%
@@ -1608,7 +1616,7 @@ Total       &           & Lang:2      & Lang:60, Locale:95  & Lang:44 \\
 \begin{center}
 \scriptsize
 \begin{tabular}{ccc|r|cccc}
-  & Language    & Script & speakers & ICU & polyglossia & upmendex & xindy \\\hline\hline
+  & Language    & Script & \multicolumn{1}{c|}{speakers} & ICU & polyglossia & upmendex & xindy \\\hline\hline
 1 & Chinese     & {\colRd Hanzi     } & 1,370,000,000 & ✓ &    & ✓ &    \\
 2 & Engish      & Latin      &   530,000,000 & ✓ & ✓ & ✓ & ✓ \\
 3 & Hindi       & {\colBl Devanagari} &   490,000,000 & ✓ & ✓ & ✓ &    \\
@@ -1715,7 +1723,7 @@ Total       &           & Lang:2      & Lang:60, Locale:95  & Lang:44 \\
   \begin{itemize}
   \item Support more scripts\\
      \begin{itemize}
-      \item Bengali, Telugu, Tamil, Malayalam, Kannada, Gujarati, Sinhala, etc.
+      \item Bengali, Telugu, Tamil, Malayalam, Kannada, Gujarati, Oriya, Sinhala
       \item Khmer, Lao, Myanmar (Burmese)
       \item Tibetan, Mongolian
       \item Armenian, Georgian
@@ -1724,7 +1732,7 @@ Total       &           & Lang:2      & Lang:60, Locale:95  & Lang:44 \\
      \end{itemize}
   \item Support more locales\\
      \begin{itemize}
-      \item Latin: Sorbian, Hausa, Kalaallisut, Breton, Uzbek
+      \item Latin: Sorbian, Hausa, Igbo, Yoruba, Kalaallisut, Breton, Uzbek
       \item etc.
      \end{itemize}
   \item Add style options\\
@@ -1787,11 +1795,16 @@ I introduced multilingual index processor \textbf{upmendex}.
 
 \begin{enumerate}
  \item \href{https://asciidwango.github.io/ptex/}{ASCII Nihongo TeX (Publishing TeX)}, ASCII MEDIA WORKS (web site by DWANGO Co., Ltd.).
-  The site includes \href{https://asciidwango.github.io/ptex/base/sources.html\#mendexk}{mendexk} source files.
- \item \href{https://github.com/t-tk/upmendex-package}{Source/Document distribution of upmendex --- multilingual index processor @ GitHub}
+  The site distributes \href{https://asciidwango.github.io/ptex/base/sources.html\#mendexk}{mendexk} source files.
+ \item \href{https://github.com/t-tk/upmendex-package}{Source/Document distribution of upmendex --- multilingual index processor @ GitHub}.\\
+   \href{https://ctan.org/pkg/upmendex/}{upmendex @ CTAN}
  \item \href{http://www.t-lab.opal.ne.jp/tex/uptex_en.html}{upTeX, upLaTeX ― unicode version of pTeX, pLaTeX}
  \item \href{https://icu.unicode.org/}{International Components for Unicode (ICU)}
- \item \href{https://ctan.org/pkg/upmendex/}{upmendex @ CTAN}
+ \item \href{https://github.com/zr-tex8r/PXbase}{PXbase --- LaTeX: Support library for other PX packages @ GitHub}.
+    The repository distributes pxbabel.\\
+   \href{https://ctan.org/pkg/pxbase/}{pxbase @ CTAN}
+ \item \href{https://github.com/reutenauer/polyglossia}{polyglossia --- An alternative to Babel for XeLaTeX and LuaLaTeX @ GitHub}.\\
+   \href{https://ctan.org/pkg/polyglossia/}{polyglossia @ CTAN}
  \item \href{https://tug.org/tug2013/slides/shikano.pdf}{``Indexing Makes Your Book Perfect''} by SHIKANO Keiichiro at \href{https://tug.org/tug2013/}{TUG2013}, October.
 \end{enumerate}
 

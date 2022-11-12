@@ -22,7 +22,7 @@ yomi00-02.pdf: yomi00.dvi
 yomi01.pdf: yomi01.tex
 	uplatex yomi01.tex
 	uplatex yomi01.tex
-	${UPMENDEX} -s mlg3.ist -d yomi.dic yomi01
+	${UPMENDEX} -s mlg8.ist -d yomi.dic yomi01
 	uplatex yomi01.tex
 	${DVIPDFMX} yomi01.dvi
 
