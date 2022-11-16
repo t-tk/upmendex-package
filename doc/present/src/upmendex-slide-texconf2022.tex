@@ -119,7 +119,7 @@
 
 \end{frame}
 \subsection{Feature of upmendex}
-\begin{frame}{Feature of upmendex~~{\scriptsize (Ver. 1.05)}}
+\begin{frame}{Feature of upmendex~~{\scriptsize (Ver. 1.06)}}
 \renewcommand{\thefootnote}{$\dagger$}
 \begin{columns}
 \begin{column}{120mm}
@@ -144,7 +144,7 @@
   \item Multilingualization
     \begin{itemize}
     \item Unicode, UTF-8
-    \item ICU\footnotemark{} (Collation, Upper-/Lowercase)
+    \item ICU\footnotemark{} (Collation, Case Conversion, Category Property)
     \item Environment for babel/polyglossia
     \end{itemize}
   \end{itemize}
@@ -431,7 +431,7 @@ English & I & i \\
 \end{column}
 
 \begin{column}{40mm}
-\setmonofont{Noto Sans}
+\setmonofont{Noto Sans Mono}
 \begin{block}{Collation Rule~~\scriptsize locale: tr}
 \begin{Verbatim}[%
   fontfamily=tt,
@@ -722,6 +722,9 @@ Zhuyin (Bopomofo) & 注音符號 & zh-u-co-zhuyin
 \end{exampleblock}
 \end{column}
 \end{columns}
+\begin{center}
+\textbf{upmendex} Output *.ind
+\end{center}
 \end{frame}
 
 % - - % - - % - - % - - % - - % - - % - - % - - % - - %
@@ -896,7 +899,7 @@ This feature is implemented by \textbf{ASCII mendex}.}
   fontfamily=tt,
   fontsize=\fontsize{8.0}{8.0},
   commandchars=!<>]
-!sffamily!-!colRd!-index_word!colBk!-  !colRd!-reading!colBk!-
+!sffamily!-!colRd!-index_word!colBk!-   !colRd!-reading!colBk!-
 𛀥                  き
 𛁛                  そ
 𛂦                  は
@@ -996,7 +999,8 @@ This feature is implemented by \textbf{ASCII mendex}.}
 
 \begin{center}
   \includegraphics[scale=0.18]{NKN_1757clip.jpg}\\
-  Katakana ``YE'' =「ヱ」???
+  Katakana ``YE'' =「ヱ」???\\
+``WE'' ≠ 「ヱ」???
 \end{center}
 
 \end{column}
@@ -1394,7 +1398,10 @@ others     & \texttt{\colBl Lo,} etc. (unknown scripts)             &  & lookup 
 \end{tabular}
 \end{center}
 \begin{center}
-Characters are classified by Unicode ``charType''
+\setsansfont{Noto Sans}
+Characters are classified by Unicode \textsl{General Category Values} or ``charTypes''\\
+\vskip1.2ex
+\tiny Ref. \url{https://unicode.org/reports/tr44/\#General_Category_Values}
 \end{center}
 
 \end{frame}
@@ -1408,7 +1415,7 @@ Characters are classified by Unicode ``charType''
 \setmonofont{Noto Sans Mono CJK JP}
 \begin{frame}[fragile]{Multilingual Environment with upLaTeX/pxbabel}
 \begin{columns}
-\begin{column}{84mm}
+\begin{column}{83mm}
 \begin{exampleblock}{Block Setting for Scripts in Style File *.ist}
 \makeatletter
 %\def\verbatim@font{\footnotesize\textjapanese}
@@ -1732,7 +1739,7 @@ Total       &           & Lang:2      & Lang:60, Locale:95  & Lang:44 \\
      \end{itemize}
   \item Support more locales\\
      \begin{itemize}
-      \item Latin: Sorbian, Hausa, Igbo, Yoruba, Kalaallisut, Breton, Uzbek
+      \item Latin Script: Sorbian, Hausa, Igbo, Yoruba, Kalaallisut, Breton, Uzbek
       \item etc.
      \end{itemize}
   \item Add style options\\
@@ -1805,7 +1812,7 @@ I introduced multilingual index processor \textbf{upmendex}.
    \href{https://ctan.org/pkg/pxbase/}{pxbase @ CTAN}
  \item \href{https://github.com/reutenauer/polyglossia}{polyglossia --- An alternative to Babel for XeLaTeX and LuaLaTeX @ GitHub}.\\
    \href{https://ctan.org/pkg/polyglossia/}{polyglossia @ CTAN}
- \item \href{https://tug.org/tug2013/slides/shikano.pdf}{``Indexing Makes Your Book Perfect''} by SHIKANO Keiichiro at \href{https://tug.org/tug2013/}{TUG2013}, October.
+ \item \href{https://tug.org/tug2013/slides/shikano.pdf}{``Indexing Makes Your Book Perfect''} by SHIKANO Keiichiro at \href{https://tug.org/tug2013/}{TUG2013}, October, Tokyo.
 \end{enumerate}
 
 
