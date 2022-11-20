@@ -10,4 +10,5 @@ lethead_suffix  " ---}\\par\\nobreak"
 
 %icu_locale  "zh@collation=zhuyin"
 icu_locale  "zh-u-co-zhuyin"
+icu_rules   "&常年<<长年<<<長年 &崇<<重新 &條<<调整<<<調整"
 
