@@ -9,6 +9,11 @@
 %
 % You may freely use, modify and/or distribute this file.
 %
+rml	H	HaranoAjiMincho-Regular.otf
+rmlv	V	HaranoAjiMincho-Regular.otf
+gbm	H	HaranoAjiGothic-Medium.otf
+gbmv	V	HaranoAjiGothic-Medium.otf
+
 urml	UniJISup-UTF16-H	HaranoAjiMincho-Regular.otf
 urmlv	UniJISup-UTF16-V	HaranoAjiMincho-Regular.otf
 ugbm	UniJISup-UTF16-H	HaranoAjiGothic-Medium.otf
