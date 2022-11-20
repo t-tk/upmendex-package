@@ -20,8 +20,11 @@
   \item 常年 (cháng nián, ㄔㄤˊ ㄋㄧㄢˊ)\leaders\hbox{$\cdot$}\hfill 
 		6016
   \item 长年\leaders\hbox{$\cdot$}\hfill 6013
+  \item 长短\leaders\hbox{$\cdot$}\hfill 6014
   \item 長年 (cháng nián, ㄔㄤˊ ㄋㄧㄢˊ)\leaders\hbox{$\cdot$}\hfill 
 		6010
+  \item 長短 (cháng duǎn, ㄔㄤˊ ㄉㄨㄢˇ)\leaders\hbox{$\cdot$}\hfill 
+		6011
   \item 腸 (cháng, ㄔㄤˊ)\leaders\hbox{$\cdot$}\hfill 6201
   \item 辰\leaders\hbox{$\cdot$}\hfill 124
   \item 懲\leaders\hbox{$\cdot$}\hfill 252
@@ -196,12 +199,9 @@
 \centerline{\bfseries --- 🄩 ---}\par\nobreak
   \item 长\leaders\hbox{$\cdot$}\hfill 6102
   \item 长大\leaders\hbox{$\cdot$}\hfill 6015
-  \item 长短\leaders\hbox{$\cdot$}\hfill 6014
   \item 長\leaders\hbox{$\cdot$}\hfill 6101
   \item 長大 (zhǎng dà, ㄓㄤˇ ㄉㄚˋ)\leaders\hbox{$\cdot$}\hfill 
 		6012
-  \item 長短 (cháng duǎn, ㄔㄤˊ ㄉㄨㄢˇ)\leaders\hbox{$\cdot$}\hfill 
-		6011
   \item 掌 (zhǎng, ㄓㄤˇ)\leaders\hbox{$\cdot$}\hfill 6212
   \item 兆\leaders\hbox{$\cdot$}\hfill 206
   \item 正\leaders\hbox{$\cdot$}\hfill 241
