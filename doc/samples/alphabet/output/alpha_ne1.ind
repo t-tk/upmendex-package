@@ -132,6 +132,10 @@
   \item श\leaders\hbox{$\cdot$}\hfill 251
   \item ष\leaders\hbox{$\cdot$}\hfill 252
   \item स\leaders\hbox{$\cdot$}\hfill 253
+
+  \indexspace
+
+\centerline{\bfseries --- ह ---}\par\nobreak
   \item ह\leaders\hbox{$\cdot$}\hfill 254
 
 \end{theindex}

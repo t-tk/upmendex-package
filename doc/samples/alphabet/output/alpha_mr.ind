@@ -246,16 +246,41 @@
 
 \centerline{\bfseries --- ल ---}\par\nobreak
   \item ल\leaders\hbox{$\cdot$}\hfill 248
+
+  \indexspace
+
+\centerline{\bfseries --- व ---}\par\nobreak
   \item व\leaders\hbox{$\cdot$}\hfill 250
+
+  \indexspace
+
+\centerline{\bfseries --- श ---}\par\nobreak
   \item श\leaders\hbox{$\cdot$}\hfill 251
+
+  \indexspace
+
+\centerline{\bfseries --- ष ---}\par\nobreak
   \item ष\leaders\hbox{$\cdot$}\hfill 252
+
+  \indexspace
+
+\centerline{\bfseries --- स ---}\par\nobreak
   \item स\leaders\hbox{$\cdot$}\hfill 253
-  \item ह\leaders\hbox{$\cdot$}\hfill 254
 
   \indexspace
 
 \centerline{\bfseries --- ह ---}\par\nobreak
+  \item ह\leaders\hbox{$\cdot$}\hfill 254
+
+  \indexspace
+
+\centerline{\bfseries --- ळ ---}\par\nobreak
   \item ळ\leaders\hbox{$\cdot$}\hfill 249
   \item ऴ\leaders\hbox{$\cdot$}\hfill 503
+  \item ळ्\leaders\hbox{$\cdot$}\hfill 600
+  \item क्ष\leaders\hbox{$\cdot$}\hfill 601
+  \item क्ष्\leaders\hbox{$\cdot$}\hfill 602
+  \item ज्ञ\leaders\hbox{$\cdot$}\hfill 603
+  \item ज्ञ्\leaders\hbox{$\cdot$}\hfill 604
 
 \end{theindex}
