@@ -1,0 +1,16 @@
+% -*- coding: utf-8 -*-
+
+preamble "\\begin{theindex}\n\\thispagestyle{empty}"
+
+delim_0 "\\leaders\\hbox{$\\cdot$}\\hfill "
+delim_1 "\\leaders\\hbox{$\\cdot$}\\hfill "
+delim_2 "\\leaders\\hbox{$\\cdot$}\\hfill "
+
+lethead_flag 1
+lethead_prefix "\n\\centerline{\\bfseries --- "
+lethead_suffix  " ---}\\par\\nobreak"
+letter_head 1
+kana_head  "あかさたなはまやらわ"
+
+icu_locale "sk"
+

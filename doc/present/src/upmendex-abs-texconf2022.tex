@@ -1,0 +1,143 @@
+\documentclass[a4paper]{article}
+\usepackage{zxjatype}
+\usepackage[ipaex]{zxjafont}
+
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{anyfontsize}
+\usepackage{fancyvrb}
+\usepackage{multirow}
+\usepackage{graphicx}
+
+\usepackage{makeidx}
+%\makeindex
+
+\setdefaultlanguage{japanese}
+%\setdefaultlanguage{english}
+\setmainfont{Noto Serif CJK JP}[Language=Japanese,Script=CJK]
+\setsansfont{Noto Sans CJK JP}[Language=Japanese,Script=CJK]
+\setmonofont{Noto Sans Mono CJK JP}
+%\setmainfont{mkanaplus-regular.ttf}[Language=Japanese,Script=CJK]
+%\setsansfont{mkanaplus-regular.ttf}[Language=Japanese,Script=CJK]
+%\setmonofont{mkanaplus-regular.ttf}[Language=Japanese,Script=CJK]
+%\setmainfont{ipamjm.ttf}[Language=Japanese,Script=CJK]
+%\setsansfont{ipamjm.ttf}[Language=Japanese,Script=CJK]
+%\setmonofont{ipamjm.ttf}[Language=Japanese,Script=CJK]
+
+%\setotherlanguage{japanese}
+
+\newfontfamily\englishfont{Noto Serif}
+%\newfontfamily\englishfont{DejaVu Sans}
+\setotherlanguage{english}
+
+%\newfontfamily\koreanfont{Noto Serif CJK KR}[Language=Korean,Script=Hangul]
+%\setotherlanguage{korean}
+\setlength{\parindent}{1.0em}
+
+\title{\textjapanese{upmendexで作る多言語索引}\\
+{\normalsize Multilingual index processing by upmendex}}
+\author{田中 琢爾\\{\normalsize TANAKA Takuji}}
+\date{2022年11月19日\\{\normalsize TeXConf 2022}}
+
+\pagestyle{myheadings}
+\markboth{TeXConf 2022~|~upmendexで作る多言語索引}{TeXConf 2022~|~upmendexで作る多言語索引}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+upmendexは、索引作成ソフトウェアmakeindexの日本語対応版mendexをさらにUnicode化した多言語拡張である。
+2014年頃から開発をすすめ昨年正式版 ver 1.00 をリリースした。
+日中韓(CJK)と欧文(非英語を含むラテン文字、キリル文字、ギリシャ文字)に加え
+実験的ながらタイ文字、デヴァーナガリー、アラビア文字、ヘブライ文字をサポートした。
+ソートにICU (International Components for Unicode)を用い、柔軟なカスタマイズが可能である。
+本講演では、upmendexをupLaTeX+babelやXeLaTeX+polyglossiaと組み合わせた実例を示しながら
+多言語索引処理の詳細を解説する。
+\end{abstract}
+
+\section*{各スクリプトの扱い}
+\subsection*{ラテン文字、キリル文字、ギリシャ文字}
+ラテン文字、キリル文字、ギリシャ文字の言語では、ソート順の問題、ダイアクリティカルマーク・ダイグラフ/トライグラフの処理について述べる。
+
+ラテン文字の言語では、英語のアルファベット順にそのまま従うとは限らず、言語や用途によりソート順が異なることがある。
+例えば、ドイツ語では電話帳順と呼ばれるソート順がある。
+リトアニア語では``Y''が``X''と``Z''の間ではなく``I''と同じ位置にソートされる。
+またダイアクリティカルマーク付きの文字を、独立した文字と見なすのか、ダイアクリティカルマーク無しの文字と同等の位置にソートするのか、多様である。
+さらに、言語によっては特定の二文字、三文字の組を一つの文字と見なすダイグラフ・トライグラフがある%
+(例えばハンガリー語の``CS'', ``DZ'', ``DZS'')。
+
+ICUではこれらをlocaleの設定によりカスタマイズ出来る。
+upmendexでは、ICUにlocaleの設定を渡してソートしさらにそのソート順に応じて適切な見出し項目を立てるように動作する。
+
+\subsection*{CJK (日中韓)}
+中国語では、漢字のソート順をどうするかが一つの焦点になる。ICUではピンイン順・画数順・部首画数順・注音符号順の4種類をサポートし
+localeの設定で切り替え可能となっており、
+upmendexではそれに応じて適切な見出しを付けるよう対応している。
+
+%\setmonofont{mkanaplus-regular.ttf}[Language=Japanese,Script=CJK]
+%\setsansfont{mkanaplus-regular.ttf}[Language=Japanese,Script=CJK]
+%\setsansfont{ipamjm.ttf}[Language=Japanese,Script=CJK]
+%\setmainfont{ipamjm.ttf}[Language=Japanese,Script=CJK]
+日本語では、読み仮名を辞書順にソートする必要がある。
+upmendexでは上流のソフトウェアであるASCII社のmendexで実装された機能をそのまま継承し、
+読みを(u)pLaTeX入力の段階で明示して入力する方法と辞書ファイルを用意し辞書から読みを得る方法をサポートしている。
+変体仮名は2017年にUnicode 10.0で定義されたもののICUのソートが未対応の状況だが、(up)mendex側の辞書機能を用いることで適切に処理できる。
+upmendexではmendexの日本語機能に加え、JIS X 0213で定義された鼻濁音「か゚き゚く゚け゚こ゚」やアイヌ語の仮名「ㇰㇱㇲㇳㇴ…ㇷ゚セ゚ツ゚ト゚」や最近Unicodeで定義された仮名「や行え段``Ye''」等にも対応している。
+%\setmainfont{Noto Serif CJK JP}[Language=Japanese,Script=CJK]
+%\setsansfont{Noto Sans CJK JP}[Language=Japanese,Script=CJK]
+
+\def\textkorean#1{\relax}
+%\newfontfamily\koreanfont{Noto Serif CJK KR}[Language=Korean,Script=Hangul]
+%\setotherlanguage{korean}
+韓国語では、ハングルの文字コード上の表現形式に次の二種類がある。
+すなわち、
+ハングル一文字を合成済みの文字コードで表現する方法(完成型, {\textkorean{완성형,}} composed)と
+音素の文字コードの組み合わせで表現する方法(組合型, {\textkorean{조합형,}} decomposed)である。
+現代語は全て完成型で表現されソフトウェア上の扱いは容易だが、
+古ハングルはUnicode標準では組合型で表現する必要がある。
+upmendexでは現代語に加え古ハングルの組合型にも対応している。
+
+\subsection*{タイ文字、デーヴァナーガリー、アラビア文字、ヘブライ文字}
+upmendexでは、タイ文字、デーヴァナーガリー、アラビア文字、ヘブライ文字も扱えるよう実装しているが、
+それらの言語に対する知見が開発者に乏しいため今のところ実験的と位置づけている。
+既に実用的な水準まで届いているつもりだが確信はなく、
+仕様の不備や不適切な点があればご教示願いたい。
+
+これらの文字はいずれも組版の際に複雑なレンダリング処理を要し、
+さらにアラビア文字、ヘブライ文字では右から左へ(R-to-L)組む必要がある。
+upmendexでは直接それらの処理には関与せず、
+文字コードの操作と後述のブロック毎の環境設定の機能のみ実装している。
+各スクリプト毎の環境はbabelやpolyglossiaで用意することを想定している。
+
+\subsection*{記号、数字}
+Unicodeでは、記号類や数字の種類も非常に多彩であるが、その用途の分類が``charType''で示されている。
+upmendexでは目的に応じてソート順を制御できるようにするため、charTypeを参照して
+各種記号(\texttt{So}, 「☃〠☎♥⚽⚾」等)、通貨記号(\texttt{Sc}, 「€\$¢£¥₩」等)、数学記号(\texttt{Sm}, 「÷▷♯」等)、その他数字(\texttt{No}, 「¹²③❹」等)については
+最初に辞書で読みの検索を試み、見つからない場合にはそのままICU collatorに渡す。その他の記号類(例えば句読点類\texttt{Po}, 「⁈¡¿†\#§¶」等)は、辞書を見ずに直接ICU collatorに渡す。
+
+\section*{多言語索引}
+多言語環境として upLaTeX+babelやXeLaTeX+polyglossiaとupmendexを組み合わせる場合、索引の中でも各スクリプト毎にフォントの設定などを切り替える必要がある。
+upmendexでは{\texttt{script\_preamble}}, {\texttt{script\_postamble}}をstyleファイル(.ist)内で定義することにより各スクリプトのブロック毎に環境設定が出来るようにした。
+ここではXeLaTeX+polyglossiaとupmendexを組み合わせて組版した例を示す。
+%\newpage
+
+\begin{center}
+\fbox{%
+  \includegraphics[scale=0.72]{city_texconf-03-crop.pdf}%
+}\\[2mm]%
+XeLaTeX+polyglossia+upmendexで作成した多言語索引の例
+\end{center}
+
+\section*{upmendexの現在と未来}
+upmendexは%
+多言語索引作成のツールとして世界中の主要な言語に広く対応してきた。
+対応しているスクリプト(12種)や言語(60言語, 95 locale)の種類の多さは同種のソフトウェアの中でもトップクラスであり、
+特にCJKのサポート内容は最も充実していると自負している。
+
+しかし世界は広く、upmendexで未対応のスクリプトも、ICUでは既対応だがupmendexでは未対応のlocaleもまだ多く残っている。
+今後、スクリプトの追加(ベンガル文字・テルグ文字・タミル文字等)に加え、localeをさらに拡充し世界制覇を目指したい。
+
+%\printindex
+
+\end{document}

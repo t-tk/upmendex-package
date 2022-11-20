@@ -16,15 +16,35 @@
   \indexspace
 
 \centerline{\bfseries --- C ---}\par\nobreak
+  \item 常 (cháng, ㄔㄤˊ)\leaders\hbox{$\cdot$}\hfill 6200
+  \item 常年 (cháng nián, ㄔㄤˊ ㄋㄧㄢˊ)\leaders\hbox{$\cdot$}\hfill 
+		6016
+  \item 长年\leaders\hbox{$\cdot$}\hfill 6013
+  \item 長年 (cháng nián, ㄔㄤˊ ㄋㄧㄢˊ)\leaders\hbox{$\cdot$}\hfill 
+		6010
+  \item 腸 (cháng, ㄔㄤˊ)\leaders\hbox{$\cdot$}\hfill 6201
   \item 辰\leaders\hbox{$\cdot$}\hfill 124
   \item 懲\leaders\hbox{$\cdot$}\hfill 252
   \item 赤\leaders\hbox{$\cdot$}\hfill 222
+  \item 虫 (chóng, ㄔㄨㄥˊ)\leaders\hbox{$\cdot$}\hfill 6204
+  \item 崇 (chóng, ㄔㄨㄥˊ)\leaders\hbox{$\cdot$}\hfill 6202
+  \item 重新 (chóng xīn, ㄔㄨㄥˊ ㄒㄧㄣ)\leaders\hbox{$\cdot$}\hfill 
+		6000
+  \item 蟲 (chóng, ㄔㄨㄥˊ)\leaders\hbox{$\cdot$}\hfill 6203
   \item 丑\leaders\hbox{$\cdot$}\hfill 121
   \item 春\leaders\hbox{$\cdot$}\hfill 110
 
   \indexspace
 
 \centerline{\bfseries --- D ---}\par\nobreak
+  \item 弔 (diào, ㄉㄧㄠˋ)\leaders\hbox{$\cdot$}\hfill 6211
+  \item 吊 (diào, ㄉㄧㄠˋ)\leaders\hbox{$\cdot$}\hfill 6210
+  \item 调\leaders\hbox{$\cdot$}\hfill 6104
+  \item 调查\leaders\hbox{$\cdot$}\hfill 6022
+  \item 掉 (diào, ㄉㄧㄠˋ)\leaders\hbox{$\cdot$}\hfill 6209
+  \item 調\leaders\hbox{$\cdot$}\hfill 6103
+  \item 調查 (diào chá, ㄉㄧㄠˋ ㄓㄚ)\leaders\hbox{$\cdot$}\hfill 
+		6020
   \item 丁\leaders\hbox{$\cdot$}\hfill 210
   \item 冬\leaders\hbox{$\cdot$}\hfill 113
   \item 東\leaders\hbox{$\cdot$}\hfill 217
@@ -133,6 +153,11 @@
 
 \centerline{\bfseries --- T ---}\par\nobreak
   \item 天\leaders\hbox{$\cdot$}\hfill 234
+  \item 条 (tiáo, ㄊㄧㄠˊ)\leaders\hbox{$\cdot$}\hfill 6205
+  \item 條 (tiáo, ㄊㄧㄠˊ)\leaders\hbox{$\cdot$}\hfill 6204
+  \item 调整\leaders\hbox{$\cdot$}\hfill 6023
+  \item 調整 (tiáo zhěng, ㄊㄧㄠˊ ㄓㄥˇ)\leaders\hbox{$\cdot$}\hfill 
+		6021
   \item 土\leaders\hbox{$\cdot$}\hfill 119
 
   \indexspace
@@ -169,8 +194,23 @@
   \indexspace
 
 \centerline{\bfseries --- Z ---}\par\nobreak
+  \item 长\leaders\hbox{$\cdot$}\hfill 6102
+  \item 长大\leaders\hbox{$\cdot$}\hfill 6015
+  \item 长短\leaders\hbox{$\cdot$}\hfill 6014
+  \item 長\leaders\hbox{$\cdot$}\hfill 6101
+  \item 長大 (zhǎng dà, ㄓㄤˇ ㄉㄚˋ)\leaders\hbox{$\cdot$}\hfill 
+		6012
+  \item 長短 (cháng duǎn, ㄔㄤˊ ㄉㄨㄢˇ)\leaders\hbox{$\cdot$}\hfill 
+		6011
+  \item 掌 (zhǎng, ㄓㄤˇ)\leaders\hbox{$\cdot$}\hfill 6212
   \item 兆\leaders\hbox{$\cdot$}\hfill 206
   \item 正\leaders\hbox{$\cdot$}\hfill 241
+  \item 仲 (zhòng, ㄓㄨㄥˋ)\leaders\hbox{$\cdot$}\hfill 6206
+  \item 众 (zhòng, ㄓㄨㄥˋ)\leaders\hbox{$\cdot$}\hfill 6208
+  \item 重\leaders\hbox{$\cdot$}\hfill 6100
+  \item 重要 (zhòng yào, ㄓㄨㄥˋ ㄧㄠˋ)\leaders\hbox{$\cdot$}\hfill 
+		6001
+  \item 衆 (zhòng, ㄓㄨㄥˋ)\leaders\hbox{$\cdot$}\hfill 6207
   \item 子\leaders\hbox{$\cdot$}\hfill 162
 
 \end{theindex}

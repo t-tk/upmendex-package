@@ -1,0 +1,28 @@
+\documentclass[12pt]{article}
+
+\usepackage{fontspec}
+\usepackage{polyglossia}
+
+\usepackage{makeidx}
+\makeindex
+
+\setdefaultlanguage{russian}
+\setmainfont{Noto Serif}
+\setsansfont{Noto Serif}
+
+\pagestyle{empty}
+\begin{document}
+\thispagestyle{empty}
+
+
+цветок\index{цветок}.
+птица\index{птица}.
+ветер\index{ветер}.
+луна\index{луна}.
+
+\printindex
+
+\end{document}
+
+
+\index{}.

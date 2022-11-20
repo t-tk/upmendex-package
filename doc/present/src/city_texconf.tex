@@ -1,0 +1,205 @@
+%
+% Example of XeLaTeX, polyglossia, Noto fonts and upmendex
+%   in Latin, CJK (Chinese, Japanese, Korean), Cyrillic, Greek,
+%      Devanagari, Thai, Arabic and Hebrew
+%
+%
+% Copyright (C) 2022 TANAKA Takuji
+% You may freely use, modify and/or distribute this file.
+%
+\documentclass[a4paper]{article}
+
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{makeidx}
+\makeindex
+
+\setdefaultlanguage{english}
+\setromanfont{Noto Serif}
+\setmainfont{Noto Serif}
+\newfontfamily\cyrillicfont{Noto Serif}
+\setotherlanguage{russian}
+\newfontfamily\greekfont{Noto Serif}
+\setotherlanguage{greek}
+\newfontfamily\japanesefont{Noto Serif CJK JP}[Language=Japanese,Script=CJK]
+\setotherlanguage{japanese}
+\newfontfamily\koreanfont{Noto Serif CJK KR}[Language=Korean,Script=Hangul]
+\setotherlanguage{korean}
+\newfontfamily\hindifont{Noto Serif Devanagari}[Language=Hindi,Script=Devanagari]
+\setotherlanguage{hindi}
+\newfontfamily\thaifont{Noto Serif Thai}[Language=Thai,Script=Thai]
+\setotherlanguage{thai}
+\newfontfamily\hebrewfont{Noto Serif Hebrew}[Script=Hebrew]
+\setotherlanguage{hebrew}
+\newfontfamily\arabicfont{Noto Naskh Arabic}[Script=Arabic]
+\setotherlanguage{arabic}
+%\newfontfamily\chinesefont{Noto Serif CJK TC}[Script=CJK]
+\newfontfamily\chinesefont{Noto Serif CJK SC}[Script=CJK]
+\setotherlanguage{chinese}
+
+\parindent1em
+\pagestyle{empty}
+\begin{document}
+\thispagestyle{empty}
+\section{Latin}
+This is an English text.
+
+upmendex\index{upmendex}.
+%Install of upmendex\index{upmendex!Install@Install of ---}.
+%Usage of upmendex\index{upmendex!Usage@Usage of ---}.
+%Usage of upmendex for beginners\index{upmendex!Usage@Usage of ---!for beginners@--- for beginners}.
+%Usage of upmendex for experts\index{upmendex!Usage@Usage of ---!for experts@--- for experts}.
+
+Number: 3.14159265\index{3.14159265}, 2.71828182\index{2.71828182}.
+Symbol: \$\index{\$}, €\index{€}, ¥\index{¥}.
+
+São Paulo\index{São Paulo}.
+Ciudad de México\index{Ciudad de México}.
+%New York\index{New York}.
+%Buenos Aires\index{Buenos Aires}.
+İstanbul\index{İstanbul}.
+%Rio de Janeiro\index{Rio de Janeiro}.
+%London\index{London}.
+%Manila\index{Manila}.
+%Paris\index{Paris}.
+%Berlin\index{Berlin}.
+
+\section{CJK}
+\subsection{Japanese (Kana, Kanji)}
+\begin{japanese}
+これは日本語のテキストです。
+
+upmendex\index{upmendex}。
+upmendexのインストール\index{upmendex!のインストール@---\textjapanese{のインストール}}。
+upmendexの使い方\index{upmendex!のつかいかた@---\textjapanese{の使い方}}。
+upmendexの使い方入門編\index{upmendex!のつかいかた@---\textjapanese{の使い方}!にゅうもんへん@---\textjapanese{入門編}}。
+upmendexの使い方応用編\index{upmendex!のつかいかた@---\textjapanese{の使い方}!おうようへん@---\textjapanese{応用編}}。
+
+東京\index{とうきょう@東京}。
+%横浜\index{よこはま@横浜}。
+大阪\index{おおさか@大阪}。
+%名古屋\index{なごや@名古屋}。
+札幌\index{さっぽろ@札幌}。
+%福岡\index{ふくおか@福岡}。
+%川崎\index{かわさき@川崎}。
+%神戸\index{こうべ@神戸}。
+%京都\index{きょうと@京都}。
+さいたま\index{さいたま}。
+\end{japanese}
+
+\subsection{Korean (Hangul, Hanja)}
+\begin{korean}
+이것은 한국어 텍스트입니다.
+
+서울\index{서울}.
+%부산(釜山)\index{부산@부산(釜山)}.
+%인천(仁川)\index{인천@인천(仁川)}.
+대구(大邱)\index{대구@대구(大邱)}.
+대전(大田)\index{대전@대전(大田)}.
+%광주(光州)\index{광주@광주(光州)}.
+%울산(蔚山)\index{울산@울산(蔚山)}.
+평양(平壤)\index{평양@평양(平壤)}.
+\end{korean}
+
+\subsection{Chinese (Hanzi)}
+\begin{chinese}
+這是中文文本。
+这是中文文本。
+
+北京\index{北京}。
+%上海\index{上海}。
+%天津\index{天津}。
+廈門(厦门)\index{廈門(厦门)}。
+%深圳\index{深圳}。
+%成都\index{成都}。
+%杭州\index{杭州}。
+%香港\index{香港}。
+臺北(台北)\index{臺北(台北)}。
+%高雄\index{高雄}。
+%桃園(桃园)\index{桃園(桃园)}。
+\end{chinese}
+
+\section{Cyrillic}
+\begin{russian}
+Здесь русский текст.
+
+%Москва\index{Москва}.
+Санкт-Петербург\index{Санкт-Петербург}.
+%Новосибирск\index{Новосибирск}.
+Київ\index{Київ}.
+%Одеса\index{Одеса}.
+%Харків\index{Харків}.
+София\index{София}.
+%Београд\index{Београд}.
+Бишкек\index{Бишкек}.
+%Скопје\index{Скопје}.
+%Мінск\index{Мінск}.
+%Нұр-Сұлтан\index{Нұр-Сұлтан}.
+\end{russian}
+
+\section{Greek}
+\begin{greek}
+Ελληνικό κείμενο εδώ.
+
+Αθήνα\index{Αθήνα}.
+Θεσσαλονίκη\index{Θεσσαλονίκη}.
+Πάτρα\index{Πάτρα}.
+%Ηράκλειο\index{Ηράκλειο}.
+%Λάρισα\index{Λάρισα}.
+\end{greek}
+
+\section{Devanagari}
+\begin{hindi}
+यह हिन्दी पाठ है।
+
+मुंबई\index{मुंबई}
+दिल्ली\index{दिल्ली}
+कोलकाता\index{कोलकाता}
+%कानपुर\index{कानपुर}
+%बंगलुरु\index{बंगलुरु}
+\end{hindi}
+
+\section{Thai}
+\begin{thai}
+นี่คือข้อความภาษาไทย
+
+กรุงเทพมหานคร\index{กรุงเทพมหานคร}
+นนทบุรี\index{นนทบุรี}
+นครราชสีมา\index{นครราชสีมา}
+%เชียงใหม่\index{เชียงใหม่}
+%หาดใหญ่\index{หาดใหญ่}
+\end{thai}
+
+\section{Arabic}
+\begin{Arabic}%% "Arabic", not "arabic"
+
+هذا نص عربي.
+
+دبي\index{دبي}
+أبو ظبي\index{أبو ظبي}
+الشارقة\index{الشارقة}
+%تهران\index{تهران}
+%مشهد\index{مشهد}
+%اصفهان\index{اصفهان}
+
+\end{Arabic}
+
+\section{Hebrew}
+\begin{hebrew}
+
+
+
+זה טקסט בעברית
+
+ירושלים\index{ירושלים}
+תל אביב\index{תל אביב}
+חיפה\index{חיפה}
+%ראשון לציון\index{ראשון לציון}
+%אשדוד\index{אשדוד}
+
+\end{hebrew}
+
+
+\printindex
+
+\end{document}

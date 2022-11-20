@@ -1,7 +1,7 @@
 upmendex  --- Multilingual index processor
 ==========================================
 
-2022.10.08 Ver1.05
+2022.11.20 Ver1.07
 
 TANAKA, Takuji
 <ttk(at)t-lab.opal.ne.jp>
@@ -34,10 +34,11 @@ upmendex is a multilingual index processor with following features:
    * doc/samples/alphabet :: samples for languages and collation options.
    * doc/samples/option :: samples for ICU attributes/rules options etc.
    * doc/samples/latex :: samples for upLaTeX/pxbabel and XeLaTeX/polyglossia.
+ * doc/present/ :: materials presented at meetings.
  * man/ :: manuals
 
 ### Building upmendex
-The source files are distributed at GitHub[2] and work with TeX Live svn r64660.
+The source files are distributed at GitHub[2] and work with TeX Live svn r65058.
 Ref. [TeX Live and Subversion](http://www.tug.org/texlive/svn/)
 
 Tested with ICU 71.1 .
