@@ -1,5 +1,12 @@
 \begin{theindex}
 
+\centerline{\bfseries --- symbols ---}\par\nobreak
+  \item ⁇⁈⁉¡¿†*§¶\leaders\hbox{$\cdot$}\hfill 10
+  \item €$＄¢￠£￡¥￥₩￦฿₹\leaders\hbox{$\cdot$}\hfill 9
+  \item ☃☎♥⚽☺☝✈🀅🍣👻\leaders\hbox{$\cdot$}\hfill 10
+
+  \indexspace
+
 \centerline{\bfseries --- モ ---}\par\nobreak
   \item 森鷗外\leaders\hbox{$\cdot$}\hfill 5
 
@@ -58,10 +65,7 @@
 
   \indexspace
 
-\centerline{\bfseries --- symbols ---}\par\nobreak
-  \item ⁇⁈⁉¡¿†*§¶\leaders\hbox{$\cdot$}\hfill 10
-  \item ☃☎♥⚽☺☝✈🀅🍣👻\leaders\hbox{$\cdot$}\hfill 10
-  \item €$＄¢￠£￡¥￥₩￦฿₹\leaders\hbox{$\cdot$}\hfill 9
+\centerline{\bfseries --- numbers ---}\par\nobreak
   \item ０１２0¹₂③❹➄➏🄈⑻⒐㉈🄋🄌\leaders\hbox{$\cdot$}\hfill 
 		8
 

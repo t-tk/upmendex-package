@@ -8,7 +8,7 @@ scripts:
 	done
 
 styles:
-	for num in 00 01 02 03; do \
+	for num in 00 01 02 03 04 05; do \
 		$(UPMENDEX) multi.idx -s mdxsty$$num.ist -t multi_$$num.ilg -o multi_$$num.ind ; \
 	done
 
