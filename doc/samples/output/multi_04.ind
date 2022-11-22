@@ -1,5 +1,16 @@
 \begin{theindex}
 
+\centerline{\bfseries --- numbers ---}\par\nobreak
+  \item ０１２0¹₂③❹➄➏🄈⑻⒐㉈🄋🄌\leaders\hbox{$\cdot$}\hfill 
+		8
+
+  \indexspace
+
+\centerline{\bfseries --- 漢字 ---}\par\nobreak
+  \item 王羲之\leaders\hbox{$\cdot$}\hfill 7
+
+  \indexspace
+
 \centerline{\bfseries --- モ ---}\par\nobreak
   \item 森鷗外\leaders\hbox{$\cdot$}\hfill 5
 
@@ -10,18 +21,13 @@
 
   \indexspace
 
-\centerline{\bfseries --- 漢字 ---}\par\nobreak
-  \item 王羲之\leaders\hbox{$\cdot$}\hfill 7
+\centerline{\bfseries --- ч ---}\par\nobreak
+  \item Чайковский\leaders\hbox{$\cdot$}\hfill 2
 
   \indexspace
 
 \centerline{\bfseries --- σ ---}\par\nobreak
   \item Σωκράτης\leaders\hbox{$\cdot$}\hfill 1
-
-  \indexspace
-
-\centerline{\bfseries --- ч ---}\par\nobreak
-  \item Чайковский\leaders\hbox{$\cdot$}\hfill 2
 
   \indexspace
 
@@ -35,15 +41,20 @@
 
   \indexspace
 
+\centerline{\bfseries --- ग ---}\par\nobreak
+  \item गौतम सिद्धार्थ\leaders\hbox{$\cdot$}\hfill 
+		12
+
+  \indexspace
+
 \centerline{\bfseries --- พ ---}\par\nobreak
   \item พ่อขุนรามคำแหงมหาราช\leaders\hbox{$\cdot$}\hfill 
 		11
 
   \indexspace
 
-\centerline{\bfseries --- ग ---}\par\nobreak
-  \item गौतम सिद्धार्थ\leaders\hbox{$\cdot$}\hfill 
-		12
+\centerline{\bfseries --- م ---}\par\nobreak
+  \item محمد‎\leaders\hbox{$\cdot$}\hfill 13
 
   \indexspace
 
@@ -53,16 +64,9 @@
 
   \indexspace
 
-\centerline{\bfseries --- م ---}\par\nobreak
-  \item محمد‎\leaders\hbox{$\cdot$}\hfill 13
-
-  \indexspace
-
 \centerline{\bfseries --- symbols ---}\par\nobreak
   \item ⁇⁈⁉¡¿†*§¶\leaders\hbox{$\cdot$}\hfill 10
   \item ☃☎♥⚽☺☝✈🀅🍣👻\leaders\hbox{$\cdot$}\hfill 10
   \item €$＄¢￠£￡¥￥₩￦฿₹\leaders\hbox{$\cdot$}\hfill 9
-  \item ０１２0¹₂③❹➄➏🄈⑻⒐㉈🄋🄌\leaders\hbox{$\cdot$}\hfill 
-		8
 
 \end{theindex}
