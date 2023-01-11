@@ -135,7 +135,9 @@
   \item ㌜\leaders\hbox{$\cdot$}\hfill 9029
   \item け゚ぁ\leaders\hbox{$\cdot$}\hfill 3008
   \item ケ゚ァ\leaders\hbox{$\cdot$}\hfill 3108
+  \item 𛄲(小さい「こ」)\leaders\hbox{$\cdot$}\hfill 6009
   \item こ\leaders\hbox{$\cdot$}\hfill 110
+  \item 𛅕(小さい「コ」)\leaders\hbox{$\cdot$}\hfill 6010
   \item コ\leaders\hbox{$\cdot$}\hfill 210
   \item ｺ\leaders\hbox{$\cdot$}\hfill 8026
   \item ㋙\leaders\hbox{$\cdot$}\hfill 7010
