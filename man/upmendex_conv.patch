@@ -1,0 +1,27 @@
+--- upmendex.1	2022-11-22 22:35:22.429979879 +0900
++++ upmendex_conv.1	2023-03-04 13:04:11.841197938 +0900
+@@ -6,6 +6,7 @@
+ .if t .ds LX \fRL\\h'-0.36m'\\v'-0.15v'\s-2A\s0\\h'-0.15m'\\v'0.15v'\fP\*(TX
+ .if n .ds LX LaTeX
+ \"=====================================================================
++.fspecial R JPM KOM
+ .SH NAME
+ upmendex \- Multilingual index processor
+ .SH SYNOPSIS
+@@ -289,14 +290,14 @@
+ .RE
+ .TP 30
+ \fBdevanagari_head\fR  <string>
+-"ऄअआइईउऊऋऌऍऎएऐऑऒओऔकखगघङचछजझञटठडढणतथदधनपफबभमयरलळवशषसह"
++"(Devanagari script)"
+ .RS
+ Heading characters of Devanagari specified by a string.
+ (Experimental, Extended by upmendex)
+ .RE
+ .TP 30
+ \fBthai_head\fR  <string>
+-"กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรฤลฦวศษสหฬอฮ"
++"(Thai script)"
+ .RS
+ Heading characters of Thai script specified by a string.
+ (Experimental, Extended by upmendex)
