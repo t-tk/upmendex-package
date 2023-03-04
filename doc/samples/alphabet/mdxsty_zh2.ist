@@ -9,4 +9,5 @@ lethead_prefix "\n\\centerline{\\bfseries --- "
 lethead_suffix  " ---}\\par\\nobreak"
 
 icu_locale  "zh"
+icu_rules   "&常年<<长年<<长短<<長年<<長短 &崇<<重新 &條<<调整<<調整"
 

@@ -1,7 +1,7 @@
 upmendex  --- Multilingual index processor
 ==========================================
 
-2021.11.20 Ver1.00
+2023.01.11 Ver1.07
 
 TANAKA, Takuji
 <ttk(at)t-lab.opal.ne.jp>
@@ -15,7 +15,7 @@ upmendex is a multilingual index processor with following features:
    based on mendex version 2.6f by ASCII media works.
  * Unicode for internal process and
    support UTF-8 encoding for input/output.
-   Will work with upLaTeX, XeLaTeX and luaLaTeX.
+   Work with upLaTeX, XeLaTeX and luaLaTeX.
  * Support Latin (including non-English), Greek, Cyrillic,
    Korean Hangul and Chinese Han (Hanzi ideographs) scripts
    as well as Japanese Kana.
@@ -30,16 +30,17 @@ upmendex is a multilingual index processor with following features:
  * source/ :: sources
  * doc/ :: documents
  * doc/samples/ :: samples for test.
- * doc/samples/alphabet :: samples for languages and collation options.
- * doc/samples/option :: samples for ICU attributes/rules options etc.
    More samples are distributed at GitHub[2] than at CTAN[5].
+   * doc/samples/alphabet :: samples for languages and collation options.
+   * doc/samples/option :: samples for ICU attributes/rules options etc.
+   * doc/samples/latex :: samples for upLaTeX/pxbabel and XeLaTeX/polyglossia.
  * man/ :: manuals
 
 ### Building upmendex
-The source files are distributed at GitHub[2] and work with TeX Live svn r61096.
+The source files are distributed at GitHub[2] and work with TeX Live svn r65484.
 Ref. [TeX Live and Subversion](http://www.tug.org/texlive/svn/)
 
-Tested with ICU 68.2 .
+Tested with ICU 72.1 .
 
 ### Status
 Stable version.
@@ -57,17 +58,20 @@ setting into "icu_locale" in style files.
 Currently following locales are available:
 
 #### Latin script
-  "az", "az@collation=search" (Azerbaijani), "ca@collation=search" (Catalan),
-  "cs", "cs@collation=search" (Czech), "da", "da@collation=search" (Danish),
+  "af" (Afrikaans), "az", "az@collation=search" (Azerbaijani),
+  "bs", "bs@collation=search" (Bosnian),
+  "ca@collation=search" (Catalan), "cs", "cs@collation=search" (Czech),
+  "cy" (Welsh), "da", "da@collation=search" (Danish),
   "de@collation=phonebook", "de@collation=search", "de-AT@collation=phonebook" (German),
   "eo" (Espelanto), "es", "es@collation=traditional", "es@collation=search" (Spanish),
-  "fi", "fi@collation=search", "fi@collation=traditional" (Finnish),
+  "et" (Estonian), "fi", "fi@collation=search", "fi@collation=traditional" (Finnish),
   "fr-CA" (French), "gl", "gl@collation=search" (Galician),
-  "hr", "hr@collation=search" (Croatian), "hu" (Hungarian), "lt" (Lithuanian),
+  "hr", "hr@collation=search" (Croatian), "hu" (Hungarian),
+  "is", "is@collation=search" (Icelandic), "lt" (Lithuanian), "lv" (Latvian),
   "nb", "nb@collation=search", "nn", "nn@collation=search", "no" (Norwegian),
   "pl" (Polish), "ro" (Romanian), "sk", "sk@collation=search" (Slovak),
   "sl" (Slovenian), "sq" (Albanian), "sr-Latn", "sr-Latn@collation=search" (Serbian),
-  "sv", "sv@collation=search", "sv@collation=standard" (Swedish),
+  "sv", "sv@collation=search", "sv@collation=standard" (Swedish), "tk" (Turkmen),
   "tr" (Turkish), "vi", "vi@collation=traditional" (Vietnamese)
 
 ##### Supported by default "root" collator. Do not need to set locale
@@ -75,7 +79,7 @@ Currently following locales are available:
   "it" (Italian), "jv" (Javanese), "ms" (Malay), "nl" (Dutch), "pt" (Portuguese)
 
 #### Cyrillic script
-  "be" (Belarusian), "bg" (Bulgarian), "kk" (Kazakh), "ky" (Kyrgyz),
+  "be" (Belarusian), "bg" (Bulgarian), "bs-Cyrl" (Bosnian), "kk" (Kazakh), "ky" (Kyrgyz),
   "mk" (Macedonian), "ru" (Russian), "sr" (Serbian), "uk" (Ukraine)
 
 #### Greek script
@@ -93,10 +97,11 @@ Currently following locales are available:
 #### Thai script (experimental)
   "th" (Thai)
 
-#### Arabic (experimental)
-  "ar", "ar@collation=compat" (Arabic), "fa" (Persian), "ps" (Pashto), "ur" (Urdu)
+#### Arabic script (experimental)
+  "ar", "ar@collation=compat" (Arabic), "fa" (Persian), "fa-AF" (Dari), "ps" (Pashto),
+  "ug" (Uyghur), "ur" (Urdu)
 
-#### Hebrew (experimental)
+#### Hebrew script (experimental)
   "he", "he@collation=search" (Hebrew), "yi" (Yiddish)
 
 ### References
