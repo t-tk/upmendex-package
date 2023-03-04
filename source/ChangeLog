@@ -1,10 +1,14 @@
+2023-02-26  TANAKA Takuji  <ttk@t-lab.opal.ne.jp>
+
+	* hanzi.h: Update references.
+
 2022-11-20  TANAKA Takuji  <ttk@t-lab.opal.ne.jp>
 
 	* version 1.07  Stable version.
 	* configure.ac: Bump version.
 	* sort.c, fwrite.c, {,ex}hanzi.h:
 	Improve detection of hanzi header to support
-	polyphone (多音字).
+	Chinese polyphone (多音字).
 
 2022-11-16  TANAKA Takuji  <ttk@t-lab.opal.ne.jp>
 

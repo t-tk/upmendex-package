@@ -169,6 +169,26 @@ zh00d.pdf:
 	${XDVIPDFMX} -s 2 -o zh00d-02.pdf zh00d.xdv
 	pdfcrop --margins 10 zh00d-02.pdf
 
+zh01a.pdf:
+	xelatex -jobname zh01a zh01a.tex
+	xelatex -jobname zh01a zh01a.tex
+	${UPMENDEX} -s mlg_zh4.ist zh01a
+	xelatex -no-pdf -jobname zh01a zh01a.tex
+	${XDVIPDFMX} -o zh01a.pdf zh01a.xdv
+	${XDVIPDFMX} -s 1 -o zh01a-01.pdf zh01a.xdv
+	${XDVIPDFMX} -s 2 -o zh01a-02.pdf zh01a.xdv
+	pdfcrop --margins 10 zh01a-02.pdf
+
+zh01b.pdf:
+	xelatex -jobname zh01b zh01b.tex
+	xelatex -jobname zh01b zh01b.tex
+	${UPMENDEX} -s mlg_zh5.ist zh01b
+	xelatex -no-pdf -jobname zh01b zh01b.tex
+	${XDVIPDFMX} -o zh01b.pdf zh01b.xdv
+	${XDVIPDFMX} -s 1 -o zh01b-01.pdf zh01b.xdv
+	${XDVIPDFMX} -s 2 -o zh01b-02.pdf zh01b.xdv
+	pdfcrop --margins 10 zh01b-02.pdf
+
 ru00.pdf:
 	xelatex ru00.tex
 	xelatex ru00.tex
