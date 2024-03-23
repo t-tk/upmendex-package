@@ -123,5 +123,8 @@ fi
 	-o locale2-rule1.ind1 -t locale2-rule1.ilg \
 	&& diff $srcdir/tests/locale2-rule.ind locale2-rule1.ind1 || rc=55
 
+# test for nested itemd and delimiters
+./upmendex -s $srcdir/tests/nested.ist -o nested.ind1 -t nested.ilg $srcdir/tests/nested.idx \
+	&& diff $srcdir/tests/nested.ind nested.ind1 || rc=56
 
 exit $rc
