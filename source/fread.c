@@ -111,7 +111,7 @@ LOOP:
 				if (nest==0) {
 					if (buff[j]==level) {
 						esc=0;
-						if (indent>MAXDEPTH-1) {
+						if (indent>=MAXDEPTH-1) {
 							fprintf(efp,"\nError: Extra `%c\' in %s, line %d.",level,filename,ind[i].lnum);
 							if (efp!=stderr) fprintf(stderr,"\nError: Extra `%c\' in %s, line %d.",level,filename,ind[i].lnum);
 							eflg++;

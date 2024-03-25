@@ -127,4 +127,13 @@ fi
 ./upmendex -s $srcdir/tests/nested.ist -o nested.ind1 -t nested.ilg $srcdir/tests/nested.idx \
 	&& diff $srcdir/tests/nested.ind nested.ind1 || rc=56
 
+# test for too deep indexentry
+./upmendex $srcdir/tests/toodeep.idx -o toodeep.ind1 -t toodeep.ilg
+if [ $? -eq 255 ]; then
+  echo "Error check: OK"
+else
+  echo "Error check: NG"
+  rc=56
+fi
+
 exit $rc
