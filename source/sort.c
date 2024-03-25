@@ -181,7 +181,7 @@ static int wcomp(const void *p, const void *q)
 
 	scount++;
 
-	for (j=0;j<3;j++) {
+	for (j=0;j<MAXDEPTH;j++) {
 
 /*   check level   */
 		if (((*index1).words==j)&&((*index2).words!=j)) return -1;
