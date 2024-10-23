@@ -1,0 +1,56 @@
+name: Build on MacOS
+run-name: building & testing on MacOS
+on:
+  push:
+    branches:
+      - 'build-macos/**'
+      - 'build/**'
+jobs:
+  Build-on-macos:
+    runs-on: macos-latest
+    timeout-minutes: 20
+    steps:
+      - run: echo "The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "This job is now running on a ${{ runner.os }} server hosted by GitHub."
+      - run: echo "Branch [ ${{ github.ref }} ]  Repository [ ${{ github.repository }} ]"
+      - name: Check out repository code
+        uses: actions/checkout@v4
+
+      - name: brew
+        shell: bash
+        run: |
+          #brew install icu4c
+          brew info icu4c
+
+      - name: make kpathsea
+        shell: bash
+        run: |
+          mkdir -p ./Work/texk/kpathsea
+          cd ${{ github.workspace }}/source/Work/texk/kpathsea
+          ../../../texk/kpathsea/configure
+          make
+          make check || cat tests/kpsesafe.log
+
+      - name: icu
+        shell: bash
+        run: |
+          ICU_PREFIX=`find /opt/homebrew/Cellar -name icudataver.h | sed -e 's/\/include\/unicode\/icudataver.h\$//'`
+          # ICU_PREFIX="/opt/homebrew/Cellar/icu4c/74.2"
+          echo "ICU_PREFIX: "$ICU_PREFIX
+          echo "ICU_PREFIX=$ICU_PREFIX" >> $GITHUB_ENV
+
+      - name: upmendex
+        shell: bash
+        run: |
+          mkdir -p ./Work/texk/upmendex
+          cd ./Work/texk/upmendex
+          CPPFLAGS=-I$ICU_PREFIX/include \
+          LDFLAGS=-L$ICU_PREFIX/lib \
+          LIBS="-licuio -licui18n -licuuc -licudata" \
+          ../../../texk/upmendex/configure \
+            --with-system-icu
+          make
+          ./upmendex --help
+          make check
+
+      - run: echo "⛄ This job's status is ${{ job.status }}."

@@ -1,0 +1,39 @@
+name: Build on Ubuntu
+run-name: building & testing on Ubuntu
+on:
+  push:
+    branches:
+      - 'build-ubuntu/**'
+      - 'build/**'
+jobs:
+  Build-on-ubuntu:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - run: echo "The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "This job is now running on a ${{ runner.os }} server hosted by GitHub."
+      - run: echo "Branch [ ${{ github.ref }} ]  Repository [ ${{ github.repository }} ]"
+      - name: Check out repository code
+        uses: actions/checkout@v4
+
+      - name: make kpathsea
+        shell: bash
+        run: |
+          mkdir -p ./Work/texk/kpathsea
+          cd ${{ github.workspace }}/source/Work/texk/kpathsea
+          ../../../texk/kpathsea/configure
+          make
+          make check || cat tests/kpsesafe.log
+
+      - name: upmendex
+        shell: bash
+        run: |
+          mkdir -p ./Work/texk/upmendex
+          cd ./Work/texk/upmendex
+          ../../../texk/upmendex/configure \
+            --with-system-icu
+          make
+          ./upmendex --help
+          make check
+
+      - run: echo "⛄ This job's status is ${{ job.status }}."
