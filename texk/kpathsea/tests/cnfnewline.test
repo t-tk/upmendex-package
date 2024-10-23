@@ -1,0 +1,24 @@
+#!/bin/sh -vx
+# $Id$
+# Copyright 2017 Karl Berry <tex-live@tug.org>
+# Copyright 2013 Peter Breitenlohner <tex-live@tug.org>
+# You may freely use, modify and/or distribute this file.
+
+BinDir=${BinDir:-.}
+ExeExt=${ExeExt:-}
+_kpsewhich=$BinDir/kpsewhich$ExeExt
+
+TEXMFCNF=$srcdir/tests/cnfnewline; export TEXMFCNF
+cnf_dir=$srcdir/tests/cnfnewline
+
+val=`$_kpsewhich "--cnf-line=TEXMFCNF=$cnf_dir" --debug=-1 --var-value=lastvar`
+if [ "$ExeExt" = ".exe" ]; then val=`echo $val | sed -e 's/\\r//'`; fi
+test x"$val" = xlastval || exit 1
+
+# verbose for testing.
+#if test x"$val" = xlastval; then
+#  echo "$0: ok"
+#else
+#  echo "$0: bad, got \`$val'"
+#  exit 1
+#fi
