@@ -26,7 +26,7 @@ jobs:
         shell: bash
         run: |
           mkdir -p ./Work/texk/kpathsea
-          cd ${{ github.workspace }}/source/Work/texk/kpathsea
+          cd ${{ github.workspace }}/Work/texk/kpathsea
           ../../../texk/kpathsea/configure
           make
           make check || cat tests/kpsesafe.log
