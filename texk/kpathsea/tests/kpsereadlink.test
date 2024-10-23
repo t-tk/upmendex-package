@@ -1,0 +1,23 @@
+#! /bin/sh -vx
+# $Id$
+# Copyright 2017-2024 Karl Berry <tex-live@tug.org>
+# Copyright 2010 Peter Breitenlohner <tex-live@tug.org>
+# You may freely use, modify and/or distribute this file.
+
+test -n "$LN_S" || LN_S="ln -s" # standalone testing
+
+test "x$LN_S" = 'xln -s' || exit 77
+
+rm -f readlink_test_file readlink_test_symlink
+
+touch readlink_test_file
+
+$LN_S readlink_test_file readlink_test_symlink || exit 1
+
+./kpsereadlink readlink_test_file && exit 1
+
+link=`./kpsereadlink readlink_test_symlink` || exit 1
+
+test "x$link" = xreadlink_test_file || exit 1
+
+rm -f readlink_test_file readlink_test_symlink
