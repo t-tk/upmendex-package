@@ -19,8 +19,8 @@ jobs:
       - name: make kpathsea
         shell: bash
         run: |
-          mkdir -p ./Work/texk/kpathsea
-          cd ${{ github.workspace }}/Work/texk/kpathsea
+          mkdir -p ./source/Work/texk/kpathsea
+          cd ${{ github.workspace }}/source/Work/texk/kpathsea
           ../../../texk/kpathsea/configure
           make
           make check || cat tests/kpsesafe.log
@@ -28,8 +28,8 @@ jobs:
       - name: upmendex
         shell: bash
         run: |
-          mkdir -p ./Work/texk/upmendex
-          cd ./Work/texk/upmendex
+          mkdir -p ./source/Work/texk/upmendex
+          cd ./source/Work/texk/upmendex
           ../../../texk/upmendex/configure \
             --with-system-icu
           make
