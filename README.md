@@ -28,6 +28,10 @@ upmendex is a multilingual index processor with following features:
 ### Contents
  * README.md :: This file
  * source/ :: sources
+   * source/texk/upmendex :: upmendex source files.
+   * source/{build-aux,m4,texk/{kpathsea,tests},version.ac}
+        :: build environment copied from TeX Live svn repository.
+           They are not a part of upmendex distribution.
  * doc/ :: documents
  * doc/samples/ :: samples for test.
    More samples are distributed at GitHub[2] than at CTAN[5].
