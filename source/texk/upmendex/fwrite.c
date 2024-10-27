@@ -333,11 +333,11 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 				widechar_to_multibyte(obuff,BUFFERLEN,ind[i].idx[0]);
 				SPRINTF(lbuff,"%s%s",item_0[0],obuff);
 			}
-                        for (j=0;j<ind[i].words-1;j++) {
+			for (j=0;j<ind[i].words-1;j++) {
 				widechar_to_multibyte(obuff,BUFFERLEN,ind[i].idx[j+1]);
 				SAPPENDF(lbuff,"%s",item_x[j]);
 				SAPPENDF(lbuff,"%s",obuff);
-                        }
+			}
 			SAPPENDF(lbuff,"%s",delim_0[j]);
 			printpage(ind,fp,i,lbuff);
 		}
@@ -447,28 +447,25 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 				}
 			}
 
-                        q=0;
-                        for (j=0;j<ind[i-1].words && j<ind[i].words;j++) {
+			q=0;
+			for (j=0;j<ind[i-1].words && j<ind[i].words;j++) {
 				if (u_strcmp(ind[i-1].idx[j],ind[i].idx[j])!=0 ||
-                                    u_strcmp(ind[i-1].dic[j],ind[i].dic[j])!=0) {
+				    u_strcmp(ind[i-1].dic[j],ind[i].dic[j])!=0) {
 					SAPPENDF(lbuff,"%s",item_0[j]);
-                                        for (k=j;k<ind[i].words-1;k++) {
-					        widechar_to_multibyte(obuff,BUFFERLEN,ind[i].idx[k]);
-					        SAPPENDF(lbuff,"%s",obuff);
-					        SAPPENDF(lbuff,"%s",item_x[k]);
-				        }
-                                        q=1;
-                                        break;
-                                }
-                        }
-                        if (q==0) {
-				SAPPENDF(lbuff,"%s",item_01[ind[i-1].words-1]);
-                                for (k=ind[i-1].words;k<ind[i].words-1;k++) {
-					widechar_to_multibyte(obuff,BUFFERLEN,ind[i].idx[k]);
-					SAPPENDF(lbuff,"%s",obuff);
-					SAPPENDF(lbuff,"%s",item_x[k]);
+					q=1;
+					break;
 				}
-                        }
+			}
+			if (q==0) {
+				j=ind[i-1].words;
+				SAPPENDF(lbuff,"%s",item_01[j-1]);
+			}
+
+			for (k=j;k<ind[i].words-1;k++) {
+				widechar_to_multibyte(obuff,BUFFERLEN,ind[i].idx[k]);
+				SAPPENDF(lbuff,"%s",obuff);
+				SAPPENDF(lbuff,"%s",item_x[k]);
+			}
 			widechar_to_multibyte(obuff,BUFFERLEN,ind[i].idx[ind[i].words-1]);
 			SAPPENDF(lbuff,"%s",obuff);
 			SAPPENDF(lbuff,"%s",delim_0[ind[i].words-1]);

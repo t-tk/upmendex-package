@@ -7,7 +7,6 @@ extern int warn,scount,pattr[];
 extern struct index *ind;
 
 #define STYBUFSIZE 2048
-#define MAXDEPTH 5
 
 extern char keyword[];
 extern char arg_open,arg_close;

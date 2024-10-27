@@ -87,34 +87,31 @@ void styread(const char *filename)
 			priority=atoi(&buff[cc]);
 			continue;
 		}
-                q=0;
-                for (j=0;j<MAXDEPTH;j++) {
-                    snprintf(tmp,4096,"item_%d",j);
-		    if (getparam(buff,tmp,item_0[j])) {
-                        q=1;
-                        continue;
-                    }
-                    snprintf(tmp,4096,"delim_%d",j);
-		    if (getparam(buff,tmp,delim_0[j])) {
-                        q=1;
-                        continue;
-                    }
-                }
-                if (q==1) continue;
-                q=0;
-                for (j=0;j<MAXDEPTH-1;j++) {
-                    snprintf(tmp,4096,"item_%d%d",j,j+1);
-		    if (getparam(buff,tmp,item_01[j])) {
-                        q=1;
-                        continue;
-                    }
-                    snprintf(tmp,4096,"item_x%d",j+1);
-		    if (getparam(buff,tmp,item_x[j])) {
-                        q=1;
-                        continue;
-                    }
-                }
-                if (q==1) continue;
+		q=0;
+		for (j=0;j<MAXDEPTH;j++) {
+			sprintf(tmp,"item_%d",j);
+			if (getparam(buff,tmp,item_0[j])) {
+				q=1;
+				break;
+			}
+			sprintf(tmp,"delim_%d",j);
+			if (getparam(buff,tmp,delim_0[j])) {
+				q=1;
+				break;
+			}
+			if (j==MAXDEPTH-1) break;
+			sprintf(tmp,"item_%d%d",j,j+1);
+			if (getparam(buff,tmp,item_01[j])) {
+				q=1;
+				break;
+			}
+			sprintf(tmp,"item_x%d",j+1);
+			if (getparam(buff,tmp,item_x[j])) {
+				q=1;
+				break;
+			}
+		}
+		if (q==1) continue;
 		if (getparam(buff,"delim_n",delim_n)) continue;
 		if (getparam(buff,"delim_r",delim_r)) continue;
 		if (getparam(buff,"delim_t",delim_t)) continue;

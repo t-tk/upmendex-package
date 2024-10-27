@@ -16,9 +16,8 @@
 #include <unicode/unorm2.h>
 #endif
 
-#include "exvar.h"
-
 #define PAGE_COMPOSIT_DEPTH 10
+#define MAXDEPTH 5
 
 struct page {
 	char *page;
