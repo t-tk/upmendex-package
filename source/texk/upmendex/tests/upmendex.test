@@ -133,8 +133,16 @@ $_upmendex -s $srcdir/tests/uni.ist -s $srcdir/tests/locale3.ist -s $srcdir/test
 	&& diff $srcdir/tests/locale3-rule.ind locale3-rule1.ind1 || rc=56
 
 # test for nested itemd and delimiters
+$_upmendex -s $srcdir/tests/nested3.ist -o nested3.ind1 -t nested3.ilg $srcdir/tests/nested3.idx \
+	&& diff $srcdir/tests/nested3.ind nested3.ind1 || rc=57
 $_upmendex -s $srcdir/tests/nested.ist -o nested.ind1 -t nested.ilg $srcdir/tests/nested.idx \
-	&& diff $srcdir/tests/nested.ind nested.ind1 || rc=57
+	&& diff $srcdir/tests/nested.ind nested.ind1 || rc=58
+
+# check compatibility with makeindex if exist
+if type makeindex > /dev/null 2>&1; then
+  makeindex -s $srcdir/tests/nested3.ist -o nested_mi.ind1 -t nested_mi.ilg $srcdir/tests/nested3.idx \
+	&& diff $srcdir/tests/nested3.ind nested_mi.ind1 || rc=59
+fi
 
 # test for too deep indexentry
 $_upmendex $srcdir/tests/toodeep.idx -o toodeep.ind1 -t toodeep.ilg

@@ -40,6 +40,30 @@
 
   \indexspace
 
+  \item_0 pa(0) 21
+    \item_01 qa
+      \item_x2 ra(2) 22
+  \item_0 pb(0) 23
+    \item_01 qb
+      \item_x2 rb
+        \item_x3 sb(3) 24
+  \item_0 pc(0) 25
+    \item_01 qc
+      \item_x2 rc
+        \item_x3 sc
+          \item_x4 tc(4) 26
+  \item_0 pd
+    \item_x1 qd(1) 27
+      \item_12 rd
+        \item_x3 sd(3) 28
+  \item_0 pe
+    \item_x1 qe(1) 29
+      \item_12 re(2) 31
+        \item_23 se
+          \item_x4 te(4) 30, 32
+
+  \indexspace
+
   \item_0 xa(0) 1
   \item_0 xb(0) 1
   \item_0 xc(0) 1
