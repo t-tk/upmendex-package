@@ -6,7 +6,6 @@
 .if t .ds LX \fRL\\h'-0.36m'\\v'-0.15v'\s-2A\s0\\h'-0.15m'\\v'0.15v'\fP\*(TX
 .if n .ds LX LaTeX
 \"=====================================================================
-.fspecial R JPM KOM
 .SH NAME
 upmendex \- Multilingual index processor
 .SH SYNOPSIS
@@ -290,14 +289,14 @@ concatenated of items with a separator \';\'.
 .RE
 .TP 30
 \fBdevanagari_head\fR  <string>
-"(Devanagari script)"
+"ऄअआइईउऊऋऌऍऎएऐऑऒओऔकखगघङचछजझञटठडढणतथदधनपफबभमयरलळवशषसह"
 .RS
 Heading characters of Devanagari specified by a string.
 (Experimental, Extended by upmendex)
 .RE
 .TP 30
 \fBthai_head\fR  <string>
-"(Thai script)"
+"กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรฤลฦวศษสหฬอฮ"
 .RS
 Heading characters of Thai script specified by a string.
 (Experimental, Extended by upmendex)
@@ -307,16 +306,16 @@ Heading characters of Thai script specified by a string.
 "\\n  \\\\item "
 .TP 30
 \fBitem_1\fR  <string>
-"\\n     \\\\subitem "
+"\\n    \\\\subitem "
 .TP 30
 \fBitem_2\fR  <string>
-"\\n       \\\\subsubitem "
+"\\n      \\\\subsubitem "
 .TP 30
 \fBitem_3\fR  <string>
-"\\n       \\\\subsubsubitem "
+"\\n        \\\\subsubsubitem "
 .TP 30
 \fBitem_4\fR  <string>
-"\\n       \\\\subsubsubsubitem "
+"\\n          \\\\subsubsubsubitem "
 .RS
 Command sequence inserted between two primary, two secondary, etc. level entries.
 .RE
@@ -325,13 +324,13 @@ Command sequence inserted between two primary, two secondary, etc. level entries
 "\\n    \\\\subitem "
 .TP 30
 \fBitem_12\fR  <string>
-"\\n    \\\\subsubitem "
+"\\n      \\\\subsubitem "
 .TP 30
 \fBitem_23\fR  <string>
-"\\n    \\\\subsubsubitem "
+"\\n        \\\\subsubsubitem "
 .TP 30
 \fBitem_34\fR  <string>
-"\\n    \\\\subsubsubsubitem "
+"\\n          \\\\subsubsubsubitem "
 .RS
 Command sequence inserted between primaly and secondary, secondary and tertiary, etc. level entries.
 .RE
@@ -340,13 +339,13 @@ Command sequence inserted between primaly and secondary, secondary and tertiary,
 "\\n    \\\\subitem "
 .TP 30
 \fBitem_x2\fR  <string>
-"\\n    \\\\subsubitem "
+"\\n      \\\\subsubitem "
 .TP 30
 \fBitem_x3\fR  <string>
-"\\n    \\\\subsubsubitem "
+"\\n        \\\\subsubsubitem "
 .TP 30
 \fBitem_x4\fR  <string>
-"\\n    \\\\subsubsubsubitem "
+"\\n          \\\\subsubsubsubitem "
 .RS
 Command sequence inserted between primary and secondary, secondary and tertiary, etc. level entries
 when the higher level entry does not have page number.
