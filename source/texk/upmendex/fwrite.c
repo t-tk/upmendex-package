@@ -220,8 +220,6 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 					fprint_uchar(fp,initial,lethead_flag,-1);
 					fputs(lethead_suffix,fp);
 				}
-				widechar_to_multibyte(obuff,BUFFERLEN,ind[i].idx[0]);
-				SPRINTF(lbuff,"%s%s",item_0[0],obuff);
 			}
 			else if (chset==CH_KANA) {
 				if (lethead_flag!=0) {
@@ -241,8 +239,6 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 					}
 					fputs(lethead_suffix,fp);
 				}
-				widechar_to_multibyte(obuff,BUFFERLEN,ind[i].idx[0]);
-				SPRINTF(lbuff,"%s%s",item_0[0],obuff);
 				for (hpoint=0;hpoint<(u_strlen(kana_head));) {
 					if (initial_cmp_char(initial,&kana_head[hpoint])) {
 						break;
@@ -265,8 +261,6 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 					}
 					fputs(lethead_suffix,fp);
 				}
-				widechar_to_multibyte(obuff,BUFFERLEN,ind[i].idx[0]);
-				SPRINTF(lbuff,"%s%s",item_0[0],obuff);
 				for (tpoint=0;tpoint<(u_strlen(hangul_head));tpoint++) {
 					if (initial_cmp_char(initial,&hangul_head[tpoint])) {
 						break;
@@ -291,8 +285,6 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 					}
 					fputs(lethead_suffix,fp);
 				}
-				widechar_to_multibyte(obuff,BUFFERLEN,ind[i].idx[0]);
-				SPRINTF(lbuff,"%s%s",item_0[0],obuff);
 				for (jpoint=0;jpoint<(u_strlen(devanagari_head));) {
 					if (initial_cmp_char(initial,&devanagari_head[jpoint])) {
 						break;
@@ -315,8 +307,6 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 					}
 					fputs(lethead_suffix,fp);
 				}
-				widechar_to_multibyte(obuff,BUFFERLEN,ind[i].idx[0]);
-				SPRINTF(lbuff,"%s%s",item_0[0],obuff);
 				for (ipoint=0;ipoint<(u_strlen(thai_head));ipoint++) {
 					if (initial_cmp_char(initial,&thai_head[ipoint])) {
 						break;
@@ -330,14 +320,15 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 				if (lethead_flag!=0 && (symbol_flag==1 || (symbol_flag==2 && chset!=CH_NUMERIC))) {
 					fprintf(fp,"%s%s%s",lethead_prefix,symhead,lethead_suffix);
 				}
-				widechar_to_multibyte(obuff,BUFFERLEN,ind[i].idx[0]);
-				SPRINTF(lbuff,"%s%s",item_0[0],obuff);
 			}
+			SPRINTF(lbuff,"%s",item_0[0]);
 			for (j=0;j<ind[i].words-1;j++) {
-				widechar_to_multibyte(obuff,BUFFERLEN,ind[i].idx[j+1]);
-				SAPPENDF(lbuff,"%s",item_x[j]);
+				widechar_to_multibyte(obuff,BUFFERLEN,ind[i].idx[j]);
 				SAPPENDF(lbuff,"%s",obuff);
+				SAPPENDF(lbuff,"%s",item_x[j]);
 			}
+			widechar_to_multibyte(obuff,BUFFERLEN,ind[i].idx[j]);
+			SAPPENDF(lbuff,"%s",obuff);
 			SAPPENDF(lbuff,"%s",delim_0[j]);
 			printpage(ind,fp,i,lbuff);
 		}
@@ -451,25 +442,25 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 			for (j=0;j<ind[i-1].words && j<ind[i].words;j++) {
 				if (u_strcmp(ind[i-1].idx[j],ind[i].idx[j])!=0 ||
 				    u_strcmp(ind[i-1].dic[j],ind[i].dic[j])!=0) {
-					SAPPENDF(lbuff,"%s",item_0[j]);
+					k=j;
+					SAPPENDF(lbuff,"%s",item_0[k]);
 					q=1;
 					break;
 				}
 			}
 			if (q==0) {
-				j=ind[i-1].words;
-				SAPPENDF(lbuff,"%s",item_01[j-1]);
+				k=ind[i-1].words;
+				SAPPENDF(lbuff,"%s",item_01[k-1]);
 			}
 
-			for (k=j;k<ind[i].words-1;k++) {
-				widechar_to_multibyte(obuff,BUFFERLEN,ind[i].idx[k]);
+			for (j=k;j<ind[i].words-1;j++) {
+				widechar_to_multibyte(obuff,BUFFERLEN,ind[i].idx[j]);
 				SAPPENDF(lbuff,"%s",obuff);
-				SAPPENDF(lbuff,"%s",item_x[k]);
+				SAPPENDF(lbuff,"%s",item_x[j]);
 			}
-			widechar_to_multibyte(obuff,BUFFERLEN,ind[i].idx[ind[i].words-1]);
+			widechar_to_multibyte(obuff,BUFFERLEN,ind[i].idx[j]);
 			SAPPENDF(lbuff,"%s",obuff);
-			SAPPENDF(lbuff,"%s",delim_0[ind[i].words-1]);
-
+			SAPPENDF(lbuff,"%s",delim_0[j]);
 			printpage(ind,fp,i,lbuff);
 		}
 	}
