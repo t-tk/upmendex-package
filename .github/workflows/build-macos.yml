@@ -57,13 +57,16 @@ jobs:
         shell: bash
         run: |
           cd ./doc/samples
-          UPMENDEX=../../source/Work/texk/upmendex/upmendex TEXMFCNF=../../source/texk/kpathsea make -e all
+          make -e all
           make compare
           cd ./alphabet
-          UPMENDEX=../../../source/Work/texk/upmendex/upmendex TEXMFCNF=../../../source/texk/kpathsea make -e alphabet
+          make -e alphabet
           make compare
           cd ../option
-          UPMENDEX=../../../source/Work/texk/upmendex/upmendex TEXMFCNF=../../../source/texk/kpathsea make -e all
+          make -e all
           make compare
+        env:
+          TEXMFCNF: "${{ github.workspace }}/source/texk/kpathsea"
+          UPMENDEX: "${{ github.workspace }}/source/Work/texk/upmendex/upmendex"
 
       - run: echo "⛄ This job's status is ${{ job.status }}."
