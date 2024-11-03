@@ -96,6 +96,12 @@
 
   \indexspace
 
+\centerline{\bfseries --- Y ---}\par\nobreak
+  \item y\leaders\hbox{$\cdot$}\hfill 225
+  \item Y\leaders\hbox{$\cdot$}\hfill 125
+
+  \indexspace
+
 \centerline{\bfseries --- Ī ---}\par\nobreak
   \item ī\leaders\hbox{$\cdot$}\hfill 264
   \item Ī\leaders\hbox{$\cdot$}\hfill 164
@@ -167,6 +173,14 @@
 \centerline{\bfseries --- O ---}\par\nobreak
   \item o\leaders\hbox{$\cdot$}\hfill 215
   \item O\leaders\hbox{$\cdot$}\hfill 115
+
+  \indexspace
+
+\centerline{\bfseries --- Ō ---}\par\nobreak
+  \item ō\leaders\hbox{$\cdot$}\hfill 271
+  \item Ō\leaders\hbox{$\cdot$}\hfill 171
+  \item ōa\leaders\hbox{$\cdot$}\hfill 13000
+  \item ōz\leaders\hbox{$\cdot$}\hfill 13001
 
   \indexspace
 

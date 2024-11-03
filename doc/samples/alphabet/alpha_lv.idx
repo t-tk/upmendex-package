@@ -21,6 +21,7 @@
 \indexentry{N}{114}
 \indexentry{Ņ}{167}
 \indexentry{O}{115}
+\indexentry{Ō}{171}
 \indexentry{P}{116}
 \indexentry{R}{118}
 \indexentry{S}{119}
@@ -29,6 +30,7 @@
 \indexentry{U}{121}
 \indexentry{Ū}{169}
 \indexentry{V}{122}
+\indexentry{Y}{125}
 \indexentry{Z}{126}
 \indexentry{Ž}{170}
 \indexentry{a}{201}
@@ -54,6 +56,7 @@
 \indexentry{n}{214}
 \indexentry{ņ}{267}
 \indexentry{o}{215}
+\indexentry{ō}{271}
 \indexentry{p}{216}
 \indexentry{r}{218}
 \indexentry{s}{219}
@@ -62,6 +65,7 @@
 \indexentry{u}{221}
 \indexentry{ū}{269}
 \indexentry{v}{222}
+\indexentry{y}{225}
 \indexentry{z}{226}
 \indexentry{ž}{270}
 \indexentry{aa}{1000}
@@ -96,6 +100,8 @@
 \indexentry{nz}{8001}
 \indexentry{ņa}{8004}
 \indexentry{ņz}{8005}
+\indexentry{ōa}{13000}
+\indexentry{ōz}{13001}
 \indexentry{sa}{9000}
 \indexentry{sz}{9001}
 \indexentry{ša}{9004}
