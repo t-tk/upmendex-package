@@ -57,13 +57,13 @@ jobs:
         shell: bash
         run: |
           cd ./doc/samples
-          UPMENDEX=../../source/Work/texk/upmendex/upmendex make -e all
+          UPMENDEX=../../source/Work/texk/upmendex/upmendex TEXMFCNF=../../source/texk/kpathsea make -e all
           make compare
           cd ./alphabet
-          UPMENDEX=../../../source/Work/texk/upmendex/upmendex make -e alphabet
+          UPMENDEX=../../../source/Work/texk/upmendex/upmendex TEXMFCNF=../../../source/texk/kpathsea make -e alphabet
           make compare
           cd ../option
-          UPMENDEX=../../../source/Work/texk/upmendex/upmendex make -e all
+          UPMENDEX=../../../source/Work/texk/upmendex/upmendex TEXMFCNF=../../../source/texk/kpathsea make -e all
           make compare
 
       - run: echo "⛄ This job's status is ${{ job.status }}."
