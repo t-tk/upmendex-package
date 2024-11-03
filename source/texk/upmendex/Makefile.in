@@ -639,7 +639,11 @@ EXTRA_DIST = COPYRIGHT indexsty upmendex.ja.txt $(TESTS) tests/foo.idx \
 	tests/attr1.ist tests/attr1.ind tests/locale1.ind \
 	tests/locale2-rule.ind tests/locale3-rule.ind tests/rule1.ist \
 	tests/rule2.ist tests/rule3.ist tests/rule4.ist rule.ind
-TESTS = tests/upmendex.test
+TESTS = tests/upmendex.test \
+	tests/pprec.test \
+	tests/nest.test \
+	tests/icu.test
+
 DISTCLEANFILES = foo.* uni.* range*.* pprec*.* romalp*.* locale*.* \
 	attr*.* rule*.*
 all: c-auto.h

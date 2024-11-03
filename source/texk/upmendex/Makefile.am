@@ -52,7 +52,10 @@ EXTRA_DIST += \
 
 ## Tests
 ##
-TESTS = tests/upmendex.test
+TESTS = tests/upmendex.test \
+	tests/pprec.test \
+	tests/nest.test \
+	tests/icu.test
 EXTRA_DIST += $(TESTS)
 
 ## tests/upmendex.test
