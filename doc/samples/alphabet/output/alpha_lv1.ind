@@ -3,11 +3,15 @@
 \centerline{\bfseries --- A ---}\par\nobreak
   \item a\leaders\hbox{$\cdot$}\hfill 201
   \item A\leaders\hbox{$\cdot$}\hfill 101
+  \item aa\leaders\hbox{$\cdot$}\hfill 1000
+  \item az\leaders\hbox{$\cdot$}\hfill 1001
+
+  \indexspace
+
+\centerline{\bfseries --- Ā ---}\par\nobreak
   \item ā\leaders\hbox{$\cdot$}\hfill 260
   \item Ā\leaders\hbox{$\cdot$}\hfill 160
-  \item aa\leaders\hbox{$\cdot$}\hfill 1000
   \item āa\leaders\hbox{$\cdot$}\hfill 1004
-  \item az\leaders\hbox{$\cdot$}\hfill 1001
   \item āz\leaders\hbox{$\cdot$}\hfill 1005
 
   \indexspace
@@ -43,11 +47,15 @@
 \centerline{\bfseries --- E ---}\par\nobreak
   \item e\leaders\hbox{$\cdot$}\hfill 205
   \item E\leaders\hbox{$\cdot$}\hfill 105
+  \item ea\leaders\hbox{$\cdot$}\hfill 3000
+  \item ez\leaders\hbox{$\cdot$}\hfill 3001
+
+  \indexspace
+
+\centerline{\bfseries --- Ē ---}\par\nobreak
   \item ē\leaders\hbox{$\cdot$}\hfill 262
   \item Ē\leaders\hbox{$\cdot$}\hfill 162
-  \item ea\leaders\hbox{$\cdot$}\hfill 3000
   \item ēa\leaders\hbox{$\cdot$}\hfill 3004
-  \item ez\leaders\hbox{$\cdot$}\hfill 3001
   \item ēz\leaders\hbox{$\cdot$}\hfill 3005
 
   \indexspace
@@ -83,11 +91,15 @@
 \centerline{\bfseries --- I ---}\par\nobreak
   \item i\leaders\hbox{$\cdot$}\hfill 209
   \item I\leaders\hbox{$\cdot$}\hfill 109
+  \item ia\leaders\hbox{$\cdot$}\hfill 5000
+  \item iz\leaders\hbox{$\cdot$}\hfill 5001
+
+  \indexspace
+
+\centerline{\bfseries --- Ī ---}\par\nobreak
   \item ī\leaders\hbox{$\cdot$}\hfill 264
   \item Ī\leaders\hbox{$\cdot$}\hfill 164
-  \item ia\leaders\hbox{$\cdot$}\hfill 5000
   \item īa\leaders\hbox{$\cdot$}\hfill 5004
-  \item iz\leaders\hbox{$\cdot$}\hfill 5001
   \item īz\leaders\hbox{$\cdot$}\hfill 5005
 
   \indexspace
@@ -205,11 +217,15 @@
 \centerline{\bfseries --- U ---}\par\nobreak
   \item u\leaders\hbox{$\cdot$}\hfill 221
   \item U\leaders\hbox{$\cdot$}\hfill 121
+  \item ua\leaders\hbox{$\cdot$}\hfill 10000
+  \item uz\leaders\hbox{$\cdot$}\hfill 10001
+
+  \indexspace
+
+\centerline{\bfseries --- Ū ---}\par\nobreak
   \item ū\leaders\hbox{$\cdot$}\hfill 269
   \item Ū\leaders\hbox{$\cdot$}\hfill 169
-  \item ua\leaders\hbox{$\cdot$}\hfill 10000
   \item ūa\leaders\hbox{$\cdot$}\hfill 10004
-  \item uz\leaders\hbox{$\cdot$}\hfill 10001
   \item ūz\leaders\hbox{$\cdot$}\hfill 10005
 
   \indexspace
