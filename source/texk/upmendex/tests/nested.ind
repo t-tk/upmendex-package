@@ -58,9 +58,14 @@
         \item_x3 sd(3) 28
   \item_0 pe
     \item_x1 qe(1) 29
-      \item_12 re(2) 31
-        \item_23 se
-          \item_x4 te(4) 30, 32
+      \item_12 re
+        \item_x3 se
+          \item_x4 te(4) 30
+  \item_0 pf
+    \item_x1 qf
+      \item_x2 rf(2) 31
+        \item_23 sf
+          \item_x4 tf(4) 32
 
   \indexspace
 
