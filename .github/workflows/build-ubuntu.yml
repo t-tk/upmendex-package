@@ -36,4 +36,17 @@ jobs:
           ./upmendex --help
           make check
 
+      - name: upmendex samples
+        shell: bash
+        run: |
+          cd ./doc/samples
+          UPMENDEX=../../source/Work/texk/upmendex/upmendex make -e all
+          make compare
+          cd ./alphabet
+          UPMENDEX=../../../source/Work/texk/upmendex/upmendex make -e alphabet
+          make compare
+          cd ../option
+          UPMENDEX=../../../source/Work/texk/upmendex/upmendex make -e all
+          make compare
+
       - run: echo "⛄ This job's status is ${{ job.status }}."
