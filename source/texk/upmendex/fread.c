@@ -151,8 +151,8 @@ LOOP:
 							j++;
 							cc=getestr(&buff[j],estr);
 							if (cc<0 || strchr(estr,encap)) {
-								fprintf(efp,"\nBad encap string in %s, line %d.",filename,ind[i].lnum);
-								if (efp!=stderr) fprintf(stderr,"\nBad encap string in %s, line %d.",filename,ind[i].lnum);
+								fprintf(efp,"\nError: Bad encap string in %s, line %d.",filename,ind[i].lnum);
+								if (efp!=stderr) fprintf(stderr,"\nError: Bad encap string in %s, line %d.",filename,ind[i].lnum);
 								eflg++;
 								reject++;
 								n++;
