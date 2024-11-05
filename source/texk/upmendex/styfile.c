@@ -88,7 +88,7 @@ void styread(const char *filename)
 			continue;
 		}
 		q=0;
-		for (j=0;j<MAXDEPTH;j++) {
+		for (j=0;;j++) {
 			sprintf(tmp,"item_%d",j);
 			if (getparam(buff,tmp,item_0[j])) {
 				q=1;
