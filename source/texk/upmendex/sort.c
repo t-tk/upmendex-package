@@ -5,9 +5,9 @@
 #include "exvar.h"
 #include "exhanzi.h"
 
-#define RULEBUFSIZE  29210+STYBUFSIZE
+#define RULEBUFSIZE  29652+STYBUFSIZE
 /*
-	length of collation rule in ICU 68.2
+	length of collation rule in ICU 76.1
 
 	icu_locale          length
 	ja                    6410
@@ -15,9 +15,9 @@
 	ko                   12577
 	ko@collation=unihan     51
 	ko@collation=search    782
-	zh  (pinin)          26909
+	zh  (pinin)          27369
 	zh@collation=unihan     82
-	zh@collation=stroke  29208
+	zh@collation=stroke  29651
 	zh@collation=zhuyin  28880
 */
 
