@@ -1,6 +1,6 @@
 %!PS-Adobe-3.0
 %%Creator: groff version 1.23.0
-%%CreationDate: Sat Mar  4 13:04:25 2023
+%%CreationDate: Sun Oct 27 21:31:01 2024
 %%DocumentNeededResources: font Times-Italic
 %%+ font Times-Roman
 %%+ font Times-Bold
@@ -24,6 +24,7 @@ currentpacking
 true setpacking
 }if
 /grops 120 dict dup begin
+% The ASCII code of the space character.
 /SC 32 def
 /A/show load def
 /B{0 SC 3 -1 roll widthshow}bind def
@@ -45,16 +46,18 @@ true setpacking
 /R{moveto 0 SC 3 -1 roll widthshow}bind def
 /S{moveto 0 exch ashow}bind def
 /T{moveto 0 exch 0 SC 5 2 roll awidthshow}bind def
+% name size font SF -
 /SF{
 findfont exch
 [exch dup 0 exch 0 exch neg 0 0]makefont
 dup setfont
 [exch/setfont cvx]cvx bind def
 }bind def
+% name a c d font MF -
 /MF{
 findfont
 [5 2 roll
-0 3 1 roll
+0 3 1 roll % b
 neg 0 0]makefont
 dup setfont
 [exch/setfont cvx]cvx bind def
@@ -63,13 +66,19 @@ dup setfont
 /RES 0 def
 /PL 0 def
 /LS 0 def
+% Enable manual feed.
+% MANUAL -
 /MANUAL{
 statusdict begin/manualfeed true store end
 }bind def
+% Guess the page length.
+% This assumes that the imageable area is vertically centered on the page.
+% PLG - length
 /PLG{
 gsave newpath clippath pathbbox grestore
 exch pop add exch pop
 }bind def
+% BP -
 /BP{
 /level0 save def
 1 setlinecap
@@ -87,47 +96,61 @@ LS{
 level0 restore
 showpage
 }def
+% centerx centery radius startangle endangle DA -
 /DA{
 newpath arcn stroke
 }bind def
+% x y SN - x' y'
+% round a position to nearest (pixel + (.25,.25))
 /SN{
 transform
 .25 sub exch .25 sub exch
 round .25 add exch round .25 add exch
 itransform
 }bind def
+% endx endy startx starty DL -
+% we round the endpoints of the line, so that parallel horizontal
+% and vertical lines will appear even
 /DL{
 SN
 moveto
 SN
 lineto stroke
 }bind def
+% centerx centery radius DC -
 /DC{
 newpath 0 360 arc closepath
 }bind def
 /TM matrix def
+%  width height centerx centery DE -
 /DE{
 TM currentmatrix pop
 translate scale newpath 0 0 .5 0 360 arc closepath
 TM setmatrix
 }bind def
+% these are for splines
 /RC/rcurveto load def
 /RL/rlineto load def
 /ST/stroke load def
 /MT/moveto load def
 /CL/closepath load def
+% fill the last path
+% r g b Fr -
 /Fr{
 setrgbcolor fill
 }bind def
+% c m y k Fk -
 /setcmykcolor where{
 pop
 /Fk{
 setcmykcolor fill
 }bind def
 }if
+% g Fg -
 /Fg{
 setgray fill
 }bind def
+% fill with the "current color"
 /FL/fill load def
 /LW/setlinewidth load def
 /Cr/setrgbcolor load def
@@ -136,6 +159,7 @@ pop
 /Ck/setcmykcolor load def
 }if
 /Cg/setgray load def
+% new_font_name encoding_vector old_font_name RE -
 /RE{
 findfont
 dup maxlength 1 index/FontName known not{1 add}if dict begin
@@ -150,6 +174,7 @@ dup/FontName exch def
 currentdict end definefont pop
 }bind def
 /DEFS 0 def
+% hpos vpos EBEGIN -
 /EBEGIN{
 moveto
 DEFS begin
@@ -157,11 +182,13 @@ DEFS begin
 /EEND/end load def
 /CNT 0 def
 /level1 0 def
+% llx lly newwid wid newht ht newllx newlly PBEGIN -
 /PBEGIN{
 /level1 save def
 translate
 div 3 1 roll div exch scale
 neg exch neg exch translate
+% set the graphics state to default values
 0 setgray
 0 setlinecap
 1 setlinewidth
@@ -180,6 +207,10 @@ newpath
 /CNT countdictstack def
 userdict begin
 /showpage{}def
+%
+%  Any included setpagedevice should be ignored.
+%  See: http://www.w-beer.de/doc/ps/.
+%
 /setpagedevice{}def
 mark
 }bind def
@@ -239,542 +270,539 @@ def/PL 792 def/LS false def/ENC0[/asciicircum/asciitilde/Scaron/Zcaron
 %%BeginPageSetup
 BP
 %%EndPageSetup
-/F0 10/Times-Italic@0 SF(UPMENDEX)71.48 48 Q/F1 10/Times-Roman@0 SF
+/F0 10/Times-Italic@0 SF(UPMENDEX)71.48 43 Q/F1 10/Times-Roman@0 SF
 109.16(\(1\) General).94 F(Commands Manual)2.5 E F0(UPMENDEX)111.14 E F1
-(\(1\)).94 E/F2 10.95/Times-Bold@0 SF -.219(NA)72 84 S(ME).219 E F1
-(upmende)108 96 Q 2.5(x\255M)-.15 G(ultilingual inde)-2.5 E 2.5(xp)-.15
-G(rocessor)-2.5 E F2(SYNOPSIS)72 112.8 Q/F3 10/Times-Bold@0 SF(upmendex)
-108 124.8 Q F1([-ilqrcgf] [)2.5 E F3(-s)A F0(sty)2.5 E F1 2.5(][)C F3
-(-d)-2.5 E F0(dic)2.5 E F1 2.5(][)C F3(-o)-2.5 E F0(ind)2.5 E F1 2.5(][)
-C F3(-t)-2.5 E F0(lo)2.5 E(g)-.1 E F1 2.5(][)C F3(-p)-2.5 E F0(no)2.5 E
-F1 2.5(][)C F3(--)-2.5 E F1 2.5(][)C F0(idx0 idx1 idx2 ...)A F1(])A F3
-(upmendex --help)108 136.8 Q F2(DESCRIPTION)72 153.6 Q F1 2.758
-(The program)108 165.6 R F0(upmende)5.258 E(x)-.2 E F1 2.758
-(is a general purpose multilingual hierarchical inde)5.258 F 5.257(xg)
--.15 G 2.757(enerator w)-5.257 F 2.757(orking with)-.1 F(upL)108 177.6 Q
-/F4 8/Times-Roman@0 SF(A)-3.6 -1.8 M F1(T)-1.5 1.8 M(E)-1.667 2.4 M .118
-(X, XeL)-1.25 -2.4 N F4(A)-3.6 -1.8 M F1(T)-1.5 1.8 M(E)-1.667 2.4 M
-2.618(Xa)-1.25 -2.4 O .118(nd LuaL)-2.618 F F4(A)-3.6 -1.8 M F1(T)-1.5
-1.8 M(E)-1.667 2.4 M .118(X; it accepts one or more input \214les \()
--1.25 -2.4 N F0(.idx)A F1 2.619(;o)C .119(ften produced by a te)-2.619 F
-.119(xt formatter)-.15 F .668(such as L)108 189.6 R F4(A)-3.6 -1.8 M F1
-(T)-1.5 1.8 M(E)-1.667 2.4 M 3.168(Xf)-1.25 -2.4 O .668(amilies\), sort\
-s the entries, and produces an output \214le which can be formatted.)
--3.268 F .667(It supports)5.667 F .336
-(Latin \(including non-English\), Greek, Cyrillic, K)108 201.6 R .336
-(orean Hangul and Han \(Hanzi ideographs\) scripts, as well)-.35 F .284
-(as Japanese Kana.)108 213.6 R .284(It is almost compatible with)5.284 F
-F0(mak)2.784 E(einde)-.1 E(x)-.2 E F1(and)2.784 E F0(mende)2.784 E(x)-.2
-E F1 2.784(,a)C .284(nd additional feature for handling)-2.784 F
-(readings of kanji w)108 225.6 Q(ords is also a)-.1 E -.25(va)-.2 G
-(ilable.).25 E .802(The formats of the input and output \214les are spe\
-ci\214ed in a style \214le.)108 237.6 R .803(The readings of kanji w)
-5.803 F .803(ords can be)-.1 F(speci\214ed in a dictionary \214le.)108
-249.6 Q(The inde)108 261.6 Q 2.5(xc)-.15 G(an ha)-2.5 E .3 -.15(ve u)-.2
-H 2.5(pt).15 G 2.5(ot)-2.5 G(hree le)-2.5 E -.15(ve)-.25 G
-(ls \(0, 1, and 2\) of subitem nesting.).15 E F2(OPTIONS)72 278.4 Q F3
-(-i)108 290.4 Q F1 -.8(Ta)158 290.4 S .2 -.1(ke i).8 H
+(\(1\)).94 E/F2 10.95/Times-Bold@0 SF -.219(NA)72 74 S(ME).219 E F1
+(upmende)97 86 Q 2.5(x\255M)-.15 G(ultilingual inde)-2.5 E 2.5(xp)-.15 G
+(rocessor)-2.5 E F2(SYNOPSIS)72 102.8 Q/F3 10/Times-Bold@0 SF(upmendex)
+97 114.8 Q F1([-ilqrcgf] [)2.5 E F3(-s)A F0(sty)2.5 E F1 2.5(][)C F3(-d)
+-2.5 E F0(dic)2.5 E F1 2.5(][)C F3(-o)-2.5 E F0(ind)2.5 E F1 2.5(][)C F3
+(-t)-2.5 E F0(lo)2.5 E(g)-.1 E F1 2.5(][)C F3(-p)-2.5 E F0(no)2.5 E F1
+2.5(][)C F3(--)-2.5 E F1 2.5(][)C F0(idx0 idx1 idx2 ...)A F1(])A F3
+(upmendex --help)97 126.8 Q F2(DESCRIPTION)72 143.6 Q F1 .445
+(The program)97 155.6 R F0(upmende)2.945 E(x)-.2 E F1 .445
+(is a general purpose multilingual hierarchical inde)2.945 F 2.944(xg)
+-.15 G .444(enerator w)-2.944 F .444(orking with upL)-.1 F/F4 8
+/Times-Roman@0 SF(A)-3.6 -1.8 M F1(T)-1.5 1.8 M(E)-1.667 2.4 M(X,)-1.25
+-2.4 M(XeL)97 167.6 Q F4(A)-3.6 -1.8 M F1(T)-1.5 1.8 M(E)-1.667 2.4 M
+3.592(Xa)-1.25 -2.4 O 1.092(nd LuaL)-3.592 F F4(A)-3.6 -1.8 M F1(T)-1.5
+1.8 M(E)-1.667 2.4 M 1.092(X; it accepts one or more input \214les \()
+-1.25 -2.4 N F0(.idx)A F1 3.592(;o)C 1.093(ften produced by a te)-3.592
+F 1.093(xt formatter such as)-.15 F(L)97 179.6 Q F4(A)-3.6 -1.8 M F1(T)
+-1.5 1.8 M(E)-1.667 2.4 M 3.292(Xf)-1.25 -2.4 O .792(amilies\), sorts t\
+he entries, and produces an output \214le which can be formatted.)-3.392
+F .791(It supports Latin \(in-)5.792 F .087
+(cluding non-English\), Greek, Cyrillic, K)97 191.6 R .087
+(orean Hangul and Han \(Hanzi ideographs\) scripts, as well as Japanese)
+-.35 F 3.628(Kana. It)97 203.6 R 1.128(is almost compatible with)3.628 F
+F0(mak)3.628 E(einde)-.1 E(x)-.2 E F1(and)3.628 E F0(mende)3.628 E(x)-.2
+E F1 3.628(,a)C 1.128(nd additional feature for handling readings of)
+-3.628 F(kanji w)97 215.6 Q(ords is also a)-.1 E -.25(va)-.2 G(ilable.)
+.25 E .802(The formats of the input and output \214les are speci\214ed \
+in a style \214le.)108 227.6 R .803(The readings of kanji w)5.803 F .803
+(ords can be)-.1 F(speci\214ed in a dictionary \214le.)108 239.6 Q
+(The inde)108 251.6 Q 2.5(xc)-.15 G(an ha)-2.5 E .3 -.15(ve u)-.2 H 2.5
+(pt).15 G 2.5<6f8c>-2.5 G .3 -.15(ve l)-2.5 H -2.15 -.25(ev e).15 H
+(ls \(0, 1, 2, 3, and 4\) of subitem nesting.).25 E F2(OPTIONS)72 268.4
+Q F3(-i)97 280.4 Q F1 -.8(Ta)147 280.4 S .2 -.1(ke i).8 H
 (nput from stdin, e).1 E -.15(ve)-.25 G 2.5(nw).15 G(hen inde)-2.5 E 2.5
-<788c>-.15 G(les are speci\214ed.)-2.5 E F3(-l)108 307.2 Q F1 .04
-(Set \264sort by character order\264. By def)158 307.2 R .04
-(ault, \264sort by w)-.1 F .04(ord order\264 is used.)-.1 F .04
-(Details are described be-)5.04 F(lo)158 319.2 Q -.65(w.)-.25 G F3(-q)
-108 336 Q F1(Quiet mode; send no message to)158 336 Q F0(stderr)2.5 E F1
-2.5(,e)C(xcept error messages and w)-2.65 E(arnings.)-.1 E F3(-r)108
-352.8 Q F1 .134(Disable implicit page range formation. By def)158 352.8
-R .135(ault, three or more successi)-.1 F .435 -.15(ve p)-.25 H .135
-(ages are automat-).15 F(ically abbre)158 364.8 Q
-(viated as a range \(e.g. 1\2115\).)-.25 E F3(-c)108 381.6 Q F1 1.748(C\
-ompress sequence of intermediate blanks \(space\(s\) and/or tab\(s\)\) \
-into a space and ignore)158 381.6 R(leading and trailing blank\(s\).)158
-393.6 Q(By def)5 E(ault, blanks in the inde)-.1 E 2.5(xk)-.15 G .3 -.15
-(ey a)-2.6 H(re retained.).15 E F3(-g)108 410.4 Q F1(Mak)158 410.4 Q
-3.267(eJ)-.1 G .767(apanese inde)-3.267 F 3.267(xh)-.15 G(ead)-3.267 E
-F0(A)3.267 E F1 .767(-line \()B F0 .767(A, Ka, Sa, ...)B F1 3.267(;1)C
-3.267(0c)-3.267 G .768(haracters\) of the)-3.267 F F0(gojuon)3.268 E F1
-.768(table \(Japanese)3.268 F(syllabary\). By def)158 422.4 Q
+<788c>-.15 G(les are speci\214ed.)-2.5 E F3(-l)97 297.2 Q F1 .728
+(Set \264sort by character order\264. By def)147 297.2 R .728
+(ault, \264sort by w)-.1 F .727(ord order\264 is used.)-.1 F .727
+(Details are described be-)5.727 F(lo)147 309.2 Q -.65(w.)-.25 G F3(-q)
+97 326 Q F1(Quiet mode; send no message to)147 326 Q F0(stderr)2.5 E F1
+2.5(,e)C(xcept error messages and w)-2.65 E(arnings.)-.1 E F3(-r)97
+342.8 Q F1 .767(Disable implicit page range formation. By def)147 342.8
+R .767(ault, three or more successi)-.1 F 1.067 -.15(ve p)-.25 H .767
+(ages are automati-).15 F(cally abbre)147 354.8 Q
+(viated as a range \(e.g. 1\2115\).)-.25 E F3(-c)97 371.6 Q F1 .003(Com\
+press sequence of intermediate blanks \(space\(s\) and/or tab\(s\)\) in\
+to a space and ignore leading)147 371.6 R(and trailing blank\(s\).)147
+383.6 Q(By def)5 E(ault, blanks in the inde)-.1 E 2.5(xk)-.15 G .3 -.15
+(ey a)-2.6 H(re retained.).15 E F3(-g)97 400.4 Q F1(Mak)147 400.4 Q
+2.813(eJ)-.1 G .313(apanese inde)-2.813 F 2.813(xh)-.15 G(ead)-2.813 E
+F0(A)2.813 E F1 .313(-line \()B F0 .313(A, Ka, Sa, ...)B F1 2.813(;1)C
+2.813(0c)-2.813 G .313(haracters\) of the)-2.813 F F0(gojuon)2.813 E F1
+.314(table \(Japanese syl-)2.813 F(labary\). By def)147 412.4 Q
 (ault, all 48 characters in the)-.1 E F0(gojuon)2.5 E F1
-(table are used.)2.5 E F3(-f)108 439.2 Q F1 -.15(Fo)158 439.2 S
+(table are used.)2.5 E F3(-f)97 429.2 Q F1 -.15(Fo)147 429.2 S
 (rce to output characters e).15 E -.15(ve)-.25 G 2.5(ni).15 G 2.5(ft)
 -2.5 G(he scripts are not supported by)-2.5 E F0(upmende)2.5 E(x)-.2 E
-F1(.)A F3(-s)108 456 Q F0(sty)2.5 E F1(Emplo)158 456 Q(y)-.1 E F0(sty)
-2.5 E F1(as the style \214le.)2.5 E F3(-d)108 472.8 Q F0(dic)2.5 E F1
-(Emplo)158 472.8 Q(y)-.1 E F0(dic)2.634 E F1 .134(as the dictionary \
-\214le. The dictionary \214le is composed of lists of <)2.634 F F0(inde)
-A(x_wor)-.2 E 2.5(dr)-.37 G(ead-)-2.87 E(ing)158 484.8 Q F1(>.)A F3(-o)
-108 501.6 Q F0(ind)2.5 E F1(Emplo)158 501.6 Q(y)-.1 E F0(ind)3.155 E F1
-.656(as the output inde)3.155 F 3.156<788c>-.15 G .656(le. By def)-3.156
-F .656(ault, the \214le name is created by appending the e)-.1 F(x-)-.15
-E(tension)158 513.6 Q F0(ind)2.5 E F1
-(to the base name of the \214rst input \214le.)2.5 E F3(-t)108 530.4 Q
-F0(lo)2.5 E(g)-.1 E F1(Emplo)158 530.4 Q(y)-.1 E F0(lo)3.212 E(g)-.1 E
-F1 .712(as the transcript \214le. By def)3.212 F .712
-(ault, the \214le name is created by appending the e)-.1 F(xten-)-.15 E
-(sion)158 542.4 Q F0(ilg)2.5 E F1
-(to the base name of the \214rst input \214le.)2.5 E F3(-p)108 559.2 Q
-F0(no)2.5 E F1 .054(Set the starting page number of the output inde)158
-559.2 R 2.554(xl)-.15 G .054(ist to be)-2.554 F F0(no)2.555 E F1 2.555
-(.T)C .055(he ar)-2.555 F(gument)-.18 E F0(no)2.555 E F1 .055
-(may be numeri-)2.555 F .46(cal or one of the follo)158 571.2 R(wing:)
--.25 E F0(any)2.96 E F1 .46(\(the ne)2.96 F .459
-(xt page to the end of contents\),)-.15 F F0(odd)2.959 E F1 .459
-(\(the ne)2.959 F .459(xt odd page)-.15 F(to the end of contents\),)158
-583.2 Q F0 -.15(ev)2.5 G(en).15 E F1(\(the ne)2.5 E(xt e)-.15 E -.15(ve)
--.25 G 2.5(np).15 G(age to the end of contents\).)-2.5 E F3(--help)108
-600 Q F1(Sho)158 600 Q 2.5(ws)-.25 G(ummary of options.)-2.5 E F3(--)108
-616.8 Q F1(Ar)158 616.8 Q .251(guments after)-.18 F F3(--)2.751 E F1
-.251(are not tak)2.751 F .251(en as options.)-.1 F .251
-(This is useful when the input \214le name starts with)5.251 F('-'.)158
-628.8 Q F2(STYLE FILE)72 657.6 Q F1 .455(The style \214le informs)108
-669.6 R F0(upmende)2.955 E(x)-.2 E F1 .455(about the format of the)2.955
-F F0(idx)2.955 E F1 .454
-(input \214les and the intended format of the \214nal)2.955 F .216
-(output \214le. The format is upper compatible with the one for)108
-681.6 R F0(mak)2.717 E(einde)-.1 E(x)-.2 E F1(and)2.717 E F0(mende)2.717
-E(x)-.2 E F1 5.217(.T)C .217(he style \214le contains)-5.217 F 2.541(al)
-108 693.6 S .041(ist of <)-2.541 F F0(speci\214er attrib)A(ute)-.2 E F1
-2.541(>p)C 2.541(airs. There)-2.541 F .041(are tw)2.541 F 2.541(ot)-.1 G
-.04(ypes of speci\214ers: input and output.)-2.541 F -.15(Pa)5.04 G .04
-(irs do not ha).15 F .34 -.15(ve t)-.2 H(o).15 E(appear in an)108 705.6
-Q 2.5(yp)-.15 G(articular order)-2.5 E 5(.A)-.55 G(line be)-2.5 E
-(gun by \264%\264 is a comment.)-.15 E(1)535 768 Q 0 Cg EP
+F1(.)A F3(-s)97 446 Q F0(sty)2.5 E F1(Emplo)147 446 Q(y)-.1 E F0(sty)2.5
+E F1(as the style \214le.)2.5 E F3(-d)97 462.8 Q F0(dic)2.5 E F1(Emplo)
+147 462.8 Q(y)-.1 E F0(dic)3.42 E F1 .919(as the dictionary \214le. The\
+ dictionary \214le is composed of lists of <)3.42 F F0(inde)A(x_wor)-.2
+E 2.5(dr)-.37 G(ead-)-2.87 E(ing)147 474.8 Q F1(>.)A F3(-o)97 491.6 Q F0
+(ind)2.5 E F1(Emplo)147 491.6 Q(y)-.1 E F0(ind)3.084 E F1 .584
+(as the output inde)3.084 F 3.084<788c>-.15 G .584(le. By def)-3.084 F
+.584(ault, the \214le name is created by appending the e)-.1 F(xten-)
+-.15 E(sion)147 503.6 Q F0(ind)2.5 E F1
+(to the base name of the \214rst input \214le.)2.5 E F3(-t)97 520.4 Q F0
+(lo)2.5 E(g)-.1 E F1(Emplo)147 520.4 Q(y)-.1 E F0(lo)3.066 E(g)-.1 E F1
+.566(as the transcript \214le. By def)3.066 F .565
+(ault, the \214le name is created by appending the e)-.1 F(xtension)-.15
+E F0(ilg)147 532.4 Q F1(to the base name of the \214rst input \214le.)
+2.5 E F3(-p)97 549.2 Q F0(no)2.5 E F1 .202
+(Set the starting page number of the output inde)147 549.2 R 2.703(xl)
+-.15 G .203(ist to be)-2.703 F F0(no)2.703 E F1 2.703(.T)C .203(he ar)
+-2.703 F(gument)-.18 E F0(no)2.703 E F1 .203(may be numerical)2.703 F
+.445(or one of the follo)147 561.2 R(wing:)-.25 E F0(any)2.945 E F1 .445
+(\(the ne)2.945 F .445(xt page to the end of contents\),)-.15 F F0(odd)
+2.944 E F1 .444(\(the ne)2.944 F .444(xt odd page to the)-.15 F
+(end of contents\),)147 573.2 Q F0 -.15(ev)2.5 G(en).15 E F1(\(the ne)
+2.5 E(xt e)-.15 E -.15(ve)-.25 G 2.5(np).15 G
+(age to the end of contents\).)-2.5 E F3(--help)97 590 Q F1(Sho)147 590
+Q 2.5(ws)-.25 G(ummary of options.)-2.5 E F3(--)97 606.8 Q F1(Ar)147
+606.8 Q(guments after)-.18 E F3(--)2.5 E F1(are not tak)2.5 E
+(en as options.)-.1 E
+(This is useful when the input \214le name starts with '-'.)5 E F2
+(STYLE FILE)72 635.6 Q F1 .051(The style \214le informs)97 647.6 R F0
+(upmende)2.551 E(x)-.2 E F1 .051(about the format of the)2.551 F F0(idx)
+2.551 E F1 .052
+(input \214les and the intended format of the \214nal out-)2.552 F .305
+(put \214le. The format is upper compatible with the one for)97 659.6 R
+F0(mak)2.805 E(einde)-.1 E(x)-.2 E F1(and)2.805 E F0(mende)2.805 E(x)-.2
+E F1 5.305(.T)C .304(he style \214le contains a list)-5.305 F .25(of <)
+97 671.6 R F0(speci\214er attrib)A(ute)-.2 E F1 2.75(>p)C 2.75
+(airs. There)-2.75 F .25(are tw)2.75 F 2.75(ot)-.1 G .25
+(ypes of speci\214ers: input and output.)-2.75 F -.15(Pa)5.25 G .25
+(irs do not ha).15 F .55 -.15(ve t)-.2 H 2.75(oa).15 G(ppear)-2.75 E
+(in an)97 683.6 Q 2.5(yp)-.15 G(articular order)-2.5 E 5(.A)-.55 G
+(line be)-2.5 E(gun by \264%\264 is a comment.)-.15 E F3
+(Input \214le style parameter)97 712.4 Q F1(1)535 756 Q 0 Cg EP
 %%Page: 2 2
 %%BeginPageSetup
 BP
 %%EndPageSetup
-/F0 10/Times-Italic@0 SF(UPMENDEX)71.48 48 Q/F1 10/Times-Roman@0 SF
+/F0 10/Times-Italic@0 SF(UPMENDEX)71.48 43 Q/F1 10/Times-Roman@0 SF
 109.16(\(1\) General).94 F(Commands Manual)2.5 E F0(UPMENDEX)111.14 E F1
-(\(1\)).94 E/F2 10/Times-Bold@0 SF(Input \214le style parameter)108 84 Q
--.1(ke)108 100.8 S(yw).1 E(ord)-.1 E F1(<string>)5 E("\\\\inde)258 100.8
-Q -.15(xe)-.15 G(ntry").15 E 2.36(Command with an ar)258 112.8 R 2.36
-(gument of inde)-.18 F 4.86(xe)-.15 G 2.36(ntry which is going to be)
--4.86 F(processed.)258 124.8 Q F2(ar)108 141.6 Q(g_open)-.1 E F1(<char>)
-5 E<b47bb4>258 141.6 Q(Opening delimiter which sho)258 153.6 Q
-(ws the be)-.25 E(ginning of inde)-.15 E 2.5(xe)-.15 G(ntry)-2.5 E(.)
--.65 E F2(ar)108 170.4 Q(g_close)-.1 E F1(<char>)5 E<b47db4>258 170.4 Q
-(Closing delimiter which sho)258 182.4 Q(ws the end of inde)-.25 E 2.5
-(xe)-.15 G(ntry)-2.5 E(.)-.65 E F2(range_open)108 199.2 Q F1(<char>)5 E
-<b428b4>258 199.2 Q(Opening delimiter which sho)258 211.2 Q(ws the be)
--.25 E(ginning of page range.)-.15 E F2(range_close)108 228 Q F1(<char>)
-5 E<b429b4>258 228 Q(Closing delimiter which sho)258 240 Q
-(ws the end of page range.)-.25 E F2(le)108 256.8 Q -.1(ve)-.15 G(l).1 E
-F1(<char>)5 E<b421b4>258 256.8 Q(Delimiter which sho)258 268.8 Q(ws lo)
--.25 E(wer le)-.25 E -.15(ve)-.25 G(l.).15 E F2(actual)108 285.6 Q F1
-(<char>)5 E<b440b4>258 285.6 Q .917(Symbol which sho)258 297.6 R .917
-(ws the ne)-.25 F .916(xt sequence is to appear as inde)-.15 F 3.416(xs)
--.15 G(trings)-3.416 E(in the output \214le.)258 309.6 Q F2(encap)108
-326.4 Q F1(<char>)5 E<b47cb4>258 326.4 Q 1.66(Symbol which sho)258 338.4
-R 1.66(ws the ne)-.25 F 1.66(xt sequence is to be used as command)-.15 F
-(name attached to the page number)258 350.4 Q(.)-.55 E F2
-(page_compositor)108 367.2 Q F1(<string>)5 E("-")258 367.2 Q 1.619
-(Separator between page le)258 379.2 R -.15(ve)-.25 G 1.619
-(ls for a style with multi-le).15 F -.15(ve)-.25 G 1.619(ls of page).15
-F(numbers.)258 391.2 Q F2(page_pr)108 408 Q(ecedence)-.18 E F1(<string>)
-5 E("rnaRA")258 408 Q .225(Priority of e)258 420 R .225
-(xpression for page number)-.15 F 5.225<2eb4>-.55 G .226
-(R\264 and \264r\264 correspond to Ro-)-5.225 F 1.569
-(man. \264n\264 corresponds to arabic numeral.)258 432 R 1.569
-(\264A\264 and \264a\264 correspond to)6.569 F(Latin alphabet.)258 444 Q
-F2(quote)108 460.8 Q F1(<char>)5 E<b422b4>258 460.8 Q
-(Escape character for)258 472.8 Q F0(upmende)2.5 E(x)-.2 E F1
-(parameters.)2.5 E F2(escape)108 489.6 Q F1(<char>)5 E<b45c5cb4>258
-489.6 Q(Escape character for general scripts.)258 501.6 Q F2
-(Output \214le style parameter)108 525.6 Q(pr)108 542.4 Q(eamble)-.18 E
-F1(<string>)5 E("\\\\be)258 542.4 Q(gin{theinde)-.15 E(x}\\n")-.15 E
-(Preamble of output \214le.)258 554.4 Q F2(postamble)108 571.2 Q F1
-(<string>)5 E("\\n\\n\\\\end{theinde)258 571.2 Q(x}\\n")-.15 E
-(Postamble of output \214le.)258 583.2 Q F2(setpage_pr)108 600 Q(e\214x)
--.18 E F1(<string>)5 E 2.5("\\n \\\\setcounter{page}{")258 600 R
-(Pre\214x of page number if start page is designated.)258 612 Q F2
-(setpage_suf\214x)108 628.8 Q F1(<string>)5 E("}\\n")258 628.8 Q(Suf)258
-640.8 Q(\214x of page number if start page is designated.)-.25 E F2(gr)
-108 657.6 Q(oup_skip)-.18 E F1(<string>)5 E 2.5("\\n\\n \\\\inde)258
-657.6 R(xspace\\n")-.15 E(Strings to insert v)258 669.6 Q
+(\(1\)).94 E/F2 10/Times-Bold@0 SF -.1(ke)97 74 S(yw).1 E(ord)-.1 E F1
+(<string>)5 E("\\\\inde)247 74 Q -.15(xe)-.15 G(ntry").15 E 3.36
+(Command with an ar)247 86 R 3.36(gument of inde)-.18 F 5.86(xe)-.15 G
+3.36(ntry which is going to be)-5.86 F(processed.)247 98 Q F2(ar)97
+114.8 Q(g_open)-.1 E F1(<char>)5 E<b47bb4>247 114.8 Q
+(Opening delimiter which sho)247 126.8 Q(ws the be)-.25 E
+(ginning of inde)-.15 E 2.5(xe)-.15 G(ntry)-2.5 E(.)-.65 E F2(ar)97
+143.6 Q(g_close)-.1 E F1(<char>)5 E<b47db4>247 143.6 Q
+(Closing delimiter which sho)247 155.6 Q(ws the end of inde)-.25 E 2.5
+(xe)-.15 G(ntry)-2.5 E(.)-.65 E F2(range_open)97 172.4 Q F1(<char>)5 E
+<b428b4>247 172.4 Q(Opening delimiter which sho)247 184.4 Q(ws the be)
+-.25 E(ginning of page range.)-.15 E F2(range_close)97 201.2 Q F1
+(<char>)5 E<b429b4>247 201.2 Q(Closing delimiter which sho)247 213.2 Q
+(ws the end of page range.)-.25 E F2(le)97 230 Q -.1(ve)-.15 G(l).1 E F1
+(<char>)5 E<b421b4>247 230 Q(Delimiter which sho)247 242 Q(ws lo)-.25 E
+(wer le)-.25 E -.15(ve)-.25 G(l.).15 E F2(actual)97 258.8 Q F1(<char>)5
+E<b440b4>247 258.8 Q .9(Symbol which sho)247 270.8 R .9(ws the ne)-.25 F
+.9(xt sequence is to appear as inde)-.15 F 3.4(xs)-.15 G .9(trings in)
+-3.4 F(the output \214le.)247 282.8 Q F2(encap)97 299.6 Q F1(<char>)5 E
+<b47cb4>247 299.6 Q .425(Symbol which sho)247 311.6 R .425(ws the ne)
+-.25 F .425(xt sequence is to be used as command name)-.15 F
+(attached to the page number)247 323.6 Q(.)-.55 E F2(page_compositor)97
+340.4 Q F1(<string>)5 E("-")247 340.4 Q .325(Separator between page le)
+247 352.4 R -.15(ve)-.25 G .325(ls for a style with multi-le).15 F -.15
+(ve)-.25 G .326(ls of page num-).15 F(bers.)247 364.4 Q F2(page_pr)97
+381.2 Q(ecedence)-.18 E F1(<string>)5 E("rnaRA")247 381.2 Q 1.226
+(Priority of e)247 393.2 R 1.226(xpression for page number)-.15 F 6.225
+<2eb4>-.55 G 1.225(R\264 and \264r\264 correspond to Ro-)-6.225 F .28
+(man. \264n\264 corresponds to arabic numeral.)247 405.2 R .28
+(\264A\264 and \264a\264 correspond to Latin)5.28 F(alphabet.)247 417.2
+Q F2(quote)97 434 Q F1(<char>)5 E<b422b4>247 434 Q(Escape character for)
+247 446 Q F0(upmende)2.5 E(x)-.2 E F1(parameters.)2.5 E F2(escape)97
+462.8 Q F1(<char>)5 E<b45c5cb4>247 462.8 Q
+(Escape character for general scripts.)247 474.8 Q F2
+(Output \214le style parameter)97 498.8 Q(pr)97 515.6 Q(eamble)-.18 E F1
+(<string>)5 E("\\\\be)247 515.6 Q(gin{theinde)-.15 E(x}\\n")-.15 E
+(Preamble of output \214le.)247 527.6 Q F2(postamble)97 544.4 Q F1
+(<string>)5 E("\\n\\n\\\\end{theinde)247 544.4 Q(x}\\n")-.15 E
+(Postamble of output \214le.)247 556.4 Q F2(setpage_pr)97 573.2 Q
+(e\214x)-.18 E F1(<string>)5 E 2.5("\\n \\\\setcounter{page}{")247 573.2
+R(Pre\214x of page number if start page is designated.)247 585.2 Q F2
+(setpage_suf\214x)97 602 Q F1(<string>)5 E("}\\n")247 602 Q(Suf)247 614
+Q(\214x of page number if start page is designated.)-.25 E F2(gr)97
+630.8 Q(oup_skip)-.18 E F1(<string>)5 E 2.5("\\n\\n \\\\inde)247 630.8 R
+(xspace\\n")-.15 E(Strings to insert v)247 642.8 Q
 (ertical space before ne)-.15 E 2.5(ws)-.25 G(ection of inde)-2.5 E(x.)
--.15 E F2(lethead_pr)108 686.4 Q(e\214x)-.18 E F1(<string>)5 E("")258
-686.4 Q(Pre\214x of heading for ne)258 698.4 Q
-(wly appeared heading letter)-.25 E(.)-.55 E(2)535 768 Q 0 Cg EP
+-.15 E F2(lethead_pr)97 659.6 Q(e\214x)-.18 E F1(<string>)5 E("")247
+659.6 Q(Pre\214x of heading for ne)247 671.6 Q
+(wly appeared heading letter)-.25 E(.)-.55 E F2(heading_pr)97 688.4 Q
+(e\214x)-.18 E F1(<string>)5 E("")247 688.4 Q(Same as)247 700.4 Q F2
+(lethead_pr)2.5 E(e\214x)-.18 E F1 2.5(.\()C(compatible with mak)-2.5 E
+(einde)-.1 E(x\))-.15 E(2)535 756 Q 0 Cg EP
 %%Page: 3 3
 %%BeginPageSetup
 BP
 %%EndPageSetup
-/F0 10/Times-Italic@0 SF(UPMENDEX)71.48 48 Q/F1 10/Times-Roman@0 SF
+/F0 10/Times-Italic@0 SF(UPMENDEX)71.48 43 Q/F1 10/Times-Roman@0 SF
 109.16(\(1\) General).94 F(Commands Manual)2.5 E F0(UPMENDEX)111.14 E F1
-(\(1\)).94 E/F2 10/Times-Bold@0 SF(heading_pr)108 84 Q(e\214x)-.18 E F1
-(<string>)5 E("")258 84 Q(Same as)258 96 Q F2(lethead_pr)2.5 E(e\214x)
--.18 E F1 2.5(.\()C(compatible with mak)-2.5 E(einde)-.1 E(x\))-.15 E F2
-(lethead_suf\214x)108 112.8 Q F1(<string>)5 E("")258 112.8 Q(Suf)258
-124.8 Q(\214x of heading for ne)-.25 E(wly appeared heading letter)-.25
-E(.)-.55 E F2(heading_suf\214x)108 141.6 Q F1(<string>)5 E("")258 141.6
-Q(Same as)258 153.6 Q F2(lethead_suf\214x)2.5 E F1 2.5(.\()C
-(compatible with mak)-2.5 E(einde)-.1 E(x\))-.15 E F2(lethead_\215ag)108
-170.4 Q F1(<number>)5 E(0)258 170.4 Q .891
+(\(1\)).94 E/F2 10/Times-Bold@0 SF(lethead_suf\214x)97 74 Q F1(<string>)
+5 E("")247 74 Q(Suf)247 86 Q(\214x of heading for ne)-.25 E
+(wly appeared heading letter)-.25 E(.)-.55 E F2(heading_suf\214x)97
+102.8 Q F1(<string>)5 E("")247 102.8 Q(Same as)247 114.8 Q F2
+(lethead_suf\214x)2.5 E F1 2.5(.\()C(compatible with mak)-2.5 E(einde)
+-.1 E(x\))-.15 E F2(lethead_\215ag)97 131.6 Q F1(<number>)5 E(0)247
+131.6 Q 1.891
 (Flag to control output of heading letters in Latin, Greek and Cyrillic)
-258 182.4 R 3.905(scripts. \2640\264,)258 194.4 R 1.405
-(\2641\264, \264-1\264 and \2642\264 respecti)3.905 F -.15(ve)-.25 G
-1.405(ly denotes no output, upper).15 F(-)-.2 E(case, lo)258 206.4 Q
-(wercase and titlecase.)-.25 E F2(heading_\215ag)108 223.2 Q F1
-(<number>)5 E(0)258 223.2 Q .467(Same as)258 235.2 R F2(lethead_\215ag)
-2.967 E F1 2.968(.\()C .468(Note: mak)-2.968 F(einde)-.1 E 2.968(xu)-.15
-G .468(ses a dif)-2.968 F .468(ferent name)-.25 F F2(head-)2.968 E
-(ings_\215ag)258 247.2 Q F1(\))A F2(headings_\215ag)108 264 Q F1
-(<number>)5 E(0)258 264 Q(Same as)258 276 Q F2(lethead_\215ag)2.5 E F1
-2.5(.\()C(compatible with mak)-2.5 E(einde)-.1 E(x\))-.15 E F2
-(kana_head)108 292.8 Q F1(<string>)5 E("")258 292.8 Q 1.711
-(Heading characters of Kana speci\214ed by a string.)258 304.8 R 1.711
-(By def)6.711 F 1.711(ault, it is)-.1 F .195(controlled by)258 316.8 R
-F2(letter_head)2.695 E F1 .196(and command line option)2.695 F F2(-g)
-2.696 E F1 5.196(.\()C .196(Extended by)-5.196 F(upmende)258 328.8 Q
-(x\))-.15 E F2(hangul_head)108 345.6 Q F1(<string>)5 E(")258 345.6 Q/F3
+247 143.6 R 3.347(scripts. \2640\264,)247 155.6 R .847
+(\2641\264, \264-1\264 and \2642\264 respecti)3.347 F -.15(ve)-.25 G
+.847(ly denotes no output, uppercase,).15 F(lo)247 167.6 Q
+(wercase and titlecase.)-.25 E F2(heading_\215ag)97 184.4 Q F1(<number>)
+5 E(0)247 184.4 Q 1.69(Same as)247 196.4 R F2(lethead_\215ag)4.19 E F1
+4.19(.\()C 1.69(Note: mak)-4.19 F(einde)-.1 E 4.19(xu)-.15 G 1.69
+(ses a dif)-4.19 F 1.69(ferent name)-.25 F F2(head-)4.19 E(ings_\215ag)
+247 208.4 Q F1(\))A F2(headings_\215ag)97 225.2 Q F1(<number>)5 E(0)247
+225.2 Q(Same as)247 237.2 Q F2(lethead_\215ag)2.5 E F1 2.5(.\()C
+(compatible with mak)-2.5 E(einde)-.1 E(x\))-.15 E F2(kana_head)97 254 Q
+F1(<string>)5 E("")247 254 Q .796
+(Heading characters of Kana speci\214ed by a string.)247 266 R .796
+(By def)5.796 F .796(ault, it is con-)-.1 F 1.137(trolled by)247 278 R
+F2(letter_head)3.637 E F1 1.137(and command line option)3.637 F F2(-g)
+3.637 E F1 6.137(.\()C 1.137(Extended by up-)-6.137 F(mende)247 290 Q
+(x\))-.15 E F2(hangul_head)97 306.8 Q F1(<string>)5 E(")247 306.8 Q/F3
 10/HYSMyeongJo-Medium-UniKS-UTF16-H SF<31313134313731393141314231453147
-3148314A314B314C314D314E>A F1(")A .262
-(Heading characters of Hangul speci\214ed by a string.)258 357.6 R .262
-(\(Extended by up-)5.262 F(mende)258 369.6 Q(x\))-.15 E F2(tumunja)108
-386.4 Q F1(<string>)5 E(")258 386.4 Q F3<31313134313731393141314231453147
-3148314A314B314C314D314E>A F1(")A .417
-(Heading characters of Hangul speci\214ed by a string.)258 398.4 R .417
-(\(Deprecated, Ex-)5.417 F(tended by upmende)258 410.4 Q(x\))-.15 E F2
-(hanzi_head)108 427.2 Q F1(<string>)5 E("")258 427.2 Q .211(Heading str\
-ings of hanzi \(Kanji, Hanja\) speci\214ed by a string, which is)258
-439.2 R(concatenated of items with a separator \264;\264.)258 451.2 Q
-(\(Extended by upmende)5 E(x\))-.15 E F2(de)108 468 Q -.1(va)-.15 G
-(nagari_head).1 E F1(<string>)5 E("\(De)258 468 Q -.25(va)-.25 G(nag).25
-E(ari script\)")-.05 E .676(Heading characters of De)258 480 R -.25(va)
--.25 G(nag).25 E .676(ari speci\214ed by a string.)-.05 F(\(Experimen-)
-5.677 E(tal, Extended by upmende)258 492 Q(x\))-.15 E F2(thai_head)108
-508.8 Q F1(<string>)5 E("\(Thai script\)")258 508.8 Q .878
-(Heading characters of Thai script speci\214ed by a string.)258 520.8 R
-(\(Experimen-)5.877 E(tal, Extended by upmende)258 532.8 Q(x\))-.15 E F2
-(item_0)108 549.6 Q F1(<string>)5 E 2.5("\\n \\\\item)258 549.6 R(")2.5
-E(Command sequence inserted between primary le)258 561.6 Q -.15(ve)-.25
-G 2.5(le).15 G(ntries.)-2.5 E F2(item_1)108 578.4 Q F1(<string>)5 E 10
-("\\n \\\\subitem)258 578.4 R(")2.5 E
-(Command sequence inserted between sub le)258 590.4 Q -.15(ve)-.25 G 2.5
-(le).15 G(ntries.)-2.5 E F2(item_2)108 607.2 Q F1(<string>)5 E 15
-("\\n \\\\subsubitem)258 607.2 R(")2.5 E
-(Command sequence inserted between subsub le)258 619.2 Q -.15(ve)-.25 G
-2.5(le).15 G(ntries.)-2.5 E F2(item_01)108 636 Q F1(<string>)5 E 7.5
-("\\n \\\\subitem)258 636 R(")2.5 E
-(Command sequence inserted between primaly and sub le)258 648 Q -.15(ve)
--.25 G 2.5(le).15 G(ntries.)-2.5 E F2(item_x1)108 664.8 Q F1(<string>)5
-E 7.5("\\n \\\\subitem)258 664.8 R(")2.5 E 1.626
-(Command sequence inserted between primary and sub le)258 676.8 R -.15
-(ve)-.25 G 4.127(le).15 G(ntries)-4.127 E(when main entry does not ha)
-258 688.8 Q .3 -.15(ve p)-.2 H(age number).15 E(.)-.55 E F2(item_12)108
-705.6 Q F1(<string>)5 E 7.5("\\n \\\\subsubitem)258 705.6 R(")2.5 E
-(Command sequence inserted between sub and subsub le)258 717.6 Q -.15
-(ve)-.25 G 2.5(le).15 G(ntries.)-2.5 E(3)535 768 Q 0 Cg EP
+3148314A314B314C314D314E>A F1(")A 1.362
+(Heading characters of Hangul speci\214ed by a string.)247 318.8 R 1.362
+(\(Extended by up-)6.362 F(mende)247 330.8 Q(x\))-.15 E F2(tumunja)97
+347.6 Q F1(<string>)5 E(")247 347.6 Q F3<31313134313731393141314231453147
+3148314A314B314C314D314E>A F1(")A 1.639
+(Heading characters of Hangul speci\214ed by a string.)247 359.6 R 1.638
+(\(Deprecated, Ex-)6.639 F(tended by upmende)247 371.6 Q(x\))-.15 E F2
+(hanzi_head)97 388.4 Q F1(<string>)5 E("")247 388.4 Q 1.211(Heading str\
+ings of hanzi \(Kanji, Hanja\) speci\214ed by a string, which is)247
+400.4 R(concatenated of items with a separator \264;\264.)247 412.4 Q
+(\(Extended by upmende)5 E(x\))-.15 E F2(de)97 429.2 Q -.1(va)-.15 G
+(nagari_head).1 E F1(<string>)5 E("\(De)247 429.2 Q -.25(va)-.25 G(nag)
+.25 E(ari script\)")-.05 E .905(Heading characters of De)247 441.2 R
+-.25(va)-.25 G(nag).25 E .905(ari speci\214ed by a string.)-.05 F
+(\(Experimental,)5.905 E(Extended by upmende)247 453.2 Q(x\))-.15 E F2
+(thai_head)97 470 Q F1(<string>)5 E("\(Thai script\)")247 470 Q 1.081
+(Heading characters of Thai script speci\214ed by a string.)247 482 R
+(\(Experimental,)6.082 E(Extended by upmende)247 494 Q(x\))-.15 E F2
+(item_0)97 510.8 Q F1(<string>)5 E 2.5("\\n \\\\item)247 510.8 R(")2.5 E
+F2(item_1)97 527.6 Q F1(<string>)5 E 7.5("\\n \\\\subitem)247 527.6 R(")
+2.5 E F2(item_2)97 544.4 Q F1(<string>)5 E 12.5("\\n \\\\subsubitem)247
+544.4 R(")2.5 E F2(item_3)97 561.2 Q F1(<string>)5 E 17.5
+("\\n \\\\subsubsubitem)247 561.2 R(")2.5 E F2(item_4)97 578 Q F1
+(<string>)5 E 22.5("\\n \\\\subsubsubsubitem)247 578 R(")2.5 E 1.23
+(Command sequence inserted between tw)247 590 R 3.73(op)-.1 G(rimary)
+-3.73 E 3.73(,t)-.65 G 1.43 -.1(wo s)-3.73 H(econdary).1 E 3.73(,e)-.65
+G(tc.)-3.73 E(le)247 602 Q -.15(ve)-.25 G 2.5(le).15 G(ntries.)-2.5 E F2
+(item_01)97 618.8 Q F1(<string>)5 E 7.5("\\n \\\\subitem)247 618.8 R(")
+2.5 E F2(item_12)97 635.6 Q F1(<string>)5 E 12.5("\\n \\\\subsubitem)247
+635.6 R(")2.5 E F2(item_23)97 652.4 Q F1(<string>)5 E 17.5
+("\\n \\\\subsubsubitem)247 652.4 R(")2.5 E F2(item_34)97 669.2 Q F1
+(<string>)5 E 22.5("\\n \\\\subsubsubsubitem)247 669.2 R(")2.5 E .531
+(Command sequence inserted between primaly and secondary)247 681.2 R
+3.032(,s)-.65 G(econdary)-3.032 E(and tertiary)247 693.2 Q 2.5(,e)-.65 G
+(tc. le)-2.5 E -.15(ve)-.25 G 2.5(le).15 G(ntries.)-2.5 E(3)535 756 Q 0
+Cg EP
 %%Page: 4 4
 %%BeginPageSetup
 BP
 %%EndPageSetup
-/F0 10/Times-Italic@0 SF(UPMENDEX)71.48 48 Q/F1 10/Times-Roman@0 SF
+/F0 10/Times-Italic@0 SF(UPMENDEX)71.48 43 Q/F1 10/Times-Roman@0 SF
 109.16(\(1\) General).94 F(Commands Manual)2.5 E F0(UPMENDEX)111.14 E F1
-(\(1\)).94 E/F2 10/Times-Bold@0 SF(item_x2)108 84 Q F1(<string>)5 E 7.5
-("\\n \\\\subsubitem)258 84 R(")2.5 E 2.111
-(Command sequence inserted between sub and subsub le)258 96 R -.15(ve)
--.25 G 4.611(le).15 G(ntries)-4.611 E(when sub le)258 108 Q -.15(ve)-.25
-G 2.5(le).15 G(ntry does not ha)-2.5 E .3 -.15(ve p)-.2 H(age number).15
-E(.)-.55 E F2(delim_0)108 124.8 Q F1(<string>)5 E(", ")258 124.8 Q
-(Delimiter string between primary le)258 136.8 Q -.15(ve)-.25 G 2.5(le)
-.15 G(ntry and \214rst page number)-2.5 E(.)-.55 E F2(delim_1)108 153.6
-Q F1(<string>)5 E(", ")258 153.6 Q(Delimiter string between sub le)258
-165.6 Q -.15(ve)-.25 G 2.5(le).15 G(ntry and \214rst page number)-2.5 E
-(.)-.55 E F2(delim_2)108 182.4 Q F1(<string>)5 E(", ")258 182.4 Q
-(Delimiter string between subsub le)258 194.4 Q -.15(ve)-.25 G 2.5(le)
-.15 G(ntry and \214rst page number)-2.5 E(.)-.55 E F2(delim_n)108 211.2
-Q F1(<string>)5 E(", ")258 211.2 Q .46
-(Delimiter string between page numbers commonly used for an)258 223.2 R
-2.96(ye)-.15 G(ntry)-2.96 E(le)258 235.2 Q -.15(ve)-.25 G(l.).15 E F2
-(delim_r)108 252 Q F1(<string>)5 E("--")258 252 Q
-(Delimiter string between pages to sho)258 264 Q 2.5(wp)-.25 G
-(age range.)-2.5 E F2(delim_t)108 280.8 Q F1(<string>)5 E("")258 280.8 Q
-(Delimiter string output at the end of page number list.)258 292.8 Q F2
-(suf\214x_2p)108 309.6 Q F1(<string>)5 E("")258 309.6 Q 1.154
-(String to be inserted in place of)258 321.6 R F2(delim_n)3.654 E F1
-1.154(and the ne)3.654 F 1.154(xt page number)-.15 F(when the tw)258
-333.6 Q 2.5(op)-.1 G(ages are contiguous.)-2.5 E(It w)108 345.6 Q
-(orks only when the parameter is de\214ned.)-.1 E F2(suf\214x_3p)108
-362.4 Q F1(<string>)5 E("")258 362.4 Q 1.096
-(String to be inserted in place of)258 374.4 R F2(delim_r)3.596 E F1
-1.096(and the third page number)3.596 F 1.021
-(when the three pages are contiguous.)258 386.4 R 1.021
-(The parameter is prior to)6.021 F F2(suf-)3.52 E(\214x_mp)258 398.4 Q
-F1(.)A(It w)108 410.4 Q(orks only when the parameter is de\214ned.)-.1 E
-F2(suf\214x_mp)108 427.2 Q F1(<string>)5 E("")258 427.2 Q 1.512
-(String to be inserted in place of)258 439.2 R F2(delim_r)4.013 E F1
-1.513(and the last page number)4.013 F
-(when the three or more pages are contiguous.)258 451.2 Q(It w)108 463.2
-Q(orks only when the parameter is de\214ned.)-.1 E F2(encap_pr)108 480 Q
-(e\214x)-.18 E F1(<string>)5 E("\\\\")258 480 Q 1.645
-(Pre\214x for an encapsulating command when the encapsulating com-)258
-492 R(mand is added to the page number)258 504 Q(.)-.55 E F2
-(encap_in\214x)108 520.8 Q F1(<string>)5 E("{")258 520.8 Q .629
-(Pre\214x just before the page number when the encapsulating command)258
-532.8 R(is added to the page number)258 544.8 Q(.)-.55 E F2
-(encap_suf\214x)108 561.6 Q F1(<string>)5 E("}".)258 561.6 Q(Suf)258
-573.6 Q 2.261
-(\214x after the page number when the encapsulating command is)-.25 F
-(added to the page number)258 585.6 Q(.)-.55 E F2(line_max)108 602.4 Q
-F1(<number>)5 E(72)258 602.4 Q(Maximum number of one line.)258 614.4 Q
+(\(1\)).94 E/F2 10/Times-Bold@0 SF(item_x1)97 74 Q F1(<string>)5 E 7.5
+("\\n \\\\subitem)247 74 R(")2.5 E F2(item_x2)97 90.8 Q F1(<string>)5 E
+12.5("\\n \\\\subsubitem)247 90.8 R(")2.5 E F2(item_x3)97 107.6 Q F1
+(<string>)5 E 17.5("\\n \\\\subsubsubitem)247 107.6 R(")2.5 E F2
+(item_x4)97 124.4 Q F1(<string>)5 E 22.5("\\n \\\\subsubsubsubitem)247
+124.4 R(")2.5 E .453
+(Command sequence inserted between primary and secondary)247 136.4 R
+2.952(,s)-.65 G(econdary)-2.952 E .775(and tertiary)247 148.4 R 3.275
+(,e)-.65 G .776(tc. le)-3.275 F -.15(ve)-.25 G 3.276(le).15 G .776
+(ntries when the higher le)-3.276 F -.15(ve)-.25 G 3.276(le).15 G .776
+(ntry does not ha)-3.276 F -.15(ve)-.2 G(page number)247 160.4 Q(.)-.55
+E F2(delim_0)97 177.2 Q F1(<string>)5 E(", ")247 177.2 Q F2(delim_1)97
+194 Q F1(<string>)5 E(", ")247 194 Q F2(delim_2)97 210.8 Q F1(<string>)5
+E(", ")247 210.8 Q F2(delim_3)97 227.6 Q F1(<string>)5 E(", ")247 227.6
+Q F2(delim_4)97 244.4 Q F1(<string>)5 E(", ")247 244.4 Q 1.825
+(Delimiter string between primary)247 256.4 R 4.325(,s)-.65 G(econdary)
+-4.325 E 4.324(,e)-.65 G 1.824(tc. le)-4.324 F -.15(ve)-.25 G 4.324(le)
+.15 G 1.824(ntry and \214rst)-4.324 F(page number)247 268.4 Q(.)-.55 E
+F2(delim_n)97 285.2 Q F1(<string>)5 E(", ")247 285.2 Q 1.682
+(Delimiter string between page numbers commonly used for an)247 297.2 R
+4.183(ye)-.15 G(ntry)-4.183 E(le)247 309.2 Q -.15(ve)-.25 G(l.).15 E F2
+(delim_r)97 326 Q F1(<string>)5 E("--")247 326 Q
+(Delimiter string between pages to sho)247 338 Q 2.5(wp)-.25 G
+(age range.)-2.5 E F2(delim_t)97 354.8 Q F1(<string>)5 E("")247 354.8 Q
+(Delimiter string output at the end of page number list.)247 366.8 Q F2
+(suf\214x_2p)97 383.6 Q F1(<string>)5 E("")247 383.6 Q .053
+(String to be inserted in place of)247 395.6 R F2(delim_n)2.553 E F1
+.053(and the ne)2.553 F .053(xt page number when)-.15 F(the tw)247 407.6
+Q 2.5(op)-.1 G(ages are contiguous.)-2.5 E(It w)97 419.6 Q
+(orks only when the parameter is de\214ned.)-.1 E F2(suf\214x_3p)97
+436.4 Q F1(<string>)5 E("")247 436.4 Q 2.012
+(String to be inserted in place of)247 448.4 R F2(delim_r)4.513 E F1
+2.013(and the third page number)4.513 F 2.021
+(when the three pages are contiguous.)247 460.4 R 2.021
+(The parameter is prior to)7.021 F F2(suf-)4.52 E(\214x_mp)247 472.4 Q
+F1(.)A(It w)97 484.4 Q(orks only when the parameter is de\214ned.)-.1 E
+F2(suf\214x_mp)97 501.2 Q F1(<string>)5 E("")247 501.2 Q .384
+(String to be inserted in place of)247 513.2 R F2(delim_r)2.884 E F1
+.384(and the last page number when)2.884 F
+(the three or more pages are contiguous.)247 525.2 Q(It w)97 537.2 Q
+(orks only when the parameter is de\214ned.)-.1 E F2(encap_pr)97 554 Q
+(e\214x)-.18 E F1(<string>)5 E("\\\\")247 554 Q .659
+(Pre\214x for an encapsulating command when the encapsulating command)
+247 566 R(is added to the page number)247 578 Q(.)-.55 E F2
+(encap_in\214x)97 594.8 Q F1(<string>)5 E("{")247 594.8 Q .749
+(Pre\214x just before the page number when the encapsulating command is)
+247 606.8 R(added to the page number)247 618.8 Q(.)-.55 E F2
+(encap_suf\214x)97 635.6 Q F1(<string>)5 E("}".)247 635.6 Q(Suf)247
+647.6 Q .497
+(\214x after the page number when the encapsulating command is added)
+-.25 F(to the page number)247 659.6 Q(.)-.55 E F2(line_max)97 676.4 Q F1
+(<number>)5 E(72)247 676.4 Q(Maximum number of one line.)247 688.4 Q
 (If e)5 E(xceed the number)-.15 E 2.5(,l)-.4 G(ines are folded.)-2.5 E
-F2(indent_space)108 631.2 Q F1(<string>)5 E("")258 631.2 Q
-(Space for indent which inserted to top of folded line.)258 643.2 Q F2
-(indent_length)108 660 Q F1(<number>)5 E(16)258 660 Q
-(Length of space for indent which inserted to top of folded line.)258
-672 Q F2(symhead_positi)108 688.8 Q -.1(ve)-.1 G F1(<string>)5.1 E
-("Symbols")258 688.8 Q 1.091
-(Strings to output as heading letter for symbols when lethead_\215ag or)
-258 700.8 R(heading_\215ag or headings_\215ag is positi)258 712.8 Q .3
--.15(ve n)-.25 H(umber).15 E(.)-.55 E(4)535 768 Q 0 Cg EP
+(4)535 756 Q 0 Cg EP
 %%Page: 5 5
 %%BeginPageSetup
 BP
 %%EndPageSetup
-/F0 10/Times-Italic@0 SF(UPMENDEX)71.48 48 Q/F1 10/Times-Roman@0 SF
+/F0 10/Times-Italic@0 SF(UPMENDEX)71.48 43 Q/F1 10/Times-Roman@0 SF
 109.16(\(1\) General).94 F(Commands Manual)2.5 E F0(UPMENDEX)111.14 E F1
-(\(1\)).94 E/F2 10/Times-Bold@0 SF(symhead_negati)108 84 Q -.1(ve)-.1 G
-F1(<string>)5.1 E("symbols")258 84 Q 1.091
+(\(1\)).94 E/F2 10/Times-Bold@0 SF(indent_space)97 74 Q F1(<string>)5 E
+("")247 74 Q(Space for indent which inserted to top of folded line.)247
+86 Q F2(indent_length)97 102.8 Q F1(<number>)5 E(16)247 102.8 Q
+(Length of space for indent which inserted to top of folded line.)247
+114.8 Q F2(symhead_positi)97 131.6 Q -.1(ve)-.1 G F1(<string>)5.1 E
+("Symbols")247 131.6 Q 2.191
 (Strings to output as heading letter for symbols when lethead_\215ag or)
-258 96 R(heading_\215ag or headings_\215ag is ne)258 108 Q -.05(ga)-.15
-G(ti).05 E .3 -.15(ve n)-.25 H(umber).15 E(.)-.55 E F2(symbol)108 124.8
-Q F1(<string>)5 E("")258 124.8 Q 1.2
-(Strings to output as heading letter for symbols when symbol_\215ag is)
-258 136.8 R(non zero.)258 148.8 Q
-(If speci\214ed, the option is prior to symhead_positi)108 160.8 Q .3
+247 143.6 R(heading_\215ag or headings_\215ag is positi)247 155.6 Q .3
+-.15(ve n)-.25 H(umber).15 E(.)-.55 E F2(symhead_negati)97 172.4 Q -.1
+(ve)-.1 G F1(<string>)5.1 E("symbols")247 172.4 Q 2.191
+(Strings to output as heading letter for symbols when lethead_\215ag or)
+247 184.4 R(heading_\215ag or headings_\215ag is ne)247 196.4 Q -.05(ga)
+-.15 G(ti).05 E .3 -.15(ve n)-.25 H(umber).15 E(.)-.55 E F2(symbol)97
+213.2 Q F1(<string>)5 E("")247 213.2 Q .5(Strings to output as heading \
+letter for symbols when symbol_\215ag is non)247 225.2 R(zero.)247 237.2
+Q(If speci\214ed, the option is prior to symhead_positi)97 249.2 Q .3
 -.15(ve a)-.25 H(nd symhead_ne).15 E -.05(ga)-.15 G(ti).05 E -.15(ve)
 -.25 G 5(.\().15 G(Extended by \(up\)mende)-5 E(x\))-.15 E F2
-(numhead_positi)108 177.6 Q -.1(ve)-.1 G F1(<string>)5.1 E("Numbers")258
-177.6 Q .981
+(numhead_positi)97 266 Q -.1(ve)-.1 G F1(<string>)5.1 E("Numbers")247
+266 Q 2.081
 (Strings to output as heading letter for numbers when lethead_\215ag or)
-258 189.6 R .926(heading_\215ag or headings_\215ag is positi)258 201.6 R
-1.226 -.15(ve n)-.25 H .927(umber and symbol_\215ag is).15 F(2.)258
-213.6 Q F2(numhead_negati)108 230.4 Q -.1(ve)-.1 G F1(<string>)5.1 E
-("numbers")258 230.4 Q .981
+247 278 R(heading_\215ag or headings_\215ag is positi)247 290 Q .3 -.15
+(ve n)-.25 H(umber and symbol_\215ag is 2.).15 E F2(numhead_negati)97
+306.8 Q -.1(ve)-.1 G F1(<string>)5.1 E("numbers")247 306.8 Q 2.081
 (Strings to output as heading letter for numbers when lethead_\215ag or)
-258 242.4 R .675(heading_\215ag or headings_\215ag is ne)258 254.4 R
--.05(ga)-.15 G(ti).05 E .975 -.15(ve n)-.25 H .675
-(umber and symbol_\215ag is).15 F(2.)258 266.4 Q F2(symbol_\215ag)108
-283.2 Q F1(<number>)5 E(1)258 283.2 Q .908(Flag to output of symbol. If\
- \2640\264, do not output headings for symbols)258 295.2 R .424
-(and numbers.)258 307.2 R .424
-(If \2641\264, output symbols and numbers as a group of sym-)5.424 F
-3.972(bols. If)258 319.2 R 1.471
-(\2642\264, output symbols and numbers separately)3.971 F 6.471(.\()-.65
-G 1.471(Extended by)-6.471 F(\(up\)mende)258 331.2 Q(x\))-.15 E F2
-(letter_head)108 348 Q F1(<number>)5 E(1)258 348 Q .105
-(Flag of heading letter for Japanese Kana.)258 360 R .105
-(If \2641\264 and \2642\264, Katakana and)5.105 F(Hirag)258 372 Q
+247 318.8 R(heading_\215ag or headings_\215ag is ne)247 330.8 Q -.05(ga)
+-.15 G(ti).05 E .3 -.15(ve n)-.25 H(umber and symbol_\215ag is 2.).15 E
+F2(symbol_\215ag)97 347.6 Q F1(<number>)5 E(1)247 347.6 Q .381(Flag to \
+output of symbol. If \2640\264, do not output headings for symbols and)
+247 359.6 R 2.96(numbers. If)247 371.6 R .461
+(\2641\264, output symbols and numbers as a group of symbols.)2.96 F(If)
+5.461 E(\2642\264, output symbols and numbers separately)247 383.6 Q 5
+(.\()-.65 G(Extended by \(up\)mende)-5 E(x\))-.15 E F2(letter_head)97
+400.4 Q F1(<number>)5 E(1)247 400.4 Q 1.022
+(Flag of heading letter for Japanese Kana.)247 412.4 R 1.021
+(If \2641\264 and \2642\264, Katakana and)6.022 F(Hirag)247 424.4 Q
 (ana is used, respecti)-.05 E -.15(ve)-.25 G(ly).15 E 5(.\()-.65 G
-(Extended by \(up\)mende)-5 E(x\))-.15 E F2(priority)108 388.8 Q F1
-(<number>)5 E(0)258 388.8 Q 1.618(Flag of sorting method for inde)258
-400.8 R 4.118(xw)-.15 G 1.618(ords composed of Japanese and)-4.218 F
-.825(non-Japanese \(e)258 412.8 R .825(x. Latin scripts\).)-.15 F .825
-(If non zero, one space \(U+0020\) is)5.825 F 2.084
-(inserted between Japanese sequence and non-Japanese sequence in)258
-424.8 R(sorting procedure.)258 436.8 Q(\(Extended by \(up\)mende)5 E
-(x\))-.15 E F2(character_order)108 453.6 Q F1(<string>)5 E("SNLGCJKHDT)
-258 453.6 Q(ah")-.8 E 1.422(Order of scripts and symbols.)258 465.6 R
-1.423<b453b42c20b44eb42c20b44cb42c20b447b42c20b443b42c20b44ab42c20b44bb4
-2c20b448b42c>6.422 F 2.664
-(\264D\264, \264T\264, \264a\264 and \264h\264 respecti)258 477.6 R -.15
-(ve)-.25 G 2.663(ly denotes symbol, number).15 F 5.163(,L)-.4 G(atin,)
--5.163 E 1.418(Greek, Cyrillic, Japanese Kana, K)258 489.6 R 1.419
-(orean Hangul, Hanzi, De)-.35 F -.25(va)-.25 G(nag).25 E(ari,)-.05 E
-1.394(Thai, Arabic and Hebre)258 501.6 R 3.894(ws)-.25 G 3.894
-(cript. \264@\264)-3.894 F 1.394(denotes scripts which are not)3.894 F
--.15(ex)258 513.6 S 2.374
-(plicitly designated and the order are con\214gured by icu_rules or).15
-F 2.658(icu_locale. Please)258 525.6 R(mak)2.658 E 2.658(es)-.1 G .158
-(ure that \264S\264 and \264N\264 are ne)-2.658 F .157
-(xt to each other if)-.15 F .112
-(symbol_\215ag=1, since numbers are classi\214ed as a part of symbol.)
-258 537.6 R(\(Ex-)5.112 E(tended by upmende)258 549.6 Q(x\))-.15 E F2
-(script_pr)108 566.4 Q(eamble)-.18 E F1(<string 1>)5 E(<string 2>)5 E
-("")258 578.4 Q .793
-(Preamble of script block in output \214le, speci\214ed by string 2.)258
-590.4 R .793(One of)5.793 F 2.995
+(Extended by \(up\)mende)-5 E(x\))-.15 E F2(priority)97 441.2 Q F1
+(<number>)5 E(0)247 441.2 Q .577(Flag of sorting method for inde)247
+453.2 R 3.077(xw)-.15 G .578(ords composed of Japanese and non-)-3.177 F
+.311(Japanese \(e)247 465.2 R .311(x. Latin scripts\).)-.15 F .311
+(If non zero, one space \(U+0020\) is inserted)5.311 F .179
+(between Japanese sequence and non-Japanese sequence in sorting proce-)
+247 477.2 R 2.5(dure. \(Extended)247 489.2 R(by \(up\)mende)2.5 E(x\))
+-.15 E F2(character_order)97 506 Q F1(<string>)5 E("SNLGCJKHDT)247 506 Q
+(ah")-.8 E .707(Order of scripts and symbols.)247 518 R .707<b453b42c20
+b44eb42c20b44cb42c20b447b42c20b443b42c20b44ab42c20b44bb42c20b448b42c20b4
+44b42c>5.707 F 2.713(\264T\264, \264a\264 and \264h\264 respecti)247 530
+R -.15(ve)-.25 G 2.713(ly denotes symbol, number).15 F 5.214(,L)-.4 G
+2.714(atin, Greek,)-5.214 F .777(Cyrillic, Japanese Kana, K)247 542 R
+.776(orean Hangul, Hanzi, De)-.35 F -.25(va)-.25 G(nag).25 E .776
+(ari, Thai, Ara-)-.05 F .36(bic and Hebre)247 554 R 2.861(ws)-.25 G
+2.861(cript. \264@\264)-2.861 F .361(denotes scripts which are not e)
+2.861 F .361(xplicitly des-)-.15 F .918
+(ignated and the order are con\214gured by icu_rules or icu_locale.)247
+566 R(Please)5.918 E(mak)247 578 Q 2.62(es)-.1 G .12
+(ure that \264S\264 and \264N\264 are ne)-2.62 F .12
+(xt to each other if symbol_\215ag=1, since)-.15 F
+(numbers are classi\214ed as a part of symbol.)247 590 Q
+(\(Extended by upmende)5 E(x\))-.15 E F2(script_pr)97 606.8 Q(eamble)
+-.18 E F1(<string 1>)5 E(<string 2>)5 E("")247 618.8 Q 1.71
+(Preamble of script block in output \214le, speci\214ed by string 2.)247
+630.8 R 1.71(One of)6.71 F .644
 (script names must be speci\214ed in the string 1: \264latin\264, \264c)
-258 602.4 R(yrillic\264,)-.15 E .092
-(\264greek\264, \264kana\264, \264hangul\264, \264hanzi\264, \264de)258
-614.4 R -.25(va)-.25 G(nag).25 E .091
-(ari\264, \264thai\264, \264arabic\264, or \264he-)-.05 F(bre)258 626.4
-Q 2.5(w\264. \(Extended)-.25 F(by upmende)2.5 E(x\))-.15 E F2
-(script_postamble)108 643.2 Q F1(<string 1>)5 E(<string 2>)5 E("")258
-655.2 Q .468
+247 642.8 R .644(yrillic\264, \264greek\264,)-.15 F .074
+(\264kana\264, \264hangul\264, \264hanzi\264, \264de)247 654.8 R -.25
+(va)-.25 G(nag).25 E .074
+(ari\264, \264thai\264, \264arabic\264, or \264hebre)-.05 F 2.573
+(w\264. \(Ex-)-.25 F(tended by upmende)247 666.8 Q(x\))-.15 E F2
+(script_postamble)97 683.6 Q F1(<string 1>)5 E(<string 2>)5 E("")247
+695.6 Q 1.385
 (Postamble of script block in output \214le, speci\214ed by string 2.)
-258 667.2 R .469(One of)5.469 F 2.995
+247 707.6 R 1.385(One of)6.385 F .644
 (script names must be speci\214ed in the string 1: \264latin\264, \264c)
-258 679.2 R(yrillic\264,)-.15 E .091
-(\264greek\264, \264kana\264, \264hangul\264, \264hanzi\264, \264de)258
-691.2 R -.25(va)-.25 G(nag).25 E .091
-(ari\264, \264thai\264, \264arabic\264, or \264he-)-.05 F(bre)258 703.2
-Q 2.5(w\264. \(Extended)-.25 F(by upmende)2.5 E(x\))-.15 E(5)535 768 Q 0
-Cg EP
+247 719.6 R .643(yrillic\264, \264greek\264,)-.15 F(5)535 756 Q 0 Cg EP
 %%Page: 6 6
 %%BeginPageSetup
 BP
 %%EndPageSetup
-/F0 10/Times-Italic@0 SF(UPMENDEX)71.48 48 Q/F1 10/Times-Roman@0 SF
+/F0 10/Times-Italic@0 SF(UPMENDEX)71.48 43 Q/F1 10/Times-Roman@0 SF
 109.16(\(1\) General).94 F(Commands Manual)2.5 E F0(UPMENDEX)111.14 E F1
-(\(1\)).94 E/F2 10/Times-Bold@0 SF(icu_locale)108 84 Q F1(<string>)5 E
-("")258 84 Q .109(Locale in ICU collator)258 96 R 5.109(.B)-.55 G 2.609
-(yd)-5.109 G(ef)-2.609 E .109(ault, "root sort order" is set.)-.1 F
-(\(Extended)5.109 E(by upmende)258 108 Q(x\))-.15 E F2(icu_rules)108
-124.8 Q F1(<string>)5 E("")258 124.8 Q 2.199
-(Customized collation rules in ICU collator)258 136.8 R 7.199(.U)-.55 G
-2.199(nicode characters in)-7.199 F .429(UTF-8 encoding and follo)258
-148.8 R .429(wing escape sequences are accepted:)-.25 F F2(\\Uhh-)2.928
-E(hhhhhh)258 160.8 Q F1 .178(\(8-digit he)2.678 F .178
-(xadecimal [0-9A-F)-.15 F(a-f]\),)-.15 E F2(\\uhhhh)2.678 E F1 .179
-(\(4-digit he)2.679 F(xadeci-)-.15 E(mal\),)258 172.8 Q F2(\\xhh)5.185 E
-F1 2.685(\(2-digit he)5.185 F(xadecimal\),)-.15 E F2(\\x{h...})5.185 E
-F1 2.685(\(1..8-digit he)5.185 F(xadecimal\),)-.15 E(and)258 184.8 Q F2
-(\\ooo)2.817 E F1 .317(\(3-digit octal [0-7]\).)2.817 F .317
-(If icu_rules and icu_locale are simulta-)5.317 F .844(neously speci\
-\214ed, collation rules speci\214ed by icu_rules are added on)258 196.8
-R 2.243(collation rules speci\214ed by icu_locale.)258 208.8 R 2.243
-(By def)7.243 F 2.244(ault, locale is used.)-.1 F(\(Extended by upmende)
-258 220.8 Q(x\))-.15 E 6.12(Ref. <https://unicode-or)108 232.8 R
-(g.github)-.18 E(.io/icu/user)-.4 E 6.12
+(\(1\)).94 E .073(\264kana\264, \264hangul\264, \264hanzi\264, \264de)
+247 74 R -.25(va)-.25 G(nag).25 E .074
+(ari\264, \264thai\264, \264arabic\264, or \264hebre)-.05 F 2.574
+(w\264. \(Ex-)-.25 F(tended by upmende)247 86 Q(x\))-.15 E/F2 10
+/Times-Bold@0 SF(icu_locale)97 102.8 Q F1(<string>)5 E("")247 102.8 Q
+1.109(Locale in ICU collator)247 114.8 R 6.109(.B)-.55 G 3.609(yd)-6.109
+G(ef)-3.609 E 1.109(ault, "root sort order" is set.)-.1 F(\(Extended)
+6.109 E(by upmende)247 126.8 Q(x\))-.15 E F2(icu_rules)97 143.6 Q F1
+(<string>)5 E("")247 143.6 Q 3.574
+(Customized collation rules in ICU collator)247 155.6 R 8.574(.U)-.55 G
+3.574(nicode characters in)-8.574 F .414(UTF-8 encoding and follo)247
+167.6 R .414(wing escape sequences are accepted:)-.25 F F2(\\Uhhhh-)
+2.913 E(hhhh)247 179.6 Q F1 .948(\(8-digit he)3.448 F .948
+(xadecimal [0-9A-F)-.15 F(a-f]\),)-.15 E F2(\\uhhhh)3.448 E F1 .949
+(\(4-digit he)3.449 F(xadecimal\),)-.15 E F2(\\xhh)247 191.6 Q F1 1.889
+(\(2-digit he)4.389 F(xadecimal\),)-.15 E F2(\\x{h...})4.389 E F1 1.888
+(\(1..8-digit he)4.389 F 1.888(xadecimal\), and)-.15 F F2(\\ooo)4.388 E
+F1 .001(\(3-digit octal [0-7]\).)247 203.6 R .001
+(If icu_rules and icu_locale are simultaneously spec-)5.001 F 1.054(i\
+\214ed, collation rules speci\214ed by icu_rules are added on collation\
+ rules)247 215.6 R 1.62(speci\214ed by icu_locale.)247 227.6 R 1.62
+(By def)6.62 F 1.62(ault, locale is used.)-.1 F 1.62(\(Extended by up-)
+6.62 F(mende)247 239.6 Q(x\))-.15 E 11.62(Ref. <https://unicode-or)97
+251.6 R(g.github)-.18 E(.io/icu/user)-.4 E 11.62
 (guide/collation/customization/>, <http://www)-.18 F(.unicode.or)-.65 E
-(g/re-)-.18 E(ports/tr35/tr35-collation.html#Rules>)108 244.8 Q F2
-(icu_attrib)108 261.6 Q(utes)-.2 E F1(<string>)5 E("")258 261.6 Q
-(Attrib)258 273.6 Q 6.353(utes in ICU collator)-.2 F 11.353(.F)-.55 G
-(ollo)-11.503 E 6.353(wings are a)-.25 F -.25(va)-.2 G 6.353
-(ilable: "alter).25 F(-)-.2 E 21.235
-(nate:shifted", "alternate:non-ignorable", "strength:primary",)258 285.6
-R 13.92
-("strength:secondary", "strength:tertiary", "strength:quaternary",)258
-297.6 R 10.435
-("strength:identical", "french-collation:on", "french-collation:of)258
-309.6 R(f",)-.25 E("case-\214rst:of)258 321.6 Q 2.393
-(f", "case-\214rst:upper)-.25 F 2.393(-\214rst", "case-\214rst:lo)-.2 F
-(wer)-.25 E 2.394(-\214rst", "case-)-.2 F(le)258 333.6 Q -.15(ve)-.25 G
-1.39(l:on", "case-le).15 F -.15(ve)-.25 G(l:of).15 E 1.39
-(f", "normalization-mode:on", "normalization-)-.25 F(mode:of)258 345.6 Q
-1.553(f", "numeric-ordering:on", "numeric-ordering:of)-.25 F 1.554
-(f" \(Extended)-.25 F(by upmende)258 357.6 Q(x\))-.15 E 63.53
-(Ref. <https://unicode-or)108 369.6 R(g.github)-.18 E(.io/icu/user)-.4 E
-(guide/collation/customization/#def)-.18 E(ault-options>,)-.1 E
-(<http://www)108 381.6 Q(.unicode.or)-.65 E
+(g/re-)-.18 E(ports/tr35/tr35-collation.html#Rules>)97 263.6 Q F2
+(icu_attrib)97 280.4 Q(utes)-.2 E F1(<string>)5 E("")247 280.4 Q(Attrib)
+247 292.4 Q .765(utes in ICU collator)-.2 F 5.766(.F)-.55 G(ollo)-5.916
+E .766(wings are a)-.25 F -.25(va)-.2 G .766
+(ilable: "alternate:shifted",).25 F 10.255
+("alternate:non-ignorable", "strength:primary", "strength:secondary",)
+247 304.4 R 3.163("strength:tertiary", "strength:quaternary", "strength\
+:identical", "french-)247 316.4 R 4.204
+(collation:on", "french-collation:of)247 328.4 R 4.203
+(f", "case-\214rst:of)-.25 F 4.203(f", "case-\214rst:upper)-.25 F(-)-.2
+E 1.73(\214rst", "case-\214rst:lo)247 340.4 R(wer)-.25 E 1.73
+(-\214rst", "case-le)-.2 F -.15(ve)-.25 G 1.73(l:on", "case-le).15 F
+-.15(ve)-.25 G(l:of).15 E 1.73(f", "normal-)-.25 F 8.25
+(ization-mode:on", "normalization-mode:of)247 352.4 R 8.25
+(f", "numeric-ordering:on",)-.25 F("numeric-ordering:of)247 364.4 Q
+(f" \(Extended by upmende)-.25 E(x\))-.15 E 1.435
+(Ref. <https://unicode-or)97 376.4 R(g.github)-.18 E(.io/icu/user)-.4 E
+(guide/collation/customization/#def)-.18 E 1.435
+(ault-options>, <http://www)-.1 F(.uni-)-.65 E(code.or)97 388.4 Q
 (g/reports/tr35/tr35-collation.html#Setting_Options>)-.18 E/F3 10.95
-/Times-Bold@0 SF(ABOUT J)72 398.4 Q(AP)-.329 E(ANESE PR)-.81 E(OCESSING)
--.329 E F0(upmende)108 410.4 Q(x)-.2 E F1 .999(has an additional featur\
-e to simplify the procedure of handling Japanese inde)3.498 F -.15(xe)
--.15 G .999(s, compared to).15 F F0(mak)108 422.4 Q(einde)-.1 E(x)-.2 E
+/Times-Bold@0 SF(ABOUT J)72 405.2 Q(AP)-.329 E(ANESE PR)-.81 E(OCESSING)
+-.329 E F0(upmende)97 417.2 Q(x)-.2 E F1 1.784(has an additional featur\
+e to simplify the procedure of handling Japanese inde)4.285 F -.15(xe)
+-.15 G 1.784(s, compared to).15 F F0(mak)97 429.2 Q(einde)-.1 E(x)-.2 E
 F1 2.5(.U)C(sers can sa)-2.5 E .3 -.15(ve t)-.2 H(he ef).15 E
 (fort of manually specifying a reading for e)-.25 E -.15(ve)-.25 G
-(ry kanji w).15 E(ord.)-.1 E 1.359(Japanese kanji w)108 434.4 R 1.358
+(ry kanji w).15 E(ord.)-.1 E 1.358(Japanese kanji w)108 441.2 R 1.358
 (ords are usually sorted by the syllables of their readings \()-.1 F F0
-<b459>A(omi\264)-.92 E F1 1.358(\), which can be repre-)B .725
-(sented by kana \(Hirag)108 446.4 R .725(ana, Katakana\) scripts.)-.05 F
-F0(upmende)5.725 E(x)-.2 E F1 .725(accepts inde)3.225 F 3.226(xw)-.15 G
-.726(ords speci\214ed in kana e)-3.326 F(xpression)-.15 E .56
-(directly on an input \214le, and also accepts con)108 458.4 R -.15(ve)
--.4 G .559(rsion from inde).15 F 3.059(xw)-.15 G .559
-(ords in Kanji or symbols to phonogram)-3.159 F
-(scripts by referring to Japanese dictionaries.)108 470.4 Q
-(Examples of internal simpli\214cation of syllables are sho)108 499.2 Q
+<b459>A(omi\264)-.92 E F1 1.358(\), which can be repre-)B .726
+(sented by kana \(Hirag)108 453.2 R .726(ana, Katakana\) scripts.)-.05 F
+F0(upmende)5.725 E(x)-.2 E F1 .725(accepts inde)3.225 F 3.225(xw)-.15 G
+.725(ords speci\214ed in kana e)-3.325 F(xpression)-.15 E .559
+(directly on an input \214le, and also accepts con)108 465.2 R -.15(ve)
+-.4 G .559(rsion from inde).15 F 3.06(xw)-.15 G .56
+(ords in Kanji or symbols to phonogram)-3.16 F
+(scripts by referring to Japanese dictionaries.)108 477.2 Q
+(Examples of internal simpli\214cation of syllables are sho)108 506 Q
 (wn belo)-.25 E -.65(w.)-.25 G/F4 10/Ryumin-Light-UniJIS-UTF16-H SF
-<304B30763057304D304C304430573083>144 516 Q<304B30753057304D304B30443057
-3084>64 E<30DE30C330AD30F330C830C330B730E5>144 528 Q<307E3064304D30933068
-306430573086>64 E<30EF30FC30D730ED>144 540 Q<308F30423075308D>104 E F1
-.888(The dictionary \214le consists of list with <\264inde)108 556.8 R
-(x_w)-.15 E .888(ord\264 \264reading\264>.)-.1 F .888(The inde)5.888 F
-3.388(xw)-.15 G .888(ord can be written in an)-3.488 F(y)-.15 E .544
-(scripts \(kanji, kana, etc\), and the reading can be in an)108 568.8 R
-3.044(yp)-.15 G .544(honograms such as Hirag)-3.044 F .544
+<304B30763057304D304C304430573083>144 522.8 Q<304B30753057304D304B30443057
+3084>64 E<30DE30C330AD30F330C830C330B730E5>144 534.8 Q<307E3064304D3093
+3068306430573086>64 E<30EF30FC30D730ED>144 546.8 Q<308F30423075308D>104
+E F1 .888(The dictionary \214le consists of list with <\264inde)108
+563.6 R(x_w)-.15 E .888(ord\264 \264reading\264>.)-.1 F .888(The inde)
+5.888 F 3.388(xw)-.15 G .888(ord can be written in an)-3.488 F(y)-.15 E
+.544(scripts \(kanji, kana, etc\), and the reading can be in an)108
+575.6 R 3.044(yp)-.15 G .544(honograms such as Hirag)-3.044 F .545
 (ana or Katakana scripts.)-.05 F(The delimiter between the inde)108
-580.8 Q 2.5(xw)-.15 G
+587.6 Q 2.5(xw)-.15 G
 (ord and its reading is one or more tab\(s\) or space\(s\).)-2.6 E(An e)
-108 592.8 Q(xample of a Japanese dictionary is sho)-.15 E(wn belo)-.25 E
--.65(w.)-.25 G F4<6F225B57>144 609.6 Q<304B30933058>52 E<8AAD307F>144
-621.6 Q<3088307F>52 E<74B05883>144 633.6 Q<304B3093304D30873046>52 E 62
-<FF0430C9>144 645.6 S<30EB>-62 E F1 .01(Here, each inde)108 662.4 R 2.51
+108 599.6 Q(xample of a Japanese dictionary is sho)-.15 E(wn belo)-.25 E
+-.65(w.)-.25 G F4<6F225B57>144 616.4 Q<304B30933058>52 E<8AAD307F>144
+628.4 Q<3088307F>52 E<74B05883>144 640.4 Q<304B3093304D30873046>52 E 62
+<FF0430C9>144 652.4 S<30EB>-62 E F1 .01(Here, each inde)108 669.2 R 2.51
 (xw)-.15 G .01(ord is allo)-2.61 F .01(wed to ha)-.25 F .31 -.15(ve o)
 -.2 H .01(nly one Y).15 F 2.51(omi. Though)-1.1 F .01(some kanji w)2.51
 F .01(ords \(e)-.1 F(x.)-.15 E F4<300C8868300D>2.51 E F1 2.51(\)m)C .01
-(ay ha)-2.51 F -.15(ve)-.2 G .22(more than one Y)108 674.4 R .22
+(ay ha)-2.51 F -.15(ve)-.2 G .22(more than one Y)108 681.2 R .22
 (omi\264s \(e)-1.1 F(x.)-.15 E F4<300C307230873046300D>2.72 E F1(and)
 2.72 E F4<300C304A30823066300D>2.72 E F1 .22
 (\), only one of them can be re)B .22(gistered in the dictio-)-.15 F
-(nary)108 686.4 Q 5.701(.W)-.65 G .701(hen some dif)-5.701 F .701
+(nary)108 693.2 Q 5.702(.W)-.65 G .702(hen some dif)-5.702 F .702
 (ferent Y)-.25 F .701(omi\264s are needed, the)-1.1 F 3.201(ys)-.15 G
-.701(hould be speci\214ed e)-3.201 F .702(xplicitly in kana e)-.15 F
-.702(xpression \(e)-.15 F(x.)-.15 E(\\inde)108 698.4 Q(x{)-.15 E F4
+.701(hould be speci\214ed e)-3.201 F .701(xplicitly in kana e)-.15 F
+.701(xpression \(e)-.15 F(x.)-.15 E(\\inde)108 705.2 Q(x{)-.15 E F4
 <307230873046>A F1(@)A F4<8868>A F1 2.5(}o)C 2.5(r\\)-2.5 G(inde)-2.5 E
 (x{)-.15 E F4<304A30823066>A F1(@)A F4<8868>A F1
-(}\) on the input \214le.)A(Moreo)108 710.4 Q -.15(ve)-.15 G 1.102 -.4
-(r, a d).15 H .301(ictionary \214le is automatically referred by settin\
-g the \214le name at an en).4 F .301(vironment v)-.4 F(ariable)-.25 E F0
-(IN-)2.801 E(DEXDEF)108 722.4 Q -.5(AU)-1.15 G -.2(LT).5 G(DICTION).2 E
-(AR)-.27 E(Y)-.18 E F1 6.204(.T)C 1.204(he dictionary set by the en)
--6.204 F 1.204(vironment v)-.4 F 1.204
-(ariable can be used together with)-.25 F(6)535 768 Q 0 Cg EP
+(}\) on the input \214le.)A(Moreo)108 717.2 Q -.15(ve)-.15 G 2.176 -.4
+(r, a d).15 H 1.377(ictionary \214le is automatically referred by setti\
+ng the \214le name at an en).4 F 1.377(vironment v)-.4 F(ariable)-.25 E
+(6)535 756 Q 0 Cg EP
 %%Page: 7 7
 %%BeginPageSetup
 BP
 %%EndPageSetup
-/F0 10/Times-Italic@0 SF(UPMENDEX)71.48 48 Q/F1 10/Times-Roman@0 SF
+/F0 10/Times-Italic@0 SF(UPMENDEX)71.48 43 Q/F1 10/Times-Roman@0 SF
 109.16(\(1\) General).94 F(Commands Manual)2.5 E F0(UPMENDEX)111.14 E F1
-(\(1\)).94 E(\214le\(s\) speci\214ed by)108 84 Q F0(-d)2.5 E F1(option.)
-2.5 E/F2 10.95/Times-Bold@0 SF(ABOUT SOR)72 100.8 Q(TING PR)-.438 E
-(OCEDURE)-.329 E F0(upmende)108 112.8 Q(x)-.2 E F1 .496(sorts inde)2.996
-F -.15(xe)-.15 G 2.996(sa).15 G 2.996(si)-2.996 G 2.996(s\()-2.996 G
-.496(\264sort by w)-2.996 F .496(ord order\264\) by def)-.1 F 2.996
-(ault. Setting)-.1 F F0(-l)2.996 E F1 .496(option, spaces between w)
-2.996 F .495(ords in)-.1 F(an inde)108 124.8 Q 2.5(xa)-.15 G(re truncat\
-ed prior to sorting procedure \(\264sort by character order\264\).)-2.5
-E(Ev)108 136.8 Q(en when sort by character order)-.15 E 2.5(,t)-.4 G
+(\(1\)).94 E F0(INDEXDEF)108 74 Q -.5(AU)-1.15 G -.2(LT).5 G(DICTION).2
+E(AR)-.27 E(Y)-.18 E F1 5.371(.T)C .371(he dictionary set by the en)
+-5.371 F .371(vironment v)-.4 F .371(ariable can be used together with)
+-.25 F(\214le\(s\) speci\214ed by)108 86 Q F0(-d)2.5 E F1(option.)2.5 E
+/F2 10.95/Times-Bold@0 SF(ABOUT SOR)72 102.8 Q(TING PR)-.438 E(OCEDURE)
+-.329 E F0(upmende)97 114.8 Q(x)-.2 E F1 .416(sorts inde)2.916 F -.15
+(xe)-.15 G 2.916(sa).15 G 2.916(si)-2.916 G 2.916(s\()-2.916 G .416
+(\264sort by w)-2.916 F .416(ord order\264\) by def)-.1 F 2.916
+(ault. Setting)-.1 F F0(-l)2.916 E F1 .416(option, spaces between w)
+2.916 F .417(ords in an)-.1 F(inde)97 126.8 Q 2.5(xa)-.15 G(re truncate\
+d prior to sorting procedure \(\264sort by character order\264\).)-2.5 E
+(Ev)108 138.8 Q(en when sort by character order)-.15 E 2.5(,t)-.4 G
 (he inde)-2.5 E 2.5(xa)-.15 G 2.5(to)-2.5 G
 (utput remains the original sequence without the truncation.)-2.5 E -.15
-(Fo)108 148.8 S(llo).15 E(ws sho)-.25 E 2.5(wa)-.25 G 2.5(ne)-2.5 G
-(xample.)-2.65 E F0(sort by wor)144 165.6 Q 2.5(do)-.37 G -.37(rd)-2.5 G
+(Fo)108 150.8 S(llo).15 E(ws sho)-.25 E 2.5(wa)-.25 G 2.5(ne)-2.5 G
+(xample.)-2.65 E F0(sort by wor)144 167.6 Q 2.5(do)-.37 G -.37(rd)-2.5 G
 66.96(er sort).37 F(by c)2.5 E(har)-.15 E(acter or)-.15 E(der)-.37 E F1
-2.5(XW)144 177.6 S(indo)-2.9 E 100.49(wX)-.25 G(lib)-100.49 E 123.72
-(Xlib XV)144 189.6 R(ie)-.6 E(w)-.25 E(XV)144 201.6 Q(ie)-.6 E 115.97
-(wX)-.25 G -.4(Wi)-113.47 G(ndo).4 E(w)-.25 E .761(In addition, tw)108
-218.4 R 3.262(os)-.1 G .762(orting methods can be applied for inde)
+2.5(XW)144 179.6 S(indo)-2.9 E 100.49(wX)-.25 G(lib)-100.49 E 123.72
+(Xlib XV)144 191.6 R(ie)-.6 E(w)-.25 E(XV)144 203.6 Q(ie)-.6 E 115.97
+(wX)-.25 G -.4(Wi)-113.47 G(ndo).4 E(w)-.25 E .762(In addition, tw)108
+220.4 R 3.262(os)-.1 G .762(orting methods can be applied for inde)
 -3.262 F -.15(xe)-.15 G 3.262(sw).15 G .762
-(hich contains both Japanese kana and other)-3.262 F 1.248
-(scripts \(e.g. Latin script\).)108 230.4 R 1.247(By setting)6.248 F F0
+(hich contains both Japanese kana and other)-3.262 F 1.247
+(scripts \(e.g. Latin script\).)108 232.4 R 1.247(By setting)6.247 F F0
 (priority)3.747 E F1 3.747(0\()3.747 G(def)-3.747 E 1.247
 (ault\) and 1 at a style \214le, a space between Japanese)-.1 F
-(Kana and other scripts is inserted and not inserted respecti)108 242.4
+(Kana and other scripts is inserted and not inserted respecti)108 244.4
 Q -.15(ve)-.25 G(ly).15 E 2.5(,p)-.65 G(rior to the sorting procedure.)
--2.5 E -.15(Fo)108 254.4 S(llo).15 E(ws sho)-.25 E 2.5(wa)-.25 G 2.5(ne)
--2.5 G(xample.)-2.65 E F0 99.19(priority=0 priority=1)144 271.2 R F1
-(inde)144 283.2 Q 2.5(xs)-.15 G 101.93(ort ind)-2.5 F/F3 10
-/Ryumin-Light-UniJIS-UTF16-H SF<30D530A130A430EB>A F1(ind)144 295.2 Q F3
+-2.5 E -.15(Fo)108 256.4 S(llo).15 E(ws sho)-.25 E 2.5(wa)-.25 G 2.5(ne)
+-2.5 G(xample.)-2.65 E F0 99.19(priority=0 priority=1)144 273.2 R F1
+(inde)144 285.2 Q 2.5(xs)-.15 G 101.93(ort ind)-2.5 F/F3 10
+/Ryumin-Light-UniJIS-UTF16-H SF<30D530A130A430EB>A F1(ind)144 297.2 Q F3
 <30D530A130A430EB>A F1(inde)91.22 E 2.5(xs)-.15 G(ort)-2.5 E F2(ENVIR)72
-312 Q(ONMENT V)-.329 E(ARIABLES)-1.478 E F0(upmende)108 324 Q(x)-.2 E F1
+314 Q(ONMENT V)-.329 E(ARIABLES)-1.478 E F0(upmende)97 326 Q(x)-.2 E F1
 (refers en)2.5 E(vironment v)-.4 E(ariables as follo)-.25 E(ws.)-.25 E
-F0(INDEXSTYLE)108 340.8 Q F1(Directory where inde)158 352.8 Q 2.5(xs)
--.15 G(tyle \214les e)-2.5 E(xist.)-.15 E F0(INDEXDEF)108 369.6 Q -.5
-(AU)-1.15 G -.2(LT).5 G(STYLE).2 E F1(Inde)158 381.6 Q 2.5(xs)-.15 G
+F0(INDEXSTYLE)97 342.8 Q F1(Directory where inde)147 354.8 Q 2.5(xs)-.15
+G(tyle \214les e)-2.5 E(xist.)-.15 E F0(INDEXDEF)97 371.6 Q -.5(AU)-1.15
+G -.2(LT).5 G(STYLE).2 E F1(Inde)147 383.6 Q 2.5(xs)-.15 G
 (tyle \214le to be referred to as def)-2.5 E(ault.)-.1 E F0
-(INDEXDICTION)108 398.4 Q(AR)-.27 E(Y)-.18 E F1
-(Directory where dictionary \214les e)158 410.4 Q(xist.)-.15 E F0
-(INDEXDEF)108 427.2 Q -.5(AU)-1.15 G -.2(LT).5 G(DICTION).2 E(AR)-.27 E
-(Y)-.18 E F1(Dictionary \214le which is automatically read.)158 439.2 Q
-F2(DET)72 456 Q(AIL)-.986 E F1
-(Detailed speci\214cation is compatible with)108 468 Q F0(mak)2.5 E
-(einde)-.1 E(x)-.2 E F1(.)A F2(KNO)72 484.8 Q(WN ISSUES)-.548 E F1 1.127
-(When plural page number e)108 496.8 R 1.127(xpression is used,)-.15 F
-F0(.idx)3.627 E F1 1.127
-(\214les should be speci\214ed along with the order of page)3.627 F
-(numbers. Otherwise, wrong page numbers might be output.)108 508.8 Q F2
-(SEE ALSO)72 525.6 Q/F4 10/Times-Bold@0 SF(tex\(1\), latex\(1\), mak)108
-537.6 Q(eindex\(1\), mendex\(1\).)-.1 E F1 12.038
-(International Components for Unicode \(ICU\): <http://icu.unicode.or)
-108 549.6 R 12.038(g/>, <https://unicode-)-.18 F(or)108 561.6 Q
-(g.github)-.18 E(.io/icu/>)-.4 E F2 -.548(AU)72 578.4 S(THOR).548 E F1
-.027(This manual page w)108 590.4 R .027(as written by T)-.1 F .027
-(akuji T)-.8 F .027(anaka based on the mende)-.8 F 2.528(xm)-.15 G .028
-(anual page written by Japanese T)-2.528 F(E)-1.667 2.4 M(X)-1.25 -2.4 M
-(De)108 602.4 Q -.15(ve)-.25 G(lopment Community).15 E(.)-.65 E(7)535
-768 Q 0 Cg EP
+(INDEXDICTION)97 400.4 Q(AR)-.27 E(Y)-.18 E F1
+(Directory where dictionary \214les e)147 412.4 Q(xist.)-.15 E F0
+(INDEXDEF)97 429.2 Q -.5(AU)-1.15 G -.2(LT).5 G(DICTION).2 E(AR)-.27 E
+(Y)-.18 E F1(Dictionary \214le which is automatically read.)147 441.2 Q
+F2(DET)72 458 Q(AIL)-.986 E F1
+(Detailed speci\214cation is compatible with)97 470 Q F0(mak)2.5 E
+(einde)-.1 E(x)-.2 E F1(.)A F2(KNO)72 486.8 Q(WN ISSUES)-.548 E F1 .364
+(When plural page number e)97 498.8 R .364(xpression is used,)-.15 F F0
+(.idx)2.864 E F1 .364
+(\214les should be speci\214ed along with the order of page num-)2.864 F
+(bers. Otherwise, wrong page numbers might be output.)97 510.8 Q F2
+(SEE ALSO)72 527.6 Q/F4 10/Times-Bold@0 SF(tex\(1\), latex\(1\), mak)97
+539.6 Q(eindex\(1\), mendex\(1\).)-.1 E F1
+(International Components for Unicode \(ICU\): <http://icu.unicode.or)97
+551.6 Q(g/>, <https://unicode-or)-.18 E(g.github)-.18 E(.io/icu/>)-.4 E
+F2 -.548(AU)72 568.4 S(THOR).548 E F1 .674(This manual page w)97 580.4 R
+.674(as written by T)-.1 F .674(akuji T)-.8 F .675
+(anaka based on the mende)-.8 F 3.175(xm)-.15 G .675
+(anual page written by Japanese T)-3.175 F(E)-1.667 2.4 M(X)-1.25 -2.4 M
+(De)97 592.4 Q -.15(ve)-.25 G(lopment Community).15 E(.)-.65 E(7)535 756
+Q 0 Cg EP
 %%Trailer
 end
 %%EOF

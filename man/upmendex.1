@@ -27,7 +27,7 @@ additional feature for handling readings of kanji words is also available.
 The formats of the input and output files are specified in a style file.
 The readings of kanji words can be specified in a dictionary file.
 .RE
-The index can have up to three levels (0, 1, and 2) of subitem nesting.
+The index can have up to five levels (0, 1, 2, 3, and 4) of subitem nesting.
 .SH OPTIONS
 .PP
 .TP 10
@@ -304,64 +304,69 @@ Heading characters of Thai script specified by a string.
 .TP 30
 \fBitem_0\fR  <string>
 "\\n  \\\\item "
-.RS
-Command sequence inserted between primary level entries.
-.RE
 .TP 30
 \fBitem_1\fR  <string>
-"\\n     \\\\subitem "
-.RS
-Command sequence inserted between sub level entries.
-.RE
+"\\n    \\\\subitem "
 .TP 30
 \fBitem_2\fR  <string>
-"\\n       \\\\subsubitem "
+"\\n      \\\\subsubitem "
+.TP 30
+\fBitem_3\fR  <string>
+"\\n        \\\\subsubsubitem "
+.TP 30
+\fBitem_4\fR  <string>
+"\\n          \\\\subsubsubsubitem "
 .RS
-Command sequence inserted between subsub level entries.
+Command sequence inserted between two primary, two secondary, etc. level entries.
 .RE
 .TP 30
 \fBitem_01\fR  <string>
 "\\n    \\\\subitem "
+.TP 30
+\fBitem_12\fR  <string>
+"\\n      \\\\subsubitem "
+.TP 30
+\fBitem_23\fR  <string>
+"\\n        \\\\subsubsubitem "
+.TP 30
+\fBitem_34\fR  <string>
+"\\n          \\\\subsubsubsubitem "
 .RS
-Command sequence inserted between primaly and sub level entries.
+Command sequence inserted between primaly and secondary, secondary and tertiary, etc. level entries.
 .RE
 .TP 30
 \fBitem_x1\fR  <string>
 "\\n    \\\\subitem "
-.RS
-Command sequence inserted between primary and sub level entries
-when main entry does not have page number.
-.RE
-.TP 30
-\fBitem_12\fR  <string>
-"\\n    \\\\subsubitem "
-.RS
-Command sequence inserted between sub and subsub level entries.
-.RE
 .TP 30
 \fBitem_x2\fR  <string>
-"\\n    \\\\subsubitem "
+"\\n      \\\\subsubitem "
+.TP 30
+\fBitem_x3\fR  <string>
+"\\n        \\\\subsubsubitem "
+.TP 30
+\fBitem_x4\fR  <string>
+"\\n          \\\\subsubsubsubitem "
 .RS
-Command sequence inserted between sub and subsub level entries
-when sub level entry does not have page number.
+Command sequence inserted between primary and secondary, secondary and tertiary, etc. level entries
+when the higher level entry does not have page number.
 .RE
 .TP 30
 \fBdelim_0\fR  <string>
 ", "
-.RS
-Delimiter string between primary level entry and first page number.
-.RE
 .TP 30
 \fBdelim_1\fR  <string>
 ", "
-.RS
-Delimiter string between sub level entry and first page number.
-.RE
 .TP 30
 \fBdelim_2\fR  <string>
 ", "
+.TP 30
+\fBdelim_3\fR  <string>
+", "
+.TP 30
+\fBdelim_4\fR  <string>
+", "
 .RS
-Delimiter string between subsub level entry and first page number.
+Delimiter string between primary, secondary, etc. level entry and first page number.
 .RE
 .TP 30
 \fBdelim_n\fR  <string>
