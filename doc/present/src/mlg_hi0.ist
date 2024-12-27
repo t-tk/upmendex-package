@@ -1,0 +1,23 @@
+% -*- coding: utf-8 -*-
+
+preamble "\\begin{theindex}\n\\thispagestyle{empty}"
+
+%delim_0 "\\leaders\\hbox{$\\cdot$}\\hfill "
+%delim_1 "\\leaders\\hbox{$\\cdot$}\\hfill "
+%delim_2 "\\leaders\\hbox{$\\cdot$}\\hfill "
+delim_0 "\\leaders\\hbox{$\\cdot$}\\hfill \\textenglish{"
+delim_1 "\\leaders\\hbox{$\\cdot$}\\hfill \\textenglish{"
+delim_2 "\\leaders\\hbox{$\\cdot$}\\hfill \\textenglish{"
+delim_t "}"
+
+lethead_flag 1
+lethead_prefix "\n\\centerline{\\bfseries \\textenglish{---} "
+lethead_suffix  " \\textenglish{---}}\\par\\nobreak"
+%lethead_prefix "\n\\centerline{\\bfseries --- "
+%lethead_suffix  " ---}\\par\\nobreak"
+letter_head 1
+kana_head  "あかさたなはまやらわ"
+
+icu_locale "hi"
+%script_preamble   arabic     "\n\n\\begin{Arabic}"
+%script_postamble  arabic     "\n\\end{Arabic}"

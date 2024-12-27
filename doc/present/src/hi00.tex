@@ -1,0 +1,30 @@
+\documentclass[12pt]{article}
+
+\usepackage{fontspec}
+\usepackage{polyglossia}
+
+\usepackage{makeidx}
+\makeindex
+
+\setdefaultlanguage{hindi}
+\setromanfont{Noto Serif}
+%\setmainfont{Noto Serif}
+\setsansfont{Noto Serif}
+\setmainfont{Noto Serif Devanagari}[Language=Hindi,Script=Devanagari]
+\newfontfamily\englishfont{Noto Serif}
+\setotherlanguage{english}
+
+\pagestyle{empty}
+\begin{document}
+\thispagestyle{empty}
+
+फूल\index{फूल}
+चिड़िया\index{चिड़िया}
+हवा\index{हवा}
+चांद\index{चांद}
+
+\printindex
+
+\end{document}
+
+\index{}.

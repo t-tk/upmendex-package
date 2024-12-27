@@ -1,0 +1,48 @@
+\documentclass[12pt]{article}
+
+\usepackage{fontspec}
+\usepackage{polyglossia}
+
+\usepackage{makeidx}
+\makeindex
+
+%\setdefaultlanguage{english}
+%\setromanfont{Noto Serif}
+%\setmainfont{Noto Serif}
+%%\setsansfont{Noto Serif}
+%\setsansfont{Noto Naskh Arabic}[Script=Arabic]
+%\newfontfamily\arabicfont{Noto Naskh Arabic}[Script=Arabic]
+%\setotherlanguage{arabic}
+
+\setdefaultlanguage{arabic}
+\setromanfont{Noto Serif}
+%\setmainfont{Noto Serif}
+\setsansfont{Noto Serif}
+\setmainfont{Noto Naskh Arabic}[Script=Arabic]
+%\setsansfont{Noto Naskh Arabic}[Script=Arabic]
+%\newfontfamily\arabicfont{Noto Naskh Arabic}[Script=Arabic]
+%\setotherlanguage{arabic}
+\newfontfamily\englishfont{Noto Serif}
+\setotherlanguage{english}
+
+\pagestyle{empty}
+\begin{document}
+\thispagestyle{empty}
+
+%\begin{Arabic}[numerals=arabic]%% "Arabic", not "arabic"
+%\begin{Arabic}[numerals=mashriq]%% "Arabic", not "arabic"
+
+
+
+زهرة\index{زهرة}
+عصفور\index{عصفور}
+ريح\index{ريح}
+القمر\index{القمر}
+
+%\end{Arabic}
+
+\printindex
+
+\end{document}
+
+\index{}.
