@@ -2,6 +2,16 @@ UPMENDEX = upmendex
 DVIPDFMX = dvipdfmx -f haranoaji-uptex.map
 XDVIPDFMX = xdvipdfmx
 
+all_pdf_for_ctan: city0.pdf city1.pdf city_texconf-03-cropa.pdf \
+	de00a.pdf de00b.pdf lt00-02.pdf \
+	sk00a.pdf sk00b.pdf tr00-02.pdf \
+	hu00-02.pdf ru00.pdf el00.pdf \
+	zh00a.pdf zh00b.pdf zh00c.pdf zh00d.pdf zh01a.pdf zh01b.pdf \
+	yomi00-02.pdf yomi01-02.pdf \
+	jp01.pdf jp02.pdf jp03.pdf jp04.pdf jp05.pdf \
+	ko03-02.pdf hi00.pdf th00.pdf ar00.pdf he00.pdf
+
+
 yomi00.pdf: yomi00.tex
 	uplatex yomi00.tex
 	uplatex yomi00.tex
@@ -42,11 +52,11 @@ ko03.pdf: ko03.tex
 	${UPMENDEX} -s mlg4.ist -d hy_pua.dic ko03
 	xelatex ko03.tex
 
-ko03-01.pdf: ko03.xdv
+ko03-01.pdf: ko03.pdf
 	xelatex -no-pdf ko03.tex
 	${XDVIPDFMX} -s 1 -o ko03-01.pdf ko03.xdv
 
-ko03-02.pdf: ko03.xdv
+ko03-02.pdf: ko03.pdf
 	xelatex -no-pdf ko03.tex
 	${XDVIPDFMX} -s 2 -o ko03-02.pdf ko03.xdv
 	pdfcrop --margins 10 ko03-02.pdf
@@ -58,11 +68,11 @@ hu00.pdf: hu00.tex
 	${UPMENDEX} -s mlg_hu0.ist hu00
 	xelatex hu00.tex
 
-hu00-01.pdf: hu00.xdv
+hu00-01.pdf: hu00.pdf
 	xelatex -no-pdf hu00.tex
 	${XDVIPDFMX} -s 1 -o hu00-01.pdf hu00.xdv
 
-hu00-02.pdf: hu00.xdv
+hu00-02.pdf: hu00.pdf
 	xelatex -no-pdf hu00.tex
 	${XDVIPDFMX} -s 2 -o hu00-02.pdf hu00.xdv
 	pdfcrop --margins 10 hu00-02.pdf
@@ -73,11 +83,11 @@ tr00.pdf: tr00.tex
 	${UPMENDEX} -s mlg_tr0.ist tr00
 	xelatex tr00.tex
 
-tr00-01.pdf: tr00.xdv
+tr00-01.pdf: tr00.pdf
 	xelatex -no-pdf tr00.tex
 	${XDVIPDFMX} -s 1 -o tr00-01.pdf tr00.xdv
 
-tr00-02.pdf: tr00.xdv
+tr00-02.pdf: tr00.pdf
 	xelatex -no-pdf tr00.tex
 	${XDVIPDFMX} -s 2 -o tr00-02.pdf tr00.xdv
 	pdfcrop --margins 10 tr00-02.pdf
@@ -89,11 +99,11 @@ lt00.pdf: lt00.tex
 	${UPMENDEX} -s mlg_lt0.ist lt00
 	xelatex lt00.tex
 
-lt00-01.pdf: lt00.xdv
+lt00-01.pdf: lt00.pdf
 	xelatex -no-pdf lt00.tex
 	${XDVIPDFMX} -s 1 -o lt00-01.pdf lt00.xdv
 
-lt00-02.pdf: lt00.xdv
+lt00-02.pdf: lt00.pdf
 	xelatex -no-pdf lt00.tex
 	${XDVIPDFMX} -s 2 -o lt00-02.pdf lt00.xdv
 	pdfcrop --margins 10 lt00-02.pdf
@@ -340,7 +350,7 @@ city_texconf.pdf:
 	${XDVIPDFMX} -s 3 -o city_texconf-03.pdf city_texconf.xdv
 	pdfcrop --margins 10 city_texconf-03.pdf
 
-city_texconf-03-cropa.pdf:
+city_texconf-03-cropa.pdf: city_texconf.pdf
 	pdfcrop --margins "10 10 10 -260" city_texconf-03.pdf city_texconf-03-cropa.pdf
 
 
