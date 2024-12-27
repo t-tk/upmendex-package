@@ -6,12 +6,18 @@
 #include <stdlib.h>
 #include <string.h>
 
+#if defined(WIN32) && defined(WITH_SYSTEM_ICU)
+#include <icu.h>
+#else
 #include <unicode/utypes.h>
 #include <unicode/ustring.h>
 #include <unicode/uchar.h>
 #include <unicode/ucol.h>
+#include <unicode/unorm2.h>
+#endif
 
 #define PAGE_COMPOSIT_DEPTH 10
+#define MAXDEPTH 5
 
 struct page {
 	char *page;
@@ -22,9 +28,9 @@ struct page {
 struct index {
 	int num;
 	unsigned char words;
-	UChar *dic[3];
-	UChar *org[3];
-	UChar *idx[3];
+	UChar *dic[MAXDEPTH];
+	UChar *org[MAXDEPTH];
+	UChar *idx[MAXDEPTH];
 	struct page *p;
 	int lnum;
 };
