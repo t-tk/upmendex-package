@@ -2,7 +2,7 @@ UPMENDEX = upmendex
 DVIPDFMX = dvipdfmx -f haranoaji-uptex.map
 XDVIPDFMX = xdvipdfmx
 
-all_pdf_for_ctan: city0.pdf city1.pdf city_texconf-03-cropa.pdf \
+all_pdf_for_ctan: city0.pdf city1.pdf city_texconf.pdf city_texconf-03-cropa.pdf \
 	de00a.pdf de00b.pdf lt00-02.pdf \
 	sk00a.pdf sk00b.pdf tr00-02.pdf \
 	hu00-02.pdf ru00.pdf el00.pdf \
@@ -12,11 +12,13 @@ all_pdf_for_ctan: city0.pdf city1.pdf city_texconf-03-cropa.pdf \
 	ko03-02.pdf hi00.pdf th00.pdf ar00.pdf he00.pdf
 
 
-yomi00.pdf: yomi00.tex
+yomi00.dvi: yomi00.tex
 	uplatex yomi00.tex
 	uplatex yomi00.tex
 	${UPMENDEX} -s mlg3.ist yomi00
 	uplatex yomi00.tex
+
+yomi00.pdf: yomi00.dvi
 	${DVIPDFMX} yomi00.dvi
 
 yomi00-01.pdf: yomi00.dvi
@@ -29,11 +31,13 @@ yomi00-02.pdf: yomi00.dvi
 	${DVIPDFMX} yomi00-02.dvi
 	pdfcrop --margins 10 yomi00-02.pdf
 
-yomi01.pdf: yomi01.tex
+yomi01.dvi: yomi01.tex
 	uplatex yomi01.tex
 	uplatex yomi01.tex
 	${UPMENDEX} -s mlg8.ist -d yomi.dic yomi01
 	uplatex yomi01.tex
+
+yomi01.pdf: yomi01.dvi
 	${DVIPDFMX} yomi01.dvi
 
 yomi01-01.pdf: yomi01.dvi
