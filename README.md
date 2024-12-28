@@ -55,6 +55,9 @@ No warranty.
 Lisence notice is written in [COPYRIGHT](./COPYRIGHT).
 It is as same as [the BSD 3-Clause License](https://opensource.org/licenses/BSD-3-Clause)
 
+### ChangeLog
+ChangeLog is written in [ChangeLog](./source/texk/upmendex/ChangeLog).
+
 ### Supported locales
 In ICU collator, default "root" locale covers several lauguages:
 English, French, German, Italian, Portuguese and so on.
