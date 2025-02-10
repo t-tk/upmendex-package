@@ -19,6 +19,8 @@ rm $TMP/$PROJECT/create_archive.sh
 
 rm $TMP/$PROJECT/.gitignore
 rm $TMP/$PROJECT/man/upmendex.man1.ps
+mv $TMP/$PROJECT/source/texk/upmendex/* $TMP/$PROJECT/source
+rmdir -p $TMP/$PROJECT/source/texk
 
 rm -f $PWDF/$PROJECT.zip
 cd $TMP && zip -r $PWDF/$PROJECT.zip $PROJECT
