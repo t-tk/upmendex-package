@@ -1,7 +1,7 @@
 upmendex  --- Multilingual index processor
 ==========================================
 
-2024.11.09 Ver1.10
+2025.02.10 Ver1.11
 
 TANAKA, Takuji
 <ttk(at)t-lab.opal.ne.jp>
@@ -28,7 +28,6 @@ upmendex is a multilingual index processor with following features:
 ### Contents
  * README.md :: This file
  * source/ :: sources
-   * source/texk/upmendex :: upmendex source files.
  * doc/ :: documents
  * doc/samples/ :: samples for test.
    More samples are distributed at GitHub[2] than at CTAN[5].
@@ -39,7 +38,7 @@ upmendex is a multilingual index processor with following features:
  * man/ :: manuals
 
 ### Building upmendex
-The source files are distributed at GitHub[2] and work with TeX Live svn r72807.
+The source files are distributed at GitHub[2] and work with TeX Live svn r73836.
 Ref. [TeX Live and Subversion](http://www.tug.org/texlive/svn/)
 
 Tested with ICU 76.1 .
@@ -53,7 +52,7 @@ Lisence notice is written in [COPYRIGHT](./COPYRIGHT).
 It is as same as [the BSD 3-Clause License](https://opensource.org/licenses/BSD-3-Clause)
 
 ### ChangeLog
-ChangeLog is written in [ChangeLog](./source/texk/upmendex/ChangeLog).
+ChangeLog is written in [ChangeLog](./source/ChangeLog).
 
 ### Supported locales
 In ICU collator, default "root" locale covers several lauguages:
