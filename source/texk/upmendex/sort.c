@@ -21,7 +21,7 @@
 	zh@collation=zhuyin  28880
 */
 
-int sym,nmbr,ltn,kana,hngl,hnz,cyr,grk,dvng,thai,arab,hbrw;
+int sym,nmbr,ltn,kana,hngl,hnz,cyr,grk,thai,arab,hbrw,brhm[NUM_BRAHMIC];
 
 static int wcomp(const void *p, const void *q);
 static int pcomp(const void *p, const void *q);
@@ -91,7 +91,7 @@ void init_icu_collator()
 /*   sort index   */
 void wsort(struct index *ind, int num)
 {
-	int i,order;
+	int i,j,order;
 
 	for (order=1,i=0;;i++) {
 		switch (character_order[i]) {
@@ -131,10 +131,6 @@ void wsort(struct index *ind, int num)
 			grk=order++;
 			break;
 
-		case 'D':
-			dvng=order++;
-			break;
-
 		case 'T':
 			thai=order++;
 			break;
@@ -147,8 +143,20 @@ void wsort(struct index *ind, int num)
 			hbrw=order++;
 			break;
 
+		case 'D': brhm[BR_DEVA]=order++; break;
+		case 'b': brhm[BR_BENG]=order++; break;
+		case 'p': brhm[BR_GURU]=order++; break;
+		case 'g': brhm[BR_GUJR]=order++; break;
+		case 'o': brhm[BR_ORYA]=order++; break;
+		case 't': brhm[BR_TAML]=order++; break;
+		case 'e': brhm[BR_TELU]=order++; break;
+		case 'k': brhm[BR_KNDA]=order++; break;
+		case 'm': brhm[BR_MLYM]=order++; break;
+
 		case '@':
-			sym=nmbr=ltn=kana=hngl=hnz=cyr=grk=dvng=thai=arab=hbrw=order++;
+			sym=nmbr=ltn=kana=hngl=hnz=cyr=grk=thai=arab=hbrw=order;
+			for(j=0;j<NUM_BRAHMIC;j++) brhm[j]=order;
+			order++;
 			break;
 
 		default:
@@ -167,10 +175,11 @@ BREAK:
 	if (hnz==0) hnz=order++;
 	if (cyr==0) cyr=order++;
 	if (grk==0) grk=order++;
-	if (dvng==0) dvng=order++;
 	if (thai==0) thai=order++;
 	if (arab==0) arab=order++;
 	if (hbrw==0) hbrw=order++;
+	for(j=0;j<NUM_BRAHMIC;j++)
+		if (brhm[j]==0) brhm[j]=order++;
 
 	qsort(ind,num,sizeof(struct index),wcomp);
 }
@@ -317,6 +326,8 @@ static int pcomp(const void *p, const void *q)
 
 static int ordering(UChar *c)
 {
+	int scr;
+
 	if      (*c<0x20)                return sym;  /* control */
 	else if (*c<0x7F) {
 		if      (is_latin(c))    return ltn;
@@ -332,16 +343,20 @@ static int ordering(UChar *c)
 		else if (is_cyrillic(c)) return cyr;
 		else if (is_greek(c))    return grk;
 		else if (is_numeric(c))  return nmbr;
-		else if (is_devanagari(c)) return dvng;
+		else if (is_devanagari(c)) return brhm[0];
 		else if (is_thai(c))     return thai;
 		else if (is_arabic(c))   return arab;
 		else if (is_hebrew(c))   return hbrw;
+		else if ((scr=is_brahmic(c))>0)
+			return brhm[scr-CH_DEVANAGARI];
 		else                     return sym;
 	}
 }
 
 int charset(UChar *c)
 {
+	int scr;
+
 	if      (*c<0x20)                return CH_UNKNOWN;  /* control */
 	else if (*c<0x7F) {
 		if      (is_latin(c))    return CH_LATIN;
@@ -361,6 +376,7 @@ int charset(UChar *c)
 		else if (is_thai(c))     return CH_THAI;
 		else if (is_arabic(c))   return CH_ARABIC;
 		else if (is_hebrew(c))   return CH_HEBREW;
+		else if ((scr=is_brahmic(c))>0) return scr;
 		else                     return CH_SYMBOL;
 	}
 }
@@ -608,6 +624,29 @@ int is_devanagari(UChar *c)
 		UChar32 c32;
 		c32=U16_GET_SUPPLEMENTARY(*c,*(c+1));
 		if ( c32>=0x11B00  &&  c32<=0x11B5F ) return 2; /* Devanagari Extended-A */
+	}
+	return 0;
+}
+
+int is_brahmic(UChar *c)
+{
+	if      ( *c< 0x0980               ) return 0;
+	else if ( *c<=0x0D7F &&
+                 (*c & 0x7F)>=0x64                     /* Reserved for viram punctuation */
+	            && (*c & 0x7F)<=0x6F   ) return 0; /* .. Digit */
+	if      (               *c<=0x09FF ) return CH_BENGALI;   /* Bengali   */
+	else if ( *c>=0x0A00 && *c<=0x0A7F ) return CH_GURMUKHI;  /* Gurmukhi  */
+	else if ( *c>=0x0A80 && *c<=0x0AFF ) return CH_GUJARATI;  /* Gujarati  */
+	else if ( *c>=0x0B00 && *c<=0x0B7F ) return CH_ORIYA;     /* Oriya     */
+	else if ( *c>=0x0B80 && *c<=0x0BFF ) return CH_TAMIL;     /* Tamil     */
+	else if ( *c>=0x0C00 && *c<=0x0C7F ) return CH_TELUGU;    /* Telugu    */
+	else if ( *c>=0x0C80 && *c<=0x0CFF ) return CH_KANNADA;   /* Kannada   */
+	else if ( *c>=0x0D00 && *c<=0x0D7F ) return CH_MALAYALAM; /* Malayalam */
+
+	if (is_surrogate_pair(c)) {
+		UChar32 c32;
+		c32=U16_GET_SUPPLEMENTARY(*c,*(c+1));
+		if ( c32>=0x11FC0  &&  c32<=0x11FFF ) return CH_TAMIL; /* Tamil Supplement */
 	}
 	return 0;
 }

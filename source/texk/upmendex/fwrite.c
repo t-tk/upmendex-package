@@ -165,9 +165,9 @@ static int pnumconv2(struct page *p)
 /*   write ind file   */
 void indwrite(char *filename, struct index *ind, int pagenum)
 {
-	int i,j,k,q,hpoint=0,tpoint=0,ipoint=0,jpoint=0,block_open=0;
+	int i,j,k,q,hpoint=0,tpoint=0,ipoint=0,bpoint[NUM_BRAHMIC]={0},block_open=0;
 	char lbuff[BUFFERLEN],obuff[BUFFERLEN];
-	UChar initial[INITIALLENGTH],initial_prev[INITIALLENGTH];
+	UChar initial[INITIALLENGTH],initial_prev[INITIALLENGTH],*__head;
 	int chset,chset_prev;
 	FILE *fp=NULL;
 	UErrorCode perr;
@@ -267,29 +267,30 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 					}
 				}
 			}
-			else if (chset==CH_DEVANAGARI) {
+			else if (chset>=CH_DEVANAGARI && chset<=CH_MALAYALAM) {
+				__head=brahmic_head[chset-CH_DEVANAGARI];
 				if (lethead_flag!=0) {
 					fputs(lethead_prefix,fp);
-					for (j=jpoint;j<(u_strlen(devanagari_head));) {
-						if (initial_cmp_char(initial,&devanagari_head[j])) {
-							k=j;  U16_BACK_1(devanagari_head, 0, k);
-							fprint_uchar(fp,&devanagari_head[k],M_NONE,1);
-							jpoint=j;
+					for (j=bpoint[chset-CH_DEVANAGARI];j<(u_strlen(__head));) {
+						if (initial_cmp_char(initial,&__head[j])) {
+							k=j;  U16_BACK_1(__head, 0, k);
+							fprint_uchar(fp,&__head[k],M_NONE,1);
+							bpoint[chset-CH_DEVANAGARI]=j;
 							break;
 						}
-						U16_FWD_1(devanagari_head, j, -1);
+						U16_FWD_1(__head, j, -1);
 					}
-					if (j==(u_strlen(devanagari_head))) {
-						k=j;  U16_BACK_1(devanagari_head, 0, k);
-						fprint_uchar(fp,&devanagari_head[k],M_NONE,1);
+					if (j==(u_strlen(__head))) {
+						k=j;  U16_BACK_1(__head, 0, k);
+						fprint_uchar(fp,&__head[k],M_NONE,1);
 					}
 					fputs(lethead_suffix,fp);
 				}
-				for (jpoint=0;jpoint<(u_strlen(devanagari_head));) {
-					if (initial_cmp_char(initial,&devanagari_head[jpoint])) {
+				for (bpoint[chset-CH_DEVANAGARI]=0;bpoint[chset-CH_DEVANAGARI]<(u_strlen(__head));) {
+					if (initial_cmp_char(initial,&__head[bpoint[chset-CH_DEVANAGARI]])) {
 						break;
 					}
-					U16_FWD_1(devanagari_head, jpoint, -1);
+					U16_FWD_1(__head, bpoint[chset-CH_DEVANAGARI], -1);
 				}
 			}
 			else if (chset==CH_THAI) {
@@ -382,20 +383,21 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 					}
 				}
 			}
-			else if (chset==CH_DEVANAGARI) {
-				for (j=jpoint;j<(u_strlen(devanagari_head));) {
-					if (initial_cmp_char(initial,&devanagari_head[j])) {
+			else if (chset>=CH_DEVANAGARI && chset<=CH_MALAYALAM) {
+				__head=brahmic_head[chset-CH_DEVANAGARI];
+				for (j=bpoint[chset-CH_DEVANAGARI];j<(u_strlen(__head));) {
+					if (initial_cmp_char(initial,&__head[j])) {
 						break;
 					}
-					U16_FWD_1(devanagari_head, j, -1);
+					U16_FWD_1(__head, j, -1);
 				}
-				if ((j!=jpoint)||(j==0)) {
-					jpoint=j;
+				if ((j!=bpoint[chset-CH_DEVANAGARI])||(j==0)) {
+					bpoint[chset-CH_DEVANAGARI]=j;
 					fputs(group_skip,fp);
 					if (lethead_flag!=0) {
-						k=j;  U16_BACK_1(devanagari_head, 0, k);
+						k=j;  U16_BACK_1(__head, 0, k);
 						fputs(lethead_prefix,fp);
-						fprint_uchar(fp,&devanagari_head[k],M_NONE,1);
+						fprint_uchar(fp,&__head[k],M_NONE,1);
 						fputs(lethead_suffix,fp);
 					}
 				}
@@ -857,11 +859,11 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 		}
 		return;
 	}
-	else if (is_devanagari(istr)==2) {
+	else if (is_devanagari(istr)==2||(is_brahmic(istr)&&is_surrogate_pair(istr))) {
 		ini[0]=istr[0]; ini[1]=istr[1]; ini[2]=L'\0';
 		return;
 	}
-	else if (is_devanagari(&ch)||is_arabic(&ch)||is_hebrew(&ch)) {
+	else if (is_devanagari(&ch)||is_arabic(&ch)||is_hebrew(&ch)||is_brahmic(&ch)) {
 		if (ch==0x626) {  /* Arabic Letter Yeh with Hamza Above for Uyghur */
 			strY[0]=0x626; strY[1]=L'\0'; /* Yeh with Hamza Above */
 			strZ[0]=0x628; strZ[1]=L'\0'; /* Beh */
@@ -882,11 +884,25 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 				return;
 			}
 		}
+		/* Oriya */
+		if (       (istr[0]==0xB15 && istr[1]==0xB4D && istr[2]== 0xB37)) { /* KSSA କ୍ଷ */
+			strY[0]=istr[0]; strY[1]=istr[1]; strY[2]=istr[2]; strY[3]=L'\0';
+			strZ[0]=0xB39; strZ[1]=L'\0'; /* HA ହ */
+			order = ucol_strcoll(icu_collator, strZ, -1, strY, -1);
+			if (order==UCOL_LESS) {
+				u_strcpy(ini,strY);
+				return;
+			}
+		}
 		if (ch==0x929||ch==0x931||ch==0x934||(0x958<=ch&&ch<=0x95F) /* Devanagary */
 			||(0x622<=ch&&ch<=0x626)||ch==0x6C0||ch==0x6C2||ch==0x6D3 /* Arabic */
 			||(0xFB50<=ch&&ch<=0xFDFF) /* Arabic Presentation Forms-A */
 			||(0xFE70<=ch&&ch<=0xFEFF) /* Arabic Presentation Forms-B */
 			||(0xFB1D<=ch&&ch<=0xFB4F) /* Hebrew presentation forms */
+			||ch==0x9DC||ch==0x9DD||ch==0x9DF /* Bengali */
+			||ch==0xA33||ch==0xA36||(0xA59<=ch&&ch<=0xA5B)||ch==0xA5E /* Gurmukhi */
+			||ch==0xB5C||ch==0xB5D            /* Oriya */
+			||ch==0xB94                       /* Tamil */
 		   ) {
 			src[0]=ch;  src[1]=0x00;
 			perr=U_ZERO_ERROR;

@@ -68,6 +68,7 @@ int is_devanagari(UChar *c);
 int is_thai(UChar *c);
 int is_arabic(UChar *c);
 int is_hebrew(UChar *c);
+int is_brahmic(UChar *c);
 int is_type_mark_or_punct(UChar *c);
 int is_type_symbol(UChar *c);
 int chkcontinue(struct page *p, int num);
@@ -80,13 +81,31 @@ int ss_comp(UChar *s1, UChar *s2);
 #define CH_KANA         4
 #define CH_HANGUL       5
 #define CH_HANZI        6
-#define CH_DEVANAGARI   7
-#define CH_THAI         8
-#define CH_ARABIC       9
-#define CH_HEBREW      10
+#define CH_THAI         7
+#define CH_ARABIC       8
+#define CH_HEBREW       9
+#define CH_DEVANAGARI  10
+#define CH_BENGALI     11
+#define CH_GURMUKHI    12
+#define CH_GUJARATI    13
+#define CH_ORIYA       14
+#define CH_TAMIL       15
+#define CH_TELUGU      16
+#define CH_KANNADA     17
+#define CH_MALAYALAM   18
 #define CH_SYMBOL   0x100
 #define CH_NUMERIC  0x101
-#define  is_any_script(a)  ((CH_LATIN<=(a) && (a)<=CH_HEBREW))
+#define  is_any_script(a)  ((CH_LATIN<=(a) && (a)<=CH_MALAYALAM))
+#define NUM_BRAHMIC     9
+#define BR_DEVA   CH_DEVANAGARI - CH_DEVANAGARI
+#define BR_BENG   CH_BENGALI    - CH_DEVANAGARI
+#define BR_GURU   CH_GURMUKHI   - CH_DEVANAGARI
+#define BR_GUJR   CH_GUJARATI   - CH_DEVANAGARI
+#define BR_ORYA   CH_ORIYA      - CH_DEVANAGARI
+#define BR_TAML   CH_TAMIL      - CH_DEVANAGARI
+#define BR_TELU   CH_TELUGU     - CH_DEVANAGARI
+#define BR_KNDA   CH_KANNADA    - CH_DEVANAGARI
+#define BR_MLYM   CH_MALAYALAM  - CH_DEVANAGARI
 
 /* sort.c */
 int charset(UChar *c);
