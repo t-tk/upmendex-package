@@ -1,6 +1,6 @@
 UPMENDEX = upmendex
 
-alphabet: ltn cyr grk zh ja ko dev th arb he
+alphabet: ltn cyr grk zh ja ko dev brhm th arb he
 
 ltn:
 	for num in 1 2; do \
@@ -149,8 +149,19 @@ dev:
 	for loc in hi mr ne; do \
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head1.ist -s mdxsty_$$loc.ist -t alpha_$$loc.ilg -o alpha_$$loc.ind ; \
 	done ; \
-	for x in 1; do \
+	for x in 1 2; do \
 	for loc in hi mr ne; do \
+		locx=$$loc$$x ; \
+		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head1.ist -s mdxsty_$$locx.ist -t alpha_$$locx.ilg -o alpha_$$locx.ind ; \
+	done ; \
+	done
+
+brhm:
+	for loc in bn pa gu or ta te kn ml; do \
+		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head1.ist -s mdxsty_$$loc.ist -t alpha_$$loc.ilg -o alpha_$$loc.ind ; \
+	done ; \
+	for x in 1; do \
+	for loc in bn pa gu or ta te kn ml; do \
 		locx=$$loc$$x ; \
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head1.ist -s mdxsty_$$locx.ist -t alpha_$$locx.ilg -o alpha_$$locx.ind ; \
 	done ; \
