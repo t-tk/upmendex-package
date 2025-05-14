@@ -165,7 +165,7 @@ static int pnumconv2(struct page *p)
 /*   write ind file   */
 void indwrite(char *filename, struct index *ind, int pagenum)
 {
-	int i,j,k,q,hpoint=0,tpoint=0,ipoint=0,bpoint[NUM_BRAHMIC]={0},block_open=0;
+	int i,j,k,q,hpoint=0,tpoint=0,ipoint=0,bpoint[NUM_BRAHMIC]={0},block_open=0,*__point;
 	char lbuff[BUFFERLEN],obuff[BUFFERLEN];
 	UChar initial[INITIALLENGTH],initial_prev[INITIALLENGTH],*__head;
 	int chset,chset_prev;
@@ -269,13 +269,14 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 			}
 			else if (chset>=CH_DEVANAGARI && chset<=CH_MALAYALAM) {
 				__head=brahmic_head[chset-CH_DEVANAGARI];
+				__point=&bpoint[chset-CH_DEVANAGARI];
 				if (lethead_flag!=0) {
 					fputs(lethead_prefix,fp);
-					for (j=bpoint[chset-CH_DEVANAGARI];j<(u_strlen(__head));) {
+					for (j=*__point;j<(u_strlen(__head));) {
 						if (initial_cmp_char(initial,&__head[j])) {
 							k=j;  U16_BACK_1(__head, 0, k);
 							fprint_uchar(fp,&__head[k],M_NONE,1);
-							bpoint[chset-CH_DEVANAGARI]=j;
+							*__point=j;
 							break;
 						}
 						U16_FWD_1(__head, j, -1);
@@ -286,11 +287,11 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 					}
 					fputs(lethead_suffix,fp);
 				}
-				for (bpoint[chset-CH_DEVANAGARI]=0;bpoint[chset-CH_DEVANAGARI]<(u_strlen(__head));) {
-					if (initial_cmp_char(initial,&__head[bpoint[chset-CH_DEVANAGARI]])) {
+				for (*__point=0;*__point<(u_strlen(__head));) {
+					if (initial_cmp_char(initial,&__head[*__point])) {
 						break;
 					}
-					U16_FWD_1(__head, bpoint[chset-CH_DEVANAGARI], -1);
+					U16_FWD_1(__head, *__point, -1);
 				}
 			}
 			else if (chset==CH_THAI) {
@@ -385,14 +386,15 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 			}
 			else if (chset>=CH_DEVANAGARI && chset<=CH_MALAYALAM) {
 				__head=brahmic_head[chset-CH_DEVANAGARI];
-				for (j=bpoint[chset-CH_DEVANAGARI];j<(u_strlen(__head));) {
+				__point=&bpoint[chset-CH_DEVANAGARI];
+				for (j=*__point;j<(u_strlen(__head));) {
 					if (initial_cmp_char(initial,&__head[j])) {
 						break;
 					}
 					U16_FWD_1(__head, j, -1);
 				}
-				if ((j!=bpoint[chset-CH_DEVANAGARI])||(j==0)) {
-					bpoint[chset-CH_DEVANAGARI]=j;
+				if ((j!=*__point)||(j==0)) {
+					*__point=j;
 					fputs(group_skip,fp);
 					if (lethead_flag!=0) {
 						k=j;  U16_BACK_1(__head, 0, k);
