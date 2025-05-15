@@ -78,7 +78,6 @@
 
 \centerline{\bfseries --- ক ---}\par\nobreak
   \item ক\leaders\hbox{$\cdot$}\hfill 201
-  \item ক্ষ\leaders\hbox{$\cdot$}\hfill 801
 
   \indexspace
 
@@ -151,12 +150,12 @@
 
 \centerline{\bfseries --- ণ ---}\par\nobreak
   \item ণ\leaders\hbox{$\cdot$}\hfill 215
+  \item ৎ\leaders\hbox{$\cdot$}\hfill 301
 
   \indexspace
 
 \centerline{\bfseries --- ত ---}\par\nobreak
   \item ত\leaders\hbox{$\cdot$}\hfill 216
-  \item ৎ\leaders\hbox{$\cdot$}\hfill 301
 
   \indexspace
 
@@ -240,5 +239,6 @@
 
 \centerline{\bfseries --- হ ---}\par\nobreak
   \item হ\leaders\hbox{$\cdot$}\hfill 232
+  \item ক্ষ\leaders\hbox{$\cdot$}\hfill 801
 
 \end{theindex}

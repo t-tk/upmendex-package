@@ -46,13 +46,13 @@
 
 \centerline{\bfseries --- ঋ ---}\par\nobreak
   \item ঋ\leaders\hbox{$\cdot$}\hfill 107
-  \item ৠ\leaders\hbox{$\cdot$}\hfill 504
+  \item ৠ\leaders\hbox{$\cdot$}\hfill 302
 
   \indexspace
 
 \centerline{\bfseries --- ঌ ---}\par\nobreak
   \item ঌ\leaders\hbox{$\cdot$}\hfill 108
-  \item ৡ\leaders\hbox{$\cdot$}\hfill 505
+  \item ৡ\leaders\hbox{$\cdot$}\hfill 303
 
   \indexspace
 
@@ -78,6 +78,7 @@
 
 \centerline{\bfseries --- ক ---}\par\nobreak
   \item ক\leaders\hbox{$\cdot$}\hfill 201
+  \item ক্ষ\leaders\hbox{$\cdot$}\hfill 801
 
   \indexspace
 
@@ -155,6 +156,7 @@
 
 \centerline{\bfseries --- ত ---}\par\nobreak
   \item ত\leaders\hbox{$\cdot$}\hfill 216
+  \item ৎ\leaders\hbox{$\cdot$}\hfill 301
 
   \indexspace
 
@@ -211,13 +213,13 @@
 
 \centerline{\bfseries --- র ---}\par\nobreak
   \item র\leaders\hbox{$\cdot$}\hfill 227
-  \item ৰ\leaders\hbox{$\cdot$}\hfill 506
+  \item ৰ\leaders\hbox{$\cdot$}\hfill 304
 
   \indexspace
 
 \centerline{\bfseries --- ল ---}\par\nobreak
   \item ল\leaders\hbox{$\cdot$}\hfill 228
-  \item ৱ\leaders\hbox{$\cdot$}\hfill 507
+  \item ৱ\leaders\hbox{$\cdot$}\hfill 305
 
   \indexspace
 
