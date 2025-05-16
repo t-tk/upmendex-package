@@ -46,11 +46,13 @@
 
 \centerline{\bfseries --- ഋ ---}\par\nobreak
   \item ഋ\leaders\hbox{$\cdot$}\hfill 107
+  \item ൠ\leaders\hbox{$\cdot$}\hfill 301
 
   \indexspace
 
 \centerline{\bfseries --- ഌ ---}\par\nobreak
   \item ഌ\leaders\hbox{$\cdot$}\hfill 108
+  \item ൡ\leaders\hbox{$\cdot$}\hfill 302
 
   \indexspace
 

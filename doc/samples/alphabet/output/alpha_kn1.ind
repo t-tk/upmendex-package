@@ -46,11 +46,13 @@
 
 \centerline{\bfseries --- ಋ ---}\par\nobreak
   \item ಋ\leaders\hbox{$\cdot$}\hfill 107
+  \item ೠ\leaders\hbox{$\cdot$}\hfill 302
 
   \indexspace
 
 \centerline{\bfseries --- ಌ ---}\par\nobreak
   \item ಌ\leaders\hbox{$\cdot$}\hfill 108
+  \item ೡ\leaders\hbox{$\cdot$}\hfill 303
 
   \indexspace
 
@@ -256,5 +258,6 @@
 
 \centerline{\bfseries --- ಳ ---}\par\nobreak
   \item ಳ\leaders\hbox{$\cdot$}\hfill 230
+  \item ೞ\leaders\hbox{$\cdot$}\hfill 301
 
 \end{theindex}
