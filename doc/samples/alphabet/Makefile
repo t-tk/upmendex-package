@@ -149,6 +149,12 @@ dev:
 	for loc in hi mr ne; do \
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head1.ist -s mdxsty_$$loc.ist -t alpha_$$loc.ilg -o alpha_$$loc.ind ; \
 	done ; \
+	for x in 0; do \
+	for loc in hi mr ne; do \
+		locx=$$loc$$x ; \
+		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head1.ist -t alpha_$$locx.ilg -o alpha_$$locx.ind ; \
+	done ; \
+	done
 	for x in 1 2; do \
 	for loc in hi mr ne; do \
 		locx=$$loc$$x ; \
@@ -157,11 +163,17 @@ dev:
 	done
 
 brhm:
-	for loc in bn as pa gu or ta te kn ml; do \
+	for loc in bn as pa gu or ta te kn ml si; do \
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head1.ist -s mdxsty_$$loc.ist -t alpha_$$loc.ilg -o alpha_$$loc.ind ; \
 	done ; \
+	for x in 0; do \
+	for loc in bn as pa gu or ta te kn ml si; do \
+		locx=$$loc$$x ; \
+		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head1.ist -t alpha_$$locx.ilg -o alpha_$$locx.ind ; \
+	done ; \
+	done
 	for x in 1; do \
-	for loc in bn as pa gu or ta te kn ml; do \
+	for loc in bn as pa gu or ta te kn ml si; do \
 		locx=$$loc$$x ; \
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head1.ist -s mdxsty_$$locx.ist -t alpha_$$locx.ilg -o alpha_$$locx.ind ; \
 	done ; \
