@@ -1,7 +1,7 @@
 upmendex  --- Multilingual index processor
 ==========================================
 
-2025.02.10 Ver1.11
+2025.05.xx Ver1.12
 
 TANAKA, Takuji
 <ttk(at)t-lab.opal.ne.jp>
@@ -19,7 +19,9 @@ upmendex is a multilingual index processor with following features:
  * Support Latin (including non-English), Greek, Cyrillic,
    Korean Hangul and Chinese Han (Hanzi ideographs) scripts
    as well as Japanese Kana.
- * Support Devanagari, Thai, Arabic and Hebrew scripts (experimental).
+ * Support Brahmic (Bengali, Devanagari, Gurmukhi, Gujarati,
+   Kannada, Malayalam, Oriya, Sinhala, Tamil, Telugu, Thai),
+   Arabic and Hebrew scripts (experimental).
  * Support four kinds of sort orders (Pinyin, Radical-Stroke,
    Stroke and Zhuyin) for Chinese Han scripts (Hanzi ideographs).
  * Apply International Components for Unicode (ICU)[4]
@@ -99,11 +101,15 @@ Currently following locales are available:
   "zh" [Pinyin Sort Order], "zh@collation=unihan" [Radical-Stroke Sort Order],
   "zh@collation=stroke" [Stroke Sort Order], "zh@collation=zhuyin" [Zhuyin Sort Order] (Chinese)
 
-#### Devanagari (experimental)
+#### Brahmic scripts (experimental)
+##### Bengali
+  "as" (Assamese), "bn", "bn@collation=traditional" (Bengali)
+##### Devanagari
   "hi" (Hindi), "mr" (Marathi), "ne" (Nepali)
-
-#### Thai script (experimental)
-  "th" (Thai)
+##### Other scripts
+  "pa" (Punjabi), "gu" (Gujarati), "or" (Odia), "ta" (Tamil), "te" (Telugu),
+  "kn", "kn@collation=traditional" (Kannada), "ml" (Malayalam),
+  "si", "si@collation=dictionary" (Sinhala), "th" (Thai)
 
 #### Arabic script (experimental)
   "ar", "ar@collation=compat" (Arabic), "fa" (Persian), "fa-AF" (Dari), "ps" (Pashto),
