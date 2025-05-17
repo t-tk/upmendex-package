@@ -258,6 +258,10 @@
 
 \centerline{\bfseries --- ಳ ---}\par\nobreak
   \item ಳ\leaders\hbox{$\cdot$}\hfill 230
+
+  \indexspace
+
+\centerline{\bfseries --- ೞ ---}\par\nobreak
   \item ೞ\leaders\hbox{$\cdot$}\hfill 301
 
 \end{theindex}

@@ -183,10 +183,6 @@
 
 \centerline{\bfseries --- ന ---}\par\nobreak
   \item ന\leaders\hbox{$\cdot$}\hfill 220
-
-  \indexspace
-
-\centerline{\bfseries --- ഩ ---}\par\nobreak
   \item ഩ\leaders\hbox{$\cdot$}\hfill 221
 
   \indexspace
@@ -268,10 +264,6 @@
 
 \centerline{\bfseries --- റ ---}\par\nobreak
   \item റ\leaders\hbox{$\cdot$}\hfill 229
-
-  \indexspace
-
-\centerline{\bfseries --- ഺ ---}\par\nobreak
   \item ഺ\leaders\hbox{$\cdot$}\hfill 238
 
 \end{theindex}
