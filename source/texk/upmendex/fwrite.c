@@ -886,6 +886,16 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 				return;
 			}
 		}
+		/* Bengali */
+		if (       (istr[0]==0x995 && istr[1]==0x9CD && istr[2]== 0x9B7)) { /* KSSA ক্ষ */
+			strY[0]=istr[0]; strY[1]=istr[1]; strY[2]=istr[2]; strY[3]=L'\0';
+			strZ[0]=0x9B9; strZ[1]=L'\0'; /* HA হ */
+			order = ucol_strcoll(icu_collator, strZ, -1, strY, -1);
+			if (order==UCOL_LESS) {
+				u_strcpy(ini,strY);
+				return;
+			}
+		}
 		/* Oriya */
 		if (       (istr[0]==0xB15 && istr[1]==0xB4D && istr[2]== 0xB37)) { /* KSSA କ୍ଷ */
 			strY[0]=istr[0]; strY[1]=istr[1]; strY[2]=istr[2]; strY[3]=L'\0';
