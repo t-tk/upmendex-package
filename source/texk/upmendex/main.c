@@ -253,6 +253,7 @@ int main(int argc, char **argv)
 	u_strcpy(brahmic_head[BR_TELU],TELU_HEAD);
 	u_strcpy(brahmic_head[BR_KNDA],KNDA_HEAD);
 	u_strcpy(brahmic_head[BR_MLYM],MLYM_HEAD);
+	u_strcpy(brahmic_head[BR_SINH],SINH_HEAD);
 
 	for (k=0;styfile[k]!=NULL;k++) {
 		styread(styfile[k]);

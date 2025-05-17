@@ -47,8 +47,8 @@ int letter_head=1;
 UChar atama[STYBUFSIZE],hangul_head[STYBUFSIZE],hanzi_head[STYBUFSIZE]={L'\0'},kana_head[STYBUFSIZE]={L'\0'};
 UChar brahmic_head[NUM_BRAHMIC][STYBUFSIZE],thai_head[STYBUFSIZE];
 char page_compositor[STYBUFSIZE]={"-"},page_precedence[STYBUFSIZE]={"rnaRA"};
-char character_order[STYBUFSIZE]={"SNLGCJKHDbpgotekmTah"};
-char script_preamble[19][STYBUFSIZE],script_postamble[19][STYBUFSIZE];
+char character_order[STYBUFSIZE]={"SNLGCJKHDbpgotekmsTah"};
+char script_preamble[20][STYBUFSIZE],script_postamble[20][STYBUFSIZE];
 char icu_locale[STYBUFSIZE]={"root"},icu_rules[STYBUFSIZE]={""};
 int icu_attributes[UCOL_ATTRIBUTE_COUNT];
 

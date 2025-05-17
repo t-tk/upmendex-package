@@ -197,6 +197,7 @@ void styread(const char *filename)
 			if (getparam(tmp,"telugu",    script_preamble[CH_TELUGU]     )) continue;
 			if (getparam(tmp,"kannada",   script_preamble[CH_KANNADA]    )) continue;
 			if (getparam(tmp,"malayalam", script_preamble[CH_MALAYALAM]  )) continue;
+			if (getparam(tmp,"sinhala",   script_preamble[CH_SINHALA]    )) continue;
 			if (strlen(tmp)>0) {
 				verb_printf(efp,"\nWarning: Unknown script for specifier \"script_preamble\" (%s).", tmp);
 			}
@@ -223,6 +224,7 @@ void styread(const char *filename)
 			if (getparam(tmp,"telugu",    script_postamble[CH_TELUGU]     )) continue;
 			if (getparam(tmp,"kannada",   script_postamble[CH_KANNADA]    )) continue;
 			if (getparam(tmp,"malayalam", script_postamble[CH_MALAYALAM]  )) continue;
+			if (getparam(tmp,"sinhala",   script_postamble[CH_SINHALA]    )) continue;
 			if (strlen(tmp)>0) {
 				verb_printf(efp,"\nWarning: Unknown script for specifier \"script_postamble\" (%s).", tmp);
 			}
@@ -244,6 +246,7 @@ void styread(const char *filename)
 			if (getparam(tmp,"telugu",    tmp2)){ multibyte_to_widechar(brahmic_head[BR_TELU],STYBUFSIZE,tmp2); continue; }
 			if (getparam(tmp,"kannada",   tmp2)){ multibyte_to_widechar(brahmic_head[BR_KNDA],STYBUFSIZE,tmp2); continue; }
 			if (getparam(tmp,"malayalam", tmp2)){ multibyte_to_widechar(brahmic_head[BR_MLYM],STYBUFSIZE,tmp2); continue; }
+			if (getparam(tmp,"sinhala",   tmp2)){ multibyte_to_widechar(brahmic_head[BR_SINH],STYBUFSIZE,tmp2); continue; }
 			if (strlen(tmp)>0) {
 				verb_printf(efp,"\nWarning: Unknown script for specifier \"script_head\" (%s).", tmp);
 			}

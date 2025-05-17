@@ -93,10 +93,11 @@ int ss_comp(UChar *s1, UChar *s2);
 #define CH_TELUGU      16
 #define CH_KANNADA     17
 #define CH_MALAYALAM   18
+#define CH_SINHALA     19
 #define CH_SYMBOL   0x100
 #define CH_NUMERIC  0x101
-#define  is_any_script(a)  ((CH_LATIN<=(a) && (a)<=CH_MALAYALAM))
-#define NUM_BRAHMIC     9
+#define  is_any_script(a)  ((CH_LATIN<=(a) && (a)<=CH_SINHALA))
+#define NUM_BRAHMIC    10
 #define BR_DEVA   CH_DEVANAGARI - CH_DEVANAGARI
 #define BR_BENG   CH_BENGALI    - CH_DEVANAGARI
 #define BR_GURU   CH_GURMUKHI   - CH_DEVANAGARI
@@ -106,6 +107,7 @@ int ss_comp(UChar *s1, UChar *s2);
 #define BR_TELU   CH_TELUGU     - CH_DEVANAGARI
 #define BR_KNDA   CH_KANNADA    - CH_DEVANAGARI
 #define BR_MLYM   CH_MALAYALAM  - CH_DEVANAGARI
+#define BR_SINH   CH_SINHALA    - CH_DEVANAGARI
 
 /* sort.c */
 int charset(UChar *c);

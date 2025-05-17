@@ -152,6 +152,7 @@ void wsort(struct index *ind, int num)
 		case 'e': brhm[BR_TELU]=order++; break;
 		case 'k': brhm[BR_KNDA]=order++; break;
 		case 'm': brhm[BR_MLYM]=order++; break;
+		case 's': brhm[BR_SINH]=order++; break;
 
 		case '@':
 			sym=nmbr=ltn=kana=hngl=hnz=cyr=grk=thai=arab=hbrw=order;
@@ -631,7 +632,7 @@ int is_devanagari(UChar *c)
 int is_brahmic(UChar *c)
 {
 	if      ( *c< 0x0980               ) return 0;
-	else if ( *c<=0x0D7F &&
+	else if ( *c<=0x0DFF &&
                  (*c & 0x7F)>=0x64                     /* Reserved for viram punctuation */
 	            && (*c & 0x7F)<=0x6F   ) return 0; /* .. Digit */
 	if      (               *c<=0x09FF ) return CH_BENGALI;   /* Bengali   */
@@ -642,11 +643,13 @@ int is_brahmic(UChar *c)
 	else if ( *c>=0x0C00 && *c<=0x0C7F ) return CH_TELUGU;    /* Telugu    */
 	else if ( *c>=0x0C80 && *c<=0x0CFF ) return CH_KANNADA;   /* Kannada   */
 	else if ( *c>=0x0D00 && *c<=0x0D7F ) return CH_MALAYALAM; /* Malayalam */
+	else if ( *c>=0x0D80 && *c<=0x0DFF ) return CH_SINHALA;   /* Sinhala   */
 
 	if (is_surrogate_pair(c)) {
 		UChar32 c32;
 		c32=U16_GET_SUPPLEMENTARY(*c,*(c+1));
-		if ( c32>=0x11FC0  &&  c32<=0x11FFF ) return CH_TAMIL; /* Tamil Supplement */
+		if ( c32>=0x111E0  &&  c32<=0x111FF ) return CH_SINHALA; /* Sinhala Archaic Numbers */
+		if ( c32>=0x11FC0  &&  c32<=0x11FFF ) return CH_TAMIL;   /* Tamil Supplement */
 	}
 	return 0;
 }

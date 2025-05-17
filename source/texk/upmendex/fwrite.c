@@ -267,7 +267,7 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 					}
 				}
 			}
-			else if (chset>=CH_DEVANAGARI && chset<=CH_MALAYALAM) {
+			else if (chset>=CH_DEVANAGARI && chset<=CH_SINHALA) {
 				__head=brahmic_head[chset-CH_DEVANAGARI];
 				__point=&bpoint[chset-CH_DEVANAGARI];
 				if (lethead_flag!=0) {
@@ -384,7 +384,7 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 					}
 				}
 			}
-			else if (chset>=CH_DEVANAGARI && chset<=CH_MALAYALAM) {
+			else if (chset>=CH_DEVANAGARI && chset<=CH_SINHALA) {
 				__head=brahmic_head[chset-CH_DEVANAGARI];
 				__point=&bpoint[chset-CH_DEVANAGARI];
 				for (j=*__point;j<(u_strlen(__head));) {
