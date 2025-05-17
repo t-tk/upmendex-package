@@ -227,6 +227,10 @@
 
 \centerline{\bfseries --- ଵ ---}\par\nobreak
   \item ଵ\leaders\hbox{$\cdot$}\hfill 230
+
+  \indexspace
+
+\centerline{\bfseries --- ୱ ---}\par\nobreak
   \item ୱ\leaders\hbox{$\cdot$}\hfill 303
 
   \indexspace
