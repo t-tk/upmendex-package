@@ -178,6 +178,12 @@ brhm:
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head1.ist -s mdxsty_$$locx.ist -t alpha_$$locx.ilg -o alpha_$$locx.ind ; \
 	done ; \
 	done
+	for x in 3; do \
+	for loc in bn kn si; do \
+		locx=$$loc$$x ; \
+		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head1.ist -s mdxsty_$$locx.ist -t alpha_$$locx.ilg -o alpha_$$locx.ind ; \
+	done ; \
+	done
 
 th:
 	for loc in th; do \
