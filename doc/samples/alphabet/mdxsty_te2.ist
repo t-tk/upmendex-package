@@ -1,0 +1,6 @@
+% -*- coding: utf-8 -*-
+
+icu_locale  "te"
+%script_head  telugu  "అఆఇఈఉఊఋఌఎఏఐఒఓఔకఖగఘఙచఛజఝఞటఠడఢణతథదధనపఫబభమయరఱలవశషసహళఴ"
+script_head  telugu  "అఇఉఋఎఒకచటతపయశహ"
+

@@ -1,0 +1,6 @@
+% -*- coding: utf-8 -*-
+
+icu_locale  "gu"
+%script_head  gujarati  "અઆઇઈઉઊઋઌઍએઐઑઓઔકખગઘઙચછજઝઞટઠડઢણતથદધનપફબભમયરલવશષસહળ"
+script_head  gujarati  "અઇઉઋઍઑકચટતપયશહ"
+

@@ -1,0 +1,6 @@
+% -*- coding: utf-8 -*-
+
+icu_locale  "ta"
+%script_head  tamil  "அஆஇஈஉஊஎஏஐஒஓகஙசஞடணதநபமயரலவழளறனஜஶஷஸஹ"
+script_head  tamil  "அஇஉஎஒகசடதபயஶஹ"
+
