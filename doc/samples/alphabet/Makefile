@@ -16,7 +16,7 @@ ltn:
 	done
 	for num in 1 2; do \
 	for x in 1 2; do \
-	for loc in sv fi; do \
+	for loc in ro sv fi; do \
 		locx=$$loc$$x ; \
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head$$num.ist -s mdxsty_$$locx.ist -t alpha_$$locx$$num.ilg -o alpha_$$locx$$num.ind ; \
 	done ; \
@@ -189,7 +189,7 @@ th:
 	for loc in th; do \
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head1.ist -s mdxsty_$$loc.ist -t alpha_$$loc.ilg -o alpha_$$loc.ind ; \
 	done ; \
-	for x in 1; do \
+	for x in 1 2; do \
 	for loc in th; do \
 		locx=$$loc$$x ; \
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head1.ist -s mdxsty_$$locx.ist -t alpha_$$locx.ilg -o alpha_$$locx.ind ; \

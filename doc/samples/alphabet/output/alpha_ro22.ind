@@ -144,15 +144,15 @@
 
   \indexspace
 
-\centerline{\bfseries --- ş ---}\par\nobreak
-  \item ş\leaders\hbox{$\cdot$}\hfill 265
+\centerline{\bfseries --- ș ---}\par\nobreak
   \item ș\leaders\hbox{$\cdot$}\hfill 263
-  \item Ş\leaders\hbox{$\cdot$}\hfill 165
+  \item ş\leaders\hbox{$\cdot$}\hfill 265
   \item Ș\leaders\hbox{$\cdot$}\hfill 163
-  \item şa\leaders\hbox{$\cdot$}\hfill 3004
+  \item Ş\leaders\hbox{$\cdot$}\hfill 165
   \item șa\leaders\hbox{$\cdot$}\hfill 3002
-  \item şz\leaders\hbox{$\cdot$}\hfill 3005
+  \item şa\leaders\hbox{$\cdot$}\hfill 3004
   \item șz\leaders\hbox{$\cdot$}\hfill 3003
+  \item şz\leaders\hbox{$\cdot$}\hfill 3005
 
   \indexspace
 
@@ -164,15 +164,15 @@
 
   \indexspace
 
-\centerline{\bfseries --- ţ ---}\par\nobreak
-  \item ţ\leaders\hbox{$\cdot$}\hfill 266
+\centerline{\bfseries --- ț ---}\par\nobreak
   \item ț\leaders\hbox{$\cdot$}\hfill 264
-  \item Ţ\leaders\hbox{$\cdot$}\hfill 166
+  \item ţ\leaders\hbox{$\cdot$}\hfill 266
   \item Ț\leaders\hbox{$\cdot$}\hfill 164
-  \item ţa\leaders\hbox{$\cdot$}\hfill 4004
+  \item Ţ\leaders\hbox{$\cdot$}\hfill 166
   \item ța\leaders\hbox{$\cdot$}\hfill 4002
-  \item ţz\leaders\hbox{$\cdot$}\hfill 4005
+  \item ţa\leaders\hbox{$\cdot$}\hfill 4004
   \item țz\leaders\hbox{$\cdot$}\hfill 4003
+  \item ţz\leaders\hbox{$\cdot$}\hfill 4005
 
   \indexspace
 
