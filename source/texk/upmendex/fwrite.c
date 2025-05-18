@@ -717,7 +717,7 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 	UErrorCode perr;
 	UCollationResult order,order1;
 	UCollationStrength strgth;
-	static int i_y_mode=0,o_o_mode=0,u_u_mode=0,v_w_mode=0;
+	static int i_y_mode=0,o_o_mode=0,u_u_mode=0,v_w_mode=0,s_s_mode=0,t_t_mode=0;
 
 	ch=istr[0];
 	*chset=charset(istr);
@@ -978,6 +978,78 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 		if (v_w_mode==2) {
 			ini[0] = 0x056; /* V */
 			return;
+		}
+	}
+	if (ch==0x15E||ch==0x15F||ch==0x218||ch==0x219) {
+		/* check Ş versus Ș for Romanian */
+		if (s_s_mode<=2) {
+			strgth = ucol_getStrength(icu_collator);
+			strX[0] = ch;     strX[1] = 0x00; /* myself */
+			strZ[0] = 0x053;  strZ[1] = 0x00; /* S */
+			ucol_setStrength(icu_collator, UCOL_PRIMARY);
+			order = ucol_strcoll(icu_collator, strZ, -1, strX, -1);
+			if (s_s_mode==0) {
+				strX[0] = 0x15E;  strX[1] = 0x00; /* Ş */
+				strY[0] = 0x218;  strY[1] = 0x00; /* Ș */
+				order1 = ucol_strcoll(icu_collator, strY, -1, strX, -1);
+				if (order1==UCOL_EQUAL) s_s_mode = 3;
+			}
+			if (s_s_mode<3) {
+				s_s_mode = (order==UCOL_EQUAL) ? 1 : 2;
+			}
+			ucol_setStrength(icu_collator, strgth);
+		}
+		if (s_s_mode==3) {
+			strgth = ucol_getStrength(icu_collator);
+			ucol_setStrength(icu_collator, UCOL_QUATERNARY);
+			order  = ucol_strcoll(icu_collator, strY, -1, strX, -1);
+			s_s_mode = (order==UCOL_LESS) ? 5 : 4;
+			ucol_setStrength(icu_collator, strgth);
+		}
+		if (s_s_mode==2) {
+			ini[0] = u_toupper(ch);  return;
+		}
+		if (s_s_mode==4) {
+			ini[0] = 0x15E;  return;
+		}
+		if (s_s_mode==5) {
+			ini[0] = 0x218;  return;
+		}
+	}
+	if (ch==0x162||ch==0x163||ch==0x21A||ch==0x21B) {
+		/* check Ţ versus Ț for Romanian */
+		if (t_t_mode<=2) {
+			strgth = ucol_getStrength(icu_collator);
+			strX[0] = ch;     strX[1] = 0x00; /* myself */
+			strZ[0] = 0x054;  strZ[1] = 0x00; /* T */
+			ucol_setStrength(icu_collator, UCOL_PRIMARY);
+			order = ucol_strcoll(icu_collator, strZ, -1, strX, -1);
+			if (t_t_mode==0) {
+				strX[0] = 0x162;  strX[1] = 0x00; /* Ţ */
+				strY[0] = 0x21A;  strY[1] = 0x00; /* Ț */
+				order1 = ucol_strcoll(icu_collator, strY, -1, strX, -1);
+				if (order1==UCOL_EQUAL) t_t_mode = 3;
+			}
+			if (t_t_mode<3) {
+				t_t_mode = (order==UCOL_EQUAL) ? 1 : 2;
+			}
+			ucol_setStrength(icu_collator, strgth);
+		}
+		if (t_t_mode==3) {
+			strgth = ucol_getStrength(icu_collator);
+			ucol_setStrength(icu_collator, UCOL_QUATERNARY);
+			order  = ucol_strcoll(icu_collator, strY, -1, strX, -1);
+			t_t_mode = (order==UCOL_LESS) ? 5 : 4;
+			ucol_setStrength(icu_collator, strgth);
+		}
+		if (t_t_mode==2) {
+			ini[0] = u_toupper(ch);  return;
+		}
+		if (t_t_mode==4) {
+			ini[0] = 0x162;  return;
+		}
+		if (t_t_mode==5) {
+			ini[0] = 0x21A;  return;
 		}
 	}
 	if (ch==0x0D6||ch==0x0F6||ch==0x150||ch==0x151) {
