@@ -717,7 +717,7 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 	UErrorCode perr;
 	UCollationResult order,order1;
 	UCollationStrength strgth;
-	static int i_y_mode=0,o_o_mode=0,u_u_mode=0;
+	static int i_y_mode=0,o_o_mode=0,u_u_mode=0,v_w_mode=0;
 
 	ch=istr[0];
 	*chset=charset(istr);
@@ -961,6 +961,22 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 		}
 		if (i_y_mode==2) {
 			ini[0] = 0x049; /* I */
+			return;
+		}
+	}
+	if (ch==0x057||ch==0x077) {
+		/* check V versus W for Finnish */
+		if (v_w_mode==0) {
+			strgth = ucol_getStrength(icu_collator);
+			ucol_setStrength(icu_collator, UCOL_PRIMARY);
+			strX[0] = 0x057;  strX[1] = 0x00; /* W */
+			strZ[0] = 0x056;  strZ[1] = 0x00; /* V */
+			order = ucol_strcoll(icu_collator, strZ, -1, strX, -1);
+			v_w_mode = (order==UCOL_EQUAL) ? 2 : 1;
+			ucol_setStrength(icu_collator, strgth);
+		}
+		if (v_w_mode==2) {
+			ini[0] = 0x056; /* V */
 			return;
 		}
 	}
