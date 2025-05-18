@@ -149,7 +149,7 @@ void wsort(struct index *ind, int num)
 		case 'g': brhm[BR_GUJR]=order++; break;
 		case 'o': brhm[BR_ORYA]=order++; break;
 		case 't': brhm[BR_TAML]=order++; break;
-		case 'e': brhm[BR_TELU]=order++; break;
+		case 'u': brhm[BR_TELU]=order++; break;
 		case 'k': brhm[BR_KNDA]=order++; break;
 		case 'm': brhm[BR_MLYM]=order++; break;
 		case 's': brhm[BR_SINH]=order++; break;
