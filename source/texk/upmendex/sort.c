@@ -21,7 +21,7 @@
 	zh@collation=zhuyin  28880
 */
 
-int sym,nmbr,ltn,kana,hngl,hnz,cyr,grk,thai,arab,hbrw,brhm[NUM_BRAHMIC];
+int sym,nmbr,ltn,kana,hngl,hnz,cyr,grk,arab,hbrw,brhm[NUM_BRAHMIC];
 
 static int wcomp(const void *p, const void *q);
 static int pcomp(const void *p, const void *q);
@@ -131,10 +131,6 @@ void wsort(struct index *ind, int num)
 			grk=order++;
 			break;
 
-		case 'T':
-			thai=order++;
-			break;
-
 		case 'a':
 			arab=order++;
 			break;
@@ -153,9 +149,11 @@ void wsort(struct index *ind, int num)
 		case 'k': brhm[BR_KNDA]=order++; break;
 		case 'm': brhm[BR_MLYM]=order++; break;
 		case 's': brhm[BR_SINH]=order++; break;
+		case 'T': brhm[BR_THAI]=order++; break;
+		case 'l': brhm[BR_LAO ]=order++; break;
 
 		case '@':
-			sym=nmbr=ltn=kana=hngl=hnz=cyr=grk=thai=arab=hbrw=order;
+			sym=nmbr=ltn=kana=hngl=hnz=cyr=grk=arab=hbrw=order;
 			for(j=0;j<NUM_BRAHMIC;j++) brhm[j]=order;
 			order++;
 			break;
@@ -176,7 +174,6 @@ BREAK:
 	if (hnz==0) hnz=order++;
 	if (cyr==0) cyr=order++;
 	if (grk==0) grk=order++;
-	if (thai==0) thai=order++;
 	if (arab==0) arab=order++;
 	if (hbrw==0) hbrw=order++;
 	for(j=0;j<NUM_BRAHMIC;j++)
@@ -344,8 +341,9 @@ static int ordering(UChar *c)
 		else if (is_cyrillic(c)) return cyr;
 		else if (is_greek(c))    return grk;
 		else if (is_numeric(c))  return nmbr;
-		else if (is_devanagari(c)) return brhm[0];
-		else if (is_thai(c))     return thai;
+		else if (is_devanagari(c)) return brhm[BR_DEVA];
+		else if (is_thai(c))     return brhm[BR_THAI];
+		else if (is_lao(c))      return brhm[BR_LAO];
 		else if (is_arabic(c))   return arab;
 		else if (is_hebrew(c))   return hbrw;
 		else if ((scr=is_brahmic(c))>0)
@@ -375,6 +373,7 @@ int charset(UChar *c)
 		else if (is_numeric(c))  return CH_NUMERIC;
 		else if (is_devanagari(c)) return CH_DEVANAGARI;
 		else if (is_thai(c))     return CH_THAI;
+		else if (is_lao(c))      return CH_LAO;
 		else if (is_arabic(c))   return CH_ARABIC;
 		else if (is_hebrew(c))   return CH_HEBREW;
 		else if ((scr=is_brahmic(c))>0) return scr;
@@ -659,6 +658,13 @@ int is_thai(UChar *c)
 	if      ( *c==0x0E3F )               return 0; /* Thai Currency Symbol Baht */
 	else if ( *c>=0x0E50 && *c<=0x0E59 ) return 0; /* Thai Digit */
 	else if ( *c>=0x0E00 && *c<=0x0E7F ) return 1; /* Thai */
+	else return 0;
+}
+
+int is_lao(UChar *c)
+{
+	if      ( *c>=0x0ED0 && *c<=0x0ED9 ) return 0; /* Lao Digit */
+	else if ( *c>=0x0E80 && *c<=0x0EFF ) return 1; /* Lao */
 	else return 0;
 }
 

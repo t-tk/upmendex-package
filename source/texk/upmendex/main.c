@@ -243,7 +243,6 @@ int main(int argc, char **argv)
 
 /*   init hangul,devanagari,thai *_head table   */
 	u_strcpy(hangul_head,GANADA);
-	u_strcpy(thai_head,THAI_HEAD);
 	u_strcpy(brahmic_head[BR_DEVA],DEVA_HEAD);
 	u_strcpy(brahmic_head[BR_BENG],BENG_HEAD);
 	u_strcpy(brahmic_head[BR_GURU],GURU_HEAD);
@@ -254,6 +253,8 @@ int main(int argc, char **argv)
 	u_strcpy(brahmic_head[BR_KNDA],KNDA_HEAD);
 	u_strcpy(brahmic_head[BR_MLYM],MLYM_HEAD);
 	u_strcpy(brahmic_head[BR_SINH],SINH_HEAD);
+	u_strcpy(brahmic_head[BR_THAI],THAI_HEAD);
+	u_strcpy(brahmic_head[BR_LAO ],LAO_HEAD );
 
 	for (k=0;styfile[k]!=NULL;k++) {
 		styread(styfile[k]);

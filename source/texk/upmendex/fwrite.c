@@ -165,7 +165,7 @@ static int pnumconv2(struct page *p)
 /*   write ind file   */
 void indwrite(char *filename, struct index *ind, int pagenum)
 {
-	int i,j,k,q,hpoint=0,tpoint=0,ipoint=0,bpoint[NUM_BRAHMIC]={0},block_open=0,*__point;
+	int i,j,k,q,hpoint=0,tpoint=0,bpoint[NUM_BRAHMIC]={0},block_open=0,*__point;
 	char lbuff[BUFFERLEN],obuff[BUFFERLEN];
 	UChar initial[INITIALLENGTH],initial_prev[INITIALLENGTH],*__head;
 	int chset,chset_prev;
@@ -267,7 +267,7 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 					}
 				}
 			}
-			else if (chset>=CH_DEVANAGARI && chset<=CH_SINHALA) {
+			else if (chset>=CH_DEVANAGARI && chset<=CH_LAO) {
 				__head=brahmic_head[chset-CH_DEVANAGARI];
 				__point=&bpoint[chset-CH_DEVANAGARI];
 				if (lethead_flag!=0) {
@@ -292,27 +292,6 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 						break;
 					}
 					U16_FWD_1(__head, *__point, -1);
-				}
-			}
-			else if (chset==CH_THAI) {
-				if (lethead_flag!=0) {
-					fputs(lethead_prefix,fp);
-					for (j=ipoint;j<(u_strlen(thai_head));j++) {
-						if (initial_cmp_char(initial,&thai_head[j])) {
-							fprint_uchar(fp,&thai_head[j-1],M_NONE,1);
-							ipoint=j;
-							break;
-						}
-					}
-					if (j==(u_strlen(thai_head))) {
-						fprint_uchar(fp,&thai_head[j-1],M_NONE,1);
-					}
-					fputs(lethead_suffix,fp);
-				}
-				for (ipoint=0;ipoint<(u_strlen(thai_head));ipoint++) {
-					if (initial_cmp_char(initial,&thai_head[ipoint])) {
-						break;
-					}
 				}
 			}
 			else {
@@ -384,7 +363,7 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 					}
 				}
 			}
-			else if (chset>=CH_DEVANAGARI && chset<=CH_SINHALA) {
+			else if (chset>=CH_DEVANAGARI && chset<=CH_LAO) {
 				__head=brahmic_head[chset-CH_DEVANAGARI];
 				__point=&bpoint[chset-CH_DEVANAGARI];
 				for (j=*__point;j<(u_strlen(__head));) {
@@ -400,22 +379,6 @@ void indwrite(char *filename, struct index *ind, int pagenum)
 						k=j;  U16_BACK_1(__head, 0, k);
 						fputs(lethead_prefix,fp);
 						fprint_uchar(fp,&__head[k],M_NONE,1);
-						fputs(lethead_suffix,fp);
-					}
-				}
-			}
-			else if (chset==CH_THAI) {
-				for (j=ipoint;j<(u_strlen(thai_head));j++) {
-					if (initial_cmp_char(initial,&thai_head[j])) {
-						break;
-					}
-				}
-				if ((j!=ipoint)||(j==0)) {
-					ipoint=j;
-					fputs(group_skip,fp);
-					if (lethead_flag!=0) {
-						fputs(lethead_prefix,fp);
-						fprint_uchar(fp,&thai_head[j-1],M_NONE,1);
 						fputs(lethead_suffix,fp);
 					}
 				}
@@ -851,8 +814,9 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 		u_strcpy(ini,hz_index[lo-1].idx);
 		return;
 	}
-	else if (is_thai(&ch)) {
-		if ((istr[0]>=0x0E40 && istr[0]<=0x0E44) && (istr[1]>=0x0E01 && istr[1]<=0x0E2E)) {
+	else if (is_thai(&ch)||is_lao(&ch)) {
+		if (((istr[0]>=0x0E40 && istr[0]<=0x0E44) && (istr[1]>=0x0E01 && istr[1]<=0x0E2E)) ||
+		    ((istr[0]>=0x0EC0 && istr[0]<=0x0EC4) && (istr[1]>=0x0E81 && istr[1]<=0x0EAE))) {
 			/* Thai reordering :: Vowel followed by Consonant */
 			/* https://unicode-org.github.io/icu/userguide/collation/concepts.html#thailao-reordering */
 			ini[0]=istr[1];
