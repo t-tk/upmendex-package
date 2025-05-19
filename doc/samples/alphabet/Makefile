@@ -186,11 +186,11 @@ brhm:
 	done
 
 th:
-	for loc in th; do \
+	for loc in th lo; do \
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head1.ist -s mdxsty_$$loc.ist -t alpha_$$loc.ilg -o alpha_$$loc.ind ; \
 	done ; \
 	for x in 1 2; do \
-	for loc in th; do \
+	for loc in th lo; do \
 		locx=$$loc$$x ; \
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head1.ist -s mdxsty_$$locx.ist -t alpha_$$locx.ilg -o alpha_$$locx.ind ; \
 	done ; \

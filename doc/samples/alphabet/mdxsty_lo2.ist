@@ -1,0 +1,6 @@
+% -*- coding: utf-8 -*-
+
+icu_locale  "lo"
+%script_head  lao  "ກຂຄງຈສຊຍດຕຖທນບປຜຝພຟມຢຣລວຫອຮ"
+script_head  lao  "ກຈດບຢ"
+
