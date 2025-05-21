@@ -1,0 +1,6 @@
+% -*- coding: utf-8 -*-
+
+% upmendex supports Kurdish Hawar alphabet by Latin scripts
+% but have not supported Yekgirtú variant yet.
+icu_locale  "ku"
+
