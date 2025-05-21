@@ -77,7 +77,8 @@ Currently following locales are available:
   "et" (Estonian), "fi", "fi@collation=search", "fi@collation=traditional" (Finnish),
   "fr-CA" (French), "gl", "gl@collation=search" (Galician),
   "hr", "hr@collation=search" (Croatian), "hu" (Hungarian),
-  "is", "is@collation=search" (Icelandic), "lt" (Lithuanian), "lv" (Latvian),
+  "is", "is@collation=search" (Icelandic), "ku" (Kurdish Hawar alphabet),
+  "lt" (Lithuanian), "lv" (Latvian),
   "nb", "nb@collation=search", "nn", "nn@collation=search", "no" (Norwegian),
   "pl" (Polish), "ro" (Romanian), "sk", "sk@collation=search" (Slovak),
   "sl" (Slovenian), "sq" (Albanian), "sr-Latn", "sr-Latn@collation=search" (Serbian),
@@ -107,9 +108,9 @@ Currently following locales are available:
 ##### Devanagari
   "hi" (Hindi), "mr" (Marathi), "ne" (Nepali)
 ##### Other scripts
-  "pa" (Punjabi), "gu" (Gujarati), "or" (Odia), "ta" (Tamil), "te" (Telugu),
-  "kn", "kn@collation=traditional" (Kannada), "ml" (Malayalam),
-  "si", "si@collation=dictionary" (Sinhala), "th" (Thai)
+  "gu" (Gujarati), "kn", "kn@collation=traditional" (Kannada), "lo" (Lao),
+  "ml" (Malayalam), "or" (Odia), "pa" (Punjabi),
+  "si", "si@collation=dictionary" (Sinhala), "ta" (Tamil), "te" (Telugu), "th" (Thai)
 
 #### Arabic script (experimental)
   "ar", "ar@collation=compat" (Arabic), "fa" (Persian), "fa-AF" (Dari), "ps" (Pashto),
