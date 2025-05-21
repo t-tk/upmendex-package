@@ -817,7 +817,7 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 	else if (is_thai(&ch)||is_lao(&ch)) {
 		if (((istr[0]>=0x0E40 && istr[0]<=0x0E44) && (istr[1]>=0x0E01 && istr[1]<=0x0E2E)) ||
 		    ((istr[0]>=0x0EC0 && istr[0]<=0x0EC4) && (istr[1]>=0x0E81 && istr[1]<=0x0EAE))) {
-			/* Thai reordering :: Vowel followed by Consonant */
+			/* Thai/Lao reordering :: Vowel followed by Consonant */
 			/* https://unicode-org.github.io/icu/userguide/collation/concepts.html#thailao-reordering */
 			ini[0]=istr[1];
 		} else {
