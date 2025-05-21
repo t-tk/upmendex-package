@@ -820,6 +820,8 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 			/* Thai/Lao reordering :: Vowel followed by Consonant */
 			/* https://unicode-org.github.io/icu/userguide/collation/concepts.html#thailao-reordering */
 			ini[0]=istr[1];
+		} else if (istr[0]==0x0EDC || istr[0]==0x0EDD) { /* ໜ ໝ */
+			ini[0]=0xEAB; /* ຫ */
 		} else {
 			ini[0]=istr[0];
 		}
