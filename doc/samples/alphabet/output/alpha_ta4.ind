@@ -38,6 +38,10 @@
   \item 𑿞\leaders\hbox{$\cdot$}\hfill 4210
   \item 𑿟\leaders\hbox{$\cdot$}\hfill 4211
   \item 𑿠\leaders\hbox{$\cdot$}\hfill 4212
+
+  \indexspace
+
+\centerline{\bfseries --- Numbers ---}\par\nobreak
   \item ௦\leaders\hbox{$\cdot$}\hfill 1000
   \item ௧\leaders\hbox{$\cdot$}\hfill 1001
   \item ௨\leaders\hbox{$\cdot$}\hfill 1002

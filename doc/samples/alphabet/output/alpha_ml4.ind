@@ -2,6 +2,10 @@
 
 \centerline{\bfseries --- Symbols ---}\par\nobreak
   \item ൹\leaders\hbox{$\cdot$}\hfill 1210
+
+  \indexspace
+
+\centerline{\bfseries --- Numbers ---}\par\nobreak
   \item ൦\leaders\hbox{$\cdot$}\hfill 1000
   \item ൧\leaders\hbox{$\cdot$}\hfill 1001
   \item ൨\leaders\hbox{$\cdot$}\hfill 1002

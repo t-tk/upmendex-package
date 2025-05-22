@@ -2,40 +2,56 @@
 
 \centerline{\bfseries --- Symbols ---}\par\nobreak
   \item ౿\leaders\hbox{$\cdot$}\hfill 1208
+
+  \indexspace
+
+\centerline{\bfseries --- Numbers ---}\par\nobreak
   \item ౦\leaders\hbox{$\cdot$}\hfill 1000
-  \item ౸\leaders\hbox{$\cdot$}\hfill 1101
   \item ౧\leaders\hbox{$\cdot$}\hfill 1001
-  \item ౹\leaders\hbox{$\cdot$}\hfill 1102
-  \item ౼\leaders\hbox{$\cdot$}\hfill 1105
   \item ౨\leaders\hbox{$\cdot$}\hfill 1002
-  \item ౺\leaders\hbox{$\cdot$}\hfill 1103
-  \item ౽\leaders\hbox{$\cdot$}\hfill 1106
   \item ౩\leaders\hbox{$\cdot$}\hfill 1003
-  \item ౻\leaders\hbox{$\cdot$}\hfill 1104
-  \item ౾\leaders\hbox{$\cdot$}\hfill 1107
   \item ౪\leaders\hbox{$\cdot$}\hfill 1004
   \item ౫\leaders\hbox{$\cdot$}\hfill 1005
   \item ౬\leaders\hbox{$\cdot$}\hfill 1006
   \item ౭\leaders\hbox{$\cdot$}\hfill 1007
   \item ౮\leaders\hbox{$\cdot$}\hfill 1008
   \item ౯\leaders\hbox{$\cdot$}\hfill 1009
+  \item ౸\leaders\hbox{$\cdot$}\hfill 1101
+  \item ౹\leaders\hbox{$\cdot$}\hfill 1102
+  \item ౼\leaders\hbox{$\cdot$}\hfill 1105
+  \item ౺\leaders\hbox{$\cdot$}\hfill 1103
+  \item ౽\leaders\hbox{$\cdot$}\hfill 1106
+  \item ౻\leaders\hbox{$\cdot$}\hfill 1104
+  \item ౾\leaders\hbox{$\cdot$}\hfill 1107
 
   \indexspace
 
 \centerline{\bfseries --- అ ---}\par\nobreak
   \item అ\leaders\hbox{$\cdot$}\hfill 101
+
+  \indexspace
+
+\centerline{\bfseries --- ఆ ---}\par\nobreak
   \item ఆ\leaders\hbox{$\cdot$}\hfill 102
 
   \indexspace
 
 \centerline{\bfseries --- ఇ ---}\par\nobreak
   \item ఇ\leaders\hbox{$\cdot$}\hfill 103
+
+  \indexspace
+
+\centerline{\bfseries --- ఈ ---}\par\nobreak
   \item ఈ\leaders\hbox{$\cdot$}\hfill 104
 
   \indexspace
 
 \centerline{\bfseries --- ఉ ---}\par\nobreak
   \item ఉ\leaders\hbox{$\cdot$}\hfill 105
+
+  \indexspace
+
+\centerline{\bfseries --- ఊ ---}\par\nobreak
   \item ఊ\leaders\hbox{$\cdot$}\hfill 106
 
   \indexspace
@@ -43,6 +59,10 @@
 \centerline{\bfseries --- ఋ ---}\par\nobreak
   \item ఋ\leaders\hbox{$\cdot$}\hfill 107
   \item ౠ\leaders\hbox{$\cdot$}\hfill 301
+
+  \indexspace
+
+\centerline{\bfseries --- ఌ ---}\par\nobreak
   \item ఌ\leaders\hbox{$\cdot$}\hfill 108
   \item ౡ\leaders\hbox{$\cdot$}\hfill 302
 
@@ -50,82 +70,210 @@
 
 \centerline{\bfseries --- ఎ ---}\par\nobreak
   \item ఎ\leaders\hbox{$\cdot$}\hfill 109
+
+  \indexspace
+
+\centerline{\bfseries --- ఏ ---}\par\nobreak
   \item ఏ\leaders\hbox{$\cdot$}\hfill 110
+
+  \indexspace
+
+\centerline{\bfseries --- ఐ ---}\par\nobreak
   \item ఐ\leaders\hbox{$\cdot$}\hfill 111
 
   \indexspace
 
 \centerline{\bfseries --- ఒ ---}\par\nobreak
   \item ఒ\leaders\hbox{$\cdot$}\hfill 112
+
+  \indexspace
+
+\centerline{\bfseries --- ఓ ---}\par\nobreak
   \item ఓ\leaders\hbox{$\cdot$}\hfill 113
+
+  \indexspace
+
+\centerline{\bfseries --- ఔ ---}\par\nobreak
   \item ఔ\leaders\hbox{$\cdot$}\hfill 114
 
   \indexspace
 
 \centerline{\bfseries --- క ---}\par\nobreak
   \item క\leaders\hbox{$\cdot$}\hfill 201
+
+  \indexspace
+
+\centerline{\bfseries --- ఖ ---}\par\nobreak
   \item ఖ\leaders\hbox{$\cdot$}\hfill 202
+
+  \indexspace
+
+\centerline{\bfseries --- గ ---}\par\nobreak
   \item గ\leaders\hbox{$\cdot$}\hfill 203
+
+  \indexspace
+
+\centerline{\bfseries --- ఘ ---}\par\nobreak
   \item ఘ\leaders\hbox{$\cdot$}\hfill 204
+
+  \indexspace
+
+\centerline{\bfseries --- ఙ ---}\par\nobreak
   \item ఙ\leaders\hbox{$\cdot$}\hfill 205
 
   \indexspace
 
 \centerline{\bfseries --- చ ---}\par\nobreak
   \item చ\leaders\hbox{$\cdot$}\hfill 206
+
+  \indexspace
+
+\centerline{\bfseries --- ఛ ---}\par\nobreak
   \item ఛ\leaders\hbox{$\cdot$}\hfill 207
+
+  \indexspace
+
+\centerline{\bfseries --- జ ---}\par\nobreak
   \item జ\leaders\hbox{$\cdot$}\hfill 208
+
+  \indexspace
+
+\centerline{\bfseries --- ఝ ---}\par\nobreak
   \item ఝ\leaders\hbox{$\cdot$}\hfill 209
+
+  \indexspace
+
+\centerline{\bfseries --- ఞ ---}\par\nobreak
   \item ఞ\leaders\hbox{$\cdot$}\hfill 210
 
   \indexspace
 
 \centerline{\bfseries --- ట ---}\par\nobreak
   \item ట\leaders\hbox{$\cdot$}\hfill 211
+
+  \indexspace
+
+\centerline{\bfseries --- ఠ ---}\par\nobreak
   \item ఠ\leaders\hbox{$\cdot$}\hfill 212
+
+  \indexspace
+
+\centerline{\bfseries --- డ ---}\par\nobreak
   \item డ\leaders\hbox{$\cdot$}\hfill 213
+
+  \indexspace
+
+\centerline{\bfseries --- ఢ ---}\par\nobreak
   \item ఢ\leaders\hbox{$\cdot$}\hfill 214
+
+  \indexspace
+
+\centerline{\bfseries --- ణ ---}\par\nobreak
   \item ణ\leaders\hbox{$\cdot$}\hfill 215
 
   \indexspace
 
 \centerline{\bfseries --- త ---}\par\nobreak
   \item త\leaders\hbox{$\cdot$}\hfill 216
+
+  \indexspace
+
+\centerline{\bfseries --- థ ---}\par\nobreak
   \item థ\leaders\hbox{$\cdot$}\hfill 217
+
+  \indexspace
+
+\centerline{\bfseries --- ద ---}\par\nobreak
   \item ద\leaders\hbox{$\cdot$}\hfill 218
+
+  \indexspace
+
+\centerline{\bfseries --- ధ ---}\par\nobreak
   \item ధ\leaders\hbox{$\cdot$}\hfill 219
+
+  \indexspace
+
+\centerline{\bfseries --- న ---}\par\nobreak
   \item న\leaders\hbox{$\cdot$}\hfill 220
 
   \indexspace
 
 \centerline{\bfseries --- ప ---}\par\nobreak
   \item ప\leaders\hbox{$\cdot$}\hfill 221
+
+  \indexspace
+
+\centerline{\bfseries --- ఫ ---}\par\nobreak
   \item ఫ\leaders\hbox{$\cdot$}\hfill 222
+
+  \indexspace
+
+\centerline{\bfseries --- బ ---}\par\nobreak
   \item బ\leaders\hbox{$\cdot$}\hfill 223
+
+  \indexspace
+
+\centerline{\bfseries --- భ ---}\par\nobreak
   \item భ\leaders\hbox{$\cdot$}\hfill 224
+
+  \indexspace
+
+\centerline{\bfseries --- మ ---}\par\nobreak
   \item మ\leaders\hbox{$\cdot$}\hfill 225
 
   \indexspace
 
 \centerline{\bfseries --- య ---}\par\nobreak
   \item య\leaders\hbox{$\cdot$}\hfill 226
+
+  \indexspace
+
+\centerline{\bfseries --- ర ---}\par\nobreak
   \item ర\leaders\hbox{$\cdot$}\hfill 227
+
+  \indexspace
+
+\centerline{\bfseries --- ఱ ---}\par\nobreak
   \item ఱ\leaders\hbox{$\cdot$}\hfill 228
+
+  \indexspace
+
+\centerline{\bfseries --- ల ---}\par\nobreak
   \item ల\leaders\hbox{$\cdot$}\hfill 229
+
+  \indexspace
+
+\centerline{\bfseries --- వ ---}\par\nobreak
   \item వ\leaders\hbox{$\cdot$}\hfill 232
 
   \indexspace
 
 \centerline{\bfseries --- శ ---}\par\nobreak
   \item శ\leaders\hbox{$\cdot$}\hfill 233
+
+  \indexspace
+
+\centerline{\bfseries --- ష ---}\par\nobreak
   \item ష\leaders\hbox{$\cdot$}\hfill 234
+
+  \indexspace
+
+\centerline{\bfseries --- స ---}\par\nobreak
   \item స\leaders\hbox{$\cdot$}\hfill 235
 
   \indexspace
 
 \centerline{\bfseries --- హ ---}\par\nobreak
   \item హ\leaders\hbox{$\cdot$}\hfill 236
+
+  \indexspace
+
+\centerline{\bfseries --- ళ ---}\par\nobreak
   \item ళ\leaders\hbox{$\cdot$}\hfill 230
+
+  \indexspace
+
+\centerline{\bfseries --- ఴ ---}\par\nobreak
   \item ఴ\leaders\hbox{$\cdot$}\hfill 231
 
 \end{theindex}

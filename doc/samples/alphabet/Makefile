@@ -161,6 +161,12 @@ dev:
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head1.ist -s mdxsty_$$locx.ist -t alpha_$$locx.ilg -o alpha_$$locx.ind ; \
 	done ; \
 	done
+	for x in 4; do \
+	for loc in hi mr ne; do \
+		locx=$$loc$$x ; \
+		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head4.ist -s mdxsty_$$loc.ist -t alpha_$$locx.ilg -o alpha_$$locx.ind ; \
+	done ; \
+	done
 
 brhm:
 	for loc in bn as pa gu or ta te kn ml si; do \
@@ -182,6 +188,12 @@ brhm:
 	for loc in bn kn si; do \
 		locx=$$loc$$x ; \
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head1.ist -s mdxsty_$$locx.ist -t alpha_$$locx.ilg -o alpha_$$locx.ind ; \
+	done ; \
+	done
+	for x in 4; do \
+	for loc in bn as pa gu or ta te kn ml si; do \
+		locx=$$loc$$x ; \
+		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head4.ist -s mdxsty_$$loc.ist -t alpha_$$locx.ilg -o alpha_$$locx.ind ; \
 	done ; \
 	done
 

@@ -1,24 +1,24 @@
 \begin{theindex}
 
-\centerline{\bfseries --- Symbols ---}\par\nobreak
+\centerline{\bfseries --- Numbers ---}\par\nobreak
   \item ෦\leaders\hbox{$\cdot$}\hfill 1000
   \item ෧\leaders\hbox{$\cdot$}\hfill 1001
-  \item 𑇡\leaders\hbox{$\cdot$}\hfill 4101
   \item ෨\leaders\hbox{$\cdot$}\hfill 1002
-  \item 𑇢\leaders\hbox{$\cdot$}\hfill 4102
   \item ෩\leaders\hbox{$\cdot$}\hfill 1003
-  \item 𑇣\leaders\hbox{$\cdot$}\hfill 4103
   \item ෪\leaders\hbox{$\cdot$}\hfill 1004
-  \item 𑇤\leaders\hbox{$\cdot$}\hfill 4104
   \item ෫\leaders\hbox{$\cdot$}\hfill 1005
-  \item 𑇥\leaders\hbox{$\cdot$}\hfill 4105
   \item ෬\leaders\hbox{$\cdot$}\hfill 1006
-  \item 𑇦\leaders\hbox{$\cdot$}\hfill 4106
   \item ෭\leaders\hbox{$\cdot$}\hfill 1007
-  \item 𑇧\leaders\hbox{$\cdot$}\hfill 4107
   \item ෮\leaders\hbox{$\cdot$}\hfill 1008
-  \item 𑇨\leaders\hbox{$\cdot$}\hfill 4108
   \item ෯\leaders\hbox{$\cdot$}\hfill 1009
+  \item 𑇡\leaders\hbox{$\cdot$}\hfill 4101
+  \item 𑇢\leaders\hbox{$\cdot$}\hfill 4102
+  \item 𑇣\leaders\hbox{$\cdot$}\hfill 4103
+  \item 𑇤\leaders\hbox{$\cdot$}\hfill 4104
+  \item 𑇥\leaders\hbox{$\cdot$}\hfill 4105
+  \item 𑇦\leaders\hbox{$\cdot$}\hfill 4106
+  \item 𑇧\leaders\hbox{$\cdot$}\hfill 4107
+  \item 𑇨\leaders\hbox{$\cdot$}\hfill 4108
   \item 𑇩\leaders\hbox{$\cdot$}\hfill 4109
   \item 𑇪\leaders\hbox{$\cdot$}\hfill 4110
   \item 𑇫\leaders\hbox{$\cdot$}\hfill 4111
@@ -171,16 +171,12 @@
 
 \centerline{\bfseries --- ඣ ---}\par\nobreak
   \item ඣ\leaders\hbox{$\cdot$}\hfill 210
-
-  \indexspace
-
-\centerline{\bfseries --- ඤ ---}\par\nobreak
-  \item ඤ\leaders\hbox{$\cdot$}\hfill 211
+  \item ඥ\leaders\hbox{$\cdot$}\hfill 212
 
   \indexspace
 
 \centerline{\bfseries --- ඥ ---}\par\nobreak
-  \item ඥ\leaders\hbox{$\cdot$}\hfill 212
+  \item ඤ\leaders\hbox{$\cdot$}\hfill 211
 
   \indexspace
 
