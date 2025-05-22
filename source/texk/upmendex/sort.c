@@ -634,6 +634,23 @@ int is_brahmic(UChar *c)
 	else if ( *c<=0x0DFF &&
                  (*c & 0x7F)>=0x64                     /* Reserved for viram punctuation */
 	            && (*c & 0x7F)<=0x6F   ) return 0; /* .. Digit */
+
+	/* Attribute Nd, No, Sc, So : return false */
+	else if ( *c>=0x09F2                           /* BENGALI RUPEE MARK..BENGALI RUPEE SIGN */
+	                                               /* BENGALI CURRENCY NUMERATOR ONE..BENGALI CURRENCY DENOMINATOR SIXTEEN */
+	                     && *c<=0x09FB ) return 0; /* .. BENGALI GANDA MARK */
+	else if ( *c==0x0AF1               ) return 0; /* GUJARATI RUPEE SIGN */
+	else if ( *c==0x0B70               ) return 0; /* ORIYA ISSHAR */
+	else if ( *c>=0x0B72 && *c<=0x0B77 ) return 0; /* ORIYA FRACTION ONE QUARTER..ORIYA FRACTION THREE SIXTEENTHS */
+	else if ( *c>=0x0BF0                           /* TAMIL NUMBER TEN..TAMIL NUMBER ONE THOUSAND */
+	                     && *c<=0x0BFA ) return 0; /* .. TAMIL NUMBER SIGN */
+	else if ( *c>=0x0C78                           /* TELUGU FRACTION DIGIT ZERO FOR ODD POWERS OF FOUR..TELUGU FRACTION DIGIT THREE FOR EVEN POWERS OF FOUR */
+	                     && *c<=0x0C7F ) return 0; /* TELUGU SIGN TUUMU */
+	else if ( *c==0x0D4F               ) return 0; /* MALAYALAM SIGN PARA */
+	else if ( *c>=0x0D58 && *c<=0x0D5E ) return 0; /* MALAYALAM FRACTION ONE ONE-HUNDRED-AND-SIXTIETH..MALAYALAM FRACTION ONE FIFTH */
+	else if ( *c>=0x0D70                           /* MALAYALAM NUMBER TEN..MALAYALAM FRACTION THREE SIXTEENTHS */
+	                     && *c<=0x0D79 ) return 0; /* MALAYALAM DATE MARK */
+
 	if      (               *c<=0x09FF ) return CH_BENGALI;   /* Bengali   */
 	else if ( *c>=0x0A00 && *c<=0x0A7F ) return CH_GURMUKHI;  /* Gurmukhi  */
 	else if ( *c>=0x0A80 && *c<=0x0AFF ) return CH_GUJARATI;  /* Gujarati  */
@@ -647,8 +664,8 @@ int is_brahmic(UChar *c)
 	if (is_surrogate_pair(c)) {
 		UChar32 c32;
 		c32=U16_GET_SUPPLEMENTARY(*c,*(c+1));
-		if ( c32>=0x111E0  &&  c32<=0x111FF ) return CH_SINHALA; /* Sinhala Archaic Numbers */
-		if ( c32>=0x11FC0  &&  c32<=0x11FFF ) return CH_TAMIL;   /* Tamil Supplement */
+		// if ( c32>=0x111E0  &&  c32<=0x111FF ) return 0;       /* Sinhala Archaic Numbers */
+		if ( c32==0x11FFF                   ) return CH_TAMIL;   /* TAMIL PUNCTUATION END OF TEXT */
 	}
 	return 0;
 }
