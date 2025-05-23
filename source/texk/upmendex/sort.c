@@ -341,7 +341,6 @@ static int ordering(UChar *c)
 		else if (is_cyrillic(c)) return cyr;
 		else if (is_greek(c))    return grk;
 		else if (is_numeric(c))  return nmbr;
-		else if (is_devanagari(c)) return brhm[BR_DEVA];
 		else if (is_thai(c))     return brhm[BR_THAI];
 		else if (is_lao(c))      return brhm[BR_LAO];
 		else if (is_arabic(c))   return arab;
@@ -371,7 +370,6 @@ int charset(UChar *c)
 		else if (is_cyrillic(c)) return CH_CYRILLIC;
 		else if (is_greek(c))    return CH_GREEK;
 		else if (is_numeric(c))  return CH_NUMERIC;
-		else if (is_devanagari(c)) return CH_DEVANAGARI;
 		else if (is_thai(c))     return CH_THAI;
 		else if (is_lao(c))      return CH_LAO;
 		else if (is_arabic(c))   return CH_ARABIC;
@@ -613,26 +611,11 @@ int is_greek(UChar *c)
 	else return 0;
 }
 
-int is_devanagari(UChar *c)
-{
-	if      ( *c>=0x0964                           /* Generic punctuation for scripts of India */
-	                     && *c<=0x096F ) return 0; /* Devanagari Digit */
-	else if ( *c>=0x0900 && *c<=0x097F ) return 1; /* Devanagari */
-	else if ( *c>=0xA8E0 && *c<=0xA8FF ) return 1; /* Devanagari Extended */
-
-	if (is_surrogate_pair(c)) {
-		UChar32 c32;
-		c32=U16_GET_SUPPLEMENTARY(*c,*(c+1));
-		if ( c32>=0x11B00  &&  c32<=0x11B5F ) return 2; /* Devanagari Extended-A */
-	}
-	return 0;
-}
-
 int is_brahmic(UChar *c)
 {
-	if      ( *c< 0x0980               ) return 0;
+	if      ( *c< 0x0900               ) return 0;
 	else if ( *c<=0x0DFF &&
-                 (*c & 0x7F)>=0x64                     /* Reserved for viram punctuation */
+                 (*c & 0x7F)>=0x64                     /* Generic punctuation for scripts of India  or  Reserved */
 	            && (*c & 0x7F)<=0x6F   ) return 0; /* .. Digit */
 
 	/* Attribute Nd, No, Sc, So : return false */
@@ -651,21 +634,24 @@ int is_brahmic(UChar *c)
 	else if ( *c>=0x0D70                           /* MALAYALAM NUMBER TEN..MALAYALAM FRACTION THREE SIXTEENTHS */
 	                     && *c<=0x0D79 ) return 0; /* MALAYALAM DATE MARK */
 
-	if      (               *c<=0x09FF ) return CH_BENGALI;   /* Bengali   */
-	else if ( *c>=0x0A00 && *c<=0x0A7F ) return CH_GURMUKHI;  /* Gurmukhi  */
-	else if ( *c>=0x0A80 && *c<=0x0AFF ) return CH_GUJARATI;  /* Gujarati  */
-	else if ( *c>=0x0B00 && *c<=0x0B7F ) return CH_ORIYA;     /* Oriya     */
-	else if ( *c>=0x0B80 && *c<=0x0BFF ) return CH_TAMIL;     /* Tamil     */
-	else if ( *c>=0x0C00 && *c<=0x0C7F ) return CH_TELUGU;    /* Telugu    */
-	else if ( *c>=0x0C80 && *c<=0x0CFF ) return CH_KANNADA;   /* Kannada   */
-	else if ( *c>=0x0D00 && *c<=0x0D7F ) return CH_MALAYALAM; /* Malayalam */
-	else if ( *c>=0x0D80 && *c<=0x0DFF ) return CH_SINHALA;   /* Sinhala   */
+	if      (               *c<=0x097F ) return CH_DEVANAGARI; /* Devanagari */
+	else if ( *c>=0xA8E0 && *c<=0xA8FF ) return CH_DEVANAGARI; /* Devanagari Extended */
+	else if (               *c<=0x09FF ) return CH_BENGALI;    /* Bengali   */
+	else if (               *c<=0x0A7F ) return CH_GURMUKHI;   /* Gurmukhi  */
+	else if (               *c<=0x0AFF ) return CH_GUJARATI;   /* Gujarati  */
+	else if (               *c<=0x0B7F ) return CH_ORIYA;      /* Oriya     */
+	else if (               *c<=0x0BFF ) return CH_TAMIL;      /* Tamil     */
+	else if (               *c<=0x0C7F ) return CH_TELUGU;     /* Telugu    */
+	else if (               *c<=0x0CFF ) return CH_KANNADA;    /* Kannada   */
+	else if (               *c<=0x0D7F ) return CH_MALAYALAM;  /* Malayalam */
+	else if (               *c<=0x0DFF ) return CH_SINHALA;    /* Sinhala   */
 
 	if (is_surrogate_pair(c)) {
 		UChar32 c32;
 		c32=U16_GET_SUPPLEMENTARY(*c,*(c+1));
+		if ( c32>=0x11B00  &&  c32<=0x11B5F ) return CH_DEVANAGARI; /* Devanagari Extended-A */
 		// if ( c32>=0x111E0  &&  c32<=0x111FF ) return 0;       /* Sinhala Archaic Numbers */
-		if ( c32==0x11FFF                   ) return CH_TAMIL;   /* TAMIL PUNCTUATION END OF TEXT */
+		if ( c32==0x11FFF                   ) return CH_TAMIL;      /* TAMIL PUNCTUATION END OF TEXT */
 	}
 	return 0;
 }

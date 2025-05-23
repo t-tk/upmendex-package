@@ -827,11 +827,11 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 		}
 		return;
 	}
-	else if (is_devanagari(istr)==2||(is_brahmic(istr)&&is_surrogate_pair(istr))) {
+	else if (is_surrogate_pair(istr)&&is_brahmic(istr)) {
 		ini[0]=istr[0]; ini[1]=istr[1]; ini[2]=L'\0';
 		return;
 	}
-	else if (is_devanagari(&ch)||is_arabic(&ch)||is_hebrew(&ch)||is_brahmic(&ch)) {
+	else if (is_brahmic(&ch)||is_arabic(&ch)||is_hebrew(&ch)) {
 		if (ch==0x626) {  /* Arabic Letter Yeh with Hamza Above for Uyghur */
 			strY[0]=0x626; strY[1]=L'\0'; /* Yeh with Hamza Above */
 			strZ[0]=0x628; strZ[1]=L'\0'; /* Beh */
