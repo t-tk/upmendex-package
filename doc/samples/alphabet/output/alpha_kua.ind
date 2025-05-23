@@ -37,17 +37,17 @@
   \indexspace
 
 \centerline{\bfseries --- پ ---}\par\nobreak
-  \item پ\leaders\hbox{$\cdot$}\hfill 140
+  \item پ\leaders\hbox{$\cdot$}\hfill 150
+
+  \indexspace
+
+\centerline{\bfseries --- ة ---}\par\nobreak
+  \item ة\leaders\hbox{$\cdot$}\hfill 103
 
   \indexspace
 
 \centerline{\bfseries --- ت ---}\par\nobreak
   \item ت\leaders\hbox{$\cdot$}\hfill 104
-
-  \indexspace
-
-\centerline{\bfseries --- ټ ---}\par\nobreak
-  \item ټ\leaders\hbox{$\cdot$}\hfill 150
 
   \indexspace
 
@@ -61,18 +61,8 @@
 
   \indexspace
 
-\centerline{\bfseries --- ځ ---}\par\nobreak
-  \item ځ\leaders\hbox{$\cdot$}\hfill 151
-
-  \indexspace
-
 \centerline{\bfseries --- چ ---}\par\nobreak
-  \item چ\leaders\hbox{$\cdot$}\hfill 141
-
-  \indexspace
-
-\centerline{\bfseries --- څ ---}\par\nobreak
-  \item څ\leaders\hbox{$\cdot$}\hfill 152
+  \item چ\leaders\hbox{$\cdot$}\hfill 151
 
   \indexspace
 
@@ -91,11 +81,6 @@
 
   \indexspace
 
-\centerline{\bfseries --- ډ ---}\par\nobreak
-  \item ډ\leaders\hbox{$\cdot$}\hfill 153
-
-  \indexspace
-
 \centerline{\bfseries --- ذ ---}\par\nobreak
   \item ذ\leaders\hbox{$\cdot$}\hfill 110
 
@@ -106,23 +91,18 @@
 
   \indexspace
 
-\centerline{\bfseries --- ړ ---}\par\nobreak
-  \item ړ\leaders\hbox{$\cdot$}\hfill 154
-
-  \indexspace
-
 \centerline{\bfseries --- ز ---}\par\nobreak
   \item ز\leaders\hbox{$\cdot$}\hfill 112
 
   \indexspace
 
-\centerline{\bfseries --- ژ ---}\par\nobreak
-  \item ژ\leaders\hbox{$\cdot$}\hfill 142
+\centerline{\bfseries --- ڕ ---}\par\nobreak
+  \item ڕ\leaders\hbox{$\cdot$}\hfill 160
 
   \indexspace
 
-\centerline{\bfseries --- ږ ---}\par\nobreak
-  \item ږ\leaders\hbox{$\cdot$}\hfill 155
+\centerline{\bfseries --- ژ ---}\par\nobreak
+  \item ژ\leaders\hbox{$\cdot$}\hfill 152
 
   \indexspace
 
@@ -133,11 +113,6 @@
 
 \centerline{\bfseries --- ش ---}\par\nobreak
   \item ش\leaders\hbox{$\cdot$}\hfill 114
-
-  \indexspace
-
-\centerline{\bfseries --- ښ ---}\par\nobreak
-  \item ښ\leaders\hbox{$\cdot$}\hfill 156
 
   \indexspace
 
@@ -176,6 +151,11 @@
 
   \indexspace
 
+\centerline{\bfseries --- ڤ ---}\par\nobreak
+  \item ڤ\leaders\hbox{$\cdot$}\hfill 161
+
+  \indexspace
+
 \centerline{\bfseries --- ق ---}\par\nobreak
   \item ق\leaders\hbox{$\cdot$}\hfill 128
 
@@ -186,13 +166,23 @@
 
   \indexspace
 
-\centerline{\bfseries --- ګ ---}\par\nobreak
-  \item ګ\leaders\hbox{$\cdot$}\hfill 157
+\centerline{\bfseries --- ک ---}\par\nobreak
+  \item ک\leaders\hbox{$\cdot$}\hfill 154
+
+  \indexspace
+
+\centerline{\bfseries --- گ ---}\par\nobreak
+  \item گ\leaders\hbox{$\cdot$}\hfill 153
 
   \indexspace
 
 \centerline{\bfseries --- ل ---}\par\nobreak
   \item ل\leaders\hbox{$\cdot$}\hfill 130
+
+  \indexspace
+
+\centerline{\bfseries --- ڵ ---}\par\nobreak
+  \item ڵ\leaders\hbox{$\cdot$}\hfill 162
 
   \indexspace
 
@@ -206,23 +196,18 @@
 
   \indexspace
 
-\centerline{\bfseries --- ڼ ---}\par\nobreak
-  \item ڼ\leaders\hbox{$\cdot$}\hfill 158
-
-  \indexspace
-
 \centerline{\bfseries --- ه ---}\par\nobreak
   \item ه\leaders\hbox{$\cdot$}\hfill 133
 
   \indexspace
 
-\centerline{\bfseries --- ة ---}\par\nobreak
-  \item ة\leaders\hbox{$\cdot$}\hfill 103
+\centerline{\bfseries --- و ---}\par\nobreak
+  \item و\leaders\hbox{$\cdot$}\hfill 134
 
   \indexspace
 
-\centerline{\bfseries --- و ---}\par\nobreak
-  \item و\leaders\hbox{$\cdot$}\hfill 134
+\centerline{\bfseries --- ۆ ---}\par\nobreak
+  \item ۆ\leaders\hbox{$\cdot$}\hfill 163
 
   \indexspace
 
@@ -236,13 +221,13 @@
 
   \indexspace
 
-\centerline{\bfseries --- ې ---}\par\nobreak
-  \item ې\leaders\hbox{$\cdot$}\hfill 160
+\centerline{\bfseries --- ی ---}\par\nobreak
+  \item ی\leaders\hbox{$\cdot$}\hfill 155
 
   \indexspace
 
-\centerline{\bfseries --- ۍ ---}\par\nobreak
-  \item ۍ\leaders\hbox{$\cdot$}\hfill 159
+\centerline{\bfseries --- ێ ---}\par\nobreak
+  \item ێ\leaders\hbox{$\cdot$}\hfill 164
 % end   arabic
 
 \end{theindex}

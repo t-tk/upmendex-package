@@ -146,6 +146,11 @@
 
   \indexspace
 
+\centerline{\bfseries --- ک ---}\par\nobreak
+  \item ک\leaders\hbox{$\cdot$}\hfill 154
+
+  \indexspace
+
 \centerline{\bfseries --- ك ---}\par\nobreak
   \item ك\leaders\hbox{$\cdot$}\hfill 129
 
@@ -183,6 +188,11 @@
 
 \centerline{\bfseries --- ة ---}\par\nobreak
   \item ة\leaders\hbox{$\cdot$}\hfill 103
+
+  \indexspace
+
+\centerline{\bfseries --- ی ---}\par\nobreak
+  \item ی\leaders\hbox{$\cdot$}\hfill 155
 
   \indexspace
 
