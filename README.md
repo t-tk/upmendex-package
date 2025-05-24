@@ -20,7 +20,7 @@ upmendex is a multilingual index processor with following features:
    Korean Hangul and Chinese Han (Hanzi ideographs) scripts
    as well as Japanese Kana.
  * Support Brahmic (Bengali, Devanagari, Gurmukhi, Gujarati,
-   Kannada, Malayalam, Oriya, Sinhala, Tamil, Telugu, Thai),
+   Kannada, Lao, Malayalam, Oriya, Sinhala, Tamil, Telugu, Thai),
    Arabic and Hebrew scripts (experimental).
  * Support four kinds of sort orders (Pinyin, Radical-Stroke,
    Stroke and Zhuyin) for Chinese Han scripts (Hanzi ideographs).
@@ -77,7 +77,7 @@ Currently following locales are available:
   "et" (Estonian), "fi", "fi@collation=search", "fi@collation=traditional" (Finnish),
   "fr-CA" (French), "gl", "gl@collation=search" (Galician),
   "hr", "hr@collation=search" (Croatian), "hu" (Hungarian),
-  "is", "is@collation=search" (Icelandic), "ku" (Kurdish Hawar alphabet),
+  "is", "is@collation=search" (Icelandic), "ku" (Kurdish, Hawar alphabet),
   "lt" (Lithuanian), "lv" (Latvian),
   "nb", "nb@collation=search", "nn", "nn@collation=search", "no" (Norwegian),
   "pl" (Polish), "ro" (Romanian), "sk", "sk@collation=search" (Slovak),
@@ -113,8 +113,8 @@ Currently following locales are available:
   "si", "si@collation=dictionary" (Sinhala), "ta" (Tamil), "te" (Telugu), "th" (Thai)
 
 #### Arabic script (experimental)
-  "ar", "ar@collation=compat" (Arabic), "fa" (Persian), "fa-AF" (Dari), "ps" (Pashto),
-  "ug" (Uyghur), "ur" (Urdu)
+  "ar", "ar@collation=compat" (Arabic), "fa" (Persian), "fa-AF" (Dari),
+  "ku" (Kurdish, Sorani), "ps" (Pashto), "ug" (Uyghur), "ur" (Urdu)
 
 #### Hebrew script (experimental)
   "he", "he@collation=search" (Hebrew), "yi" (Yiddish)
