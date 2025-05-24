@@ -308,6 +308,64 @@
   \item मुंबई\leaders\hbox{$\cdot$}\hfill \textenglish{2}
 \end{hindi}
 
+\begin{bengali}
+
+  \indexspace
+
+\centerline{\bfseries \textenglish{---} ক \textenglish{---}}\par\nobreak
+  \item কলকাতা\leaders\hbox{$\cdot$}\hfill \textenglish{2}
+
+  \indexspace
+
+\centerline{\bfseries \textenglish{---} চ \textenglish{---}}\par\nobreak
+  \item চট্টগ্রাম\leaders\hbox{$\cdot$}\hfill \textenglish{
+		2}
+
+  \indexspace
+
+\centerline{\bfseries \textenglish{---} ঢ \textenglish{---}}\par\nobreak
+  \item ঢাকা\leaders\hbox{$\cdot$}\hfill \textenglish{2}
+\end{bengali}
+
+\begin{tamil}
+
+  \indexspace
+
+\centerline{\bfseries \textenglish{---} க \textenglish{---}}\par\nobreak
+  \item கோயம்புத்தூர்\leaders\hbox{$\cdot$}\hfill \textenglish{
+		2}
+
+  \indexspace
+
+\centerline{\bfseries \textenglish{---} ச \textenglish{---}}\par\nobreak
+  \item சென்னை\leaders\hbox{$\cdot$}\hfill \textenglish{2}
+
+  \indexspace
+
+\centerline{\bfseries \textenglish{---} ம \textenglish{---}}\par\nobreak
+  \item மதுரை\leaders\hbox{$\cdot$}\hfill \textenglish{2}
+\end{tamil}
+
+\begin{telugu}
+
+  \indexspace
+
+\centerline{\bfseries \textenglish{---} అ \textenglish{---}}\par\nobreak
+  \item అమరావతి\leaders\hbox{$\cdot$}\hfill \textenglish{2}
+
+  \indexspace
+
+\centerline{\bfseries \textenglish{---} వ \textenglish{---}}\par\nobreak
+  \item విశాఖపట్నం\leaders\hbox{$\cdot$}\hfill \textenglish{
+		2}
+
+  \indexspace
+
+\centerline{\bfseries \textenglish{---} హ \textenglish{---}}\par\nobreak
+  \item హైదరాబాద్\leaders\hbox{$\cdot$}\hfill \textenglish{
+		2}
+\end{telugu}
+
 \begin{thai}
 
   \indexspace
