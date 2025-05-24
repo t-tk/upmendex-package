@@ -2,22 +2,35 @@
 
 \centerline{\bfseries --- Symbols ---}\par\nobreak
   \item ౿\leaders\hbox{$\cdot$}\hfill 1208
+  \item 0\leaders\hbox{$\cdot$}\hfill 5000
   \item ౦\leaders\hbox{$\cdot$}\hfill 1000
   \item ౸\leaders\hbox{$\cdot$}\hfill 1101
+  \item 1\leaders\hbox{$\cdot$}\hfill 5001
   \item ౧\leaders\hbox{$\cdot$}\hfill 1001
   \item ౹\leaders\hbox{$\cdot$}\hfill 1102
   \item ౼\leaders\hbox{$\cdot$}\hfill 1105
+  \item 10\leaders\hbox{$\cdot$}\hfill 5010
+  \item 100\leaders\hbox{$\cdot$}\hfill 5020
+  \item 1000\leaders\hbox{$\cdot$}\hfill 5030
+  \item 2\leaders\hbox{$\cdot$}\hfill 5002
   \item ౨\leaders\hbox{$\cdot$}\hfill 1002
   \item ౺\leaders\hbox{$\cdot$}\hfill 1103
   \item ౽\leaders\hbox{$\cdot$}\hfill 1106
+  \item 3\leaders\hbox{$\cdot$}\hfill 5003
   \item ౩\leaders\hbox{$\cdot$}\hfill 1003
   \item ౻\leaders\hbox{$\cdot$}\hfill 1104
   \item ౾\leaders\hbox{$\cdot$}\hfill 1107
+  \item 4\leaders\hbox{$\cdot$}\hfill 5004
   \item ౪\leaders\hbox{$\cdot$}\hfill 1004
+  \item 5\leaders\hbox{$\cdot$}\hfill 5005
   \item ౫\leaders\hbox{$\cdot$}\hfill 1005
+  \item 6\leaders\hbox{$\cdot$}\hfill 5006
   \item ౬\leaders\hbox{$\cdot$}\hfill 1006
+  \item 7\leaders\hbox{$\cdot$}\hfill 5007
   \item ౭\leaders\hbox{$\cdot$}\hfill 1007
+  \item 8\leaders\hbox{$\cdot$}\hfill 5008
   \item ౮\leaders\hbox{$\cdot$}\hfill 1008
+  \item 9\leaders\hbox{$\cdot$}\hfill 5009
   \item ౯\leaders\hbox{$\cdot$}\hfill 1009
 
   \indexspace

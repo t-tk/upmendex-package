@@ -1,16 +1,29 @@
 \begin{theindex}
 
 \centerline{\bfseries --- Numbers ---}\par\nobreak
+  \item 0\leaders\hbox{$\cdot$}\hfill 5000
   \item ०\leaders\hbox{$\cdot$}\hfill 1000
+  \item 1\leaders\hbox{$\cdot$}\hfill 5001
   \item १\leaders\hbox{$\cdot$}\hfill 1001
+  \item 2\leaders\hbox{$\cdot$}\hfill 5002
   \item २\leaders\hbox{$\cdot$}\hfill 1002
+  \item 3\leaders\hbox{$\cdot$}\hfill 5003
   \item ३\leaders\hbox{$\cdot$}\hfill 1003
+  \item 4\leaders\hbox{$\cdot$}\hfill 5004
   \item ४\leaders\hbox{$\cdot$}\hfill 1004
+  \item 5\leaders\hbox{$\cdot$}\hfill 5005
   \item ५\leaders\hbox{$\cdot$}\hfill 1005
+  \item 6\leaders\hbox{$\cdot$}\hfill 5006
   \item ६\leaders\hbox{$\cdot$}\hfill 1006
+  \item 7\leaders\hbox{$\cdot$}\hfill 5007
   \item ७\leaders\hbox{$\cdot$}\hfill 1007
+  \item 8\leaders\hbox{$\cdot$}\hfill 5008
   \item ८\leaders\hbox{$\cdot$}\hfill 1008
+  \item 9\leaders\hbox{$\cdot$}\hfill 5009
   \item ९\leaders\hbox{$\cdot$}\hfill 1009
+  \item 10\leaders\hbox{$\cdot$}\hfill 5010
+  \item 100\leaders\hbox{$\cdot$}\hfill 5020
+  \item 1000\leaders\hbox{$\cdot$}\hfill 5030
 
   \indexspace
 
