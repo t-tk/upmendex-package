@@ -614,9 +614,6 @@ int is_greek(UChar *c)
 int is_brahmic(UChar *c)
 {
 	if      ( *c< 0x0900               ) return 0;
-	else if ( *c<=0x0DFF &&
-                 (*c & 0x7F)>=0x64                     /* Generic punctuation for scripts of India  or  Reserved */
-	            && (*c & 0x7F)<=0x6F   ) return 0; /* .. Digit */
 
 	/* Attribute Nd, No, Sc, So : return false */
 	else if ( *c>=0x09F2                           /* BENGALI RUPEE MARK..BENGALI RUPEE SIGN */
@@ -634,17 +631,14 @@ int is_brahmic(UChar *c)
 	else if ( *c>=0x0D70                           /* MALAYALAM NUMBER TEN..MALAYALAM FRACTION THREE SIXTEENTHS */
 	                     && *c<=0x0D79 ) return 0; /* MALAYALAM DATE MARK */
 
-	if      (               *c<=0x097F ) return CH_DEVANAGARI; /* Devanagari */
-	else if ( *c>=0xA8E0 && *c<=0xA8FF ) return CH_DEVANAGARI; /* Devanagari Extended */
-	else if (               *c<=0x09FF ) return CH_BENGALI;    /* Bengali   */
-	else if (               *c<=0x0A7F ) return CH_GURMUKHI;   /* Gurmukhi  */
-	else if (               *c<=0x0AFF ) return CH_GUJARATI;   /* Gujarati  */
-	else if (               *c<=0x0B7F ) return CH_ORIYA;      /* Oriya     */
-	else if (               *c<=0x0BFF ) return CH_TAMIL;      /* Tamil     */
-	else if (               *c<=0x0C7F ) return CH_TELUGU;     /* Telugu    */
-	else if (               *c<=0x0CFF ) return CH_KANNADA;    /* Kannada   */
-	else if (               *c<=0x0D7F ) return CH_MALAYALAM;  /* Malayalam */
-	else if (               *c<=0x0DFF ) return CH_SINHALA;    /* Sinhala   */
+	if      ( *c>=0xA8E0 && *c<=0xA8FF ) return CH_DEVANAGARI; /* Devanagari Extended */
+	else if (               *c<=0x0DFF ) {
+	   /* U+0900..0DFF */
+	   /* Devanagari, Bengali, Gurmukhi, Gujarati, Oriya, Tamil, Telugu, Kannada, Malayalam, Sinhala */
+		if ((*c & 0x7F)>=0x64                  /* Generic punctuation for scripts of India  or  Reserved */
+	         && (*c & 0x7F)<=0x6F      ) return 0; /* .. Digit */
+		return ((*c >> 7) - 0x12 + CH_DEVANAGARI);
+	}
 
 	if (is_surrogate_pair(c)) {
 		UChar32 c32;
