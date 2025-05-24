@@ -480,10 +480,7 @@ int is_numeric(UChar *c)
 	if ( *c>=L'0' && *c<=L'9' ) return 1;
 	else if ( *c>=0xFF10 && *c<=0xFF19 ) return 1; /* Fullwidth Digit */
 		/* followings do not seem to be treated as numbers by ICU collator though charType is U_OTHER_NUMBER */
-	else if ( *c>=0x3192 && *c<=0x3195 ) return 0; /* IDEOGRAPHIC ANNOTATION ONE MARK..IDEOGRAPHIC ANNOTATION FOUR MARK */
 	else if ( *c>=0x3220 && *c<=0x3229 ) return 0; /* PARENTHESIZED IDEOGRAPH ONE..PARENTHESIZED IDEOGRAPH TEN */
-	else if ( *c>=0x3280 && *c<=0x3289 ) return 0; /* CIRCLED IDEOGRAPH ONE..CIRCLED IDEOGRAPH TEN */
-	else if ( *c>=0xA830 && *c<=0xA835 ) return 0; /* NORTH INDIC FRACTION ONE QUARTER..NORTH INDIC FRACTION THREE SIXTEENTHS */
 
 	if (is_surrogate_pair(c))
 		c32=U16_GET_SUPPLEMENTARY(*c,*(c+1));
