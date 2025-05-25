@@ -565,7 +565,7 @@ int is_hanzi(UChar *c)
 		c32=U16_GET_SUPPLEMENTARY(*c,*(c+1));
 		if ( c32>=0x20000  &&         /* CJK Unified Ideographs Extension B,C,D,E,F,I */
 		                              /* CJK Compatibility Ideographs Supplement */
-		     c32<=0x323AF ) return 2; /* CJK Unified Ideographs Extension G,H */
+		     c32<=0x3347F ) return 2; /* CJK Unified Ideographs Extension G,H,J */
 	}
 	if (*c==0xFDD0) { /* Noncharacter */
 		if (hanzi_mode==HANZI_PINYIN &&
