@@ -1227,7 +1227,9 @@ archaic                     & Private Use Area & composed    & 완성형 & \foot
 \begin{center}
 \large
   \begin{itemize}
-    \item Devanagari, Thai
+    \item Brahmic scripts: Devanagari, Bengali, Gurmukhi,
+      Gujarati, Oriya, Tamil, Telugu, Kannada, Malayalam,
+      Sinhala, Thai, Lao
     \item Arabic, Hebrew: R-to-L typeset
   \end{itemize}
 \vskip2ex
@@ -1314,6 +1316,24 @@ Thai
 
 \end{frame}
 
+% - - % - - % - - % - - % - - % - - % - - % - - % - - %
+
+\begin{frame}[fragile]{Brahmic Scripts}
+
+\begin{columns}
+\begin{column}{57mm}
+\end{column}
+
+\begin{column}{82mm}
+\begin{center}
+\fbox{%
+  \includegraphics[scale=0.48]{br00-02-crop.pdf}%
+}%
+\end{center}
+\end{column}
+\end{columns}
+
+\end{frame}
 
 % - - % - - % - - % - - % - - % - - % - - % - - % - - %
 
@@ -1659,19 +1679,19 @@ Total       &           & Lang:2      & Lang:60, Locale:95  & Lang:44 \\
 3 & Hindi       & {\colBl Devanagari} &   490,000,000 & ✓ & ✓ & ✓ &    \\
 4 & Spanish     & Latin      &   420,000,000 & ✓ & ✓ & ✓ & ✓ \\
 5 & Arabic      & {\colGn Arabic    } &   230,000,000 & ✓ & ✓ & ✓ &    \\\hdashline
-6 & Bengali     & {\colBl Bengali   } &   220,000,000 & ✓ & ✓ &    &    \\
+6 & Bengali     & {\colBl Bengali   } &   220,000,000 & ✓ & ✓ & {\colBl ✓ v1.20} &    \\
 7 & Portuguese  & Latin      &   215,000,000 & ✓ & ✓ & ✓ & ✓ \\
 8 & Russian     & Cyrillic   &   180,000,000 & ✓ & ✓ & ✓ & ✓ \\
 9 & Japanese    & {\colRd Kana \& Hanzi } &   134,000,000 & ✓ & ✓ & ✓ &    \\
 10 & German     & Latin      &   130,000,000 & ✓ & ✓ & ✓ & ✓ \\\hline
 11 & French     & Latin      &   123,000,000 & ✓ & ✓ & ✓ & ✓ \\
-12 & Punjabi    & {\colBl Gurmukhi  } &    90,000,000 & ✓ & ✓ &    &    \\
+12 & Punjabi    & {\colBl Gurmukhi  } &    90,000,000 & ✓ & ✓ & {\colBl ✓ v1.20} &    \\
 13 & Javanese   & Latin      &    75,000,000 & ✓ & ✓ & ✓ &    \\
 14 & Korean     & {\colRd Hangul    } &    75,000,000 & ✓ & ✓ & ✓ &    \\
 15 & Vietnamese & Latin      &    70,000,000 & ✓ & ✓ & ✓ & ✓ \\\hdashline
-16 & Telugu     & {\colBl Telugu    } &    70,000,000 & ✓ & ✓ &    &    \\
+16 & Telugu     & {\colBl Telugu    } &    70,000,000 & ✓ & ✓ & {\colBl ✓ v1.20} &    \\
 17 & Marathi    & {\colBl Devanagari} &    68,000,000 & ✓ & ✓ & ✓ &    \\
-18 & Tamil      & {\colBl Tamil     } &    74,000,000 & ✓ & ✓ &    &    \\
+18 & Tamil      & {\colBl Tamil     } &    74,000,000 & ✓ & ✓ & {\colBl ✓ v1.20} &    \\
 19 & Persian    & {\colGn Arabic    } &    46,000,000 & ✓ & ✓ & ✓ &    \\
 20 & Urdu       & {\colGn Arabic    } &    61,000,000 & ✓ & ✓ & ✓ &    \\\hline
 \end{tabular}
@@ -1760,8 +1780,7 @@ Total       &           & Lang:2      & Lang:60, Locale:95  & Lang:44 \\
   \begin{itemize}
   \item Support more scripts\\
      \begin{itemize}
-      \item Bengali, Telugu, Tamil, Malayalam, Kannada, Gujarati, Oriya, Sinhala
-      \item Khmer, Lao, Myanmar (Burmese)
+      \item Khmer, Myanmar (Burmese)
       \item Tibetan, Mongolian
       \item Armenian, Georgian
       \item Ethiopic (Amharic)
@@ -1771,10 +1790,6 @@ Total       &           & Lang:2      & Lang:60, Locale:95  & Lang:44 \\
      \begin{itemize}
       \item Latin Script: Sorbian, Hausa, Igbo, Yoruba, Kalaallisut, Breton, Uzbek
       \item etc.
-     \end{itemize}
-  \item Add style options\\
-     \begin{itemize}
-      \item \texttt{script\_head}
      \end{itemize}
   \end{itemize}
 \vskip1.5ex
