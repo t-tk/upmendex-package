@@ -1,0 +1,129 @@
+\documentclass[12pt]{article}
+
+\usepackage{fontspec}
+\usepackage{polyglossia}
+
+%\setlength{\textheight}{135mm}
+%\setlength{\textheight}{135mm}
+\setlength{\textheight}{100mm}
+
+\usepackage{makeidx}
+\makeindex
+
+%\setdefaultlanguage{thai}
+%\setromanfont{Noto Serif}
+%\setmainfont{Noto Serif}
+%\setsansfont{Noto Serif}
+%\setmainfont{Noto Serif Thai}[Language=Thai,Script=Thai]
+\setdefaultlanguage{english}
+\setromanfont{Noto Serif}
+\setmainfont{Noto Serif}
+
+\newfontfamily\hindifont{Noto Serif Devanagari}[Script=Devanagari]
+\setotherlanguage{hindi}
+\newfontfamily\bengalifont{Noto Serif Bengali}[Script=Bengali]
+\setotherlanguage{bengali}
+\newfontfamily\punjabifont{Noto Serif Gurmukhi}[Script=Gurmukhi]
+\setotherlanguage{punjabi}
+\newfontfamily\tamilfont{Noto Serif Tamil}[Script=Tamil]
+\setotherlanguage{odia}
+\newfontfamily\kannadafont{Noto Serif Kannada}[Script=Kannada]
+\setotherlanguage{tamil}
+\newfontfamily\telugufont{Noto Serif Telugu}[Script=Telugu]
+\setotherlanguage{telugu}
+\newfontfamily\odiafont{Noto Sans Oriya}[Script=Odia]
+\setotherlanguage{kannada}
+\newfontfamily\malayalamfont{Noto Serif Malayalam}[Script=Malayalam]
+\setotherlanguage{malayalam}
+%\newfontfamily\sinhalafont{Noto Serif Sinhala}[Script=Sinhala]
+%\setotherlanguage{sinhala}
+\newfontfamily\thaifont{Noto Serif Thai}[Script=Thai]
+\setotherlanguage{thai}
+\newfontfamily\laofont{Noto Serif Lao}[Script=Lao]
+\setotherlanguage{lao}
+
+\newcommand{\EN}[1]{\textenglish{#1}}
+
+\pagestyle{empty}
+\begin{document}
+\thispagestyle{empty}
+
+\begin{hindi}
+
+हिंदी\index{हिंदी \EN{(Hindi)}}
+मराठी\index{मराठी \EN{(Marathi)}}
+नेपाली\index{नेपाली \EN{(Nepali)}}
+
+\end{hindi}
+
+\begin{bengali}
+
+বাংলা\index{বাংলা \EN{(Bengali)}}
+অসমীয়া\index{অসমীয়া \EN{(Assamese)}}
+
+\end{bengali}
+
+\begin{punjabi}
+
+ਪੰਜਾਬੀ\index{ਪੰਜਾਬੀ \EN{(Punjabi)}}
+
+\end{punjabi}
+
+\begin{odia}
+
+ଓଡ଼ିଆ\index{ଓଡ଼ିଆ \EN{(Oriya)}}
+
+\end{odia}
+
+\begin{tamil}
+
+தமிழ்\index{தமிழ் \EN{(Tamil)}}
+
+\end{tamil}
+
+\begin{telugu}
+
+తెలుగు\index{తెలుగు \EN{(Telugu)}}
+
+\end{telugu}
+
+\begin{telugu}
+
+తెలుగు\index{తెలుగు \EN{(Telugu)}}
+
+\end{telugu}
+
+\begin{kannada}
+
+ಕನ್ನಡ\index{ಕನ್ನಡ \EN{(Kannada)}}
+
+\end{kannada}
+
+\begin{malayalam}
+
+മലയാളം\index{മലയാളം \EN{(Malayalam)}}
+
+\end{malayalam}
+
+%\begin{sinhala}
+%
+%සිංහල\index{සිංහල \EN{(Sinhala)}}
+%
+%\end{sinhala}
+
+\begin{thai}
+
+ภาษาไทย\index{ภาษาไทย \EN{(Thai)}}
+
+\end{thai}
+
+\begin{lao}
+
+ພາສາລາວ\index{ພາສາລາວ \EN{(Lao)}}
+
+\end{lao}
+
+
+\printindex
+
+\end{document}
