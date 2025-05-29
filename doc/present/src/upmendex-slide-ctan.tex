@@ -1230,8 +1230,8 @@ archaic                     & Private Use Area & composed    & 완성형 & \foot
   \begin{itemize}
     \item Brahmic scripts:\\
       Devanagari, Bengali, Gurmukhi,
-      Gujarati, Oriya, Tamil, Telugu, Kannada, Malayalam,
-      Sinhala,\\
+      Gujarati, Oriya, Tamil, Telugu,
+      Kannada, Malayalam, Sinhala,\\
       Thai, Lao
     \item Arabic, Hebrew: R-to-L typeset
   \end{itemize}
@@ -1324,7 +1324,7 @@ Thai
 \begin{frame}[fragile]{Brahmic Scripts~~{\scriptsize (experimental)}}
 
 \begin{columns}
-\begin{column}{53mm}
+\begin{column}{52mm}
 
 \setmonofont{Noto Serif Devanagari}[Language=Hindi,Script=Devanagari]
 \setmainfont{Noto Sans Mono}
@@ -1359,15 +1359,17 @@ Thai
 \end{Verbatim}
 \end{exampleblock}
 \begin{center}
-with XeLaTeX \& polyglossia
+Supports 12 Brahmic scripts,\\
+15 languages.
 \end{center}
 \end{column}
 
-\begin{column}{82mm}
+\begin{column}{75mm}
 \begin{center}
 \fbox{%
   \includegraphics[scale=0.48]{br00-02-crop.pdf}%
-}%
+}\\[1mm]%
+\footnotesize with XeLaTeX \& polyglossia
 \end{center}
 \end{column}
 \end{columns}
@@ -1856,7 +1858,8 @@ I introduced multilingual index processor \textbf{upmendex}.
      \begin{itemize}
       \item Latin, Cyrillic, Greek
       \item CJK (Chinese, Japanese, Korean)
-      \item Devanagari, Thai, Arabic, Hebrew
+      \item Devanagari, Bengali, Thai, \ldots
+      \item Arabic, Hebrew
       \item Symbol, Number
      \end{itemize}
   \item Multilingualization
