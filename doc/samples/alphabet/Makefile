@@ -1,10 +1,10 @@
 UPMENDEX = upmendex
 
-alphabet: ltn cyr grk zh ja ko dev th arb he
+alphabet: ltn cyr grk zh ja ko dev brhm th arb he
 
 ltn:
 	for num in 1 2; do \
-	for loc in af ca da de eo es et fi fr gl is jv lt lv nb nl nn no pl ro sv tk vi; do \
+	for loc in af ca da de eo es et fi fr gl is jv ku lt lv nb nl nn no pl ro sv tk vi; do \
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head$$num.ist -s mdxsty_$$loc.ist -t alpha_$$loc$$num.ilg -o alpha_$$loc$$num.ind ; \
 	done ; \
 	done
@@ -16,7 +16,7 @@ ltn:
 	done
 	for num in 1 2; do \
 	for x in 1 2; do \
-	for loc in sv fi; do \
+	for loc in ro sv fi; do \
 		locx=$$loc$$x ; \
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head$$num.ist -s mdxsty_$$locx.ist -t alpha_$$locx$$num.ilg -o alpha_$$locx$$num.ind ; \
 	done ; \
@@ -149,26 +149,67 @@ dev:
 	for loc in hi mr ne; do \
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head1.ist -s mdxsty_$$loc.ist -t alpha_$$loc.ilg -o alpha_$$loc.ind ; \
 	done ; \
-	for x in 1; do \
+	for x in 0; do \
+	for loc in hi mr ne; do \
+		locx=$$loc$$x ; \
+		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head1.ist -t alpha_$$locx.ilg -o alpha_$$locx.ind ; \
+	done ; \
+	done
+	for x in 1 2; do \
 	for loc in hi mr ne; do \
 		locx=$$loc$$x ; \
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head1.ist -s mdxsty_$$locx.ist -t alpha_$$locx.ilg -o alpha_$$locx.ind ; \
 	done ; \
 	done
+	for x in 4; do \
+	for loc in hi mr ne; do \
+		locx=$$loc$$x ; \
+		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head4.ist -s mdxsty_$$loc.ist -t alpha_$$locx.ilg -o alpha_$$locx.ind ; \
+	done ; \
+	done
 
-th:
-	for loc in th; do \
+brhm:
+	for loc in bn as pa gu or ta te kn ml si; do \
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head1.ist -s mdxsty_$$loc.ist -t alpha_$$loc.ilg -o alpha_$$loc.ind ; \
 	done ; \
-	for x in 1; do \
-	for loc in th; do \
+	for x in 0; do \
+	for loc in bn as pa gu or ta te kn ml si; do \
+		locx=$$loc$$x ; \
+		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head1.ist -t alpha_$$locx.ilg -o alpha_$$locx.ind ; \
+	done ; \
+	done
+	for x in 1 2; do \
+	for loc in bn as pa gu or ta te kn ml si; do \
+		locx=$$loc$$x ; \
+		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head1.ist -s mdxsty_$$locx.ist -t alpha_$$locx.ilg -o alpha_$$locx.ind ; \
+	done ; \
+	done
+	for x in 3; do \
+	for loc in bn kn si; do \
+		locx=$$loc$$x ; \
+		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head1.ist -s mdxsty_$$locx.ist -t alpha_$$locx.ilg -o alpha_$$locx.ind ; \
+	done ; \
+	done
+	for x in 4; do \
+	for loc in bn as pa gu or ta te kn ml si; do \
+		locx=$$loc$$x ; \
+		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head4.ist -s mdxsty_$$loc.ist -t alpha_$$locx.ilg -o alpha_$$locx.ind ; \
+	done ; \
+	done
+
+th:
+	for loc in th lo; do \
+		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head1.ist -s mdxsty_$$loc.ist -t alpha_$$loc.ilg -o alpha_$$loc.ind ; \
+	done ; \
+	for x in 1 2; do \
+	for loc in th lo; do \
 		locx=$$loc$$x ; \
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head1.ist -s mdxsty_$$locx.ist -t alpha_$$locx.ilg -o alpha_$$locx.ind ; \
 	done ; \
 	done
 
 arb:
-	for loc in ar fa faa ps ug ur; do \
+	for loc in ar fa faa kua ps ug ur; do \
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head1.ist -s mdxsty_$$loc.ist -t alpha_$$loc.ilg -o alpha_$$loc.ind ; \
 	done ; \
 	for x in 1; do \

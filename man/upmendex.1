@@ -21,6 +21,9 @@ formatter such as \*(LX families), sorts the entries, and produces an output fil
 which can be formatted.
 It supports Latin (including non-English), Greek, Cyrillic, Korean Hangul and
 Han (Hanzi ideographs) scripts, as well as Japanese Kana.
+It also experimentally supports Brahmic (Bengali, Devanagari, Gurmukhi,
+Gujarati, Kannada, Lao, Malayalam, Oriya, Sinhala, Tamil, Telugu, Thai),
+Arabic and Hebrew scripts.
 It is almost compatible with \fImakeindex\fR and \fImendex\fR, and
 additional feature for handling readings of kanji words is also available.
 .RE
@@ -256,6 +259,17 @@ Same as \fBlethead_flag\fR. (Note: makeindex uses a different name \fBheadings_f
 Same as \fBlethead_flag\fR. (compatible with makeindex)
 .RE
 .TP 30
+\fBscript_head\fR  <string 1>  <string 2>
+"(standard heading characters)"
+.RS
+Heading characters of script specified by string 2.
+One of script names must be specified in the string 1:
+\'kana\', \'hangul\', \'hanzi\', \'devanagari\', \'bengali\', \'gurmukhi\',
+\'gujarati\', \'oriya\', \'tamil\', \'telugu\', \'kannada\', \'malayalam\',
+\'sinhala\', \'thai\', \'lao\', \'arabic\', or \'hebrew\'.
+(Extended by upmendex)
+.RE
+.TP 30
 \fBkana_head\fR  <string>
 ""
 .RS
@@ -270,13 +284,6 @@ command line option \fB-g\fR.
 .RS
 Heading characters of Hangul specified by a string.
 (Extended by upmendex)
-.RE
-.TP 30
-\fBtumunja\fR  <string>
-"ㄱㄴㄷㄹㅁㅂㅅㅇㅈㅊㅋㅌㅍㅎ"
-.RS
-Heading characters of Hangul specified by a string.
-(Deprecated, Extended by upmendex)
 .RE
 .TP 30
 \fBhanzi_head\fR  <string>
@@ -523,12 +530,14 @@ Japanese sequence and non-Japanese sequence in sorting procedure.
 .RE
 .TP 30
 \fBcharacter_order\fR  <string>
-"SNLGCJKHDTah"
+"SNLGCJKHDbpgotukmsTlah"
 .RS
 Order of scripts and symbols.
-\'S\', \'N\', \'L\', \'G\', \'C\', \'J\', \'K\', \'H\', \'D\', \'T\', \'a\' and \'h\'
-respectively denotes symbol, number, Latin, Greek, Cyrillic, Japanese Kana, Korean Hangul, Hanzi,
-Devanagari, Thai, Arabic and Hebrew script.
+\'S\', \'N\', \'L\', \'G\', \'C\', \'J\', \'K\', \'H\', \'D\', \'b\', \'p\', \'g\',
+\'o\', \'t\', \'u\', \'k\', \'m\', \'s\',  \'T\', \'l\', \'a\' and \'h\' respectively
+denotes symbol, number, Latin, Greek, Cyrillic, Japanese Kana, Korean Hangul, Hanzi,
+Devanagari, Bengali, Gurmukhi, Gujarati, Oriya, Tamil, Telugu, Kannada, Malayalam,
+Sinhala, Thai, Lao, Arabic and Hebrew script.
 \'@\' denotes scripts which are not explicitly designated and the order are
 configured by icu_rules or icu_locale.
 Please make sure that \'S\' and \'N\' are next to each other if symbol_flag=1,
@@ -541,8 +550,10 @@ since numbers are classified as a part of symbol.
 .RS
 Preamble of script block in output file, specified by string 2.
 One of script names must be specified in the string 1:
-\'latin\', \'cyrillic\', \'greek\', \'kana\', \'hangul\', \'hanzi\', \'devanagari\',
-\'thai\', \'arabic\', or \'hebrew\'.
+\'latin\', \'cyrillic\', \'greek\', \'kana\', \'hangul\', \'hanzi\',
+\'devanagari\', \'bengali\', \'gurmukhi\', \'gujarati\', \'oriya\',
+\'tamil\', \'telugu\', \'kannada\', \'malayalam\', \'sinhala\',
+\'thai\', \'lao\', \'arabic\', or \'hebrew\'.
 (Extended by upmendex)
 .RE
 .TP 30
@@ -551,8 +562,10 @@ One of script names must be specified in the string 1:
 .RS
 Postamble of script block in output file, specified by string 2.
 One of script names must be specified in the string 1:
-\'latin\', \'cyrillic\', \'greek\', \'kana\', \'hangul\', \'hanzi\', \'devanagari\',
-\'thai\', \'arabic\', or \'hebrew\'.
+\'latin\', \'cyrillic\', \'greek\', \'kana\', \'hangul\', \'hanzi\',
+\'devanagari\', \'bengali\', \'gurmukhi\', \'gujarati\', \'oriya\',
+\'tamil\', \'telugu\', \'kannada\', \'malayalam\', \'sinhala\',
+\'thai\', \'lao\', \'arabic\', or \'hebrew\'.
 (Extended by upmendex)
 .RE
 .TP 30

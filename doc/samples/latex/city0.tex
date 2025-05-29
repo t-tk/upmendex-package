@@ -4,7 +4,7 @@
 %      Devanagari, Thai, Arabic and Hebrew
 %
 %
-% Copyright (C) 2022 TANAKA Takuji
+% Copyright (C) 2022-2025 TANAKA Takuji
 % You may freely use, modify and/or distribute this file.
 %
 \documentclass[a4paper]{article}
@@ -25,8 +25,16 @@
 \setotherlanguage{japanese}
 \newfontfamily\koreanfont{Noto Serif CJK KR}[Language=Korean,Script=Hangul]
 \setotherlanguage{korean}
-\newfontfamily\hindifont{Noto Serif Devanagari}[Language=Hindi,Script=Devanagari]
+\newfontfamily\hindifont{Noto Serif Devanagari}[Script=Devanagari]
 \setotherlanguage{hindi}
+
+\newfontfamily\bengalifont{Noto Serif Bengali}[Script=Bengali]
+\setotherlanguage{bengali}
+\newfontfamily\tamilfont{Noto Serif Tamil}[Script=Tamil]
+\setotherlanguage{tamil}
+\newfontfamily\telugufont{Noto Serif Telugu}[Script=Telugu]
+\setotherlanguage{telugu}
+
 \newfontfamily\thaifont{Noto Serif Thai}[Language=Thai,Script=Thai]
 \setotherlanguage{thai}
 \newfontfamily\hebrewfont{Noto Serif Hebrew}[Script=Hebrew]
@@ -150,22 +158,49 @@ upmendexの使い方応用編\index{upmendex!のつかいかた@---\textjapanese
 \begin{hindi}
 यह हिन्दी पाठ है।
 
-मुंबई\index{मुंबई}
-दिल्ली\index{दिल्ली}
-कोलकाता\index{कोलकाता}
-कानपुर\index{कानपुर}
-बंगलुरु\index{बंगलुरु}
+मुंबई\index{मुंबई} % Mumbai
+दिल्ली\index{दिल्ली} % Delhi
+कोलकाता\index{कोलकाता} % Kolkata
+कानपुर\index{कानपुर} % Kanpur
+बंगलुरु\index{बंगलुरु} % Bengaluru
 \end{hindi}
+
+\section{Bengali}
+\begin{bengali}
+এটি একটি বাংলা লেখা।
+
+ঢাকা\index{ঢাকা} % Dhaka
+চট্টগ্রাম\index{চট্টগ্রাম} % Chittagong
+কলকাতা\index{কলকাতা} % Kolkata
+\end{bengali}
+
+\section{Tamil}
+\begin{tamil}
+இது ஒரு தமிழ் உரை.
+
+சென்னை\index{சென்னை} % Chennai
+கோயம்புத்தூர்\index{கோயம்புத்தூர்} % Coimbatore
+மதுரை\index{மதுரை} % Madurai
+\end{tamil}
+
+\section{Telugu}
+\begin{telugu}
+ఇది తెలుగు వచనం.
+
+హైదరాబాద్\index{హైదరాబాద్} % Hyderabad
+విశాఖపట్నం\index{విశాఖపట్నం} % Visakhapatnam
+అమరావతి\index{అమరావతి} % Amaravati
+\end{telugu}
 
 \section{Thai}
 \begin{thai}
 นี่คือข้อความภาษาไทย
 
-กรุงเทพมหานคร\index{กรุงเทพมหานคร}
-นนทบุรี\index{นนทบุรี}
-นครราชสีมา\index{นครราชสีมา}
-เชียงใหม่\index{เชียงใหม่}
-หาดใหญ่\index{หาดใหญ่}
+กรุงเทพมหานคร\index{กรุงเทพมหานคร} % Bangkok
+นนทบุรี\index{นนทบุรี} % Nonthaburi
+นครราชสีมา\index{นครราชสีมา} % Nakhon Ratchasima
+เชียงใหม่\index{เชียงใหม่} % Chiang Mai
+หาดใหญ่\index{หาดใหญ่} % Hat Yai
 \end{thai}
 
 \section{Arabic}

@@ -36,6 +36,11 @@
 
   \indexspace
 
+\centerline{\bfseries --- پ ---}\par\nobreak
+  \item پ\leaders\hbox{$\cdot$}\hfill 140
+
+  \indexspace
+
 \centerline{\bfseries --- ت ---}\par\nobreak
   \item ت\leaders\hbox{$\cdot$}\hfill 104
 
@@ -58,6 +63,11 @@
 
 \centerline{\bfseries --- ځ ---}\par\nobreak
   \item ځ\leaders\hbox{$\cdot$}\hfill 151
+
+  \indexspace
+
+\centerline{\bfseries --- چ ---}\par\nobreak
+  \item چ\leaders\hbox{$\cdot$}\hfill 141
 
   \indexspace
 
@@ -103,6 +113,11 @@
 
 \centerline{\bfseries --- ز ---}\par\nobreak
   \item ز\leaders\hbox{$\cdot$}\hfill 112
+
+  \indexspace
+
+\centerline{\bfseries --- ژ ---}\par\nobreak
+  \item ژ\leaders\hbox{$\cdot$}\hfill 142
 
   \indexspace
 

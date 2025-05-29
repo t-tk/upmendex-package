@@ -1,0 +1,43 @@
+% -*- coding: utf-8 -*-
+
+preamble "\\begin{theindex}\n\\thispagestyle{empty}"
+
+%delim_0 "\\leaders\\hbox{$\\cdot$}\\hfill "
+%delim_1 "\\leaders\\hbox{$\\cdot$}\\hfill "
+%delim_2 "\\leaders\\hbox{$\\cdot$}\\hfill "
+delim_0 "\\leaders\\hbox{$\\cdot$}\\hfill \\textenglish{"
+delim_1 "\\leaders\\hbox{$\\cdot$}\\hfill \\textenglish{"
+delim_2 "\\leaders\\hbox{$\\cdot$}\\hfill \\textenglish{"
+delim_t "}"
+
+lethead_flag 1
+lethead_prefix "\n\\centerline{\\bfseries \\textenglish{---} "
+lethead_suffix  " \\textenglish{---}}\\par\\nobreak"
+%lethead_prefix "\n\\centerline{\\bfseries --- "
+%lethead_suffix  " ---}\\par\\nobreak"
+letter_head 1
+
+icu_locale "hi"
+script_preamble   devanagari  "\n\n\\begin{hindi}"
+script_postamble  devanagari  "\n\\end{hindi}"
+script_preamble   bengali     "\n\n\\begin{bengali}"
+script_postamble  bengali     "\n\\end{bengali}"
+script_preamble   gurmukhi    "\n\n\\begin{punjabi}"
+script_postamble  gurmukhi    "\n\\end{punjabi}"
+script_preamble   oriya       "\n\n\\begin{odia}"
+script_postamble  oriya       "\n\\end{odia}\n\\newpage"
+script_preamble   tamil       "\n\n\\begin{tamil}"
+script_postamble  tamil       "\n\\end{tamil}"
+script_preamble   telugu      "\n\n\\begin{telugu}"
+script_postamble  telugu      "\n\\end{telugu}"
+script_preamble   kannada     "\n\n\\begin{kannada}"
+script_postamble  kannada     "\n\\end{kannada}"
+script_preamble   malayalam   "\n\n\\begin{malayalam}"
+script_postamble  malayalam   "\n\\end{malayalam}"
+script_preamble   sinhala     "\n\n\\begin{sinhala}"
+script_postamble  sinhala     "\n\\end{sinhala}"
+script_preamble   thai        "\n\n\\begin{thai}"
+script_postamble  thai        "\n\\end{thai}"
+script_preamble   lao         "\n\n\\begin{lao}"
+script_postamble  lao         "\n\\end{lao}"
+
