@@ -1,7 +1,7 @@
 upmendex  --- Multilingual index processor
 ==========================================
 
-2025.05.xx Ver1.12
+2025.05.31 Ver1.20
 
 TANAKA, Takuji
 <ttk(at)t-lab.opal.ne.jp>
@@ -19,11 +19,11 @@ upmendex is a multilingual index processor with following features:
  * Support Latin (including non-English), Greek, Cyrillic,
    Korean Hangul and Chinese Han (Hanzi ideographs) scripts
    as well as Japanese Kana.
+ * Support four kinds of sort orders (Pinyin, Radical-Stroke,
+   Stroke and Zhuyin) for Chinese Han scripts (Hanzi ideographs).
  * Support Brahmic (Bengali, Devanagari, Gurmukhi, Gujarati,
    Kannada, Lao, Malayalam, Oriya, Sinhala, Tamil, Telugu, Thai),
    Arabic and Hebrew scripts (experimental).
- * Support four kinds of sort orders (Pinyin, Radical-Stroke,
-   Stroke and Zhuyin) for Chinese Han scripts (Hanzi ideographs).
  * Apply International Components for Unicode (ICU)[4]
    for sorting process.
 
