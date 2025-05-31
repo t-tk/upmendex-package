@@ -87,6 +87,8 @@
 \centerline{\bfseries --- O ---}\par\nobreak
   \item O\leaders\hbox{$\cdot$}\hfill 115
   \item o\leaders\hbox{$\cdot$}\hfill 215
+  \item oa\leaders\hbox{$\cdot$}\hfill 2000
+  \item oz\leaders\hbox{$\cdot$}\hfill 2001
 
   \indexspace
 
@@ -165,6 +167,16 @@
 \centerline{\bfseries --- Ø ---}\par\nobreak
   \item Ø\leaders\hbox{$\cdot$}\hfill 128
   \item ø\leaders\hbox{$\cdot$}\hfill 228
+  \item Ö\leaders\hbox{$\cdot$}\hfill 170
+  \item ö\leaders\hbox{$\cdot$}\hfill 270
+  \item Ő\leaders\hbox{$\cdot$}\hfill 171
+  \item ő\leaders\hbox{$\cdot$}\hfill 271
+  \item øa\leaders\hbox{$\cdot$}\hfill 2002
+  \item öa\leaders\hbox{$\cdot$}\hfill 2004
+  \item őa\leaders\hbox{$\cdot$}\hfill 2006
+  \item øz\leaders\hbox{$\cdot$}\hfill 2003
+  \item öz\leaders\hbox{$\cdot$}\hfill 2005
+  \item őz\leaders\hbox{$\cdot$}\hfill 2007
 
   \indexspace
 
