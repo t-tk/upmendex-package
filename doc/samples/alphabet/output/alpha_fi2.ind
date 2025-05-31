@@ -87,6 +87,8 @@
 \centerline{\bfseries --- o ---}\par\nobreak
   \item o\leaders\hbox{$\cdot$}\hfill 215
   \item O\leaders\hbox{$\cdot$}\hfill 115
+  \item œ\leaders\hbox{$\cdot$}\hfill 251
+  \item Œ\leaders\hbox{$\cdot$}\hfill 151
 
   \indexspace
 
@@ -181,6 +183,8 @@
 \centerline{\bfseries --- ä ---}\par\nobreak
   \item ä\leaders\hbox{$\cdot$}\hfill 228
   \item Ä\leaders\hbox{$\cdot$}\hfill 128
+  \item æ\leaders\hbox{$\cdot$}\hfill 250
+  \item Æ\leaders\hbox{$\cdot$}\hfill 150
 
   \indexspace
 
