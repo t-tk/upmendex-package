@@ -34,6 +34,9 @@
 \indexentry{Þ}{167}
 \indexentry{Æ}{168}
 \indexentry{Ö}{169}
+\indexentry{Ä}{170}
+\indexentry{Å}{171}
+\indexentry{Ø}{172}
 \indexentry{a}{201}
 \indexentry{á}{260}
 \indexentry{b}{202}
@@ -71,6 +74,8 @@
 \indexentry{æ}{268}
 \indexentry{ö}{269}
 \indexentry{ä}{270}
+\indexentry{å}{271}
+\indexentry{ø}{272}
 \indexentry{aa}{1000}
 \indexentry{az}{1001}
 \indexentry{áa}{1002}
@@ -80,6 +85,8 @@
 \indexentry{æz}{1006}
 \indexentry{äa}{1007}
 \indexentry{äz}{1008}
+\indexentry{åa}{1009}
+\indexentry{åz}{1010}
 \indexentry{da}{2000}
 \indexentry{dz}{2001}
 \indexentry{ða}{2002}
@@ -98,6 +105,8 @@
 \indexentry{óz}{5003}
 \indexentry{öa}{5004}
 \indexentry{öz}{5005}
+\indexentry{øa}{5006}
+\indexentry{øz}{5007}
 \indexentry{ua}{6000}
 \indexentry{uz}{6001}
 \indexentry{úa}{6002}
