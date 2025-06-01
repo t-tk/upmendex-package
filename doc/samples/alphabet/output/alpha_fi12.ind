@@ -87,7 +87,6 @@
 \centerline{\bfseries --- o ---}\par\nobreak
   \item o\leaders\hbox{$\cdot$}\hfill 215
   \item O\leaders\hbox{$\cdot$}\hfill 115
-  \item œ\leaders\hbox{$\cdot$}\hfill 251
   \item Œ\leaders\hbox{$\cdot$}\hfill 151
 
   \indexspace
@@ -177,6 +176,8 @@
 \centerline{\bfseries --- å ---}\par\nobreak
   \item å\leaders\hbox{$\cdot$}\hfill 227
   \item Å\leaders\hbox{$\cdot$}\hfill 127
+  \item åa\leaders\hbox{$\cdot$}\hfill 3000
+  \item åz\leaders\hbox{$\cdot$}\hfill 3001
 
   \indexspace
 
@@ -185,11 +186,20 @@
   \item Ä\leaders\hbox{$\cdot$}\hfill 128
   \item æ\leaders\hbox{$\cdot$}\hfill 250
   \item Æ\leaders\hbox{$\cdot$}\hfill 150
+  \item äa\leaders\hbox{$\cdot$}\hfill 3003
+  \item æa\leaders\hbox{$\cdot$}\hfill 3005
+  \item äz\leaders\hbox{$\cdot$}\hfill 3004
+  \item æz\leaders\hbox{$\cdot$}\hfill 3006
 
   \indexspace
 
 \centerline{\bfseries --- ö ---}\par\nobreak
   \item ö\leaders\hbox{$\cdot$}\hfill 229
   \item Ö\leaders\hbox{$\cdot$}\hfill 129
+  \item ø\leaders\hbox{$\cdot$}\hfill 251
+  \item öa\leaders\hbox{$\cdot$}\hfill 5000
+  \item øa\leaders\hbox{$\cdot$}\hfill 5002
+  \item öz\leaders\hbox{$\cdot$}\hfill 5001
+  \item øz\leaders\hbox{$\cdot$}\hfill 5003
 
 \end{theindex}
