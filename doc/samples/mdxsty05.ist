@@ -17,6 +17,6 @@ character_order  "@"
 symbol_flag 2
 %icu_rules "[reorder Kana Hang Hani Grek Cyrl Latn Thai Deva Hebr Arab]"
 %icu_rules "[reorder Hani Kana Hang Cyrl Grek Latn Deva Thai Arab Hebr]"
-icu_rules "[reorder CURRENCY SYMBOL Kana Hang Hani Grek Cyrl Latn Thai Deva Hebr Arab DIGIT]"
+icu_rules "[reorder CURRENCY SYMBOL Kana Hang Hani Grek Cyrl Latn Thai Beng Deva Hebr Arab DIGIT]"
 
 hangul_head "가나다라마바사아자차카타파하"

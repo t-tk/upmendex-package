@@ -236,15 +236,31 @@
 \centerline{\bfseries --- æ ---}\par\nobreak
   \item æ\leaders\hbox{$\cdot$}\hfill 268
   \item Æ\leaders\hbox{$\cdot$}\hfill 168
+  \item ä\leaders\hbox{$\cdot$}\hfill 270
+  \item Ä\leaders\hbox{$\cdot$}\hfill 170
   \item æa\leaders\hbox{$\cdot$}\hfill 1005
+  \item äa\leaders\hbox{$\cdot$}\hfill 1007
   \item æz\leaders\hbox{$\cdot$}\hfill 1006
+  \item äz\leaders\hbox{$\cdot$}\hfill 1008
 
   \indexspace
 
 \centerline{\bfseries --- ö ---}\par\nobreak
   \item ö\leaders\hbox{$\cdot$}\hfill 269
   \item Ö\leaders\hbox{$\cdot$}\hfill 169
+  \item ø\leaders\hbox{$\cdot$}\hfill 272
+  \item Ø\leaders\hbox{$\cdot$}\hfill 172
   \item öa\leaders\hbox{$\cdot$}\hfill 5004
+  \item øa\leaders\hbox{$\cdot$}\hfill 5006
   \item öz\leaders\hbox{$\cdot$}\hfill 5005
+  \item øz\leaders\hbox{$\cdot$}\hfill 5007
+
+  \indexspace
+
+\centerline{\bfseries --- å ---}\par\nobreak
+  \item å\leaders\hbox{$\cdot$}\hfill 271
+  \item Å\leaders\hbox{$\cdot$}\hfill 171
+  \item åa\leaders\hbox{$\cdot$}\hfill 1009
+  \item åz\leaders\hbox{$\cdot$}\hfill 1010
 
 \end{theindex}
