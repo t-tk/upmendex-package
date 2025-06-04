@@ -678,9 +678,9 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 	UChar ch,src[2],dest[8],strX[4],strY[4],strZ[4],strW[4];
 	UChar32 c32;
 	UErrorCode perr;
-	UCollationResult order,order1,order2,order3,order4,order5;
+	UCollationResult order,order1,order2,order3,order4,order5,order6;
 	UCollationStrength strgth;
-	static int i_y_mode=0,o_o_mode=0,u_u_mode=0,v_w_mode=0,s_s_mode=0,t_t_mode=0;
+	static int i_y_mode=0,o_o_mode=0,u_u_mode=0,v_w_mode=0,s_s_mode=0,t_t_mode=0,d_d_mode=0;
 
 	ch=istr[0];
 	*chset=charset(istr);
@@ -1018,11 +1018,51 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 			ini[0] = 0x21A;  return;
 		}
 	}
+	if (ch==0x0D0||ch==0x0F0||ch==0x110||ch==0x111) {
+		/* check ð,Ð versus đ,Đ for Finnish, Swedish, Icelandic */
+		if (d_d_mode<=2) {
+			strgth = ucol_getStrength(icu_collator);
+			strX[0] = ch;     strX[1] = 0x00; /* myself */
+			strZ[0] = 0x044;  strZ[1] = 0x00; /* D */
+			ucol_setStrength(icu_collator, UCOL_PRIMARY);
+			order = ucol_strcoll(icu_collator, strZ, -1, strX, -1);
+			if (d_d_mode==0 && order!=UCOL_EQUAL) {
+				strX[0] = 0x0D0;  strX[1] = 0x00; /* Ð, Eth */
+				strY[0] = 0x110;  strY[1] = 0x00; /* Đ, D with Stroke */
+				order1 = ucol_strcoll(icu_collator, strY, -1, strX, -1);
+				if (order1==UCOL_EQUAL) d_d_mode = 3;
+			}
+			if (d_d_mode<3) {
+				d_d_mode = (order==UCOL_EQUAL) ? 1 : 2;
+			}
+			ucol_setStrength(icu_collator, strgth);
+		}
+		if (d_d_mode==3) {
+			strgth = ucol_getStrength(icu_collator);
+			ucol_setStrength(icu_collator, UCOL_QUATERNARY);
+			order  = ucol_strcoll(icu_collator, strY, -1, strX, -1);
+			d_d_mode = (order==UCOL_LESS) ? 5 : 4;
+			ucol_setStrength(icu_collator, strgth);
+		}
+		if (d_d_mode==1) {
+			ini[0] = 0x044;  return;
+		}
+		if (d_d_mode==2) {
+			ini[0] = u_toupper(ch);  return;
+		}
+		if (d_d_mode==4) {
+			ini[0] = 0x0D0;  return;
+		}
+		if (d_d_mode==5) {
+			ini[0] = 0x110;  return;
+		}
+	}
 	if (ch==0x0D6||ch==0x0F6||ch==0x150||ch==0x151
-		||ch==0x0D8||ch==0x0F8||ch==0x0D5||ch==0x0F5) {
+		||ch==0x0D8||ch==0x0F8||ch==0x0D5||ch==0x0F5||ch==0x0D4||ch==0x0F4) {
 		/* check Ö,ö versus Ő,ő for Hungarian
 		         Ø,ø versus Ö,ö for Danish, Norwegian
-		         Ö,ö versus Ø,ø,Ő,ő,Õ,õ for Finnish SFS 4600 */
+		         Ö,ö versus Ø,ø,Ő,ő,Õ,õ for Finnish SFS 4600
+		         Ö,ö versus Ø,ø,Ő,ő,Ô,ô for Swedish */
 		if (o_o_mode==0) {
 			strgth = ucol_getStrength(icu_collator);
 			ucol_setStrength(icu_collator, UCOL_PRIMARY);
@@ -1044,11 +1084,13 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 			strX[0] = 0x0D6;  strX[1] = 0x00; /* Ö */
 			strY[0] = 0x0D8;  strY[1] = 0x00; /* Ø */
 			strZ[0] = 0x150;  strZ[1] = 0x00; /* Ő */
-			strW[0] = 0x0D5;  strZ[1] = 0x00; /* Õ */
 			order2 = ucol_strcoll(icu_collator, strY, -1, strZ, -1);
 			order3 = ucol_strcoll(icu_collator, strZ, -1, strX, -1);
 			order4 = ucol_strcoll(icu_collator, strY, -1, strX, -1);
+			strW[0] = 0x0D5;  strZ[1] = 0x00; /* Õ */
+			strY[0] = 0x0D4;  strY[1] = 0x00; /* Ô */
 			order5 = ucol_strcoll(icu_collator, strW, -1, strX, -1);
+			order6 = ucol_strcoll(icu_collator, strY, -1, strX, -1);
 			if (order1==UCOL_LESS && order4==UCOL_LESS) {
 				o_o_mode = 3;           /* O < Ø << Ö */
 				if (order2==UCOL_LESS)
@@ -1059,6 +1101,8 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 					o_o_mode = 7;   /* O < Ö << Ø and O < Ö << Ő */
 				if (order3==UCOL_GREATER && order5==UCOL_GREATER)
 					o_o_mode = 8;   /* O < Ö << Ø and O < Ö << Ő and O < Ö << Õ */
+				if (order3==UCOL_GREATER && order6==UCOL_GREATER)
+					o_o_mode = 9;   /* O < Ö << Ø and O < Ö << Ő and O < Ö << Ô */
 			} else if (order==UCOL_LESS && order3==UCOL_GREATER) {
 				o_o_mode = 5;           /* O < Ö << Ő */
 			}
@@ -1075,7 +1119,9 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 		    (o_o_mode==7 && (ch==0x150||ch==0x151||ch==0x0D8||ch==0x0F8)) || /* Ő,Ø */
 		    (o_o_mode==8 && (ch==0x150||ch==0x151||
 		                     ch==0x0D8||ch==0x0F8||ch==0x0D5||ch==0x0F5)) || /* Ő,Ø,Õ */
-		    (o_o_mode>=5 && o_o_mode<=8 && (ch==0x0D6||ch==0x0F6))) { /* Ö */
+		    (o_o_mode==9 && (ch==0x150||ch==0x151||
+		                     ch==0x0D8||ch==0x0F8||ch==0x0D4||ch==0x0F4)) || /* Ő,Ø,Ô */
+		    (o_o_mode>=5 && o_o_mode<=9 && (ch==0x0D6||ch==0x0F6))) { /* Ö */
 			ini[0] = 0x0D6; /* Ö */
 			return;
 		}
@@ -1102,13 +1148,14 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 		if (u_u_mode==2) {
 			ini[0] = 0x0DC; /* Ü */
 			return;
-		} else if (o_o_mode==3) {
+		} else if (u_u_mode==3) {
 			ini[0] = 0x059; /* Y */
 			return;
 		}
 	}
-	if (ch==0x0C6||ch==0x0E6||ch==0x152||ch==0x153||ch==0x132||ch==0x133
-		||ch==0x0DF||ch==0x1E9E||ch==0x13F||ch==0x140||ch==0x149||ch==0x490||ch==0x491) {
+	if (ch==0x0C6||ch==0x0E6||ch==0x0DE||ch==0x0FE||ch==0x0DF||ch==0x1E9E
+		||ch==0x132||ch==0x133||ch==0x13F||ch==0x140||ch==0x149||ch==0x14A||ch==0x14B
+		||ch==0x152||ch==0x153||ch==0x490||ch==0x491) {
 		strX[0] = u_toupper(ch);  strX[1] = 0x00; /* ex. "Æ" "Œ" */
 		switch (ch) {
 			case 0x0C6: case 0x0E6:        /* Æ æ */
@@ -1119,6 +1166,8 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 				strW[0] = 0xD6; break; /* Ö   */
 			case 0x0DF: case 0x1E9E:       /* ß ẞ */
 				strZ[0] = 0x53; break; /* S   */
+			case 0x0DE: case 0x0FE:        /* Þ þ */
+				strZ[0] = 0x54; break; /* T   */
 			case 0x132: case 0x133:        /* Ĳ ĳ */
 				strZ[0] = 0x59;        /* Y   */
 				strZ[1] = 0x00;
@@ -1127,6 +1176,7 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 			case 0x13F: case 0x140:        /* Ŀ ŀ */
 				strZ[0] = 0x4C; break; /* L   */
 			case 0x149:                    /* ŉ   */
+			case 0x14A: case 0x14B:        /* Ŋ ŋ */
 				strZ[0] = 0x4E; break; /* N   */
 			case 0x490: case 0x491:        /* Ґ ґ */
 				strZ[0] = 0x413; break; /* Г   */
