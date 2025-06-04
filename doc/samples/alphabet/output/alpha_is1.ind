@@ -32,8 +32,12 @@
 \centerline{\bfseries --- D ---}\par\nobreak
   \item d\leaders\hbox{$\cdot$}\hfill 204
   \item D\leaders\hbox{$\cdot$}\hfill 104
+  \item đ\leaders\hbox{$\cdot$}\hfill 273
+  \item Đ\leaders\hbox{$\cdot$}\hfill 173
   \item da\leaders\hbox{$\cdot$}\hfill 2000
+  \item đa\leaders\hbox{$\cdot$}\hfill 2004
   \item dz\leaders\hbox{$\cdot$}\hfill 2001
+  \item đz\leaders\hbox{$\cdot$}\hfill 2005
 
   \indexspace
 
