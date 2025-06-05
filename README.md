@@ -82,7 +82,7 @@ Currently following locales are available:
   "nb", "nb@collation=search", "nn", "nn@collation=search", "no" (Norwegian),
   "pl" (Polish), "ro" (Romanian), "sk", "sk@collation=search" (Slovak),
   "sl" (Slovenian), "sq" (Albanian), "sr-Latn", "sr-Latn@collation=search" (Serbian),
-  "sv", "sv@collation=search", "sv@collation=standard" (Swedish), "tk" (Turkmen),
+  "sv", "sv@collation=search", "sv@collation=traditional" (Swedish), "tk" (Turkmen),
   "tr" (Turkish), "vi", "vi@collation=traditional" (Vietnamese)
 
 ##### Supported by default "root" collator. Do not need to set locale
