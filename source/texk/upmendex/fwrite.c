@@ -1163,6 +1163,7 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 				strW[0] = 0xC4; break; /* Ä   */
 			case 0x152: case 0x153:        /* Œ œ */
 				strZ[0] = 0x4F;        /* O   */
+				strY[0] = 0xD8;        /* Ø   */
 				strW[0] = 0xD6; break; /* Ö   */
 			case 0x0DF: case 0x1E9E:       /* ß ẞ */
 				strZ[0] = 0x53; break; /* S   */
@@ -1186,8 +1187,8 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 		order = ucol_strcoll(icu_collator, strZ, -1, strX, -1);
 		if (order==UCOL_GREATER) { ini[0]=strZ[0]; return; }  /* not ligature */
 
-		if (ch==0x0C6||ch==0x0E6||ch==0x152||ch==0x153) {
-		/* check Æ,Œ versus Ä,Ö for Finnish */
+		if (ch==0x0C6||ch==0x0E6) {
+		/* check Æ versus Ä for Finnish */
 			strW[1] = 0x00;
 			strgth = ucol_getStrength(icu_collator);
 			ucol_setStrength(icu_collator, UCOL_PRIMARY);
@@ -1197,6 +1198,36 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 			strgth = ucol_getStrength(icu_collator);
 			if (order==UCOL_EQUAL) {
 				ini[0] = (order1==UCOL_GREATER) ? strX[0] : strW[0];
+				return;
+			}
+		}
+		if (ch==0x152||ch==0x153) {
+		/* check Œ versus Ö,Ø for Finnish, Norwegian */
+			strY[1] = 0x00;  strW[1] = 0x00;
+			strgth = ucol_getStrength(icu_collator);
+			ucol_setStrength(icu_collator, UCOL_PRIMARY);
+			order  = ucol_strcoll(icu_collator, strW, -1, strX, -1);
+			order2 = ucol_strcoll(icu_collator, strY, -1, strX, -1);
+			ucol_setStrength(icu_collator, UCOL_SECONDARY);
+			order1 = ucol_strcoll(icu_collator, strW, -1, strX, -1);
+			order3 = ucol_strcoll(icu_collator, strY, -1, strX, -1);
+			order4 = ucol_strcoll(icu_collator, strY, -1, strW, -1);
+			strgth = ucol_getStrength(icu_collator);
+			if (order==UCOL_EQUAL && order2==UCOL_EQUAL) {
+				if (order1==UCOL_GREATER && order3==UCOL_GREATER)
+					ini[0] = strX[0];
+				else if (order4==UCOL_LESS)
+					ini[0] = strY[0];
+				else
+					ini[0] = strW[0];
+				return;
+			}
+			else if (order==UCOL_EQUAL) {
+				ini[0] = (order1==UCOL_GREATER) ? strX[0] : strW[0];
+				return;
+			}
+			else if (order2==UCOL_EQUAL) {
+				ini[0] = (order3==UCOL_GREATER) ? strX[0] : strY[0];
 				return;
 			}
 		}
