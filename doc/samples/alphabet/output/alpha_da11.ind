@@ -120,12 +120,21 @@
 \centerline{\bfseries --- T ---}\par\nobreak
   \item t\leaders\hbox{$\cdot$}\hfill 220
   \item T\leaders\hbox{$\cdot$}\hfill 120
+  \item tg\leaders\hbox{$\cdot$}\hfill 6000
+  \item th\leaders\hbox{$\cdot$}\hfill 6001
+  \item tha\leaders\hbox{$\cdot$}\hfill 6002
+  \item þa\leaders\hbox{$\cdot$}\hfill 6005
+  \item thz\leaders\hbox{$\cdot$}\hfill 6003
+  \item þz\leaders\hbox{$\cdot$}\hfill 6006
+  \item ti\leaders\hbox{$\cdot$}\hfill 6004
 
   \indexspace
 
 \centerline{\bfseries --- U ---}\par\nobreak
   \item u\leaders\hbox{$\cdot$}\hfill 221
   \item U\leaders\hbox{$\cdot$}\hfill 121
+  \item ua\leaders\hbox{$\cdot$}\hfill 7000
+  \item uz\leaders\hbox{$\cdot$}\hfill 7001
 
   \indexspace
 
@@ -150,6 +159,16 @@
 \centerline{\bfseries --- Y ---}\par\nobreak
   \item y\leaders\hbox{$\cdot$}\hfill 225
   \item Y\leaders\hbox{$\cdot$}\hfill 125
+  \item ü\leaders\hbox{$\cdot$}\hfill 272
+  \item Ü\leaders\hbox{$\cdot$}\hfill 172
+  \item ű\leaders\hbox{$\cdot$}\hfill 273
+  \item Ű\leaders\hbox{$\cdot$}\hfill 173
+  \item ya\leaders\hbox{$\cdot$}\hfill 8004
+  \item üa\leaders\hbox{$\cdot$}\hfill 7002
+  \item űa\leaders\hbox{$\cdot$}\hfill 7004
+  \item yz\leaders\hbox{$\cdot$}\hfill 8005
+  \item üz\leaders\hbox{$\cdot$}\hfill 7003
+  \item űz\leaders\hbox{$\cdot$}\hfill 7005
 
   \indexspace
 

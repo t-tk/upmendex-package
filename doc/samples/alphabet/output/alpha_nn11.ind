@@ -165,8 +165,14 @@
 \centerline{\bfseries --- Y ---}\par\nobreak
   \item y\leaders\hbox{$\cdot$}\hfill 225
   \item Y\leaders\hbox{$\cdot$}\hfill 125
+  \item ü\leaders\hbox{$\cdot$}\hfill 272
+  \item Ü\leaders\hbox{$\cdot$}\hfill 172
+  \item ű\leaders\hbox{$\cdot$}\hfill 273
+  \item Ű\leaders\hbox{$\cdot$}\hfill 173
+  \item ya\leaders\hbox{$\cdot$}\hfill 8004
   \item üa\leaders\hbox{$\cdot$}\hfill 7002
   \item űa\leaders\hbox{$\cdot$}\hfill 7004
+  \item yz\leaders\hbox{$\cdot$}\hfill 8005
   \item üz\leaders\hbox{$\cdot$}\hfill 7003
   \item űz\leaders\hbox{$\cdot$}\hfill 7005
 

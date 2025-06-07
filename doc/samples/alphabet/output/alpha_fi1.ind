@@ -158,6 +158,8 @@
 \centerline{\bfseries --- U ---}\par\nobreak
   \item u\leaders\hbox{$\cdot$}\hfill 221
   \item U\leaders\hbox{$\cdot$}\hfill 121
+  \item ű\leaders\hbox{$\cdot$}\hfill 257
+  \item Ű\leaders\hbox{$\cdot$}\hfill 157
   \item ua\leaders\hbox{$\cdot$}\hfill 7000
   \item űa\leaders\hbox{$\cdot$}\hfill 7004
   \item uz\leaders\hbox{$\cdot$}\hfill 7001
@@ -190,11 +192,11 @@
 \centerline{\bfseries --- Y ---}\par\nobreak
   \item y\leaders\hbox{$\cdot$}\hfill 225
   \item Y\leaders\hbox{$\cdot$}\hfill 125
-
-  \indexspace
-
-\centerline{\bfseries --- Ü ---}\par\nobreak
+  \item ü\leaders\hbox{$\cdot$}\hfill 256
+  \item Ü\leaders\hbox{$\cdot$}\hfill 156
+  \item ya\leaders\hbox{$\cdot$}\hfill 8004
   \item üa\leaders\hbox{$\cdot$}\hfill 7002
+  \item yz\leaders\hbox{$\cdot$}\hfill 8005
   \item üz\leaders\hbox{$\cdot$}\hfill 7003
 
   \indexspace
