@@ -223,12 +223,6 @@ he:
 	for loc in he yi; do \
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head1.ist -s mdxsty_$$loc.ist -t alpha_$$loc.ilg -o alpha_$$loc.ind ; \
 	done ; \
-	for x in 1; do \
-	for loc in he; do \
-		locx=$$loc$$x ; \
-		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head1.ist -s mdxsty_$$locx.ist -t alpha_$$locx.ilg -o alpha_$$locx.ind ; \
-	done ; \
-	done
 
 compare:
 	for ind in $(wildcard *.ind); do \

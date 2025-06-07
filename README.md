@@ -117,7 +117,7 @@ Currently following locales are available:
   "ku" (Kurdish, Sorani), "ps" (Pashto), "ug" (Uyghur), "ur" (Urdu)
 
 #### Hebrew script (experimental)
-  "he", "he@collation=search" (Hebrew), "yi" (Yiddish)
+  "he" (Hebrew), "yi" (Yiddish)
 
 ### References
 1.  [ASCII Nihongo TeX (Publishing TeX)](https://asciidwango.github.io/ptex/)
