@@ -1127,29 +1127,66 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 		}
 	}
 	if (ch==0x0DC||ch==0x0FC||ch==0x170||ch==0x171) {
-		/* check Ü,ü versus Ű,ű for Hungarian, and for Finnish SFS 4600 */
+		/* check Ü,ü versus Ű,ű for Hungarian
+		         Ü,ü,Ű,ű versus Y for Danish, Norwegian, Swedish and Finnish */
 		if (u_u_mode==0) {
 			strgth = ucol_getStrength(icu_collator);
 			ucol_setStrength(icu_collator, UCOL_PRIMARY);
 			strX[0] = 0x0DC;  strX[1] = 0x00; /* Ü */
 			strY[0] = 0x170;  strY[1] = 0x00; /* Ű */
 			strZ[0] = 0x055;  strZ[1] = 0x00; /* U */
-			order = ucol_strcoll(icu_collator, strY, -1, strX, -1);
+			strW[0] = 0x059;  strW[1] = 0x00; /* Y */
+			order  = ucol_strcoll(icu_collator, strY, -1, strX, -1);
 			order1 = ucol_strcoll(icu_collator, strZ, -1, strX, -1);
-			if (order==UCOL_EQUAL && order1!=UCOL_EQUAL) {
-				strZ[0] = 0x059;          /* Y */
-				order1 = ucol_strcoll(icu_collator, strZ, -1, strX, -1);
-				u_u_mode = (order1==UCOL_EQUAL) ? 3 : 2;
-			} else {
-				u_u_mode = 1;
-			}
+			order2 = ucol_strcoll(icu_collator, strW, -1, strX, -1);
+			order3 = ucol_strcoll(icu_collator, strZ, -1, strY, -1);
+			order4 = ucol_strcoll(icu_collator, strW, -1, strY, -1);
 			ucol_setStrength(icu_collator, strgth);
+			if      (order1==UCOL_EQUAL && order3==UCOL_EQUAL)
+				u_u_mode = 2;
+			else if (order2==UCOL_EQUAL && order4==UCOL_EQUAL)
+				u_u_mode = 3;
+			else if (order1==UCOL_EQUAL && order4==UCOL_EQUAL)
+				u_u_mode = 4;
+			else if (order2==UCOL_EQUAL && order3==UCOL_EQUAL)
+				u_u_mode = 5;
+			else if (order1==UCOL_EQUAL)
+				u_u_mode = 6;
+			else if (order2==UCOL_EQUAL)
+				u_u_mode = 7;
+			else if (order3==UCOL_EQUAL)
+				u_u_mode = 8;
+			else if (order4==UCOL_EQUAL)
+				u_u_mode = 9;
+			else if (order ==UCOL_EQUAL) {
+				ucol_setStrength(icu_collator, UCOL_SECONDARY);
+				order5 = ucol_strcoll(icu_collator, strY, -1, strX, -1);
+				ucol_setStrength(icu_collator, strgth);
+				u_u_mode = (order5==UCOL_LESS) ? 11 : 10;
+				}
+			else
+				u_u_mode = 1;
 		}
-		if (u_u_mode==2) {
+		if (((u_u_mode==2||u_u_mode==4||u_u_mode==6)
+			        && (ch==0x0DC||ch==0x0FC)) || /* Ü */
+		    ((u_u_mode==2||u_u_mode==5||u_u_mode==8)
+			        && (ch==0x170||ch==0x171))) { /* Ű */
+			ini[0] = 0x055; /* U */
+			return;
+		}
+		if (((u_u_mode==3||u_u_mode==5||u_u_mode==7)
+			        && (ch==0x0DC||ch==0x0FC)) || /* Ü */
+		    ((u_u_mode==3||u_u_mode==4||u_u_mode==9)
+			        && (ch==0x170||ch==0x171))) { /* Ű */
+			ini[0] = 0x059; /* Y */
+			return;
+		}
+		if (u_u_mode==10) {
 			ini[0] = 0x0DC; /* Ü */
 			return;
-		} else if (u_u_mode==3) {
-			ini[0] = 0x059; /* Y */
+		}
+		if (u_u_mode==11) {
+			ini[0] = 0x170; /* Ű */
 			return;
 		}
 	}
