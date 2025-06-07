@@ -680,7 +680,7 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 	UErrorCode perr;
 	UCollationResult order,order1,order2,order3,order4,order5,order6;
 	UCollationStrength strgth;
-	static int i_y_mode=0,o_o_mode=0,u_u_mode=0,v_w_mode=0,s_s_mode=0,t_t_mode=0,d_d_mode=0;
+	static int i_y_mode=0,o_o_mode=0,u_u_mode=0,v_w_mode=0,s_s_mode=0,t_t_mode=0,d_d_mode=0,e_e_mode=0;
 
 	ch=istr[0];
 	*chset=charset(istr);
@@ -1163,7 +1163,7 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 				order5 = ucol_strcoll(icu_collator, strY, -1, strX, -1);
 				ucol_setStrength(icu_collator, strgth);
 				u_u_mode = (order5==UCOL_LESS) ? 11 : 10;
-				}
+			}
 			else
 				u_u_mode = 1;
 		}
@@ -1187,6 +1187,44 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 		}
 		if (u_u_mode==11) {
 			ini[0] = 0x170; /* Ű */
+			return;
+		}
+	}
+	if (ch==0x118||ch==0x119) {
+		/* check Ę,ę versus Ä,ä,Æ,æ for Norwegian and Swedish */
+		if (e_e_mode==0) {
+			strgth = ucol_getStrength(icu_collator);
+			ucol_setStrength(icu_collator, UCOL_PRIMARY);
+			strX[0] = 0x118;  strX[1] = 0x00; /* Ę */
+			strY[0] = 0x0C4;  strY[1] = 0x00; /* Ä */
+			strZ[0] = 0x0C6;  strZ[1] = 0x00; /* Æ */
+			strW[0] = 0x045;  strW[1] = 0x00; /* E */
+			order  = ucol_strcoll(icu_collator, strW, -1, strX, -1);
+			order1 = ucol_strcoll(icu_collator, strY, -1, strX, -1);
+			order2 = ucol_strcoll(icu_collator, strZ, -1, strX, -1);
+			order3 = ucol_strcoll(icu_collator, strZ, -1, strY, -1);
+			ucol_setStrength(icu_collator, strgth);
+			if      (order ==UCOL_EQUAL)
+				e_e_mode = 2;
+			else if (order1==UCOL_EQUAL && order2==UCOL_EQUAL) {
+				ucol_setStrength(icu_collator, UCOL_SECONDARY);
+				order5 = ucol_strcoll(icu_collator, strZ, -1, strY, -1);
+				ucol_setStrength(icu_collator, strgth);
+				e_e_mode = (order5==UCOL_LESS) ? 4 : 3;
+			}
+			else if (order1==UCOL_EQUAL)
+				e_e_mode = 5;
+			else if (order2==UCOL_EQUAL)
+				e_e_mode = 6;
+			else
+				e_e_mode = 1;
+		}
+		if (e_e_mode==3||e_e_mode==5) {
+			ini[0] = 0x0C4; /* Ä */
+			return;
+		}
+		if (e_e_mode==4||e_e_mode==6) {
+			ini[0] = 0x0C6; /* Æ */
 			return;
 		}
 	}
