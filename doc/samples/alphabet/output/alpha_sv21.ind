@@ -196,10 +196,14 @@
   \item Ä\leaders\hbox{$\cdot$}\hfill 128
   \item æ\leaders\hbox{$\cdot$}\hfill 250
   \item Æ\leaders\hbox{$\cdot$}\hfill 150
+  \item ę\leaders\hbox{$\cdot$}\hfill 249
+  \item Ę\leaders\hbox{$\cdot$}\hfill 149
   \item äa\leaders\hbox{$\cdot$}\hfill 1003
   \item æa\leaders\hbox{$\cdot$}\hfill 1005
+  \item ęa\leaders\hbox{$\cdot$}\hfill 1007
   \item äz\leaders\hbox{$\cdot$}\hfill 1004
   \item æz\leaders\hbox{$\cdot$}\hfill 1006
+  \item ęz\leaders\hbox{$\cdot$}\hfill 1008
 
   \indexspace
 

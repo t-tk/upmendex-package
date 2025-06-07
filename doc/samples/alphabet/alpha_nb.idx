@@ -33,6 +33,7 @@
 \indexentry{Æ}{127}
 \indexentry{Ø}{128}
 \indexentry{Å}{129}
+\indexentry{Ę}{130}
 \indexentry{a}{201}
 \indexentry{ä}{270}
 \indexentry{aa}{260}
@@ -45,6 +46,8 @@
 \indexentry{aaz}{1007}
 \indexentry{äa}{1008}
 \indexentry{äz}{1009}
+\indexentry{ęa}{1010}
+\indexentry{ęz}{1011}
 \indexentry{b}{202}
 \indexentry{c}{203}
 \indexentry{d}{204}
@@ -109,3 +112,4 @@
 \indexentry{æ}{227}
 \indexentry{ø}{228}
 \indexentry{å}{229}
+\indexentry{ę}{230}

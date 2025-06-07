@@ -188,10 +188,14 @@
   \item æ\leaders\hbox{$\cdot$}\hfill 227
   \item Æ\leaders\hbox{$\cdot$}\hfill 127
   \item ä\leaders\hbox{$\cdot$}\hfill 270
+  \item ę\leaders\hbox{$\cdot$}\hfill 230
+  \item Ę\leaders\hbox{$\cdot$}\hfill 130
   \item æa\leaders\hbox{$\cdot$}\hfill 1002
   \item äa\leaders\hbox{$\cdot$}\hfill 1008
+  \item ęa\leaders\hbox{$\cdot$}\hfill 1010
   \item æz\leaders\hbox{$\cdot$}\hfill 1003
   \item äz\leaders\hbox{$\cdot$}\hfill 1009
+  \item ęz\leaders\hbox{$\cdot$}\hfill 1011
 
   \indexspace
 
