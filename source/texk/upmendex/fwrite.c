@@ -1197,7 +1197,7 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 			order1 = ucol_strcoll(icu_collator, strW, -1, strX, -1);
 			strgth = ucol_getStrength(icu_collator);
 			if (order==UCOL_EQUAL) {
-				ini[0] = (order1==UCOL_GREATER) ? strX[0] : strW[0];
+				ini[0] = (order1==UCOL_LESS) ? strW[0] : strX[0];
 				return;
 			}
 		}
@@ -1214,7 +1214,7 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 			order4 = ucol_strcoll(icu_collator, strY, -1, strW, -1);
 			strgth = ucol_getStrength(icu_collator);
 			if (order==UCOL_EQUAL && order2==UCOL_EQUAL) {
-				if (order1==UCOL_GREATER && order3==UCOL_GREATER)
+				if (order1!=UCOL_LESS && order3!=UCOL_LESS)
 					ini[0] = strX[0];
 				else if (order4==UCOL_LESS)
 					ini[0] = strY[0];
@@ -1223,11 +1223,11 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 				return;
 			}
 			else if (order==UCOL_EQUAL) {
-				ini[0] = (order1==UCOL_GREATER) ? strX[0] : strW[0];
+				ini[0] = (order1==UCOL_LESS) ? strW[0] : strX[0];
 				return;
 			}
 			else if (order2==UCOL_EQUAL) {
-				ini[0] = (order3==UCOL_GREATER) ? strX[0] : strY[0];
+				ini[0] = (order3==UCOL_LESS) ? strY[0] : strX[0];
 				return;
 			}
 		}
