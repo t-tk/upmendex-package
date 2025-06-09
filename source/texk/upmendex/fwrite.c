@@ -676,7 +676,7 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 {
 	int k, hi, lo, mi;
 	UChar ch,src[2],dest[8],strX[4],strY[4],strZ[4],strW[4];
-	UChar32 c32;
+	UChar32 c32,cu;
 	UErrorCode perr;
 	UCollationResult order,order1,order2,order3,order4,order5,order6;
 	UCollationStrength strgth;
@@ -898,7 +898,8 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 		/* Fullwidth latin letter */
 		ch-=0xFF21-0x0041;
 	}
-	if (ch==0x049||ch==0x069||ch==0x130||ch==0x131||ch==0x0CE||ch==0x0EE) {
+	cu = u_toupper(ch);
+	if (cu==0x049||ch==0x130||ch==0x131||cu==0x0CE) {
 		/* check dotted/dotless İ,I,i,ı and Î,î for Turkish */
 		if (turkish_i==0) {
 			strgth = ucol_getStrength(icu_collator);
@@ -914,7 +915,7 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 			return;
 		}
 	}
-	if (ch==0x059||ch==0x079) {
+	if (cu==0x059) {
 		/* check Y versus I for Lithuanian */
 		if (i_y_mode==0) {
 			strgth = ucol_getStrength(icu_collator);
@@ -930,7 +931,7 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 			return;
 		}
 	}
-	if (ch==0x057||ch==0x077) {
+	if (cu==0x057) {
 		/* check V versus W for Finnish */
 		if (v_w_mode==0) {
 			strgth = ucol_getStrength(icu_collator);
@@ -946,7 +947,7 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 			return;
 		}
 	}
-	if (ch==0x15E||ch==0x15F||ch==0x218||ch==0x219) {
+	if (cu==0x15E||cu==0x218) {
 		/* check Ş versus Ș for Romanian */
 		if (s_s_mode<=2) {
 			strgth = ucol_getStrength(icu_collator);
@@ -973,7 +974,7 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 			ucol_setStrength(icu_collator, strgth);
 		}
 		if (s_s_mode==2) {
-			ini[0] = u_toupper(ch);  return;
+			ini[0] = cu;     return;
 		}
 		if (s_s_mode==4) {
 			ini[0] = 0x15E;  return;
@@ -982,7 +983,7 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 			ini[0] = 0x218;  return;
 		}
 	}
-	if (ch==0x162||ch==0x163||ch==0x21A||ch==0x21B) {
+	if (cu==0x162||cu==0x21A) {
 		/* check Ţ versus Ț for Romanian */
 		if (t_t_mode<=2) {
 			strgth = ucol_getStrength(icu_collator);
@@ -1009,7 +1010,7 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 			ucol_setStrength(icu_collator, strgth);
 		}
 		if (t_t_mode==2) {
-			ini[0] = u_toupper(ch);  return;
+			ini[0] = cu;     return;
 		}
 		if (t_t_mode==4) {
 			ini[0] = 0x162;  return;
@@ -1018,8 +1019,8 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 			ini[0] = 0x21A;  return;
 		}
 	}
-	if (ch==0x0D0||ch==0x0F0||ch==0x110||ch==0x111) {
-		/* check ð,Ð versus đ,Đ for Finnish, Swedish, Icelandic */
+	if (cu==0x0D0||cu==0x110) {
+		/* check ð,Ð versus đ,Đ for Danish, Norwegian, Finnish, Swedish, Icelandic */
 		if (d_d_mode<=2) {
 			strgth = ucol_getStrength(icu_collator);
 			strX[0] = ch;     strX[1] = 0x00; /* myself */
@@ -1048,7 +1049,7 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 			ini[0] = 0x044;  return;
 		}
 		if (d_d_mode==2) {
-			ini[0] = u_toupper(ch);  return;
+			ini[0] = cu;     return;
 		}
 		if (d_d_mode==4) {
 			ini[0] = 0x0D0;  return;
@@ -1057,8 +1058,8 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 			ini[0] = 0x110;  return;
 		}
 	}
-	if (ch==0x0D6||ch==0x0F6||ch==0x150||ch==0x151
-		||ch==0x0D8||ch==0x0F8||ch==0x0D5||ch==0x0F5||ch==0x0D4||ch==0x0F4) {
+	if (cu==0x0D6||cu==0x150
+		||cu==0x0D8||cu==0x0D5||cu==0x0D4) {
 		/* check Ö,ö versus Ő,ő for Hungarian
 		         Ø,ø versus Ö,ö for Danish, Norwegian
 		         Ö,ö versus Ø,ø,Ő,ő,Õ,õ for Finnish SFS 4600
@@ -1126,7 +1127,7 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 			return;
 		}
 	}
-	if (ch==0x0DC||ch==0x0FC||ch==0x170||ch==0x171) {
+	if (cu==0x0DC||cu==0x170) {
 		/* check Ü,ü versus Ű,ű for Hungarian
 		         Ü,ü,Ű,ű versus Y for Danish, Norwegian, Swedish and Finnish */
 		if (u_u_mode==0) {
@@ -1190,8 +1191,8 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 			return;
 		}
 	}
-	if (ch==0x118||ch==0x119) {
-		/* check Ę,ę versus Ä,ä,Æ,æ for Norwegian and Swedish */
+	if (cu==0x118) {
+		/* check Ę,ę versus Ä,ä,Æ,æ for Norwegian, Swedish */
 		if (e_e_mode==0) {
 			strgth = ucol_getStrength(icu_collator);
 			ucol_setStrength(icu_collator, UCOL_PRIMARY);
@@ -1228,10 +1229,10 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 			return;
 		}
 	}
-	if (ch==0x0C6||ch==0x0E6||ch==0x0DE||ch==0x0FE||ch==0x0DF||ch==0x1E9E
-		||ch==0x132||ch==0x133||ch==0x13F||ch==0x140||ch==0x149||ch==0x14A||ch==0x14B
-		||ch==0x152||ch==0x153||ch==0x490||ch==0x491) {
-		strX[0] = u_toupper(ch);  strX[1] = 0x00; /* ex. "Æ" "Œ" */
+	if (cu==0x0C6||cu==0x0DE||ch==0x0DF||ch==0x1E9E
+		||cu==0x132||cu==0x13F||ch==0x149||cu==0x14A
+		||cu==0x152||cu==0x490) {
+		strX[0] = cu;  strX[1] = 0x00; /* ex. "Æ" "Œ" */
 		switch (ch) {
 			case 0x0C6: case 0x0E6:        /* Æ æ */
 				strZ[0] = 0x41;        /* A   */
@@ -1257,12 +1258,12 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 			case 0x490: case 0x491:        /* Ґ ґ */
 				strZ[0] = 0x413; break; /* Г   */
 		}
-		strZ[1] = (ch==0x490||ch==0x491) ? 0x42F : 0x5A;
+		strZ[1] = (cu==0x490) ? 0x42F : 0x5A;
 		strZ[2] = 0x00;                           /* ex. "AZ" "OZ" "ГЯ" */
 		order = ucol_strcoll(icu_collator, strZ, -1, strX, -1);
 		if (order==UCOL_GREATER) { ini[0]=strZ[0]; return; }  /* not ligature */
 
-		if (ch==0x0C6||ch==0x0E6) {
+		if (cu==0x0C6) {
 		/* check Æ versus Ä for Finnish */
 			strW[1] = 0x00;
 			strgth = ucol_getStrength(icu_collator);
@@ -1276,8 +1277,8 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 				return;
 			}
 		}
-		if (ch==0x152||ch==0x153) {
-		/* check Œ versus Ö,Ø for Finnish, Norwegian */
+		if (cu==0x152) {
+		/* check Œ versus Ö,Ø for Finnish, Norwegian, Swedish */
 			strY[1] = 0x00;  strW[1] = 0x00;
 			strgth = ucol_getStrength(icu_collator);
 			ucol_setStrength(icu_collator, UCOL_PRIMARY);
@@ -1318,7 +1319,7 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 			else if (is_cyrillic(&ch)) { strZ[1] = 0x42F; }  /* Я */
 			else                       { strZ[1] = 0x3A9; }  /* Ω */
 			strZ[0] = u_toupper(dest[0]);  strZ[2] = 0x00;   /* ex. "AZ" */
-			strX[0] = u_toupper(ch);       strX[1] = 0x00;   /* ex. "Å"  */
+			strX[0] = cu;                  strX[1] = 0x00;   /* ex. "Å"  */
 			order = ucol_strcoll(icu_collator, strZ, -1, strX, -1);
 			if (order==UCOL_LESS) {                            /* with diacritic */
 				if (strX[0]!=0xC4) {                /* Ä */
