@@ -1129,7 +1129,7 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 	}
 	if (cu==0x0DC||cu==0x170) {
 		/* check Ü,ü versus Ű,ű for Hungarian
-		         Ü,ü,Ű,ű versus Y for Danish, Norwegian, Swedish and Finnish */
+		         Ü,ü,Ű,ű versus Y for Danish, Norwegian, Swedish, Finnish */
 		if (u_u_mode==0) {
 			strgth = ucol_getStrength(icu_collator);
 			ucol_setStrength(icu_collator, UCOL_PRIMARY);
@@ -1233,29 +1233,29 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 		||cu==0x132||cu==0x13F||ch==0x149||cu==0x14A
 		||cu==0x152||cu==0x490) {
 		strX[0] = cu;  strX[1] = 0x00; /* ex. "Æ" "Œ" */
-		switch (ch) {
-			case 0x0C6: case 0x0E6:        /* Æ æ */
+		switch (cu) {
+			case 0x0C6:                    /* Æ æ */
 				strZ[0] = 0x41;        /* A   */
 				strW[0] = 0xC4; break; /* Ä   */
-			case 0x152: case 0x153:        /* Œ œ */
+			case 0x152:                    /* Œ œ */
 				strZ[0] = 0x4F;        /* O   */
 				strY[0] = 0xD8;        /* Ø   */
 				strW[0] = 0xD6; break; /* Ö   */
-			case 0x0DF: case 0x1E9E:       /* ß ẞ */
+			case 0x0DF: case 0x1E9E:       /* ß ẞ (u_toupper(ch) returns ch) */
 				strZ[0] = 0x53; break; /* S   */
-			case 0x0DE: case 0x0FE:        /* Þ þ */
+			case 0x0DE:                    /* Þ þ */
 				strZ[0] = 0x54; break; /* T   */
-			case 0x132: case 0x133:        /* Ĳ ĳ */
+			case 0x132:                    /* Ĳ ĳ */
 				strZ[0] = 0x59;        /* Y   */
 				strZ[1] = 0x00;
 				if (ucol_equal(icu_collator, strZ, -1, strX, -1)) { ini[0]=0x59; return; }
 				strZ[0] = 0x49; break; /* I   */
-			case 0x13F: case 0x140:        /* Ŀ ŀ */
+			case 0x13F:                    /* Ŀ ŀ */
 				strZ[0] = 0x4C; break; /* L   */
-			case 0x149:                    /* ŉ   */
-			case 0x14A: case 0x14B:        /* Ŋ ŋ */
+			case 0x149:                    /* ŉ    (u_toupper(ch) returns ch) */
+			case 0x14A:                    /* Ŋ ŋ */
 				strZ[0] = 0x4E; break; /* N   */
-			case 0x490: case 0x491:        /* Ґ ґ */
+			case 0x490:                    /* Ґ ґ */
 				strZ[0] = 0x413; break; /* Г   */
 		}
 		strZ[1] = (cu==0x490) ? 0x42F : 0x5A;
@@ -1264,7 +1264,7 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 		if (order==UCOL_GREATER) { ini[0]=strZ[0]; return; }  /* not ligature */
 
 		if (cu==0x0C6) {
-		/* check Æ versus Ä for Finnish */
+		/* check Æ versus Ä for Danish, Norwegian, Finnish, Swedish */
 			strW[1] = 0x00;
 			strgth = ucol_getStrength(icu_collator);
 			ucol_setStrength(icu_collator, UCOL_PRIMARY);
