@@ -81,7 +81,7 @@
 \author{田中 琢爾\\~TANAKA Takuji}
 
 \begin{document}
-\year=2025\month=5\day=31
+\year=2025\month=6\day=14
 
 \begin{japanese}
 \frame{\titlepage}
@@ -1325,7 +1325,7 @@ Thai
 \begin{frame}[fragile]{Thai/Lao Prevowels Reordering~~{\scriptsize (experimental)}}
 
 \begin{columns}
-\begin{column}{78mm}
+\begin{column}{72mm}
 \begin{exampleblock}{Thai Inputs in *.tex}
 \setmonofont{Noto Serif Thai}[Language=Thai,Script=Thai]
 \setmainfont{Noto Sans Mono}
@@ -1348,16 +1348,18 @@ Thai
 {\footnotesize
 A sequence of
 \setmonofont{Noto Serif Thai}[Language=Thai,Script=Thai]%
-a Thai vowel {\ttfamily เ\;แ\;โ\;ใ\;ไ} (U+0E40..0E44) or
+a Thai vowel {\ttfamily เ\;แ\;โ\;ใ\;ไ} or
 \setmonofont{Noto Serif Lao}[Language=Lao,Script=Lao]%
-a Lao vowel {\ttfamily ເ\;ແ\;ໂ\;ໃ\;ໄ} (U+0EC0..0EC4)
-followed by a Thai consonant (U+0E01..0E2E) or
-a Lao consonant (U+0E81..0EAE)
-is placed after the consonant for collation purposes.
+a Lao vowel {\ttfamily ເ\;ແ\;ໂ\;ໃ\;ໄ} %
+\setmonofont{Noto Serif Thai}[Language=Thai,Script=Thai]%
+followed by a Thai consonant {\ttfamily ก\;ข\;ค\;ฆ\;ง\;}\ldots\ or
+\setmonofont{Noto Serif Lao}[Language=Lao,Script=Lao]%
+a Lao consonant {\ttfamily ກ\;ຂ\;ຄ\;ງ\;}\ldots\ is
+placed after the consonant for collation purposes.
 }
 \end{column}
 
-\begin{column}{50mm}
+\begin{column}{54mm}
 \vspace{-2mm}
 \begin{center}
 \fbox{%
