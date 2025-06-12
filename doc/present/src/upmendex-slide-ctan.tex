@@ -1321,6 +1321,56 @@ Thai
 
 % - - % - - % - - % - - % - - % - - % - - % - - % - - %
 
+\setmonofont{Noto Sans Mono}
+\begin{frame}[fragile]{Thai/Lao Prevowels Reordering~~{\scriptsize (experimental)}}
+
+\begin{columns}
+\begin{column}{78mm}
+\begin{exampleblock}{Thai Inputs in *.tex}
+\setmonofont{Noto Serif Thai}[Language=Thai,Script=Thai]
+\setmainfont{Noto Sans Mono}
+\setsansfont{Noto Sans}
+
+\begin{Verbatim}[%
+  fontfamily=tt,
+  fontsize=\fontsize{8.0}{8.0},
+  commandchars=!<>]
+หมา!,!sffamily!-\index{!ttfamily!-!,หมา!,!sffamily!-}
+หมู!,!sffamily!-\index{!ttfamily!-!,หมู!,!sffamily!-}
+แมว!,!sffamily!-\index{!ttfamily!-!,!colRd!-แ!colBk!-มว!,!sffamily!-}
+ไม่มีปัญหา!,!sffamily!-\index{!ttfamily!-!,!colRd!-ไ!colBk!-ม่มีปัญหา!,!sffamily!-}
+มา!,!sffamily!-\index{!ttfamily!-!,มา!,!sffamily!-}
+ห!,!sffamily!-\index{!ttfamily!-!,ห!,!sffamily!-}
+ม!,!sffamily!-\index{!ttfamily!-!,ม!,!sffamily!-}
+\end{Verbatim}
+\end{exampleblock}
+%\vspace{2mm}
+{\footnotesize
+A sequence of
+\setmonofont{Noto Serif Thai}[Language=Thai,Script=Thai]%
+a Thai vowel {\ttfamily เ\;แ\;โ\;ใ\;ไ} (U+0E40..0E44) or
+\setmonofont{Noto Serif Lao}[Language=Lao,Script=Lao]%
+a Lao vowel {\ttfamily ເ\;ແ\;ໂ\;ໃ\;ໄ} (U+0EC0..0EC4)
+followed by a Thai consonant (U+0E01..0E2E) or
+a Lao consonant (U+0E81..0EAE)
+is placed after the consonant for collation purposes.
+}
+\end{column}
+
+\begin{column}{50mm}
+\vspace{-2mm}
+\begin{center}
+\fbox{%
+  \includegraphics[scale=0.48]{th01-02-crop.pdf}%
+}%
+\end{center}
+\end{column}
+\end{columns}
+
+\end{frame}
+
+% - - % - - % - - % - - % - - % - - % - - % - - % - - %
+
 \begin{frame}[fragile]{Brahmic Scripts~~{\scriptsize (experimental)}}
 
 \begin{columns}

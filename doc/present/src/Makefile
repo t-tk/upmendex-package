@@ -9,7 +9,7 @@ all_pdf_for_ctan: city0.pdf city1.pdf city_texconf.pdf city_texconf-03-cropa.pdf
 	zh00a.pdf zh00b.pdf zh00c.pdf zh00d.pdf zh01a.pdf zh01b.pdf \
 	yomi00-02.pdf yomi01-02.pdf \
 	jp01.pdf jp02.pdf jp03.pdf jp04.pdf jp05.pdf \
-	ko03-02.pdf hi00.pdf br00.pdf th00.pdf ar00.pdf he00.pdf
+	ko03-02.pdf hi00.pdf br00.pdf th00.pdf th01.pdf ar00.pdf he00.pdf
 
 
 yomi00.dvi: yomi00.tex
@@ -332,6 +332,16 @@ th00.pdf:
 	${XDVIPDFMX} -s 1 -o th00-01.pdf th00.xdv
 	${XDVIPDFMX} -s 2 -o th00-02.pdf th00.xdv
 	pdfcrop --margins 10 th00-02.pdf
+
+th01.pdf:
+	xelatex th01.tex
+	xelatex th01.tex
+	${UPMENDEX} -s mlg_th0.ist th01
+	xelatex -no-pdf th01.tex
+	${XDVIPDFMX} -o th01.pdf th01.xdv
+	${XDVIPDFMX} -s 1 -o th01-01.pdf th01.xdv
+	${XDVIPDFMX} -s 2 -o th01-02.pdf th01.xdv
+	pdfcrop --margins 10 th01-02.pdf
 
 hi00.pdf:
 	xelatex hi00.tex
