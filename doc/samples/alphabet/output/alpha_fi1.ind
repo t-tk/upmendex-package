@@ -21,6 +21,12 @@
 \centerline{\bfseries --- D ---}\par\nobreak
   \item d\leaders\hbox{$\cdot$}\hfill 204
   \item D\leaders\hbox{$\cdot$}\hfill 104
+  \item da\leaders\hbox{$\cdot$}\hfill 2000
+  \item đa\leaders\hbox{$\cdot$}\hfill 2004
+  \item ða\leaders\hbox{$\cdot$}\hfill 2002
+  \item dz\leaders\hbox{$\cdot$}\hfill 2001
+  \item đz\leaders\hbox{$\cdot$}\hfill 2005
+  \item ðz\leaders\hbox{$\cdot$}\hfill 2003
 
   \indexspace
 
@@ -81,6 +87,12 @@
 \centerline{\bfseries --- N ---}\par\nobreak
   \item n\leaders\hbox{$\cdot$}\hfill 214
   \item N\leaders\hbox{$\cdot$}\hfill 114
+  \item ŋ\leaders\hbox{$\cdot$}\hfill 255
+  \item Ŋ\leaders\hbox{$\cdot$}\hfill 155
+  \item na\leaders\hbox{$\cdot$}\hfill 4000
+  \item ŋa\leaders\hbox{$\cdot$}\hfill 4002
+  \item nz\leaders\hbox{$\cdot$}\hfill 4001
+  \item ŋz\leaders\hbox{$\cdot$}\hfill 4003
 
   \indexspace
 
@@ -135,28 +147,39 @@
 \centerline{\bfseries --- T ---}\par\nobreak
   \item t\leaders\hbox{$\cdot$}\hfill 220
   \item T\leaders\hbox{$\cdot$}\hfill 120
+  \item tg\leaders\hbox{$\cdot$}\hfill 3000
+  \item th\leaders\hbox{$\cdot$}\hfill 3001
+  \item tha\leaders\hbox{$\cdot$}\hfill 3002
+  \item thz\leaders\hbox{$\cdot$}\hfill 3003
+  \item ti\leaders\hbox{$\cdot$}\hfill 3004
 
   \indexspace
 
 \centerline{\bfseries --- U ---}\par\nobreak
   \item u\leaders\hbox{$\cdot$}\hfill 221
   \item U\leaders\hbox{$\cdot$}\hfill 121
+  \item ű\leaders\hbox{$\cdot$}\hfill 257
+  \item Ű\leaders\hbox{$\cdot$}\hfill 157
+  \item ua\leaders\hbox{$\cdot$}\hfill 7000
+  \item űa\leaders\hbox{$\cdot$}\hfill 7004
+  \item uz\leaders\hbox{$\cdot$}\hfill 7001
+  \item űz\leaders\hbox{$\cdot$}\hfill 7005
 
   \indexspace
 
 \centerline{\bfseries --- V ---}\par\nobreak
   \item v\leaders\hbox{$\cdot$}\hfill 222
   \item V\leaders\hbox{$\cdot$}\hfill 122
-  \item va\leaders\hbox{$\cdot$}\hfill 7000
-  \item vz\leaders\hbox{$\cdot$}\hfill 7001
+  \item va\leaders\hbox{$\cdot$}\hfill 8000
+  \item vz\leaders\hbox{$\cdot$}\hfill 8001
 
   \indexspace
 
 \centerline{\bfseries --- W ---}\par\nobreak
   \item w\leaders\hbox{$\cdot$}\hfill 223
   \item W\leaders\hbox{$\cdot$}\hfill 123
-  \item wa\leaders\hbox{$\cdot$}\hfill 8000
-  \item wz\leaders\hbox{$\cdot$}\hfill 8001
+  \item wa\leaders\hbox{$\cdot$}\hfill 8002
+  \item wz\leaders\hbox{$\cdot$}\hfill 8003
 
   \indexspace
 
@@ -169,6 +192,12 @@
 \centerline{\bfseries --- Y ---}\par\nobreak
   \item y\leaders\hbox{$\cdot$}\hfill 225
   \item Y\leaders\hbox{$\cdot$}\hfill 125
+  \item ü\leaders\hbox{$\cdot$}\hfill 256
+  \item Ü\leaders\hbox{$\cdot$}\hfill 156
+  \item ya\leaders\hbox{$\cdot$}\hfill 8004
+  \item üa\leaders\hbox{$\cdot$}\hfill 7002
+  \item yz\leaders\hbox{$\cdot$}\hfill 8005
+  \item üz\leaders\hbox{$\cdot$}\hfill 7003
 
   \indexspace
 
@@ -184,11 +213,17 @@
 
   \indexspace
 
+\centerline{\bfseries --- Þ ---}\par\nobreak
+  \item þa\leaders\hbox{$\cdot$}\hfill 3005
+  \item þz\leaders\hbox{$\cdot$}\hfill 3006
+
+  \indexspace
+
 \centerline{\bfseries --- Å ---}\par\nobreak
   \item å\leaders\hbox{$\cdot$}\hfill 227
   \item Å\leaders\hbox{$\cdot$}\hfill 127
-  \item åa\leaders\hbox{$\cdot$}\hfill 3000
-  \item åz\leaders\hbox{$\cdot$}\hfill 3001
+  \item åa\leaders\hbox{$\cdot$}\hfill 1000
+  \item åz\leaders\hbox{$\cdot$}\hfill 1001
 
   \indexspace
 
@@ -197,10 +232,10 @@
   \item Ä\leaders\hbox{$\cdot$}\hfill 128
   \item æ\leaders\hbox{$\cdot$}\hfill 250
   \item Æ\leaders\hbox{$\cdot$}\hfill 150
-  \item äa\leaders\hbox{$\cdot$}\hfill 3003
-  \item æa\leaders\hbox{$\cdot$}\hfill 3005
-  \item äz\leaders\hbox{$\cdot$}\hfill 3004
-  \item æz\leaders\hbox{$\cdot$}\hfill 3006
+  \item äa\leaders\hbox{$\cdot$}\hfill 1003
+  \item æa\leaders\hbox{$\cdot$}\hfill 1005
+  \item äz\leaders\hbox{$\cdot$}\hfill 1004
+  \item æz\leaders\hbox{$\cdot$}\hfill 1006
 
   \indexspace
 

@@ -1,0 +1,33 @@
+\documentclass[12pt]{article}
+
+\usepackage{fontspec}
+\usepackage{polyglossia}
+
+\usepackage{makeidx}
+\makeindex
+
+\setdefaultlanguage{thai}
+\setromanfont{Noto Serif}
+%\setmainfont{Noto Serif}
+\setsansfont{Noto Serif}
+\setmainfont{Noto Serif Thai}[Language=Thai,Script=Thai]
+\newfontfamily\englishfont{Noto Serif}
+\setotherlanguage{english}
+
+\pagestyle{empty}
+\begin{document}
+\thispagestyle{empty}
+
+หมา\index{หมา}
+หมู\index{หมู}
+แมว\index{แมว}
+ไม่มีปัญหา\index{ไม่มีปัญหา}
+มา\index{มา}
+ห\index{ห}
+ม\index{ม}
+
+\printindex
+
+\end{document}
+
+\index{}.

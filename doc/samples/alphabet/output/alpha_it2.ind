@@ -3,6 +3,10 @@
 \centerline{\bfseries --- a ---}\par\nobreak
   \item a\leaders\hbox{$\cdot$}\hfill 201
   \item A\leaders\hbox{$\cdot$}\hfill 101
+  \item aa\leaders\hbox{$\cdot$}\hfill 1000
+  \item àa\leaders\hbox{$\cdot$}\hfill 1002
+  \item az\leaders\hbox{$\cdot$}\hfill 1001
+  \item àz\leaders\hbox{$\cdot$}\hfill 1003
 
   \indexspace
 
@@ -21,18 +25,18 @@
 \centerline{\bfseries --- d ---}\par\nobreak
   \item d\leaders\hbox{$\cdot$}\hfill 204
   \item D\leaders\hbox{$\cdot$}\hfill 104
-  \item da\leaders\hbox{$\cdot$}\hfill 2000
-  \item ða\leaders\hbox{$\cdot$}\hfill 2002
-  \item đa\leaders\hbox{$\cdot$}\hfill 2004
-  \item dz\leaders\hbox{$\cdot$}\hfill 2001
-  \item ðz\leaders\hbox{$\cdot$}\hfill 2003
-  \item đz\leaders\hbox{$\cdot$}\hfill 2005
 
   \indexspace
 
 \centerline{\bfseries --- e ---}\par\nobreak
   \item e\leaders\hbox{$\cdot$}\hfill 205
   \item E\leaders\hbox{$\cdot$}\hfill 105
+  \item ea\leaders\hbox{$\cdot$}\hfill 3000
+  \item éa\leaders\hbox{$\cdot$}\hfill 3002
+  \item èa\leaders\hbox{$\cdot$}\hfill 3004
+  \item ez\leaders\hbox{$\cdot$}\hfill 3001
+  \item éz\leaders\hbox{$\cdot$}\hfill 3003
+  \item èz\leaders\hbox{$\cdot$}\hfill 3005
 
   \indexspace
 
@@ -57,6 +61,10 @@
 \centerline{\bfseries --- i ---}\par\nobreak
   \item i\leaders\hbox{$\cdot$}\hfill 209
   \item I\leaders\hbox{$\cdot$}\hfill 109
+  \item ia\leaders\hbox{$\cdot$}\hfill 4000
+  \item ìa\leaders\hbox{$\cdot$}\hfill 4002
+  \item iz\leaders\hbox{$\cdot$}\hfill 4001
+  \item ìz\leaders\hbox{$\cdot$}\hfill 4003
 
   \indexspace
 
@@ -87,18 +95,18 @@
 \centerline{\bfseries --- n ---}\par\nobreak
   \item n\leaders\hbox{$\cdot$}\hfill 214
   \item N\leaders\hbox{$\cdot$}\hfill 114
-  \item ŋ\leaders\hbox{$\cdot$}\hfill 255
-  \item Ŋ\leaders\hbox{$\cdot$}\hfill 155
-  \item na\leaders\hbox{$\cdot$}\hfill 4000
-  \item ŋa\leaders\hbox{$\cdot$}\hfill 4002
-  \item nz\leaders\hbox{$\cdot$}\hfill 4001
-  \item ŋz\leaders\hbox{$\cdot$}\hfill 4003
 
   \indexspace
 
 \centerline{\bfseries --- o ---}\par\nobreak
   \item o\leaders\hbox{$\cdot$}\hfill 215
   \item O\leaders\hbox{$\cdot$}\hfill 115
+  \item oa\leaders\hbox{$\cdot$}\hfill 5000
+  \item óa\leaders\hbox{$\cdot$}\hfill 5002
+  \item òa\leaders\hbox{$\cdot$}\hfill 5004
+  \item oz\leaders\hbox{$\cdot$}\hfill 5001
+  \item óz\leaders\hbox{$\cdot$}\hfill 5003
+  \item òz\leaders\hbox{$\cdot$}\hfill 5005
 
   \indexspace
 
@@ -123,45 +131,34 @@
 \centerline{\bfseries --- s ---}\par\nobreak
   \item s\leaders\hbox{$\cdot$}\hfill 219
   \item S\leaders\hbox{$\cdot$}\hfill 119
-  \item š\leaders\hbox{$\cdot$}\hfill 266
-  \item Š\leaders\hbox{$\cdot$}\hfill 166
-  \item sa\leaders\hbox{$\cdot$}\hfill 6000
-  \item ša\leaders\hbox{$\cdot$}\hfill 6002
-  \item sz\leaders\hbox{$\cdot$}\hfill 6001
-  \item šz\leaders\hbox{$\cdot$}\hfill 6003
 
   \indexspace
 
 \centerline{\bfseries --- t ---}\par\nobreak
   \item t\leaders\hbox{$\cdot$}\hfill 220
   \item T\leaders\hbox{$\cdot$}\hfill 120
-  \item tg\leaders\hbox{$\cdot$}\hfill 3000
-  \item th\leaders\hbox{$\cdot$}\hfill 3001
-  \item tha\leaders\hbox{$\cdot$}\hfill 3002
-  \item þa\leaders\hbox{$\cdot$}\hfill 3005
-  \item thz\leaders\hbox{$\cdot$}\hfill 3003
-  \item þz\leaders\hbox{$\cdot$}\hfill 3006
-  \item ti\leaders\hbox{$\cdot$}\hfill 3004
 
   \indexspace
 
 \centerline{\bfseries --- u ---}\par\nobreak
   \item u\leaders\hbox{$\cdot$}\hfill 221
   \item U\leaders\hbox{$\cdot$}\hfill 121
-  \item ua\leaders\hbox{$\cdot$}\hfill 7000
-  \item uz\leaders\hbox{$\cdot$}\hfill 7001
+  \item ua\leaders\hbox{$\cdot$}\hfill 6000
+  \item ùa\leaders\hbox{$\cdot$}\hfill 6002
+  \item uz\leaders\hbox{$\cdot$}\hfill 6001
+  \item ùz\leaders\hbox{$\cdot$}\hfill 6003
 
   \indexspace
 
 \centerline{\bfseries --- v ---}\par\nobreak
   \item v\leaders\hbox{$\cdot$}\hfill 222
   \item V\leaders\hbox{$\cdot$}\hfill 122
+
+  \indexspace
+
+\centerline{\bfseries --- w ---}\par\nobreak
   \item w\leaders\hbox{$\cdot$}\hfill 223
   \item W\leaders\hbox{$\cdot$}\hfill 123
-  \item va\leaders\hbox{$\cdot$}\hfill 8000
-  \item wa\leaders\hbox{$\cdot$}\hfill 8002
-  \item vz\leaders\hbox{$\cdot$}\hfill 8001
-  \item wz\leaders\hbox{$\cdot$}\hfill 8003
 
   \indexspace
 
@@ -174,71 +171,11 @@
 \centerline{\bfseries --- y ---}\par\nobreak
   \item y\leaders\hbox{$\cdot$}\hfill 225
   \item Y\leaders\hbox{$\cdot$}\hfill 125
-  \item ü\leaders\hbox{$\cdot$}\hfill 256
-  \item Ü\leaders\hbox{$\cdot$}\hfill 156
-  \item ű\leaders\hbox{$\cdot$}\hfill 257
-  \item Ű\leaders\hbox{$\cdot$}\hfill 157
-  \item ya\leaders\hbox{$\cdot$}\hfill 8004
-  \item üa\leaders\hbox{$\cdot$}\hfill 7002
-  \item űa\leaders\hbox{$\cdot$}\hfill 7004
-  \item yz\leaders\hbox{$\cdot$}\hfill 8005
-  \item üz\leaders\hbox{$\cdot$}\hfill 7003
-  \item űz\leaders\hbox{$\cdot$}\hfill 7005
 
   \indexspace
 
 \centerline{\bfseries --- z ---}\par\nobreak
   \item z\leaders\hbox{$\cdot$}\hfill 226
   \item Z\leaders\hbox{$\cdot$}\hfill 126
-  \item ž\leaders\hbox{$\cdot$}\hfill 267
-  \item Ž\leaders\hbox{$\cdot$}\hfill 167
-  \item za\leaders\hbox{$\cdot$}\hfill 9001
-  \item ža\leaders\hbox{$\cdot$}\hfill 9003
-  \item zz\leaders\hbox{$\cdot$}\hfill 9002
-  \item žz\leaders\hbox{$\cdot$}\hfill 9004
-
-  \indexspace
-
-\centerline{\bfseries --- å ---}\par\nobreak
-  \item å\leaders\hbox{$\cdot$}\hfill 227
-  \item Å\leaders\hbox{$\cdot$}\hfill 127
-  \item åa\leaders\hbox{$\cdot$}\hfill 1000
-  \item åz\leaders\hbox{$\cdot$}\hfill 1001
-
-  \indexspace
-
-\centerline{\bfseries --- ä ---}\par\nobreak
-  \item ä\leaders\hbox{$\cdot$}\hfill 228
-  \item Ä\leaders\hbox{$\cdot$}\hfill 128
-  \item æ\leaders\hbox{$\cdot$}\hfill 250
-  \item Æ\leaders\hbox{$\cdot$}\hfill 150
-  \item äa\leaders\hbox{$\cdot$}\hfill 1003
-  \item æa\leaders\hbox{$\cdot$}\hfill 1005
-  \item äz\leaders\hbox{$\cdot$}\hfill 1004
-  \item æz\leaders\hbox{$\cdot$}\hfill 1006
-
-  \indexspace
-
-\centerline{\bfseries --- ö ---}\par\nobreak
-  \item ö\leaders\hbox{$\cdot$}\hfill 229
-  \item Ö\leaders\hbox{$\cdot$}\hfill 129
-  \item ø\leaders\hbox{$\cdot$}\hfill 252
-  \item Ø\leaders\hbox{$\cdot$}\hfill 152
-  \item ő\leaders\hbox{$\cdot$}\hfill 251
-  \item Ő\leaders\hbox{$\cdot$}\hfill 151
-  \item õ\leaders\hbox{$\cdot$}\hfill 254
-  \item Õ\leaders\hbox{$\cdot$}\hfill 154
-  \item œ\leaders\hbox{$\cdot$}\hfill 253
-  \item Œ\leaders\hbox{$\cdot$}\hfill 153
-  \item öa\leaders\hbox{$\cdot$}\hfill 5000
-  \item øa\leaders\hbox{$\cdot$}\hfill 5004
-  \item őa\leaders\hbox{$\cdot$}\hfill 5002
-  \item õa\leaders\hbox{$\cdot$}\hfill 5008
-  \item œa\leaders\hbox{$\cdot$}\hfill 5006
-  \item öz\leaders\hbox{$\cdot$}\hfill 5001
-  \item øz\leaders\hbox{$\cdot$}\hfill 5005
-  \item őz\leaders\hbox{$\cdot$}\hfill 5003
-  \item õz\leaders\hbox{$\cdot$}\hfill 5009
-  \item œz\leaders\hbox{$\cdot$}\hfill 5007
 
 \end{theindex}

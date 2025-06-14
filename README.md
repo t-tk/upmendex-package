@@ -1,7 +1,7 @@
 upmendex  --- Multilingual index processor
 ==========================================
 
-2025.05.31 Ver1.20
+2025.06.14 Ver1.20
 
 TANAKA, Takuji
 <ttk(at)t-lab.opal.ne.jp>
@@ -82,7 +82,7 @@ Currently following locales are available:
   "nb", "nb@collation=search", "nn", "nn@collation=search", "no" (Norwegian),
   "pl" (Polish), "ro" (Romanian), "sk", "sk@collation=search" (Slovak),
   "sl" (Slovenian), "sq" (Albanian), "sr-Latn", "sr-Latn@collation=search" (Serbian),
-  "sv", "sv@collation=search", "sv@collation=standard" (Swedish), "tk" (Turkmen),
+  "sv", "sv@collation=search", "sv@collation=traditional" (Swedish), "tk" (Turkmen),
   "tr" (Turkish), "vi", "vi@collation=traditional" (Vietnamese)
 
 ##### Supported by default "root" collator. Do not need to set locale
@@ -117,7 +117,7 @@ Currently following locales are available:
   "ku" (Kurdish, Sorani), "ps" (Pashto), "ug" (Uyghur), "ur" (Urdu)
 
 #### Hebrew script (experimental)
-  "he", "he@collation=search" (Hebrew), "yi" (Yiddish)
+  "he" (Hebrew), "yi" (Yiddish)
 
 ### References
 1.  [ASCII Nihongo TeX (Publishing TeX)](https://asciidwango.github.io/ptex/)
