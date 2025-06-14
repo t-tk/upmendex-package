@@ -1,7 +1,7 @@
 upmendex  --- Multilingual index processor
 ==========================================
 
-2025.02.10 Ver1.11
+2025.06.14 Ver1.20
 
 TANAKA, Takuji
 <ttk(at)t-lab.opal.ne.jp>
@@ -19,9 +19,11 @@ upmendex is a multilingual index processor with following features:
  * Support Latin (including non-English), Greek, Cyrillic,
    Korean Hangul and Chinese Han (Hanzi ideographs) scripts
    as well as Japanese Kana.
- * Support Devanagari, Thai, Arabic and Hebrew scripts (experimental).
  * Support four kinds of sort orders (Pinyin, Radical-Stroke,
    Stroke and Zhuyin) for Chinese Han scripts (Hanzi ideographs).
+ * Support Brahmic (Bengali, Devanagari, Gurmukhi, Gujarati,
+   Kannada, Lao, Malayalam, Oriya, Sinhala, Tamil, Telugu, Thai),
+   Arabic and Hebrew scripts (experimental).
  * Apply International Components for Unicode (ICU)[4]
    for sorting process.
 
@@ -71,11 +73,12 @@ Currently following locales are available:
   "et" (Estonian), "fi", "fi@collation=search", "fi@collation=traditional" (Finnish),
   "fr-CA" (French), "gl", "gl@collation=search" (Galician),
   "hr", "hr@collation=search" (Croatian), "hu" (Hungarian),
-  "is", "is@collation=search" (Icelandic), "lt" (Lithuanian), "lv" (Latvian),
+  "is", "is@collation=search" (Icelandic), "ku" (Kurdish, Hawar alphabet),
+  "lt" (Lithuanian), "lv" (Latvian),
   "nb", "nb@collation=search", "nn", "nn@collation=search", "no" (Norwegian),
   "pl" (Polish), "ro" (Romanian), "sk", "sk@collation=search" (Slovak),
   "sl" (Slovenian), "sq" (Albanian), "sr-Latn", "sr-Latn@collation=search" (Serbian),
-  "sv", "sv@collation=search", "sv@collation=standard" (Swedish), "tk" (Turkmen),
+  "sv", "sv@collation=search", "sv@collation=traditional" (Swedish), "tk" (Turkmen),
   "tr" (Turkish), "vi", "vi@collation=traditional" (Vietnamese)
 
 ##### Supported by default "root" collator. Do not need to set locale
@@ -95,18 +98,22 @@ Currently following locales are available:
   "zh" [Pinyin Sort Order], "zh@collation=unihan" [Radical-Stroke Sort Order],
   "zh@collation=stroke" [Stroke Sort Order], "zh@collation=zhuyin" [Zhuyin Sort Order] (Chinese)
 
-#### Devanagari (experimental)
+#### Brahmic scripts (experimental)
+##### Bengali
+  "as" (Assamese), "bn", "bn@collation=traditional" (Bengali)
+##### Devanagari
   "hi" (Hindi), "mr" (Marathi), "ne" (Nepali)
-
-#### Thai script (experimental)
-  "th" (Thai)
+##### Other scripts
+  "gu" (Gujarati), "kn", "kn@collation=traditional" (Kannada), "lo" (Lao),
+  "ml" (Malayalam), "or" (Odia), "pa" (Punjabi),
+  "si", "si@collation=dictionary" (Sinhala), "ta" (Tamil), "te" (Telugu), "th" (Thai)
 
 #### Arabic script (experimental)
-  "ar", "ar@collation=compat" (Arabic), "fa" (Persian), "fa-AF" (Dari), "ps" (Pashto),
-  "ug" (Uyghur), "ur" (Urdu)
+  "ar", "ar@collation=compat" (Arabic), "fa" (Persian), "fa-AF" (Dari),
+  "ku" (Kurdish, Sorani), "ps" (Pashto), "ug" (Uyghur), "ur" (Urdu)
 
 #### Hebrew script (experimental)
-  "he", "he@collation=search" (Hebrew), "yi" (Yiddish)
+  "he" (Hebrew), "yi" (Yiddish)
 
 ### References
 1.  [ASCII Nihongo TeX (Publishing TeX)](https://asciidwango.github.io/ptex/)
