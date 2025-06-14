@@ -81,7 +81,7 @@
 \author{田中 琢爾\\~TANAKA Takuji}
 
 \begin{document}
-\year=2025\month=2\day=10
+\year=2025\month=6\day=14
 
 \begin{japanese}
 \frame{\titlepage}
@@ -100,7 +100,7 @@
      \begin{itemize}
       \item Latin, Cyrillic, Greek
       \item CJK (Chinese, Japanese, Korean)
-      \item Devanagari, Thai
+      \item Brahmic (Devanagari, Thai, \ldots)
       \item Arabic, Hebrew
      \end{itemize}
   \item Multilingual environment
@@ -120,7 +120,7 @@
 
 \end{frame}
 \subsection{Feature of upmendex}
-\begin{frame}{Feature of upmendex~~{\scriptsize (Ver. 1.11)}}
+\begin{frame}{Feature of upmendex~~{\scriptsize (Ver. 1.20)}}
 \renewcommand{\thefootnote}{$\dagger$}
 \begin{columns}
 \begin{column}{120mm}
@@ -133,11 +133,11 @@
     \end{itemize}
   \item Localization
     \begin{itemize}
-    \item Support 60 Languages / 12 Scripts
+    \item Support 72 Languages / 22 Scripts
       \begin{itemize}
       \item Latin (incl. non-English), Cyrillic, Greek
       \item CJK (Chinese, Japanese, Korean)
-      \item Devanagari, Thai
+      \item Brahmic (Devanagari, Bengali, Thai, \ldots)
       \item Arabic, Hebrew
       \item Symbol, Number
       \end{itemize}
@@ -198,6 +198,7 @@
   Language  & Script / Index & ICU locale \\\hline\hline
   Hindi     & Devanagari     & hi             \\
   Marathi   & Devanagari     & mr             \\
+  Bengali   & Bengali        & bn             \\
   \ldots    &                &                \\\hdashline
   Thai      & Thai           & th             \\\hline
   Persian   & Arabic         & fa             \\
@@ -211,7 +212,7 @@
 \end{center}
 \vspace{2mm}
 \normalsize
-\textbf{upmendex} supports 60 languages,\\12 scripts \& 95 locales.
+\textbf{upmendex} supports 72 languages,\\22 scripts \& 109 locales.
 \end{column}
 \end{columns}
 %\vskip2ex
@@ -478,7 +479,7 @@ Turkish
 \begin{frame}[fragile]{Hungarian, Digraphs and Trigraph}
 
 \begin{columns}
-\begin{column}{60mm}
+\begin{column}{52mm}
 
 \setmonofont{Noto Sans Mono}
 \begin{block}{Collation Rule~~\scriptsize locale: hu}
@@ -511,7 +512,7 @@ e\index{e}.
 \end{exampleblock}
 \end{column}
 
-\begin{column}{60mm}
+\begin{column}{75mm}
 \begin{center}
 \fbox{%
   \includegraphics[scale=0.48]{hu00-02-crop.pdf}%
@@ -1227,7 +1228,11 @@ archaic                     & Private Use Area & composed    & 완성형 & \foot
 \begin{center}
 \large
   \begin{itemize}
-    \item Devanagari, Thai
+    \item Brahmic scripts:\\
+      Devanagari, Bengali, Gurmukhi,
+      Gujarati, Oriya, Tamil, Telugu,
+      Kannada, Malayalam, Sinhala,\\
+      Thai, Lao
     \item Arabic, Hebrew: R-to-L typeset
   \end{itemize}
 \vskip2ex
@@ -1314,6 +1319,114 @@ Thai
 
 \end{frame}
 
+% - - % - - % - - % - - % - - % - - % - - % - - % - - %
+
+\setmonofont{Noto Sans Mono}
+\begin{frame}[fragile]{Thai/Lao Prevowels Reordering~~{\scriptsize (experimental)}}
+
+\begin{columns}
+\begin{column}{72mm}
+\setmonofont{Noto Serif Thai}[Language=Thai,Script=Thai]
+\setmainfont{Noto Sans Mono}
+\setsansfont{Noto Sans}
+\begin{exampleblock}{Thai Inputs in *.tex}
+
+\begin{Verbatim}[%
+  fontfamily=tt,
+  fontsize=\fontsize{8.0}{8.0},
+  commandchars=!<>]
+หมา!,!sffamily!-\index{!ttfamily!-!,หมา!,!sffamily!-}
+หมู!,!sffamily!-\index{!ttfamily!-!,หมู!,!sffamily!-}
+แมว!,!sffamily!-\index{!ttfamily!-!,!colRd!-แ!colBl!-ม!colBk!-ว!,!sffamily!-}
+ไม่มีปัญหา!,!sffamily!-\index{!ttfamily!-!,!colRd!-ไ!colBl!-ม่!colBk!-มีปัญหา!,!sffamily!-}
+มา!,!sffamily!-\index{!ttfamily!-!,!colBl!-ม!colBk!-า!,!sffamily!-}
+ห!,!sffamily!-\index{!ttfamily!-!,ห!,!sffamily!-}
+ม!,!sffamily!-\index{!ttfamily!-!,!colBl!-ม!colBk!-!,!sffamily!-}
+\end{Verbatim}
+\end{exampleblock}
+%\vspace{2mm}
+{\footnotesize
+A sequence of
+\setmonofont{Noto Serif Thai}[Language=Thai,Script=Thai]%
+a Thai vowel {\ttfamily เ\;แ\;โ\;ใ\;ไ} or
+\setmonofont{Noto Serif Lao}[Language=Lao,Script=Lao]%
+a Lao vowel {\ttfamily ເ\;ແ\;ໂ\;ໃ\;ໄ} %
+\setmonofont{Noto Serif Thai}[Language=Thai,Script=Thai]%
+followed by a Thai consonant {\ttfamily ก\;ข\;ค\;ฆ\;ง\;}\ldots\ or
+\setmonofont{Noto Serif Lao}[Language=Lao,Script=Lao]%
+a Lao consonant {\ttfamily ກ\;ຂ\;ຄ\;ງ\;}\ldots\ is
+placed after the consonant for collation purposes.
+}
+\end{column}
+
+\begin{column}{54mm}
+\vspace{-2mm}
+\begin{center}
+\fbox{%
+  \includegraphics[scale=0.48]{th01-02-crop.pdf}%
+}%
+\end{center}
+\end{column}
+\end{columns}
+
+\end{frame}
+
+% - - % - - % - - % - - % - - % - - % - - % - - % - - %
+
+\begin{frame}[fragile]{Brahmic Scripts~~{\scriptsize (experimental)}}
+
+\begin{columns}
+\begin{column}{55mm}
+
+\setmonofont{Noto Serif Devanagari}[Language=Hindi,Script=Devanagari]
+\setmainfont{Noto Sans Mono}
+\setsansfont{Noto Sans}
+\begin{exampleblock}{Multiscript Inputs in *.tex}
+\begin{Verbatim}[%
+  fontfamily=tt,
+  fontsize=\fontsize{8.0}{8.0},
+  commandchars=!<>,
+  baselinestretch=1.5]
+!sffamily!-!colRd!-\begin{hindi}!colBk!-
+हिंदी!,!sffamily!-\index{!ttfamily!-!,हिंदी!,!sffamily!-(Hindi, Devanagari)}
+मराठी!,!sffamily!-\index{!ttfamily!-!,मराठी!,!sffamily!-(Marathi, Devanagari)}
+नेपाली!,!sffamily!-\index{!ttfamily!-!,नेपाली!,!sffamily!-(Nepali, Devanagari)}
+!sffamily!-!colRd!-\end{hindi}!colBk!-
+!colGy!-...
+\end{Verbatim}
+\end{exampleblock}
+\setmonofont{Noto Serif Bengali}[Script=Bengali]
+\vspace{-4mm}
+\begin{exampleblock}{}
+\begin{Verbatim}[%
+  fontfamily=tt,
+  fontsize=\fontsize{8.0}{8.0},
+  commandchars=!<>,
+  baselinestretch=1.5]
+!sffamily!-!colRd!-\begin{bengali}!colBk!-
+বাংলা!,!sffamily!-\index{!ttfamily!-!,বাংলা!,!sffamily!-(Bengali)}
+অসমীয়াা!,!sffamily!-\index{!ttfamily!-!,অসমীয়া!,!sffamily!-(Assamese, Bengali)}
+!sffamily!-!colRd!-\end{bengali}!colBk!-
+!colGy!-...
+\end{Verbatim}
+\end{exampleblock}
+\begin{center}
+Supports 12 Brahmic scripts,\\
+15 languages.
+\end{center}
+\end{column}
+
+\begin{column}{72mm}
+\begin{center}
+\fbox{%
+  \includegraphics[scale=0.48]{br00-02-crop.pdf}%
+}\\[1mm]%
+\footnotesize with XeLaTeX \& polyglossia
+\end{center}
+\end{column}
+\end{columns}
+
+\end{frame}
 
 % - - % - - % - - % - - % - - % - - % - - % - - % - - %
 
@@ -1625,19 +1738,19 @@ script_postamble  hebrew   "\n!colRd!-\\end{hebrew}!colBk!-"
             & makeindex & mendex      & upmendex            & xindy   \\\hline\hline
 internal encoding & 8bit 1byte & EUC-JP    & UTF-16         & Unicode \\
 Collator    & locale    & ASCII, Kana & ICU collator        &         \\\hline
-Latin       & ✓        & ✓ ASCII    & Lang:37, Locale:62  & Lang:32 \\
+Latin       & ✓        & ✓ ASCII    & Lang:37, Locale:63  & Lang:33 \\
 Greek       &           &             & Lang:1, Locale:1    & Lang:1 \\
 Cyrillic    &           &             & Lang:9, Locale:9    & Lang:6 \\\hdashline
 Chinese     &           &             & Lang:1, Locale:4    &  \\
 \multirow{2}{*}{Japanese} & & \multirow{2}{*}{✓ (Yomi, Dict)} & ✓ (Yomi, Dict) & \\
             &           &             & Lang:1, Locale:2    & \\
 Korean      &           &             & Lang:1, Locale:3    & \\\hdashline
-Devanagari  &           &             & Lang:3, Locale:3    & \\
-Thai        &           &             & Lang:1, Locale:1    & \\
-Arabic      &           &             & Lang:6, Locale:7    & \\
-Hebrew      &           &             & Lang:2, Locale:3    & Lang:1  \\\hdashline
+South Asian &           &   & Script:10, Lang:13, Locale:16 & \\
+Thai / Lao  &           &   & Script:2, Lang:2, Locale:2    & \\
+Arabic      &           &             & Lang:7, Locale:8    & \\
+Hebrew      &           &             & Lang:2, Locale:2    & Lang:1  \\\hdashline
 Other       &           &             &                     & Lang:4  \\\hline
-Total       &           & Lang:2      & Lang:60, Locale:95  & Lang:44 \\
+Total       &           & Lang:2      & Script:22, Lang:72, Locale:109  & Lang:44 \\
 \end{tabular}
 \end{center}
 
@@ -1659,19 +1772,19 @@ Total       &           & Lang:2      & Lang:60, Locale:95  & Lang:44 \\
 3 & Hindi       & {\colBl Devanagari} &   490,000,000 & ✓ & ✓ & ✓ &    \\
 4 & Spanish     & Latin      &   420,000,000 & ✓ & ✓ & ✓ & ✓ \\
 5 & Arabic      & {\colGn Arabic    } &   230,000,000 & ✓ & ✓ & ✓ &    \\\hdashline
-6 & Bengali     & {\colBl Bengali   } &   220,000,000 & ✓ & ✓ &    &    \\
+6 & Bengali     & {\colBl Bengali   } &   220,000,000 & ✓ & ✓ & {\colBl ✓ v1.20} &    \\
 7 & Portuguese  & Latin      &   215,000,000 & ✓ & ✓ & ✓ & ✓ \\
 8 & Russian     & Cyrillic   &   180,000,000 & ✓ & ✓ & ✓ & ✓ \\
 9 & Japanese    & {\colRd Kana \& Hanzi } &   134,000,000 & ✓ & ✓ & ✓ &    \\
 10 & German     & Latin      &   130,000,000 & ✓ & ✓ & ✓ & ✓ \\\hline
 11 & French     & Latin      &   123,000,000 & ✓ & ✓ & ✓ & ✓ \\
-12 & Punjabi    & {\colBl Gurmukhi  } &    90,000,000 & ✓ & ✓ &    &    \\
+12 & Punjabi    & {\colBl Gurmukhi  } &    90,000,000 & ✓ & ✓ & {\colBl ✓ v1.20} &    \\
 13 & Javanese   & Latin      &    75,000,000 & ✓ & ✓ & ✓ &    \\
 14 & Korean     & {\colRd Hangul    } &    75,000,000 & ✓ & ✓ & ✓ &    \\
 15 & Vietnamese & Latin      &    70,000,000 & ✓ & ✓ & ✓ & ✓ \\\hdashline
-16 & Telugu     & {\colBl Telugu    } &    70,000,000 & ✓ & ✓ &    &    \\
+16 & Telugu     & {\colBl Telugu    } &    70,000,000 & ✓ & ✓ & {\colBl ✓ v1.20} &    \\
 17 & Marathi    & {\colBl Devanagari} &    68,000,000 & ✓ & ✓ & ✓ &    \\
-18 & Tamil      & {\colBl Tamil     } &    74,000,000 & ✓ & ✓ &    &    \\
+18 & Tamil      & {\colBl Tamil     } &    74,000,000 & ✓ & ✓ & {\colBl ✓ v1.20} &    \\
 19 & Persian    & {\colGn Arabic    } &    46,000,000 & ✓ & ✓ & ✓ &    \\
 20 & Urdu       & {\colGn Arabic    } &    61,000,000 & ✓ & ✓ & ✓ &    \\\hline
 \end{tabular}
@@ -1760,8 +1873,7 @@ Total       &           & Lang:2      & Lang:60, Locale:95  & Lang:44 \\
   \begin{itemize}
   \item Support more scripts\\
      \begin{itemize}
-      \item Bengali, Telugu, Tamil, Malayalam, Kannada, Gujarati, Oriya, Sinhala
-      \item Khmer, Lao, Myanmar (Burmese)
+      \item Khmer, Myanmar (Burmese)
       \item Tibetan, Mongolian
       \item Armenian, Georgian
       \item Ethiopic (Amharic)
@@ -1771,10 +1883,6 @@ Total       &           & Lang:2      & Lang:60, Locale:95  & Lang:44 \\
      \begin{itemize}
       \item Latin Script: Sorbian, Hausa, Igbo, Yoruba, Kalaallisut, Breton, Uzbek
       \item etc.
-     \end{itemize}
-  \item Add style options\\
-     \begin{itemize}
-      \item \texttt{script\_head}
      \end{itemize}
   \end{itemize}
 \vskip1.5ex
@@ -1798,11 +1906,12 @@ I introduced multilingual index processor \textbf{upmendex}.
 
   \begin{itemize}
   \item Feature\\
-  \item Localization: 60 Languages, 12 Scripts
+  \item Localization: 72 Languages, 22 Scripts
      \begin{itemize}
       \item Latin, Cyrillic, Greek
       \item CJK (Chinese, Japanese, Korean)
-      \item Devanagari, Thai, Arabic, Hebrew
+      \item Devanagari, Bengali, Thai, \ldots
+      \item Arabic, Hebrew
       \item Symbol, Number
      \end{itemize}
   \item Multilingualization
