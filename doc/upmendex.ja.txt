@@ -171,6 +171,16 @@ upmendex - 索引整形ツール
       0
       lethead_flagと同じ。
 
+   script_head  <文字列1>  <文字列2>
+      "(各スクリプトごとの標準文字列)"
+      各スクリプトごとの見出し文字を文字列で文字列2に指定する。
+      スクリプト名1個を以下の中から文字列1に指定しなければならない:
+      'kana', 'hangul', 'hanzi',
+      'devanagari', 'bengali', 'gurmukhi', 'gujarati', 'oriya',
+      'tamil', 'telugu', 'kannada', 'malayalam', 'sinhala',
+      'thai', 'lao', 'arabic', 'hebrew'
+      (upmendex専用)
+
    kana_head  <文字列>
       ""
       仮名見出し文字。見出し文字を文字列で指定する。
@@ -180,10 +190,6 @@ upmendex - 索引整形ツール
    hangul_head  <文字列>
       "ㄱㄴㄷㄹㅁㅂㅅㅇㅈㅊㅋㅌㅍㅎ"
       ハングル見出し文字。見出し文字を文字列で指定する。(upmendex専用)
-
-   tumunja  <文字列>
-      "ㄱㄴㄷㄹㅁㅂㅅㅇㅈㅊㅋㅌㅍㅎ"
-      hangul_headと同じ。(非推奨, upmendex専用)
 
    hanzi_head  <文字列>
       ""
@@ -320,11 +326,13 @@ upmendex - 索引整形ツール
       ((up)mendex専用)
 
    character_order  <文字列>
-      "SNLGCJKHDTah"
+      "SNLGCJKHDbpgotukmsTlah"
       記号、ラテン文字、日本語(かな)などスクリプトの優先順位。'S'は記号、'N'は数字、
       'L'はラテン文字、'G'はギリシャ文字、'C'はキリル文字、'J'は日本語(かな)、'K'はハングル、
-      'H'は漢字、'D'はデーヴァナーガリー、'T'はタイ文字、
-      'a'はアラビア文字、'h'はヘブライ文字を表す。
+      'H'は漢字、'D'はデーヴァナーガリー、'b'はベンガル文字、'p'はグルムキー文字、
+      'g'はグジャラーティー文字、'o'はオリヤー文字、't'はタミル文字、'u'はテルグ文字、
+      'k'はカンナダ文字、'm'はマラヤーラム文字、's'はシンハラ文字、
+      'T'はタイ文字、'l'はラーオ文字、'a'はアラビア文字、'h'はヘブライ文字を表す。
       '@'はこのパラメータで明示されていないスクリプトを表し
       icu_rulesまたは icu_locale で設定された優先順位に従う。
       symbol_flag=1のとき、索引項目の分類として「数字」は「記号」に含めるので、
@@ -336,7 +344,9 @@ upmendex - 索引整形ツール
       各スクリプトごとのブロックの先頭の文字列を文字列2に指定する。
       スクリプト名1個を以下の中から文字列1に指定しなければならない:
       'latin', 'cyrillic', 'greek', 'kana', 'hangul', 'hanzi',
-      'devanagari', 'thai', 'arabic', 'hebrew'
+      'devanagari', 'bengali', 'gurmukhi', 'gujarati', 'oriya',
+      'tamil', 'telugu', 'kannada', 'malayalam', 'sinhala',
+      'thai', 'lao', 'arabic', 'hebrew'
       (upmendex専用)
 
    script_postamble  <文字列1>  <文字列2>
@@ -344,7 +354,9 @@ upmendex - 索引整形ツール
       各スクリプトごとのブロックの末尾の文字列を文字列2に指定する。
       スクリプト名1個を以下の中から文字列1に指定しなければならない:
       'latin', 'cyrillic', 'greek', 'kana', 'hangul', 'hanzi',
-      'devanagari', 'thai', 'arabic', 'hebrew'
+      'devanagari', 'bengali', 'gurmukhi', 'gujarati', 'oriya',
+      'tamil', 'telugu', 'kannada', 'malayalam', 'sinhala',
+      'thai', 'lao', 'arabic', 'hebrew'
       (upmendex専用)
 
    icu_locale  <文字列>
