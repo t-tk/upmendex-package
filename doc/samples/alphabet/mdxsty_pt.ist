@@ -1,0 +1,5 @@
+% -*- coding: utf-8 -*-
+
+% ICU 76.1 shows "U_USING_DEFAULT_WARNING"
+%icu_locale  "pt"
+

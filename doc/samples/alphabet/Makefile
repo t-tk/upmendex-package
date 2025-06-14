@@ -4,7 +4,7 @@ alphabet: ltn cyr grk zh ja ko dev brhm th arb he
 
 ltn:
 	for num in 1 2; do \
-	for loc in af ca da de eo es et fi fr gl is jv ku lt lv nb nl nn no pl ro sv tk vi; do \
+	for loc in af ca da de eo es et fi fr gl is it jv ku lt lv nb nl nn no pl pt ro sv tk vi; do \
 		$(UPMENDEX) alpha_$$loc.idx -s mdxsty_head$$num.ist -s mdxsty_$$loc.ist -t alpha_$$loc$$num.ilg -o alpha_$$loc$$num.ind ; \
 	done ; \
 	done
