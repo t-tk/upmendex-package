@@ -4,8 +4,8 @@
 % If you modify this original file, YOUR CHANGES WILL BE LOST when it is
 % updated.  Instead, put your changes -- and only your changes, not an
 % entire copy! -- in ../../texmf.cnf.  That is, if this file is
-% installed in /some/path/to/texlive/2024/texmf-dist/web2c/texmf.cnf,
-% put your custom settings in /some/path/to/texlive/2024/texmf.cnf.
+% installed in /some/path/to/texlive/2025/texmf-dist/web2c/texmf.cnf,
+% put your custom settings in /some/path/to/texlive/2025/texmf.cnf.
 % (Below, we use YYYY in place of the specific year.)
 % 
 % What follows is a super-summary of what this .cnf file can
@@ -87,10 +87,10 @@ TEXMFSYSCONFIG = $TEXMFROOT/texmf-config
 TEXMFHOME = ~/texmf
 
 % TEXMFVAR, where texconfig/updmap/fmtutil store cached runtime data.
-TEXMFVAR = ~/.texlive2024/texmf-var
+TEXMFVAR = ~/.texlive2025/texmf-var
 
 % TEXMFCONFIG, where texconfig/updmap/fmtutil store configuration data.
-TEXMFCONFIG = ~/.texlive2024/texmf-config
+TEXMFCONFIG = ~/.texlive2025/texmf-config
 
 % This is the value manipulated by tlmgr's auxtrees subcommand in the
 % root texmf.cnf. Kpathsea warns about a literally empty string for a
@@ -642,10 +642,14 @@ shell_escape = p
 % 
 % The programs listed here are as safe as any we know: they either do
 % not write any output files, respect openout_any, or have hard-coded
-% restrictions similar to or higher than openout_any=p.  They also have
-% no features to invoke arbitrary other programs, and no known
-% exploitable bugs.  All to the best of our knowledge.  They also have
-% practical use for being called from TeX.
+% restrictions similar to or higher than openout_any=p.  The output file
+% location is determined according to
+% https://tug.org/texinfohtml/web2c.html#Output-file-location.
+% 
+% They also have no features to invoke arbitrary other programs, and no
+% known exploitable bugs, to the best of our knowledge.
+% 
+% Finally, they also have practical use for being called from TeX.
 % 
 shell_escape_commands = \
 bibtex,bibtex8,\
@@ -777,10 +781,19 @@ BIBTEX_CSFILE = 88591lat.csf
 
 % This variable is specific to Unix, to fall back to case-insensitive
 % search in non-system directories if there is no exact match. It is
-% enabled by default in texmf.cnf, but not enabled by default at
+% enabled by default here in texmf.cnf, but not enabled by default at
 % compile-time.
+% See https://tug.org/texinfohtml/kpathsea.html#Casefolding-search.
 %
 texmf_casefold_search = 1
+
+% This variable is specific to Unix, to enable or disable the check
+% for st_nlink=2 to determine if a directory is a leaf.  The check is
+% disabled by default, since it's relevant only for non-!!
+% trees, such as TEXMFHOME and TEXMF[SYS]VAR, which are almost always tiny.
+% See https://tug.org/texinfohtml/kpathsea.html#Subdirectory-expansion.
+%
+texmf_nlink_for_leaf = 0 % set to 1 to enable st_nlink check in non-!! trees
 
 % This variable is specific to Windows.  It must be set to 0 or 1.  The
 % default is 0.  Setting it to 1 tells the Windows script wrappers to
@@ -943,7 +956,7 @@ guess_input_kanji_encoding.mendex = 1
 % in a texmf.cnf prefered, for example $TEXMFLOCAL/web2c/texmf.cnf.
 command_line_encoding = utf-8
 
-% From TeX Live 2024, the engine for ptex, eptex, platex, and
+% As of TeX Live 2024, the engine for ptex, eptex, platex, and
 % platex-dev is euptex. Therefore the function should be switched off
 % for ptex, eptex, platex and platex-dev.
 command_line_encoding.ptex = none
