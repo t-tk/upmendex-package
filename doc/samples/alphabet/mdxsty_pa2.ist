@@ -1,0 +1,6 @@
+% -*- coding: utf-8 -*-
+
+icu_locale  "pa"
+%script_head  gurmukhi  "ਉਊਓਅਆਐਔਇਈਏਸਹਕਖਗਘਙਚਛਜਝਞਟਠਡਢਣਤਥਦਧਨਪਫਬਭਮਯਰਲਵੜ"
+script_head  gurmukhi  "ਉਓਅਇਏਸਹਕਚਟਤਪਯ"
+

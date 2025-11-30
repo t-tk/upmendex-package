@@ -1,0 +1,18 @@
+% -*- coding: utf-8 -*-
+
+icu_locale  "ro"
+
+%  default
+%icu_rules   "&S<ş=ș<<<Ş=Ș &T<ţ=ț<<<Ţ=Ț"
+
+%  with Cedilla     :: U+015E Ş U+015F ş U+0162 Ţ U+0163 ţ
+%  with Comma Below :: U+0218 Ș U+0219 ș U+021A Ț U+021B ț
+
+%  S/T with Cedilla are less than S/T with Comma Below
+%icu_rules   "&S<ş<<<<ș<<<Ş<<<<Ș &T<ţ<<<<ț<<<Ţ<<<<Ț"
+icu_rules   "&S<ş<<<ș<<<Ş<<<Ș &T<ţ<<<ț<<<Ţ<<<Ț"
+
+%  S/T with Comma Below are less than S/T  with Cedilla
+%icu_rules   "&S<ș<<<<ş<<<Ș<<<<Ş &T<ț<<<<ţ<<<Ț<<<<Ţ"
+%icu_rules   "&S<ș<<<ş<<<Ș<<<Ş &T<ț<<<ţ<<<Ț<<<Ţ"
+

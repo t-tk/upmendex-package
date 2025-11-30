@@ -14,6 +14,12 @@
 
   \indexspace
 
+\centerline{\bfseries --- C ---}\par\nobreak
+  \item c\leaders\hbox{$\cdot$}\hfill 203
+  \item C\leaders\hbox{$\cdot$}\hfill 103
+
+  \indexspace
+
 \centerline{\bfseries --- D ---}\par\nobreak
   \item d\leaders\hbox{$\cdot$}\hfill 204
   \item D\leaders\hbox{$\cdot$}\hfill 104
@@ -94,6 +100,12 @@
 
   \indexspace
 
+\centerline{\bfseries --- Q ---}\par\nobreak
+  \item q\leaders\hbox{$\cdot$}\hfill 217
+  \item Q\leaders\hbox{$\cdot$}\hfill 117
+
+  \indexspace
+
 \centerline{\bfseries --- R ---}\par\nobreak
   \item r\leaders\hbox{$\cdot$}\hfill 218
   \item R\leaders\hbox{$\cdot$}\hfill 118
@@ -152,6 +164,12 @@
 
   \indexspace
 
+\centerline{\bfseries --- W ---}\par\nobreak
+  \item w\leaders\hbox{$\cdot$}\hfill 223
+  \item W\leaders\hbox{$\cdot$}\hfill 123
+
+  \indexspace
+
 \centerline{\bfseries --- Õ ---}\par\nobreak
   \item õ\leaders\hbox{$\cdot$}\hfill 280
   \item Õ\leaders\hbox{$\cdot$}\hfill 180
@@ -181,5 +199,17 @@
   \item Ü\leaders\hbox{$\cdot$}\hfill 183
   \item üa\leaders\hbox{$\cdot$}\hfill 3004
   \item üz\leaders\hbox{$\cdot$}\hfill 3005
+
+  \indexspace
+
+\centerline{\bfseries --- X ---}\par\nobreak
+  \item x\leaders\hbox{$\cdot$}\hfill 224
+  \item X\leaders\hbox{$\cdot$}\hfill 124
+
+  \indexspace
+
+\centerline{\bfseries --- Y ---}\par\nobreak
+  \item y\leaders\hbox{$\cdot$}\hfill 225
+  \item Y\leaders\hbox{$\cdot$}\hfill 125
 
 \end{theindex}

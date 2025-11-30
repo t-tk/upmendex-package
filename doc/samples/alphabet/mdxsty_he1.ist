@@ -1,8 +1,0 @@
-% -*- coding: utf-8 -*-
-
-%icu_locale  "he@collation=search"
-icu_locale  "he-u-co-search"
-
-script_preamble   hebrew  "\n% begin hebrew"
-script_postamble  hebrew  "\n% end   hebrew"
-
