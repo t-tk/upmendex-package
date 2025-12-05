@@ -4,6 +4,7 @@ upmendex - 索引整形ツール
 
     upmendex [-ilqrcgf] [-s sty] [-d dic] [-o ind] [-t log] [-p no] [--] [idx0 idx1 idx2 ...]
     upmendex --help
+    upmendex --version
 
 
 解説
@@ -57,6 +58,8 @@ upmendex - 索引整形ツール
            た指定も可能です。
 
    --help  オプションの要約を表示します。
+
+   --version  ヴァージョンの情報を表示します。
 
    --      以降はオプション文字列と解釈しません。これは，ファイル名の先頭の文字が
            '-' であるファイルを扱う場合に有用です。
@@ -178,7 +181,7 @@ upmendex - 索引整形ツール
       'kana', 'hangul', 'hanzi',
       'devanagari', 'bengali', 'gurmukhi', 'gujarati', 'oriya',
       'tamil', 'telugu', 'kannada', 'malayalam', 'sinhala',
-      'thai', 'lao', 'arabic', 'hebrew'
+      'thai', 'lao'
       (upmendex専用)
 
    kana_head  <文字列>
