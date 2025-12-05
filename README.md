@@ -1,7 +1,7 @@
 upmendex  --- Multilingual index processor
 ==========================================
 
-2025.08.11 Ver1.21
+2025.12.05 Ver1.22
 
 TANAKA, Takuji
 <ttk(at)t-lab.opal.ne.jp>

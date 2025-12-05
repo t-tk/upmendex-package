@@ -12,6 +12,8 @@ upmendex \- Multilingual index processor
 \fBupmendex\fR [-ilqrcgf] [\fB-s\fI sty\fR] [\fB-d\fI dic\fR] [\fB-o\fI ind\fR] [\fB-t\fI log\fR] [\fB-p\fI no\fR] [\fB--\fR] [\fI idx0 idx1 idx2 ...\fR]
 .br
 \fBupmendex\fR \fB--help\fR
+.br
+\fBupmendex\fR \fB--version\fR
 .SH DESCRIPTION
 .PP
 The program \fIupmendex\fR is a general purpose multilingual hierarchical
@@ -87,7 +89,10 @@ the following: \fIany\fR (the next page to the end of contents), \fIodd\fR
 (the next odd page to the end of contents), \fIeven\fR (the next even page to the end of contents).
 .TP 10
 \fB--help\fR
-Show summary of options.
+Show summary of options and exit.
+.TP 10
+\fB--version\fR
+Show version information and exit.
 .TP 10
 \fB--\fR
 Arguments after \fB--\fR are not taken as options.
@@ -266,7 +271,7 @@ Heading characters of script specified by string 2.
 One of script names must be specified in the string 1:
 \'kana\', \'hangul\', \'hanzi\', \'devanagari\', \'bengali\', \'gurmukhi\',
 \'gujarati\', \'oriya\', \'tamil\', \'telugu\', \'kannada\', \'malayalam\',
-\'sinhala\', \'thai\', \'lao\', \'arabic\', or \'hebrew\'.
+\'sinhala\', \'thai\', or \'lao\'.
 (Extended by upmendex)
 .RE
 .TP 30

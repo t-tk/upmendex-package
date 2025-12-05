@@ -8,7 +8,7 @@
  .SH NAME
  upmendex \- Multilingual index processor
  .SH SYNOPSIS
-@@ -289,14 +290,14 @@
+@@ -301,14 +302,14 @@
  .RE
  .TP 30
  \fBdevanagari_head\fR  <string>
