@@ -81,7 +81,7 @@ zh:
 		locx='zhr' ; \
 		$(UPMENDEX) alpha_$$locx.idx -s mdxsty_$$loc$$num.ist -t alpha_$$locx$$num.ilg -o alpha_$$locx$$num.ind ; \
 	done
-	for num in 21 22; do \
+	for num in 21 22 23; do \
 		loc='zh' ; \
 		locx='zhs' ; \
 		$(UPMENDEX) alpha_$$locx.idx -s mdxsty_$$loc$$num.ist -t alpha_$$locx$$num.ilg -o alpha_$$locx$$num.ind ; \
