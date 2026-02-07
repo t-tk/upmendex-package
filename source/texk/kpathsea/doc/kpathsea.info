@@ -1,9 +1,9 @@
-This is kpathsea.info, produced by makeinfo version 7.1.1 from
+This is kpathsea.info, produced by makeinfo version 7.2 from
 kpathsea.texi.
 
 This file documents the Kpathsea library for path searching.
 
-   Copyright © 1996-2024 Karl Berry & Olaf Weber.
+   Copyright © 1996-2025 Karl Berry & Olaf Weber.
 
    Permission is granted to make and distribute verbatim copies of this
 manual provided the copyright notice and this permission notice are
@@ -37,7 +37,7 @@ Kpathsea library
 ****************
 
 This manual documents the Kpathsea library for path searching.  It
-corresponds to version 6.4.0, released in November 2024.
+corresponds to version 6.4.2/dev, released in July 2025.
 
 * Menu:
 
@@ -61,8 +61,8 @@ File: kpathsea.info,  Node: Introduction,  Next: unixtex.ftp,  Prev: Top,  Up: T
 1 Introduction
 **************
 
-This manual corresponds to version 6.4.0 of the Kpathsea library,
-released in November 2024.
+This manual corresponds to version 6.4.2/dev of the Kpathsea library,
+released in July 2025.
 
    The library's fundamental purpose is to return a filename from a list
 of directories specified by the user, similar to what shells do when
@@ -72,9 +72,9 @@ looking up program names to execute.
 this library:
 
    • Dviljk (see the ‘dvilj’ man page)
-   • Dvipsk (*note (dvips)::)
-   • GNU font utilities (*note (fontu)::)
-   • Web2c (*note (web2c)::)
+   • Dvipsk (*note (dvips)Top::)
+   • GNU font utilities (*note (fontu)Top::)
+   • Web2c (*note (web2c)Top::)
    • Xdvik (see the ‘xdvi’ man page)
 
 Other software that we do not maintain also uses it.
@@ -82,7 +82,7 @@ Other software that we do not maintain also uses it.
    Kpathsea is now maintained as part of the TeX Live distribution
 (<https://tug.org/texlive>), which includes several more Kpathsea-using
 programs.  For information on configuration, building, installing, and
-more, *note (tlbuild)::.
+more, *note (tlbuild)Top::.
 
    The library is still actively maintained.  If you have comments or
 suggestions, please send along (*note Reporting bugs::).
@@ -846,34 +846,46 @@ and so on, but not ‘/a/b/c’ or ‘/a/1’.
 
    You can include multiple ‘//’ constructs in the path.
 
-   ‘//’ at the beginning of a path is ignored; you didn't really want to
-search every directory on the system, did you?
+   ‘//’ at the beginning of a path is ignored.  Searching every
+directory on the system is not relevant for TeX.
 
-   I should mention one related implementation trick, which I took from
-GNU find.  Matthew Farwell suggested it, and David MacKenzie implemented
-it.
+   We need to discuss one related implementation trick, originally taken
+from GNU find.  Matthew Farwell suggested it, and David MacKenzie
+implemented it.
 
-   The trick is that in every real Unix implementation (as opposed to
-the POSIX specification), a directory which contains no subdirectories
-will have exactly two links (namely, one for ‘.’ and one for ‘..’).
-That is to say, the ‘st_nlink’ field in the ‘stat’ structure will be
-two.  Thus, we don't have to stat everything in the bottom-level (leaf)
+   The trick is that in normal Unix implementations (though not in the
+POSIX specification), a directory which contains no subdirectories will
+have exactly two links (namely, one for ‘.’ and one for ‘..’).  That is
+to say, the ‘st_nlink’ field in the ‘stat’ structure will be two.  Thus,
+we don't have to stat everything in the bottom-level (leaf)
 directories--we can just check ‘st_nlink’, notice it's two, and do no
 more work.
 
-   But if you have a directory that contains a single subdirectory and
-500 regular files, ‘st_nlink’ will be 3, and Kpathsea has to stat every
-one of those 501 entries.  Therein lies slowness.
+   Kpathsea never does this ‘st_nlink=2’ check (or any disk checking)
+for ‘!!’ trees (*note ls-R::).  And the non-‘!!’ trees in a TeX Live
+installation are typically extremely small.  Therefore the ‘st_nlink’
+check is not performed by default at all, as of 2025 (Kpathsea 6.3.4).
+That way, two not-uncommon situations work out: 1) all ‘gvisor’-handled
+filesystems return ‘st_nlink=1’ before some post-2025 release
+(<https://tug.org/pipermail/texhax/2025-July/026772.html>); 2) a
+symbolic link to another directory in such an apparent leaf directory
+will get followed even though ‘st_nlink=2’
+(<https://tex.stackexchange.com/questions/132908>).
 
-   You can disable the trick by undefining ‘ST_NLINK_TRICK’ in
-‘kpathsea/config.h’.  (It is undefined by default except under Unix.)
+   If you have an extremely large non-‘!!’ tree, most likely
+‘TEXMFHOME’, you may find it useful to enable the check: you can do this
+by setting the configuration variable ‘texmf_nlink_for_leaf’ to 1.
+Alternatively, with such a large tree, you may find it even more useful
+to add the tree to ‘TEXMFDBS’ so that only ‘ls-R’ lookups are done
+(again, *note ls-R::).
 
-   Unfortunately, in some cases files in leaf directories are ‘stat’'d:
-if the path specification is, say, ‘$TEXMF/fonts//pk//’, then files in a
-subdirectory ‘.../pk’, even if it is a leaf, are checked.  The reason
-cannot be explained without reference to the implementation, so read
-‘kpathsea/elt-dirs.c’ (search for ‘may descend’) if you are curious.
-And if you find a way to solve the problem, please let me know.
+   Unfortunately, in some cases files in leaf directories are ‘stat’'d
+anyway: if the path specification is, say, ‘$TEXMF/fonts//pk//’, then
+files in a subdirectory ‘.../pk’, even if it is a leaf, are checked.
+The reason cannot be explained without reference to the implementation,
+so read ‘kpathsea/elt-dirs.c’ (search for ‘may descend’) if you are
+curious.  And if you find a way to solve the problem, please let me
+know.
 
    Subdirectory expansion is implemented in the source file
 ‘kpathsea/elt-dirs.c’.
@@ -1219,29 +1231,66 @@ in administrative scripts.  It is used heavily in the distributed
 can start with either ‘-’ or ‘--’, and any unambiguous abbreviation is
 accepted.
 
+   Kpsewhich looks up each non-option argument on the command line as a
+filename, and outputs (by default) the first file found to standard
+output.  If a file is not found, and more than FILENAME is given, a
+blank line is output for that file.  See examples below.
+
+   The exit status is zero if all files were found, nonzero otherwise.
+
 * Menu:
 
+* kpsewhich examples::          Simple examples of running kpsewhich.
 * Path searching options::      Changing the mode, resolution, etc.
 * Specially-recognized files::  Default formats for texmf.cnf, etc.
 * Auxiliary tasks::             Path and variable expansion, etc.
 * Standard options::            ‘--help’ and ‘--version’.
 
 
-File: kpathsea.info,  Node: Path searching options,  Next: Specially-recognized files,  Up: Invoking kpsewhich
+File: kpathsea.info,  Node: kpsewhich examples,  Next: Path searching options,  Up: Invoking kpsewhich
 
-5.6.1 Path searching options
+5.6.1 ‘kpsewhich’ examples
+--------------------------
+
+Some examples of running ‘kpsewhich’ with a typical TeX tree.  A basic
+successful search (exit status 0):
+
+     $ kpsewhich plain.tex
+     /usr/local/texlive/2024/texmf-dist/tex/plain/base/plain.tex
+
+   Searching for multiple files, one of which is not found (exit status
+is 1 for this):
+
+     $ kpsewhich plain.tex foobar plain.mf
+     /usr/local/texlive/2024/texmf-dist/tex/plain/base/plain.tex
+
+     /usr/local/texlive/2024/texmf-dist/metafont/base/plain.mf
+
+   Using ‘--all’ to see all files by the same name (exit status 0):
+
+     $ kpsewhich --all language.dat
+     /usr/local/texlive/2024/texmf-dist/tex/generic/config/language.dat
+     /usr/local/texlive/2024/texmf-dist/lambda/generic/config/language.dat
+
+
+File: kpathsea.info,  Node: Path searching options,  Next: Specially-recognized files,  Prev: kpsewhich examples,  Up: Invoking kpsewhich
+
+5.6.2 Path searching options
 ----------------------------
 
-Kpsewhich looks up each non-option argument on the command line as a
-filename, and returns the first file found.
-
-   Various options alter the path searching behavior:
+Various options alter the path searching behavior.  Options apply to all
+lookups.
 
 ‘--all’
      Report all matches found, one per line.  By default, if there is
      more than one match, just one will be reported (chosen effectively
      at random).  Exception: with the glyph formats (‘pk’, ‘gf’), this
      option has no effect and only the first match is returned.
+
+     With both ‘-all’ and multiple input files, there's no easy way to
+     discern which matches belong to which files; you have to check the
+     basename of the output.  This could be improved, if there is any
+     demand.
 
 ‘--casefold-search’
 ‘--no-casefold-search’
@@ -1475,7 +1524,7 @@ filename, and returns the first file found.
 
 File: kpathsea.info,  Node: Specially-recognized files,  Next: Auxiliary tasks,  Prev: Path searching options,  Up: Invoking kpsewhich
 
-5.6.2 Specially-recognized files for ‘kpsewhich’
+5.6.3 Specially-recognized files for ‘kpsewhich’
 ------------------------------------------------
 
 ‘kpsewhich’ recognizes a few special filenames on the command line and
@@ -1525,7 +1574,7 @@ various information about the above configuration files (among others).
 
 File: kpathsea.info,  Node: Auxiliary tasks,  Next: Standard options,  Prev: Specially-recognized files,  Up: Invoking kpsewhich
 
-5.6.3 Auxiliary tasks
+5.6.4 Auxiliary tasks
 ---------------------
 
 Kpsewhich provides some features in addition to path lookup as such:
@@ -1619,7 +1668,7 @@ Kpsewhich provides some features in addition to path lookup as such:
 
 File: kpathsea.info,  Node: Standard options,  Prev: Auxiliary tasks,  Up: Invoking kpsewhich
 
-5.6.4 Standard options
+5.6.5 Standard options
 ----------------------
 
 Kpsewhich accepts the standard GNU options:
@@ -2084,7 +2133,7 @@ fonts equivalent.
 
    Fontmaps are implemented in the file ‘kpathsea/fontmap.c’.  The
 Fontname distribution has much more information on font naming (*note
-(fontname)::).
+(fontname)Top::).
 
 
 File: kpathsea.info,  Node: Fallback font,  Prev: Fontmap,  Up: Glyph lookup
@@ -3004,24 +3053,30 @@ debugging options helpful.  *Note Debugging::.
      such may be the culprit.
 
    • Your files reside in a directory that is only pointed to via a
-     symbolic link, in a leaf directory and is not listed in ‘ls-R’.
+     symbolic link within a leaf directory, and is not listed in ‘ls-R’.
 
-     Unfortunately, Kpathsea's subdirectory searching has an
-     irremediable deficiency: If a directory D being searched for
-     subdirectories contains plain files and symbolic links to other
-     directories, but no true subdirectories, D will be considered a
-     leaf directory, i.e., the symbolic links will not be followed.
-     *Note Subdirectory expansion::.
+     Unfortunately, Kpathsea's subdirectory searching has a problematic
+     deficiency: If a directory D being searched for subdirectories
+     contains symbolic links to other directories (and possibly other
+     plain files or symlinks), but no true subdirectories, by default D
+     will be considered a leaf directory, i.e., the symbolic links will
+     not be followed.  *Note Subdirectory expansion::.
 
      You can work around this problem by creating an empty dummy
      subdirectory in D.  Then D will no longer be a leaf, and the
      symlinks will be followed.
 
+     Another workaround is to set the configuration variable
+     ‘kpse_ignore_nlink_for_leaf’ to 1.  Then Kpathsea will look at all
+     entries in all directories in determining whether they are
+     (symlinks to) subdirectories.  This is not the default because it
+     is considerably expensive to consider the contents of every leaf
+     directory.
+
      The directory immediately followed by the ‘//’ in the path
-     specification, however, is always searched for subdirectories, even
-     if it is a leaf.  Presumably you would not have asked for the
-     directory to be searched for subdirectories if you didn't want it
-     to be.
+     specification is always searched for subdirectories, even if it is
+     a leaf.  Presumably you would not have asked for the directory to
+     be searched for subdirectories if you didn't want it to be.
 
    • If the fonts (or whatever) don't already exist, ‘mktexpk’ (or
      ‘mktexmf’ or ‘mktextfm’) will try to create them.  If these rather
@@ -3154,48 +3209,48 @@ Index
 * Menu:
 
 * --all:                                 Path searching options.
-                                                              (line  12)
+                                                              (line  10)
 * --casefold-search:                     Path searching options.
-                                                              (line  19)
+                                                              (line  22)
 * --cnf-line:                            Path searching options.
-                                                              (line  28)
+                                                              (line  31)
 * --cnf-line, source for path:           Path sources.        (line   9)
 * --color=tty:                           ls-R.                (line  25)
 * --debug=NUM:                           Auxiliary tasks.     (line   9)
 * --dpi=NUM:                             Path searching options.
-                                                              (line  49)
+                                                              (line  52)
 * --engine=NAME:                         Path searching options.
-                                                              (line  53)
+                                                              (line  56)
 * --expand-braces=STRING:                Auxiliary tasks.     (line  12)
 * --expand-path=STRING:                  Auxiliary tasks.     (line  16)
 * --expand-var=STRING:                   Auxiliary tasks.     (line  34)
 * --format=NAME:                         Path searching options.
-                                                              (line  70)
+                                                              (line  73)
 * --help:                                Standard options.    (line   8)
 * --help-formats:                        Auxiliary tasks.     (line  42)
 * --interactive:                         Path searching options.
-                                                              (line 152)
+                                                              (line 155)
 * --mktex=FILETYPE:                      Path searching options.
-                                                              (line 157)
+                                                              (line 160)
 * --mode=STRING:                         Path searching options.
-                                                              (line 163)
+                                                              (line 166)
 * --must-exist:                          Path searching options.
-                                                              (line 168)
+                                                              (line 171)
 * --no-casefold-search:                  Path searching options.
-                                                              (line  19)
+                                                              (line  22)
 * --no-mktex=FILETYPE:                   Path searching options.
-                                                              (line 157)
+                                                              (line 160)
 * --path=STRING:                         Path searching options.
-                                                              (line 173)
+                                                              (line 176)
 * --progname=NAME:                       Path searching options.
-                                                              (line 181)
+                                                              (line 184)
 * --safe-extended-in-name=NAME:          Auxiliary tasks.     (line  48)
 * --safe-extended-out-name=NAME:         Auxiliary tasks.     (line  48)
 * --safe-in-name=NAME:                   Auxiliary tasks.     (line  54)
 * --safe-out-name=NAME:                  Auxiliary tasks.     (line  54)
 * --show-path=NAME:                      Auxiliary tasks.     (line  60)
 * --subdir=STRING:                       Path searching options.
-                                                              (line 186)
+                                                              (line 189)
 * --var-brace-value=VARIABLE:            Auxiliary tasks.     (line  66)
 * --var-value=VARIABLE:                  Auxiliary tasks.     (line  80)
 * --version:                             Standard options.    (line  11)
@@ -3209,7 +3264,7 @@ Index
 * -1 debugging value:                    Debugging.           (line  23)
 * -A option to ls:                       ls-R.                (line  39)
 * -D NUM:                                Path searching options.
-                                                              (line  49)
+                                                              (line  52)
 * -iname, find predicate:                Casefolding examples.
                                                               (line  78)
 * -L option to ls:                       ls-R.                (line  44)
@@ -3366,7 +3421,7 @@ Index
 * all:                                   Suppressing warnings.
                                                               (line  13)
 * all matches, finding:                  Path searching options.
-                                                              (line  12)
+                                                              (line  10)
 * alphabetical order, not:               Subdirectory expansion.
                                                               (line   6)
 * announcement mailing list:             Mailing lists.       (line   6)
@@ -3507,14 +3562,14 @@ Index
 * dynamic creation of files:             mktex scripts.       (line   6)
 * EC fonts, and dynamic source creation: mktex scripts.       (line   6)
 * elt-dirs.c:                            Subdirectory expansion.
-                                                              (line  41)
+                                                              (line  52)
 * elt-dirs.c <1>:                        Subdirectory expansion.
-                                                              (line  48)
+                                                              (line  60)
 * enabling mktex scripts:                mktex configuration. (line   6)
 * ENCFONTS:                              Supported file formats.
                                                               (line  61)
 * engine name:                           Path searching options.
-                                                              (line  53)
+                                                              (line  56)
 * environment variable, source for path: Path sources.        (line  12)
 * environment variables for TeX:         Supported file formats.
                                                               (line   6)
@@ -3525,6 +3580,7 @@ Index
 * error message macros:                  Calling sequence.    (line  22)
 * examples, of casefolding searches:     Casefolding examples.
                                                               (line   6)
+* examples, of running kpsewhich:        kpsewhich examples.  (line   6)
 * excessive startup time:                Slow path searching. (line   6)
 * expand.c:                              Brace expansion.     (line  26)
 * expanding symlinks:                    Calling sequence.    (line  31)
@@ -3625,7 +3681,7 @@ Index
                                                               (line  84)
 * input lines, reading:                  Calling sequence.    (line  91)
 * interactive query:                     Path searching options.
-                                                              (line 152)
+                                                              (line 155)
 * interface, not frozen:                 Introduction.        (line  29)
 * introduction:                          Introduction.        (line   6)
 * kdebug::                               Debugging.           (line 105)
@@ -3679,6 +3735,7 @@ Index
 * kpse->invocation_short_name:           Calling sequence.    (line  22)
 * kpse->program_name:                    Calling sequence.    (line  22)
 * kpsewhich:                             Invoking kpsewhich.  (line   6)
+* kpsewhich examples:                    kpsewhich examples.  (line   6)
 * Kpsewhich, and debugging:              Debugging.           (line  31)
 * last-resort font:                      Fallback font.       (line   6)
 * lcircle10:                             Fontmap.             (line  19)
@@ -3865,7 +3922,7 @@ Index
 * reporting bugs:                        Reporting bugs.      (line   6)
 * resident.c:                            Calling sequence.    (line  47)
 * resolution, setting:                   Path searching options.
-                                                              (line  49)
+                                                              (line  52)
 * resolutions, last-resort:              Fallback font.       (line   6)
 * restricted mode, for output files:     Safe filenames.      (line  15)
 * retrieving TeX:                        unixtex.ftp.         (line   6)
@@ -3909,8 +3966,6 @@ Index
                                                               (line  30)
 * st_nlink:                              Subdirectory expansion.
                                                               (line  26)
-* ST_NLINK_TRICK:                        Subdirectory expansion.
-                                                              (line  38)
 * stack trace:                           Bug checklist.       (line  58)
 * standalone path searching:             Invoking kpsewhich.  (line   6)
 * standard error and debugging output:   Debugging.           (line  27)
@@ -4121,69 +4176,69 @@ Index
 * XDVISIZES:                             Fallback font.       (line   6)
 * zuhn, david:                           History.             (line  50)
 
-
 
 Tag Table:
-Node: Top1481
-Node: Introduction2264
-Node: History4356
-Node: unixtex.ftp8976
-Node: Security10458
-Node: Global font cache and security13171
-Node: TeX directory structure15162
-Node: Path searching19337
-Node: Searching overview20295
-Node: Path sources24202
-Node: Config files25472
-Node: Path expansion30520
-Node: Default expansion31489
-Node: Variable expansion33611
-Node: Tilde expansion35080
-Node: Brace expansion36128
-Node: KPSE_DOT expansion37123
-Node: Subdirectory expansion37648
-Node: Casefolding search40088
-Node: Casefolding rationale40865
-Node: Casefolding examples42223
-Node: Filename database47445
-Node: ls-R48459
-Node: Filename aliases52331
-Node: Database format53573
-Node: Invoking kpsewhich54622
-Node: Path searching options55605
-Node: Specially-recognized files65607
-Node: Auxiliary tasks67082
-Node: Standard options71226
-Node: TeX support71594
-Node: Supported file formats72952
-Node: File lookup81703
-Node: Glyph lookup83508
-Node: Basic glyph lookup84656
-Node: Fontmap85564
-Node: Fallback font88172
-Node: Suppressing warnings89108
-Node: mktex scripts90271
-Node: mktex configuration91514
-Node: mktex script names97607
-Node: mktex script arguments99290
-Node: Programming100205
-Node: Programming overview100848
-Node: Calling sequence103759
-Node: Safe filenames109096
-Ref: openout_any109255
-Node: Program-specific files113064
-Node: Programming with config files114117
-Node: Reporting bugs115764
-Node: Bug checklist116442
-Node: Mailing lists119999
-Node: Debugging120676
-Node: Logging125933
-Node: Common problems127840
-Node: Unable to find files128317
-Node: Slow path searching130773
-Node: Unable to generate fonts132168
-Node: TeX or Metafont failing134704
-Node: Index135906
+Node: Top1479
+Node: Introduction2262
+Node: History4366
+Node: unixtex.ftp8986
+Node: Security10468
+Node: Global font cache and security13181
+Node: TeX directory structure15172
+Node: Path searching19347
+Node: Searching overview20305
+Node: Path sources24212
+Node: Config files25482
+Node: Path expansion30530
+Node: Default expansion31499
+Node: Variable expansion33621
+Node: Tilde expansion35090
+Node: Brace expansion36138
+Node: KPSE_DOT expansion37133
+Node: Subdirectory expansion37658
+Node: Casefolding search40819
+Node: Casefolding rationale41596
+Node: Casefolding examples42954
+Node: Filename database48176
+Node: ls-R49190
+Node: Filename aliases53062
+Node: Database format54304
+Node: Invoking kpsewhich55353
+Node: kpsewhich examples56744
+Node: Path searching options57632
+Node: Specially-recognized files67806
+Node: Auxiliary tasks69281
+Node: Standard options73425
+Node: TeX support73793
+Node: Supported file formats75151
+Node: File lookup83902
+Node: Glyph lookup85707
+Node: Basic glyph lookup86855
+Node: Fontmap87763
+Node: Fallback font90374
+Node: Suppressing warnings91310
+Node: mktex scripts92473
+Node: mktex configuration93716
+Node: mktex script names99809
+Node: mktex script arguments101492
+Node: Programming102407
+Node: Programming overview103050
+Node: Calling sequence105961
+Node: Safe filenames111298
+Ref: openout_any111457
+Node: Program-specific files115266
+Node: Programming with config files116319
+Node: Reporting bugs117966
+Node: Bug checklist118644
+Node: Mailing lists122201
+Node: Debugging122878
+Node: Logging128135
+Node: Common problems130042
+Node: Unable to find files130519
+Node: Slow path searching133362
+Node: Unable to generate fonts134757
+Node: TeX or Metafont failing137293
+Node: Index138495
 
 End Tag Table
 

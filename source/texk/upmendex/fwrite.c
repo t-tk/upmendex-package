@@ -1074,7 +1074,7 @@ static void index_normalize(UChar *istr, UChar *ini, int *chset)
 			order1 = ucol_strcoll(icu_collator, strZ, -1, strY, -1);
 			order2 = ucol_strcoll(icu_collator, strW, -1, strX, -1);
 			order3 = ucol_strcoll(icu_collator, strZ, -1, strW, -1);
-			if (order3==UCOL_LESS && order2==UCOL_LESS) {
+			if (order!=UCOL_EQUAL && order2!=UCOL_EQUAL && order3!=UCOL_EQUAL) {
 				o_o_mode = 20;
 			} else if (order==UCOL_LESS || order1==UCOL_LESS) {
 				o_o_mode = 2;

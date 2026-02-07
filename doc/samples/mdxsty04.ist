@@ -8,15 +8,15 @@ lethead_flag -1
 lethead_prefix "\n\\centerline{\\bfseries --- "
 lethead_suffix  " ---}\\par\\nobreak"
 
-%character_order  "JKHGCLTDhaSN"
-%character_order  "LGCJKHDTah"
+%character_order  "JKHGCLTDbhaSN"
+%character_order  "LGCJKHDbTah"
 %character_order  "@NS"
 character_order  "N@S"
 %character_order  "@SN"
 %character_order  "@"
 symbol_flag 2
-%icu_rules "[reorder Kana Hang Hani Grek Cyrl Latn Thai Deva Hebr Arab]"
-icu_rules "[reorder Hani Kana Hang Cyrl Grek Latn Deva Thai Arab Hebr]"
-%icu_rules "[reorder Kana Hang Hani Grek Cyrl Latn Thai Deva Hebr Arab DIGIT CURRENCY SYMBOL]"
+%icu_rules "[reorder Kana Hang Hani Grek Cyrl Latn Thai Deva Beng Hebr Arab]"
+icu_rules "[reorder Hani Kana Hang Cyrl Grek Latn Deva Beng Thai Arab Hebr]"
+%icu_rules "[reorder Kana Hang Hani Grek Cyrl Latn Thai Deva Beng Hebr Arab DIGIT CURRENCY SYMBOL]"
 
 hangul_head "가나다라마바사아자차카타파하"
