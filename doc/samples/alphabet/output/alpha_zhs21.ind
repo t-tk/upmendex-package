@@ -20,6 +20,8 @@
 
 \centerline{\bfseries --- 四畫 ---}\par\nobreak
   \item 中\leaders\hbox{$\cdot$}\hfill 4
+  \item 之\leaders\hbox{$\cdot$}\hfill 4
+  \item 亖\leaders\hbox{$\cdot$}\hfill 4
   \item 日\leaders\hbox{$\cdot$}\hfill 4
 
   \indexspace
