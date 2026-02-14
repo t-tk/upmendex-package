@@ -81,7 +81,7 @@
 \author{田中 琢爾\\~TANAKA Takuji}
 
 \begin{document}
-\year=2025\month=6\day=14
+\year=2026\month=2\day=15
 
 \begin{japanese}
 \frame{\titlepage}
@@ -120,7 +120,7 @@
 
 \end{frame}
 \subsection{Feature of upmendex}
-\begin{frame}{Feature of upmendex~~{\scriptsize (Ver. 1.20)}}
+\begin{frame}{Feature of upmendex~~{\scriptsize (Ver. 1.22)}}
 \renewcommand{\thefootnote}{$\dagger$}
 \begin{columns}
 \begin{column}{120mm}
@@ -212,7 +212,7 @@
 \end{center}
 \vspace{2mm}
 \normalsize
-\textbf{upmendex} supports 72 languages,\\22 scripts \& 109 locales.
+\textbf{upmendex} supports 72 languages,\\22 scripts \& 110 locales.
 \end{column}
 \end{columns}
 %\vskip2ex
@@ -830,6 +830,62 @@ pinyin
 }\\[2mm]%
 注音符號\\
 zhuyin (bopomofo)
+\end{center}
+\end{column}
+\end{columns}
+
+\end{frame}
+
+% - - % - - % - - % - - % - - % - - % - - % - - % - - %
+
+\begin{frame}[fragile]{Chinese, Customize Strokes}
+
+\begin{columns}
+\begin{column}{55mm}
+
+\setmonofont{Noto Sans Mono CJK TC}
+\setsansfont{Noto Sans}
+%\setsansfont{Noto Sans CJK TC}
+\begin{exampleblock}{Inputs in *.tex}
+\begin{Verbatim}[%
+  fontfamily=tt,
+  fontsize=\fontsize{8.0}{8.0},
+  commandchars=!<>]
+一\index{一 (1 stroke)}
+二\index{二 (2 strokes)}
+三\index{三 (3 strokes)}
+之\index{之 (3 or 4 strokes)}
+亖\index{亖 (4 strokes)}
+四\index{四 (5 strokes)}
+\end{Verbatim}
+\end{exampleblock}
+
+\begin{exampleblock}{Style File *.ist}
+\begin{Verbatim}[%
+  fontfamily=tt,
+  fontsize=\fontsize{8.0}{8.0},
+  commandchars=!<>]
+icu_locale "zh-u-co-stroke"
+!colRd!-icu_rules  "&'\uFDD0\u2803'<之"!colBk!-
+\end{Verbatim}
+\end{exampleblock}
+\end{column}
+
+\begin{column}{38mm}
+\begin{center}
+\fbox{%
+  \includegraphics[scale=0.48]{zh02a-02-crop.pdf}%
+}\\[2mm]%
+Default
+\end{center}
+\end{column}
+
+\begin{column}{38mm}
+\begin{center}
+\fbox{%
+  \includegraphics[scale=0.48]{zh02b-02-crop.pdf}%
+}\\[2mm]%
+Customized
 \end{center}
 \end{column}
 \end{columns}
@@ -1750,7 +1806,7 @@ Thai / Lao  &           &   & Script:2, Lang:2, Locale:2    & \\
 Arabic      &           &             & Lang:7, Locale:8    & \\
 Hebrew      &           &             & Lang:2, Locale:2    & Lang:1  \\\hdashline
 Other       &           &             &                     & Lang:4  \\\hline
-Total       &           & Lang:2      & Script:22, Lang:72, Locale:109  & Lang:44 \\
+Total       &           & Lang:2      & Script:22, Lang:72, Locale:110  & Lang:44 \\
 \end{tabular}
 \end{center}
 
