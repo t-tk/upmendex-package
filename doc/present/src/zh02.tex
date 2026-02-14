@@ -1,0 +1,26 @@
+\documentclass[12pt]{article}
+
+\usepackage{fontspec}
+\usepackage{polyglossia}
+
+\usepackage{makeidx}
+\makeindex
+
+\setdefaultlanguage{chinese}
+\setmainfont{Noto Serif CJK TC}[Script=CJK]
+\setsansfont{Noto Serif CJK TC}[Script=CJK]
+
+\pagestyle{empty}
+\begin{document}
+\thispagestyle{empty}
+
+一\index{一 (1 stroke)}
+二\index{二 (2 strokes)}
+三\index{三 (3 strokes)}
+之\index{之 (3 or 4 strokes)}
+亖\index{亖 (4 strokes)}
+四\index{四 (5 strokes)}
+
+\printindex
+
+\end{document}
