@@ -7,6 +7,7 @@ all_pdf_for_ctan: city0.pdf city1.pdf city_texconf.pdf city_texconf-03-cropa.pdf
 	sk00a.pdf sk00b.pdf tr00-02.pdf \
 	hu00-02.pdf ru00.pdf el00.pdf \
 	zh00a.pdf zh00b.pdf zh00c.pdf zh00d.pdf zh01a.pdf zh01b.pdf \
+	zh02a.pdf zh02b.pdf \
 	yomi00-02.pdf yomi01-02.pdf \
 	jp01.pdf jp02.pdf jp03.pdf jp04.pdf jp05.pdf \
 	ko03-02.pdf hi00.pdf br00.pdf th00.pdf th01.pdf ar00.pdf he00.pdf
@@ -202,6 +203,26 @@ zh01b.pdf:
 	${XDVIPDFMX} -s 1 -o zh01b-01.pdf zh01b.xdv
 	${XDVIPDFMX} -s 2 -o zh01b-02.pdf zh01b.xdv
 	pdfcrop --margins 10 zh01b-02.pdf
+
+zh02a.pdf:
+	xelatex -jobname zh02a zh02.tex
+	xelatex -jobname zh02a zh02.tex
+	${UPMENDEX} -s mlg_zh1.ist zh02a
+	xelatex -no-pdf -jobname zh02a zh02.tex
+	${XDVIPDFMX} -o zh02a.pdf zh02a.xdv
+	${XDVIPDFMX} -s 1 -o zh02a-01.pdf zh02a.xdv
+	${XDVIPDFMX} -s 2 -o zh02a-02.pdf zh02a.xdv
+	pdfcrop --margins 10 zh02a-02.pdf
+
+zh02b.pdf:
+	xelatex -jobname zh02b zh02.tex
+	xelatex -jobname zh02b zh02.tex
+	${UPMENDEX} -s mlg_zh6.ist zh02b
+	xelatex -no-pdf -jobname zh02b zh02.tex
+	${XDVIPDFMX} -o zh02b.pdf zh02b.xdv
+	${XDVIPDFMX} -s 1 -o zh02b-01.pdf zh02b.xdv
+	${XDVIPDFMX} -s 2 -o zh02b-02.pdf zh02b.xdv
+	pdfcrop --margins 10 zh02b-02.pdf
 
 ru00.pdf:
 	xelatex ru00.tex
