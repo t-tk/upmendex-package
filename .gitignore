@@ -28,4 +28,6 @@ Makefile_*
 /doc/present/**/*.ttf
 /doc/present/**/*.otf
 
+autom4te.cache/
+Work*/
 
